@@ -8,6 +8,56 @@ not named here (ids are in `results/summary.csv`); public fixtures and publisher
 
 ---
 
+## 2026-10-01 — GripCheck web app (`docs/`)
+
+**What it is.** Paste a Hugging Face dataset link and get a verdict, every check explained in plain
+English with its fix and the GR00T source lines, plus a drafted `modality.json` where the names allow.
+The UI flow was modelled on OverEasy (a hackathon-winning security scanner): a dashboard of past runs,
+a three-step "New Check" dialog, and a results view with a list on the left and details on the right.
+The identity is its own: a robot-gripper mascot and the name "GripCheck". None of OverEasy's assets
+are used.
+
+**How it works.**
+- Runs entirely in the browser; no server. Hugging Face's API and file downloads send CORS headers
+  (verified 2026-10-01), so the page reads metadata directly, and each visitor uses their own
+  rate-limit quota. History is kept in `localStorage`; `?d=<user>/<name>` links re-run a check.
+- `docs/app/checks.js` is a line-for-line port of `conformance/checks.py`. `docs/app/draft.js` is a
+  port of the goal-6 name classifier plus a draft generator.
+- `tests/test_js_parity.py` runs both versions on:
+  - the 3 fixtures;
+  - 13 corrupted variants of NVIDIA's cube fixture;
+  - corrupted copies of the public v2.1 fixture;
+  - the classifier over all 545 cached `info.json` files: 0 differences.
+
+  A planted bug in the JS verdict makes it fail, so the test is not vacuous.
+- Live spot checks agreed with the CLI exactly: tictac-bot, so101 v3.0, and svla_so100_sorting.
+
+**Draft rules.**
+- A draft is offered only when state and action names are `looks_inferable`.
+- If action has no usable names but the same dimension as state, it copies state's split and says so.
+- A single shared non-left/right prefix (e.g. `main_` on every dimension) is treated as the robot's
+  name, so a single arm gets NVIDIA's demo names (`single_arm`, `gripper`).
+- `annotation` points at `task_index`, as in `cube_to_bowl_5`.
+- Every draft is re-checked with the same 28 checks, and the page shows the resulting verdict
+  alongside a "please verify" warning.
+
+**Differences from the CLI** (shown in the UI where relevant):
+- The `data/` + `videos/` listing is capped at 20k entries per folder (CLI: 200k); above that, G14 is
+  skipped and reported as unverified.
+- The nested-container scan is shallower: 12 listings, depth 4.
+- A JSON `5.0` cannot be told from `5` in JS, so G12's integer test is slightly looser.
+
+**Fixed during the build.** A new parity mutation wrote in place into a hard-linked fixture copy,
+which changed `fixtures/cube_to_bowl_5/meta/episodes.jsonl`. The file was restored from git, and the
+mutation now writes a new file and renames it. The suite leaves `fixtures/` clean.
+
+**Pending approval:**
+1. The name "GripCheck".
+2. Hosting on GitHub Pages: Settings → Pages → Deploy from branch `main`, folder `/docs`.
+3. Linking it from the top of the README.
+
+---
+
 ## 2026-10-01 — README visuals
 
 README restructured for a non-specialist first read. Plain-language sections and figures come first;

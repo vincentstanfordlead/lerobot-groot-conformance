@@ -8,6 +8,11 @@ linter that ran it and a [draft checklist](CHECKLIST.md) for people who record r
 
 <img src="docs/img/kpi.png" alt="562 datasets audited. 0 of 200 randomly sampled datasets pass every static check as is. 30.5% are one file away (only modality.json missing, 95% CI 25–37%). 58% need a format conversion first (v3.0 layout, CI 51–65%)." width="100%">
 
+> **Try it in your browser: [GripCheck](https://vincentstanfordlead.github.io/lerobot-groot-conformance/).**
+> Paste a Hugging Face dataset link and see in seconds what matches GR00T, what's missing, and how
+> to fix it. Where the dimension names allow, it also drafts the missing `modality.json`. It reads
+> metadata only, runs entirely in your browser, and needs no sign-in.
+
 ## Why this matters
 
 Robot foundation models such as GR00T are pretrained once and then **adapted to each new robot
@@ -104,7 +109,10 @@ is in [`results/report.md`](results/report.md). Per-dataset results are in
 <img src="docs/img/linter_demo.gif" alt="Terminal demo: NVIDIA's demo dataset passes (READY); a LeRobot v2.1 dataset only lacks modality.json (NEEDS_MODALITY); a v3.0 dataset needs conversion first (NEEDS_DOWNCONVERT)." width="100%">
 
 The linter reads metadata only, so it downloads no video or episode data. Each check cites the
-line of GR00T code that requires it.
+line of GR00T code that requires it. The same 28 checks run in the
+[GripCheck web app](https://vincentstanfordlead.github.io/lerobot-groot-conformance/) (`docs/`,
+plain JavaScript, no build step). `tests/test_js_parity.py` keeps the browser version and the Python
+version in agreement on every test fixture and on all 545 audited `info.json` files.
 
 ```bash
 python3.11 -m venv .venv && .venv/bin/pip install -r requirements.txt
@@ -234,7 +242,7 @@ scripts/       reproduce.py · make_figures.py · collect_dataset_list.py · bui
 vendor/        groot_51d4c89/: the GR00T files the contract is read from (Apache-2.0, unmodified)
 fixtures/      control datasets for the tests (meta files real; payload files are empty placeholders)
 results/       raw/<repo>.json per dataset · summary.csv · report.md · conformance_chart.png · strata.json
-docs/img/      README figures (regenerate: scripts/make_figures.py)
+docs/          GripCheck web app (index.html, app/*.js; served by GitHub Pages) · img/: README figures
 ```
 </details>
 
