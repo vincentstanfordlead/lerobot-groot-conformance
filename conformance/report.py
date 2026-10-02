@@ -572,27 +572,27 @@ def chart(strat: dict[str, pd.DataFrame], path: Path, meta: str) -> None:
                hatch=HATCH.get(v), label=v)
         for x, sh, c, b in zip(xs, shares, counts, bottoms):
             if sh >= 0.035:
-                ax.text(x, b + sh / 2, str(c), ha="center", va="center", fontsize=9, fontweight="bold",
+                ax.text(x, b + sh / 2, str(c), ha="center", va="center", fontsize=11, fontweight="bold",
                         color="#ffffff" if v in WHITE_TEXT else INK)
         bottoms = [b + s for b, s in zip(bottoms, shares)]
     ax.set_xticks(xs)
-    ax.set_xticklabels([f"{s}\nn={len(d)}" for s, d in strat.items()], color=INK, fontsize=10)
+    ax.set_xticklabels([f"{s}\nn={len(d)}" for s, d in strat.items()], color=INK, fontsize=12)
     ax.set_ylim(0, 1)
     ax.set_yticks([0, .25, .5, .75, 1])
-    ax.set_yticklabels(["0%", "25%", "50%", "75%", "100%"], color=INK2, fontsize=9)
+    ax.set_yticklabels(["0%", "25%", "50%", "75%", "100%"], color=INK2, fontsize=11)
     ax.grid(axis="y", color="#e1e0d9", linewidth=0.8)
     ax.set_axisbelow(True)
     for sp in ("top", "right", "left"):
         ax.spines[sp].set_visible(False)
     ax.spines["bottom"].set_color("#c3c2b7")
     ax.tick_params(length=0)
-    ax.set_title("Static conformance to Isaac-GR00T's dataset loader, by stratum (share of audited; labels = counts)",
-                 loc="left", color=INK, fontsize=12, pad=14)
+    ax.set_title("Static conformance to Isaac-GR00T's dataset loader, by stratum\n(share of audited datasets; labels are counts)",
+                 loc="left", color=INK, fontsize=14, pad=14)
     h, lab = ax.get_legend_handles_labels()
     ax.legend(h[::-1], lab[::-1], loc="center left", bbox_to_anchor=(1.01, 0.5), frameon=False,
-              fontsize=9, labelcolor=INK2)
-    fig.text(0.01, 0.01, meta, fontsize=7.5, color=INK2, ha="left", va="bottom")
-    fig.subplots_adjust(left=0.07, right=0.76, bottom=0.22, top=0.9)
+              fontsize=11.5, labelcolor=INK2)
+    fig.text(0.01, 0.01, meta, fontsize=9.5, color=INK2, ha="left", va="bottom")
+    fig.subplots_adjust(left=0.07, right=0.70, bottom=0.25, top=0.86)
     fig.savefig(path, facecolor=SURFACE)
     plt.close(fig)
 
@@ -726,8 +726,8 @@ def main(argv=None) -> int:
     (results / "report.md").write_text("\n".join(md))
 
     meta = (f"GR00T {shas[0][:7]} · audited {len(df)}, excluded {len(errors)} · {DAGGER} (hatched light blue) = READY but "
-            f"G2/G3/G14 unverified (2 MB cap) · hatched grey = multi-dataset containers, sub-datasets not audited\n"
-            f"S-curated = census; S-popular / S-recent = top-100 sets; S-tail = random sample. No pooled rate.")
+            f"G2/G3/G14 unverified (2 MB cap)\nhatched grey = multi-dataset containers, sub-datasets not audited · "
+            f"S-curated = census; S-popular / S-recent = top-100 sets;\nS-tail = random sample. No pooled rate.")
     chart(strat, results / "conformance_chart.png", meta)
     print(f"wrote summary.csv ({len(df)} rows), report.md, goal6_inferability.csv ({len(g6)} rows), conformance_chart.png")
     return 0

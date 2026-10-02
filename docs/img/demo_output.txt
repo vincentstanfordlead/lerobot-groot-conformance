@@ -1,0 +1,18 @@
+$ python -m conformance.inspect_local fixtures/cube_to_bowl_5 --brief
+verdict: READY   steps: []   (GR00T @51d4c89)
+  (28 of 28 checks pass, 0 skipped; --json or no flag for all)
+
+$ python -m conformance.inspect_hub youliangtan/tictac-bot --brief
+verdict: NEEDS_MODALITY   steps: ['MODALITY']   (GR00T @51d4c89, repo @8ea050a, 8 requests)
+  G4  WARN  meta/stats.json absent — asserts only for entrypoints bypassing the training factory; training regenerates it (ships episodes_stats.jsonl, which GR00T does not read)
+  G6  FAIL  meta/modality.json not found
+  (21 of 28 checks pass, 5 skipped; --json or no flag for all)
+
+$ python -m conformance.inspect_hub whosricky/so101_pick_red_cube_3cams --brief
+verdict: NEEDS_DOWNCONVERT   steps: ['DOWNCONVERT', 'MODALITY']   (GR00T @51d4c89, repo @feb5d34, 7 requests)
+  G2  FAIL  meta/episodes.jsonl not found
+  G3  FAIL  meta/tasks.jsonl not found
+  G6  FAIL  meta/modality.json not found
+  G7  FAIL  data_path='data/chunk-{chunk_index:03d}/file-{file_index:03d}.parquet': placeholders ['chunk_index', 'file_index'] not supplied by the loader (has ['episode_chunk', 'episode_index']); would KeyError
+  G9  FAIL  video_path='videos/{video_key}/chunk-{chunk_index:03d}/file-{file_index:03d}.mp4': placeholders ['chunk_index', 'file_index'] not supplied by the loader (has ['episode_chunk', 'episode_index', 'video_key']); would KeyError
+  (17 of 28 checks pass, 6 skipped; --json or no flag for all)

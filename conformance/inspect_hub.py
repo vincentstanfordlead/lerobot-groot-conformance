@@ -289,6 +289,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="GR00T-loadability linter for an HF dataset repo (metadata only)")
     ap.add_argument("repo_id")
     ap.add_argument("--json", action="store_true", help="emit the full JSON report")
+    ap.add_argument("--brief", action="store_true", help="show only checks that do not pass")
     args = ap.parse_args(argv)
     try:
         r = inspect_hub(args.repo_id, token=os.environ.get("HF_TOKEN"))
@@ -298,11 +299,9 @@ def main(argv=None) -> int:
     if args.json:
         print(json.dumps(r, indent=2))
     else:
-        print(f"verdict: {r['verdict']}   steps: {r['steps']}   (GR00T @{C.GROOT_SHA[:7]}, "
-              f"repo @{r['repo_sha'][:7]}, {r['fetch']['n_requests']} requests)")
-        for c in r["checks"]:
-            mark = {True: "pass", False: "FAIL" if c["level"] == "FAIL" else c["level"], None: "skip"}[c["passed"]]
-            print(f"  {c['id']:<4}{mark:<5} {c['detail']}")
+        from .inspect_local import print_report
+        print_report(r, f"GR00T @{C.GROOT_SHA[:7]}, repo @{r['repo_sha'][:7]}, "
+                        f"{r['fetch']['n_requests']} requests", args.brief)
     return 0
 
 

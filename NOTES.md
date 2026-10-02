@@ -8,6 +8,31 @@ not named here (ids are in `results/summary.csv`); public fixtures and publisher
 
 ---
 
+## 2026-10-01 — README visuals
+
+README restructured for a non-specialist first read. Plain-language sections and figures come first;
+the full tables, method and limitations sit in collapsible `<details>` blocks (content unchanged).
+
+Figures are made by `scripts/make_figures.py`: `docs/img/kpi.png`, `funnel.png`/`funnel.gif`,
+`modality.gif` and `linter_demo.gif`. Every number is computed from `results/summary.csv` and
+asserted. The terminal GIF replays real linter output saved in `docs/img/demo_output.txt`; long
+lines are clipped to the terminal width.
+
+Also:
+- Added `--brief` to both linter CLIs (prints only checks that don't pass, plus a tally).
+- Enlarged the text in the stratum chart; its data is unchanged.
+- All figures are drawn 1000 px wide, because GitHub shows README images at about 830 px.
+
+The funnel uses S-tail only, the random sample. Its steps are nested filters:
+- LeRobot format;
+- has parquet under `data/`;
+- not `NEEDS_DOWNCONVERT` or `BLOCKED`;
+- ships `modality.json`.
+
+Its 61 equals the `clean_except_modality` count.
+
+---
+
 ## 2026-10-01 — Publication pass: upstream re-check, brief alignment, corrections
 
 **Upstream re-checked.** `git ls-remote https://github.com/NVIDIA/Isaac-GR00T` on 2026-10-01:
