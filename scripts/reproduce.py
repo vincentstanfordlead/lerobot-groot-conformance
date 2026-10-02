@@ -50,17 +50,21 @@ def main() -> int:
             shutil.copyfileobj(src, dst)
 
     # 2. sample
-    committed = json.loads((ROOT / "results/strata.json").read_text())["meta"]["sample_sha256"]
-    run("scripts/build_strata.py", "--in", str(listing), "--out", str(res / "strata.json"))
-    rebuilt = json.loads((ROOT / res / "strata.json").read_text())["meta"]["sample_sha256"]
-    if not args.fresh_list and rebuilt != committed:
-        print(f"sample differs from the committed one:\n  {committed}\n  {rebuilt}", file=sys.stderr)
+    # Without --reaudit the rebuilt sample goes to a side file (gitignored) and must equal the
+    # committed results/strata.json; with it, it becomes results_reaudit/strata.json.
+    committed = json.loads((ROOT / "results/strata.json").read_text())
+    strata = res / ("strata.json" if reaudit else "strata_rebuilt.json")
+    run("scripts/build_strata.py", "--in", str(listing), "--out", str(strata))
+    rebuilt = json.loads((ROOT / strata).read_text())
+    same = (rebuilt["samples"], rebuilt["meta"]["sample_sha256"]) == (committed["samples"], committed["meta"]["sample_sha256"])
+    if not args.fresh_list and not same:
+        print("rebuilt sample differs from results/strata.json", file=sys.stderr)
         return 1
-    print("sample matches results/strata.json" if rebuilt == committed else "new sample drawn (--fresh-list)")
+    print("sample matches results/strata.json" if same else "new sample drawn (--fresh-list)")
 
     # 3. audit (resumable; with the committed results/raw/ this is a no-op)
     if reaudit:
-        run("scripts/run_audit.py", "--strata", str(res / "strata.json"), "--results", str(res))
+        run("scripts/run_audit.py", "--strata", str(strata), "--results", str(res))
     else:
         # 2026-10-01 renames + four checks added from cached info.json (idempotent; see NOTES.md)
         run("scripts/backfill_2026_10_01.py", "--offline", "--results", str(res))
