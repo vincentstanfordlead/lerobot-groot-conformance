@@ -6,6 +6,13 @@ An audit of **562 public Hugging Face robot datasets** against the dataset loade
 [Isaac-GR00T](https://github.com/NVIDIA/Isaac-GR00T) reference implementation, plus the open-source
 linter that ran it and a [draft checklist](CHECKLIST.md) for people who record robot data.
 
+<img src="docs/img/mosaic.jpg" alt="A grid of 24 camera frames from audited LeRobot datasets: robot arms picking, folding, pouring and sorting, plus one top-down race-car track. Each frame has a badge: green check for one file away from GR00T, amber minus for needs format conversion, red cross for not robot manipulation." width="100%">
+
+<sub>One frame from each of 24 audited datasets, with that dataset's real verdict. The tiles were
+picked for variety, so the colour mix is illustrative; the measured split is in the scorecard below.
+Frames are from Apache-2.0 datasets at the audited commit
+([sources](docs/img/mosaic_frames/sources.json)).</sub>
+
 <img src="docs/img/kpi.png" alt="562 datasets audited. 0 of 200 randomly sampled datasets pass every static check as is. 30.5% are one file away (only modality.json missing, 95% CI 25–37%). 58% need a format conversion first (v3.0 layout, CI 51–65%)." width="100%">
 
 > **Try it in your browser: [Robot Data Smog Check](https://vincentstanfordlead.github.io/lerobot-groot-conformance/).**
@@ -13,6 +20,8 @@ linter that ran it and a [draft checklist](CHECKLIST.md) for people who record r
 > fix it, and whether it's the kind of robot data GR00T trains on. Where the dimension names allow,
 > it also drafts the missing `modality.json`. It reads metadata only, runs entirely in your browser,
 > and needs no sign-in.
+
+<a href="https://vincentstanfordlead.github.io/lerobot-groot-conformance/"><img src="docs/img/webapp.png" alt="Robot Data Smog Check web app. Left: the landing page, with a box to paste a Hugging Face dataset link and a Run inspection button. Right: an inspection report for an example dataset, rated One step away: 21 checks passed, 1 failed (meta/modality.json missing), with a drafted modality.json offered as the fix." width="100%"></a>
 
 ## Why this matters
 
@@ -259,11 +268,12 @@ in [`NOTES.md`](NOTES.md), Phase 2.
 conformance/   checks.py (L1-L12, G1-G16, verdict) · contract.py (generated citations)
                inspect_local.py · inspect_hub.py (metadata-only Hub view) · report.py
 scripts/       reproduce.py · make_figures.py · collect_dataset_list.py · build_strata.py · run_audit.py
-               backfill_2026_10_01.py
+               backfill_2026_10_01.py · fetch_mosaic_frames.py (network; frames for the README mosaic)
 vendor/        groot_51d4c89/: the GR00T files the contract is read from (Apache-2.0, unmodified)
 fixtures/      control datasets for the tests (meta files real; payload files are empty placeholders)
 results/       raw/<repo>.json per dataset · summary.csv · report.md · conformance_chart.png · strata.json
-docs/          Robot Data Smog Check web app (index.html, app/*.js; served by GitHub Pages) · img/: README figures
+docs/          Robot Data Smog Check web app (index.html, app/*.js; served by GitHub Pages) · img/: README figures,
+               mosaic_frames/ (24 thumbnails + sources.json)
 ```
 </details>
 

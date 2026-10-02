@@ -3,63 +3,105 @@ import { HubView, FetchError, parseDatasetId, withFile, LIST_CAP } from "./hub.j
 import { draftModality, formatModality } from "./draft.js";
 import { classifyEmbodiment } from "./embodiment.js";
 import { GROUPS, CHECKS, VERDICTS, sourceUrl } from "./explain.js";
+import { renderLeaderboard, renderValidation } from "./preview.js";
 
 const NAME = "Robot Data Smog Check";
 const REPO_URL = "https://github.com/vincentstanfordlead/lerobot-groot-conformance";
-const EXAMPLES = ["youliangtan/tictac-bot", "whosricky/so101_pick_red_cube_3cams", "yaak-ai/lerobot-driving-school"];
+// One example per outcome, so a click shows something different. The dot is the traffic light for what the inspection found.
+const EXAMPLES = [
+  { id: "lerobot/aloha_sim_transfer_cube_human", tone: "red", says: "two steps away" },
+  { id: "youliangtan/tictac-bot", tone: "yellow", says: "one step away" },
+  { id: "Kovavavvavava/peg_insertion_onehouse_fixed", tone: "green", says: "passes every static check" },
+];
+// One traffic light for every verdict, used by the chips, history list, badges and mascot:
+// green = passes, yellow = one fix away, red = more than one fix or blocked.
+const tn = (tone) => ({ good: "good", close: "close", warn: "close", mid: "bad", bad: "bad" }[tone] ?? "bad");
+const chipHtml = ({ id, tone, says }) => `<button class="chip" data-ex="${id}" title="${id}: ${says}"><i class="dot ${tone}" aria-hidden="true"></i>${esc(id.split("/")[1])}<span class="sr"> (${says})</span></button>`;
 const STORE = "smogcheck.runs.v1";
+// Open-weight models that read LeRobot datasets. Only GR00T has checks today; the rest are listed so people can see what's coming.
+const MODELS = [
+  { id: "groot", name: "NVIDIA GR00T N1.7", short: "GR00T N1.7", by: "NVIDIA", ready: true },
+  { id: "pi05", name: "π0.5 (openpi)", short: "π0.5", by: "Physical Intelligence" },
+  { id: "pi0", name: "π0 / π0-FAST (openpi)", short: "π0 / π0-FAST", by: "Physical Intelligence" },
+  { id: "smolvla", name: "SmolVLA", short: "SmolVLA", by: "Hugging Face" },
+  { id: "xvla", name: "X-VLA", short: "X-VLA", by: "Tsinghua AIR" },
+  { id: "wall-oss", name: "WALL-OSS", short: "WALL-OSS", by: "X Square Robot" },
+  { id: "go1", name: "GO-1", short: "GO-1", by: "AgiBot" },
+];
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const app = $("#app");
 
-// ---------------------------------------------------------------- art: logo, robot arm, readiness gauge
-
-function logoMark() {
-  return `<svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="7" fill="#ffc400"/>
-    <path d="M10 31h20" stroke="#111" stroke-width="3" stroke-linecap="round"/><path d="M15 31v-4h10v4" fill="#111"/>
-    <path d="M20 27L14 17l11-5" stroke="#111" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="14" cy="17" r="2.6" fill="#ffc400" stroke="#111" stroke-width="2"/><circle cx="25" cy="12" r="2.4" fill="#111"/>
-    <path d="M26.5 10.5l4-2.5M27.5 13.5l4.5 0" stroke="#111" stroke-width="2.4" stroke-linecap="round"/></svg>`;
+// Model picker: a custom dropdown so the closed button can say "+6 coming soon" and the list can group ready and upcoming models.
+const SOON = MODELS.filter((m) => !m.ready).length;
+function modelPicker() {
+  const cur = MODELS[0];
+  return `<div class="mp" id="mp"><button type="button" class="mp-btn" id="mpBtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="mpMenu">
+      <span class="mp-t"><small>Model · +${SOON} coming soon</small><b>${esc(cur.short)}</b></span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    <ul class="mp-menu" id="mpMenu" role="listbox" aria-label="Model to check against" hidden>
+      <li class="hd" role="presentation">Check readiness for</li>
+      ${MODELS.filter((m) => m.ready).map((m) => `<li role="option" aria-selected="true" class="on" data-m="${m.id}">${esc(m.name)}<span>✓</span></li>`).join("")}
+      <li class="hd" role="presentation">Coming soon</li>
+      ${MODELS.filter((m) => !m.ready).map((m) => `<li role="option" aria-disabled="true" data-m="${m.id}">${esc(m.short)}<em>${esc(m.by)}</em></li>`).join("")}
+    </ul></div>`;
 }
-
-// Industrial arm, line-art; links in currentColor, joints in safety yellow. Two moving groups for the "working" animation.
-function armArt(cls = "") {
-  return `<svg class="${cls}" viewBox="0 0 240 210" role="img" aria-label="Robot arm inspecting a dataset">
-    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M30 196h180" stroke-width="3" opacity=".5"/>
-      <path d="M60 196v-16h48v16" stroke-width="4"/><rect x="66" y="160" width="36" height="20" rx="3" stroke-width="4"/>
-      <g class="arm-upper">
-        <path d="M84 160V150" stroke-width="5"/><path d="M84 148L132 72" stroke-width="14" opacity=".9"/><path d="M84 148L132 72" stroke-width="4" stroke="#0f1115" opacity=".35"/>
-        <g class="arm-fore">
-          <path d="M132 72L192 92" stroke-width="12" opacity=".9"/><path d="M132 72L192 92" stroke-width="3" stroke="#0f1115" opacity=".35"/>
-          <rect x="190" y="84" width="14" height="18" rx="3" stroke-width="4"/>
-          <path d="M204 88l14-6v6l-8 4M204 98l14 6v-6l-8-4" stroke-width="4"/>
-          <circle cx="192" cy="92" r="6" fill="#ffc400" stroke="#0f1115" stroke-width="2.5"/>
-        </g>
-        <circle cx="132" cy="72" r="9" fill="#ffc400" stroke="#0f1115" stroke-width="3"/>
-      </g>
-      <circle cx="84" cy="148" r="11" fill="#ffc400" stroke="#0f1115" stroke-width="3"/>
-      <path d="M168 150h44M168 160h30M168 170h38" stroke-width="3" opacity=".45"/>
-      <rect x="160" y="140" width="60" height="42" rx="3" stroke-width="3" opacity=".6"/>
-    </g></svg>`;
-}
-
-const GAUGE = { BLOCKED: 0.1, NOT_LEROBOT: 0.1, NEEDS_DOWNCONVERT: 0.37, INCONSISTENT_MODALITY: 0.4, NEEDS_REPAIR: 0.45, NEEDS_MODALITY: 0.63, READY: 0.9 };
-function gauge(verdict, error = false) {
-  const pt = (f, r) => [100 + r * Math.cos(Math.PI * (1 - f)), 104 - r * Math.sin(Math.PI * (1 - f))];
-  const arc = (a, b, color) => {
-    const [x1, y1] = pt(a, 78), [x2, y2] = pt(b, 78);
-    return `<path d="M${x1.toFixed(1)} ${y1.toFixed(1)}A78 78 0 0 1 ${x2.toFixed(1)} ${y2.toFixed(1)}" stroke="${color}" stroke-width="16" fill="none"/>`;
+function bindModelPicker(root) {
+  const btn = $("#mpBtn", root), menu = $("#mpMenu", root);
+  const set = (open) => { menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
+  btn.onclick = (e) => { e.stopPropagation(); set(menu.hidden); };
+  menu.onclick = (e) => {
+    const li = e.target.closest("li[data-m]");
+    if (!li) return;
+    if (li.getAttribute("aria-disabled")) toast(`${li.firstChild.textContent} is coming soon. GR00T N1.7 is the only model checked today.`);
+    set(false);
   };
-  const zones = [[0, .25, "#c62828"], [.25, .5, "#ea7a17"], [.5, .75, "#ffc400"], [.75, 1, "#15803d"]]
-    .map(([a, b, c]) => arc(a + .006, b - .006, c)).join("");
-  const ticks = Array.from({ length: 11 }, (_, i) => { const [a, b] = pt(i / 10, 60), [c, d] = pt(i / 10, 66); return `<path d="M${a} ${b}L${c} ${d}" stroke="#9aa0a8" stroke-width="2"/>`; }).join("");
-  const f = error ? 0.02 : GAUGE[verdict] ?? 0.1;
-  const [nx, ny] = pt(f, 64);
-  return `<svg viewBox="0 0 200 130" role="img" aria-label="Readiness gauge">${zones}${ticks}
-    <path d="M100 104L${nx.toFixed(1)} ${ny.toFixed(1)}" stroke="#111318" stroke-width="5" stroke-linecap="round"/><circle cx="100" cy="104" r="9" fill="#111318"/><circle cx="100" cy="104" r="3.5" fill="#ffc400"/>
-    <text x="22" y="126" font-family="JetBrains Mono, monospace" font-size="9" fill="#6b7280">BLOCKED</text><text x="178" y="126" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#6b7280">READY</text></svg>`;
+  root.addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) { e.stopPropagation(); set(false); btn.focus(); } });
+  document.addEventListener("click", (e) => { if (!root.contains(e.target)) set(false); });
 }
+
+// ---------------------------------------------------------------- art: brick-robot mascot
+
+// One green brick head with four moods: look (inspecting), happy (ready), work (needs work), sad (blocked).
+// Mood shows in the eyes, mouth, antenna, backdrop colour and a small prop, so they read apart at a glance.
+function mascot(mood = "happy", { disc = true, cls = "", light = null } = {}) {
+  const LB = { green: "#DDF3E6", yellow: "#FFF3C4", red: "#FBE0E0" }, LC = { green: "#00A650", yellow: "#FFCF00", red: "#E3000B" };
+  const bg = LB[light] ?? { look: "#EEF0F2", happy: "#DDF3E6", work: "#FFF3C4", sad: "#FBE0E0" }[mood];
+  const ant = mood === "sad"
+    ? `<path d="M50 24V16l8-5" stroke="#1b1b1b" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="59" cy="11" r="4" fill="#9aa0a6"/>`
+    : `<path d="M50 24V12" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="11" r="4.5" fill="${LC[light] ?? { look: "#E3000B", happy: "#00A650", work: "#FFCF00" }[mood]}"/>`;
+  const eyes = {
+    look: `<circle cx="40" cy="48" r="6" fill="#fff"/><circle cx="60" cy="48" r="6" fill="#fff"/><circle cx="43" cy="48" r="3.4" fill="#1b1b1b"/><circle cx="63" cy="48" r="3.4" fill="#1b1b1b"/>`,
+    happy: `<path d="M34 50q6 -8 12 0M54 50q6 -8 12 0" stroke="#1b1b1b" stroke-width="4" fill="none" stroke-linecap="round"/>`,
+    work: `<circle cx="40" cy="48" r="4.5" fill="#1b1b1b"/><path d="M54 48h12" stroke="#1b1b1b" stroke-width="4" stroke-linecap="round"/>`,
+    sad: `<path d="M35 43l9 9M44 43l-9 9M56 43l9 9M65 43l-9 9" stroke="#1b1b1b" stroke-width="3.6" stroke-linecap="round"/>`,
+  }[mood];
+  const mouth = {
+    look: `<circle cx="50" cy="62" r="3.2" fill="#1b1b1b"/>`,
+    happy: `<path d="M38 59q12 12 24 0z" fill="#1b1b1b"/>`,
+    work: `<path d="M39 63q3.7 -4 7.3 0t7.3 0t7.3 0" stroke="#1b1b1b" stroke-width="3.4" fill="none" stroke-linecap="round"/>`,
+    sad: `<path d="M39 67q11 -9 22 0" stroke="#1b1b1b" stroke-width="4" fill="none" stroke-linecap="round"/>`,
+  }[mood];
+  const prop = {
+    look: `<path d="M84 72l7 8" stroke="#1b1b1b" stroke-width="4.5" stroke-linecap="round"/><circle cx="77" cy="64" r="11" fill="#dff1ff" fill-opacity=".75" stroke="#1b1b1b" stroke-width="3.5"/>`,
+    happy: `<path d="M14 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2zM86 18l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z" fill="#FFCF00"/>`,
+    work: `<path d="M80 78l10 -16" stroke="#555" stroke-width="5" stroke-linecap="round"/><path d="M86 58a6 6 0 1 1 9 4" stroke="#555" stroke-width="5" fill="none" stroke-linecap="round"/>`,
+    sad: `<circle cx="74" cy="16" r="5" fill="#b5bac0"/><circle cx="83" cy="9" r="6.5" fill="#c9cdd2"/><circle cx="93" cy="13" r="5" fill="#dadde1"/>`,
+  }[mood];
+  const tilt = mood === "work" ? ` transform="rotate(-9 50 50)"` : "";
+  const label = { look: "inspecting", happy: "ready", work: "needs work", sad: "blocked" }[mood];
+  return `<svg class="${cls}" viewBox="0 0 100 100" role="img" aria-label="Brick robot mascot, ${label}">
+    ${disc ? `<circle cx="50" cy="52" r="46" fill="${bg}"/>` : ""}
+    <g class="bob"${tilt}>${ant}<rect x="32" y="19" width="13" height="8" rx="2" fill="#00A650"/><rect x="55" y="19" width="13" height="8" rx="2" fill="#00A650"/>
+    <rect x="22" y="26" width="56" height="52" rx="6" fill="#00A650"/><rect x="22" y="72" width="56" height="6" rx="2" fill="#007a3b"/>${eyes}${mouth}</g>${disc ? prop : ""}</svg>`;
+}
+
+const logoMark = () => mascot("happy", { disc: false });
+
+// The readiness picture is the mascot's mood: ready = happy, fixable = wrench, blocked or not LeRobot = X eyes.
+const MOOD = { READY: "happy", BLOCKED: "sad", NOT_LEROBOT: "sad" };
+const gauge = (verdict, error = false) => mascot(error ? "sad" : MOOD[verdict] ?? "work",
+  { cls: "verdict-art", light: error ? "red" : { good: "green", close: "yellow" }[tn(VERDICTS[verdict]?.tone)] ?? "red" });
 
 const ICON = {
   pass: `<svg class="st" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#15803d"/><path d="M7.5 12.5l3 3 6-6.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
@@ -116,15 +158,18 @@ function route() {
     return;
   }
   if (location.hash === "#checks") renderDashboard();
+  else if (location.hash === "#leaderboard") { document.title = `Leaderboard · ${NAME}`; renderLeaderboard(pageCtx()); }
+  else if (location.hash === "#validation") { document.title = `Model Validation · ${NAME}`; renderValidation(pageCtx()); }
   else renderLanding();
 }
 window.addEventListener("popstate", route);
+const pageCtx = () => ({ app, shell, esc, toast, mascot });
 function go(hash) {
   history.pushState(null, "", location.pathname + hash);
   route();
 }
 
-const brand = (sub = true) => `${logoMark()}<span class="name">${NAME}${sub ? `<small>Inspection for Isaac GR00T</small>` : ""}</span>`;
+const brand = (sub = true) => `${logoMark()}<span class="name">${NAME}${sub ? `<small>Robot dataset inspection</small>` : ""}</span>`;
 
 // ---------------------------------------------------------------- landing
 
@@ -133,21 +178,22 @@ function renderLanding() {
   app.innerHTML = `
   <section class="landing">
     <nav class="topnav"><button class="logo" id="homeLogo">${brand()}</button>
-      <div class="links"><button id="toChecks">My inspections${runs.length ? ` (${runs.length})` : ""}</button><a href="${REPO_URL}" target="_blank" rel="noopener">How it works</a></div></nav>
+      <div class="links"><button id="toChecks">My inspections${runs.length ? ` (${runs.length})` : ""}</button><button id="toBoard">Leaderboard <i class="soon-tag">coming soon</i></button><button id="toBuild">Model Validation <i class="soon-tag">coming soon</i></button><a href="${REPO_URL}" target="_blank" rel="noopener">How it works</a></div></nav>
     <div class="hero">
       <div>
         <div class="label">Pre-training inspection · Isaac-GR00T @${GROOT_SHA.slice(0, 7)}</div>
-        <h1>Inspect your robot data <em>before</em> it hits the road.</h1>
-        <p class="lede">Paste a Hugging Face dataset link. In seconds you'll see what matches NVIDIA Isaac GR00T's dataset loader, what's missing, how to fix it, and whether it's even the kind of robot data GR00T trains on.</p>
+        <h1>Check your robot data <em>before</em> you train on it.</h1>
+        <p class="lede">Paste a Hugging Face dataset link and pick a model. In seconds, see what GR00T's loader accepts, what's missing, and how to fix it.</p>
         <form class="console" id="heroForm" autocomplete="off">
-          <span class="pre">&gt;</span><label class="sr" for="heroIn">Hugging Face dataset link or id</label>
+          <label class="sr" for="heroIn">Hugging Face dataset link or id</label>
           <input id="heroIn" placeholder="huggingface.co/datasets/you/your-robot-data" spellcheck="false">
+          ${modelPicker()}
           <button class="go-btn" type="submit">Run inspection</button>
         </form>
         <p class="hint" id="heroHint">Or try one:</p>
-        <div class="chips">${EXAMPLES.map((e) => `<button class="chip" data-ex="${e}">${e}</button>`).join("")}</div>
+        <div class="chips">${EXAMPLES.map(chipHtml).join("")}</div>
       </div>
-      <div class="hero-art">${armArt()}</div>
+      <div class="hero-art">${mascot("happy")}</div>
     </div>
     <div class="readouts">
       <div><b>28</b><span>checks, each cited to a line of GR00T's code</span></div>
@@ -158,7 +204,10 @@ function renderLanding() {
     <footer>Built from <a href="${REPO_URL}" target="_blank" rel="noopener">lerobot-groot-conformance</a>, an audit of public LeRobot datasets.
       <small>No emissions were measured. Independent project, not affiliated with NVIDIA or Hugging Face.</small></footer>
   </section>`;
+  bindModelPicker($("#mp"));
   $("#toChecks").onclick = () => go("#checks");
+  $("#toBoard").onclick = () => go("#leaderboard");
+  $("#toBuild").onclick = () => go("#validation");
   $("#homeLogo").onclick = () => go("");
   const submit = (val) => {
     const id = parseDatasetId(val);
@@ -177,11 +226,17 @@ function renderLanding() {
 
 // ---------------------------------------------------------------- dashboard
 
-function shell(inner) {
-  return `<div class="shell"><header><div class="bar">
+const SECTIONS = [["checks", "Inspections"], ["leaderboard", "Leaderboard"], ["validation", "Model Validation"]];
+function shell(inner, active = "checks") {
+  const html = `<div class="shell"><header><div class="bar">
       <button class="logo" id="home">${brand()}</button>
       <nav><span class="pin">GR00T @${GROOT_SHA.slice(0, 7)}</span><a href="${REPO_URL}" target="_blank" rel="noopener">How it works</a></nav>
-    </div></header><main class="page">${inner}</main></div>`;
+    </div><div class="sections" role="navigation" aria-label="Sections">${SECTIONS.map(([k, l]) =>
+      `<button data-sec="${k}"${k === active ? ' aria-current="page"' : ""}>${l}${k === "checks" ? "" : ' <i class="soon-tag">coming soon</i>'}</button>`).join("")}</div></header><main class="page">${inner}</main></div>`;
+  queueMicrotask(() => {
+    app.querySelectorAll("[data-sec]").forEach((b) => (b.onclick = () => go("#" + b.dataset.sec)));
+  });
+  return html;
 }
 
 const when = (ts) => new Date(ts).toLocaleString(undefined, { month: "numeric", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" });
@@ -190,9 +245,9 @@ function renderDashboard() {
   document.title = `My inspections · ${NAME}`;
   const list = runs.length ? `<div class="runs">${runs.map((r, i) => {
     const v = VERDICTS[r.verdict];
-    const tone = r.error ? "bad" : v.tone;
-    const status = r.error ? ICON.fail : r.verdict === "READY" ? ICON.pass : ["close", "mid"].includes(v.tone) ? ICON.warn : ICON.fail;
-    const badge = r.error ? `<span class="badge t-bad">Couldn't inspect</span>` : `<span class="badge t-${v.tone}">${esc(v.headline)}</span>`;
+    const tone = r.error ? "bad" : tn(v.tone);
+    const status = r.error ? ICON.fail : r.verdict === "READY" ? ICON.pass : tn(v.tone) === "close" ? ICON.warn : ICON.fail;
+    const badge = r.error ? `<span class="badge t-bad">Couldn't inspect</span>` : `<span class="badge t-${tn(v.tone)}">${esc(v.headline)}</span>`;
     const scope = r.embodiment?.fit === "outside" ? `<span class="badge t-scope">${esc(r.embodiment.label)}</span>` : "";
     return `<div class="run z-${tone}" data-i="${i}" tabindex="0" role="button" aria-label="Open inspection of ${esc(r.dataset)}">
       ${status}<div class="meta"><div class="name">${esc(r.dataset)}</div>
@@ -200,7 +255,7 @@ function renderDashboard() {
       <button class="icon-btn blue" data-rerun="${i}" title="Run again" aria-label="Run again">${ICON.rerun}</button>
       <button class="icon-btn red" data-del="${i}" title="Remove" aria-label="Remove from history">${ICON.trash}</button></div>`;
   }).join("")}</div>`
-    : `<div class="empty">${armArt()}<p><b>No inspections yet.</b><br>Inspect a dataset and it'll show up here, saved in this browser only.</p></div>`;
+    : `<div class="empty">${mascot("happy")}<p><b>No inspections yet.</b><br>Inspect a dataset and it'll show up here, saved in this browser only.</p></div>`;
   app.innerHTML = shell(`
     <div class="page-head"><div><div class="label">Inspection log</div><h1>Dataset Inspections</h1><p>Static GR00T-readiness inspections of Hugging Face robot datasets</p></div>
       <button class="btn primary" id="newRun">${ICON.plus} New Inspection</button></div>${list}`);
@@ -231,10 +286,11 @@ function openWizard(prefill = "") {
     if (step === 1) body = `<h3>Step 1: Which Hugging Face dataset should I inspect?</h3>
       <input class="field" id="wIn" value="${esc(raw)}" placeholder="https://huggingface.co/datasets/<user>/<name>" spellcheck="false">
       <p class="hint ${raw && !id ? "err" : ""}" id="wHint">${raw && !id ? "That doesn't look like a dataset link." : "A full link or just <user>/<name>. Public datasets only."}</p>
-      <div class="chips">${EXAMPLES.map((e) => `<button class="chip" data-ex="${e}">${e}</button>`).join("")}</div>`;
+      <div class="chips">${EXAMPLES.map(chipHtml).join("")}</div>`;
     if (step === 2) body = `<h3>Step 2: What should it be ready for?</h3>
       <label class="opt sel"><input type="radio" checked name="tgt"><div><b>NVIDIA Isaac-GR00T reference loader</b><span>Pinned to commit ${GROOT_SHA.slice(0, 7)} (N1.7). 28 static checks, each cited to the line of GR00T code that requires it, plus a check of what kind of robot data it is.</span></div></label>
-      <label class="opt dis"><input type="radio" disabled name="tgt"><div><b>LeRobot's built-in <code>groot</code> policy</b><span>Reads datasets through LeRobot's own loader. Not covered yet.</span></div></label>`;
+      <label class="opt dis"><input type="radio" disabled name="tgt"><div><b>LeRobot's built-in <code>groot</code> policy</b><span>Reads datasets through LeRobot's own loader. Not covered yet.</span></div></label>
+      <div class="soon">${MODELS.filter((m) => !m.ready).map((m) => `<label class="opt dis"><input type="radio" disabled name="tgt"><div><b>${esc(m.name)}</b><span>${esc(m.by)} · <span class="badge t-skip">Coming soon</span></span></div></label>`).join("")}</div>`;
     if (step === 3) body = `<h3>Step 3: Ready to inspect</h3>
       <dl class="kv"><dt>Dataset</dt><dd><a href="https://huggingface.co/datasets/${esc(id)}" target="_blank" rel="noopener">${esc(id)}</a></dd>
       <dt>Standard</dt><dd>Isaac-GR00T reference loader @${GROOT_SHA.slice(0, 7)}</dd><dt>Checks</dt><dd>12 LeRobot + 16 GR00T + data type</dd></dl>
@@ -278,7 +334,7 @@ async function startRun(datasetId) {
   const paint = () => {
     $("#side", ov).innerHTML = `<div class="grp">Progress</div>` + log.map((l, i) =>
       `<div class="item"><span>${i === log.length - 1 ? '<span class="spin"></span>' : ICON.pass}</span><div><div class="t">${esc(l)}</div></div></div>`).join("");
-    $("#detail", ov).innerHTML = `<div class="scan"><div>${armArt("working")}</div><div><div class="label" style="color:var(--muted)">Inspection in progress</div>
+    $("#detail", ov).innerHTML = `<div class="scan"><div>${mascot("look", { cls: "working" })}</div><div><div class="label" style="color:var(--muted)">Inspection in progress</div>
       <h3 style="margin-top:6px">Reading ${esc(datasetId)}</h3><p>Metadata straight from Hugging Face, in your browser.</p>
       <ul class="log">${log.map((l, i) => `<li class="${i === log.length - 1 ? "now" : ""}">${i === log.length - 1 ? '<span class="spin"></span>' : "✓"} ${esc(l)}</li>`).join("")}</ul></div></div>`;
   };
@@ -337,7 +393,7 @@ function showResult(rec) {
 
 function fillResult(ov, rec) {
   const v = rec.error ? null : VERDICTS[rec.verdict];
-  $("#rBadge", ov).className = `badge t-${rec.error ? "bad" : v.tone}`;
+  $("#rBadge", ov).className = `badge t-${rec.error ? "bad" : tn(v.tone)}`;
   $("#rBadge", ov).innerHTML = rec.error ? "Couldn't inspect" : esc(v.headline);
   $("#rActs", ov).insertAdjacentHTML("afterbegin", `<button class="btn" id="rRerun">${ICON.rerun} Re-inspect</button>` +
     (rec.error ? "" : `<button class="btn" id="rJson">${ICON.dl} JSON</button>`) + `<button class="btn" id="rShare">${ICON.share} Share</button>`);
@@ -409,7 +465,7 @@ function scopeNote(rec) {
 function summaryHtml(rec, v, byId) {
   const n = { pass: 0, fail: 0, warn: 0, skip: 0, info: 0 };
   for (const c of rec.checks) n[checkStatus(c)]++;
-  const stamp = rec.verdict === "READY" ? `<span class="stamp" style="color:var(--good)">PASS</span>` : `<span class="stamp" style="color:${v.tone === "bad" ? "var(--bad)" : "#9a6a00"}">NOT YET</span>`;
+  const stamp = rec.verdict === "READY" ? `<span class="stamp" style="color:var(--good)">PASS</span>` : `<span class="stamp" style="color:${tn(v.tone) === "bad" ? "var(--bad)" : "#9a6a00"}">NOT YET</span>`;
   const nested = rec.verdict === "NOT_LEROBOT" && rec.nested?.length
     ? `<div class="note amber">This repo holds several datasets in subfolders, for example ${rec.nested.map((p) => `<code>${esc(p)}</code>`).join(", ")}. GR00T loads one dataset directory at a time; inspect each subfolder as its own dataset.</div>` : "";
   const unver = rec.unverified?.length ? `<div class="note amber">Some checks (${rec.unverified.join(", ")}) couldn't run because a metadata file or file listing is larger than this inspection reads. The result may understate what's needed.</div>` : "";
@@ -456,7 +512,7 @@ function draftHtml(rec) {
     <div class="note blue">Someone who knows the robot can still write it by hand: about ten lines that say which slice of the state/action vector is the arm, the gripper, and so on. See <a href="https://github.com/NVIDIA/Isaac-GR00T/blob/${GROOT_SHA}/getting_started/data_preparation.md#the-metamodalityjson-configuration" target="_blank" rel="noopener">GR00T's data preparation guide</a>.</div>`;
   const rows = ["state", "action"].flatMap((s) => d.groups[s].map((g) => `<tr><td>${s}</td><td><b>${esc(g.name)}</b></td><td class="mono">[${g.start}:${g.end}]</td><td class="mono">${esc(g.dims.join(", "))}</td></tr>`)).join("");
   const after = VERDICTS[rec.draftVerdict];
-  return `<h3>Draft meta/modality.json</h3><p>Built from this dataset's own dimension names. With it in place, the inspection reads: <span class="badge t-${after.tone}">${esc(after.headline)}</span></p>
+  return `<h3>Draft meta/modality.json</h3><p>Built from this dataset's own dimension names. With it in place, the inspection reads: <span class="badge t-${tn(after.tone)}">${esc(after.headline)}</span></p>
     ${scopeNote(rec)}
     <div class="note amber"><b>Please check before using.</b> This is a proposal from names, not knowledge of your robot. A wrong range doesn't raise an error in GR00T: it quietly trains on the wrong joints.</div>
     <h4>How the dimensions were grouped</h4><table class="groups"><thead><tr><th>section</th><th>group</th><th>slice</th><th>dimension names</th></tr></thead><tbody>${rows}</tbody></table>

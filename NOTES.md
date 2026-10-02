@@ -8,6 +8,61 @@ not named here (ids are in `results/summary.csv`); public fixtures and publisher
 
 ---
 
+## 2026-10-02 — README: dataset mosaic and web app screenshot
+
+- **Mosaic** (`docs/img/mosaic.jpg`, top of the README above the KPI row). 24 tiles, 6×4. Each tile is frame 45 of
+  episode 0, first non-wrist camera, decoded from the video at the dataset's audited `repo_sha`
+  (`scripts/fetch_mosaic_frames.py`, network, needs `pip install av`; only the start of each video is streamed).
+  Thumbnails and `sources.json` (dataset, sha, camera, license) are committed, so `make_figures.py` rebuilds the
+  mosaic offline. Badges are not typed: `make_figures.mosaic_kind()` reads `verdict` and `embodiment_fit` from
+  `summary.csv`. All 24 sources are Apache-2.0 (from each card at the audited sha).
+- **Selection** is hand-picked for visual variety, one dataset per author: 7 one file away, 16 needs conversion,
+  1 outside scope (a race-car sim). The caption says the mix is illustrative and points to the scorecard.
+- **Web app screenshot** (`docs/img/webapp.png`, under the "Try it in your browser" callout, linked to the site):
+  landing page and the report for `youliangtan/tictac-bot` (a public test fixture), captured at 2× with headless
+  Chrome from `docs/` served locally, composed into browser frames. Not scripted; recapture after UI changes.
+
+**Pending approval:**
+1. Red badge means "not robot manipulation" (embodiment), while green/amber are format verdicts. The race-car
+   dataset itself is format-wise one file away. The legend states the meaning; an alternative is no red tile.
+2. Real datasets are recognisable in the mosaic even though no names are shown on it; `sources.json` names them
+   (needed for Apache-2.0 attribution) but does not say which tile carries which badge beyond the tile number.
+3. The screenshot shows `youliangtan/tictac-bot` by name (already public in `fixtures/`).
+
+---
+
+## 2026-10-01 — Preview pages: Leaderboard and Model Validation (`docs/app/preview.js`, `preview.css`)
+
+Two new sections in the web app, reachable from the landing nav and a section-tab bar under the header. Both are
+**mock-ups of future features**: all names and numbers are made-up sample data, nothing is fetched, saved or sent,
+and a yellow "Coming soon" banner and "coming soon" tags say so on every page.
+
+- **Leaderboard** (`#leaderboard`), three tabs. *Datasets*: ranked by the change in loss on a fixed reference set
+  when the dataset is added, not by episode count; the sample data includes a 5,000-episode near-duplicate dataset
+  that ranks 4th and a dataset that makes the model worse. *Builders*: towers of bricks (one brick per 50 clean
+  episodes, colour bonuses for new task / robot / scene, orange for Model Validation gains, flat grey plates for
+  near-duplicates that add no height). *Wanted*: a bounty board of data requests.
+- **Model Validation** (`#validation`): request form (dataset, one of four open models, what to measure), a fake run that
+  steps through four stages, and a sample result: loss with vs without the dataset, a data-scaling readout
+  (25/50/100% of episodes) and a "would more help?" note.
+- **Design reason for with/without instead of raw validation loss:** loss on a submitter's own held-out episodes
+  measures consistency, not usefulness (500 copies of one pick score perfectly). The test trains the same model with
+  and without the data, same steps, scores both on a reference set the submitter never touches, and reports the
+  difference with error bars over several seeds. Rollout success is shown as "coming later" because BC loss
+  correlates imperfectly with it. The research claims behind this (DataComp / DataPerf style benchmarks, robomimic's
+  loss-vs-success finding, robot data-curation results) are from memory and not yet re-checked against sources.
+
+**Pending approval:**
+1. Keeping the name "Robot Data Smog Check" for all three sections, with the brick theme as a skin. The alternative
+   is a brick-native rename so the metaphor matches ("Brickyard"). Not renamed.
+2. The "brick" scoring rules (1 brick per 50 clean episodes; colour bonuses; gold/orange for Model Validation) are
+   illustrative, not tuned.
+3. The reference models and GPU-hour/cost figures on the Model Validation form are placeholders.
+4. The theme colours are close to well-known toy-brick colours. Generic bricks only, no brand marks; consider
+   shifting the reds/yellows slightly before the repo is public.
+
+---
+
 ## 2026-10-01 — Rebrand to "Robot Data Smog Check", industrial theme, and a "what kind of data" check
 
 **Name.** The web app is now *Robot Data Smog Check*; GripCheck is retired. The metaphor: a standardized

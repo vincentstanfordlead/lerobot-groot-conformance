@@ -1,0 +1,218 @@
+[
+ {
+  "tile": "00.jpg",
+  "dataset": "7smile/omx_f_task_0916",
+  "repo_sha": "97e3889aa6bd7b99aef8bb42eeededfd4f331d87",
+  "camera": "observation.images.camera1",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "01.jpg",
+  "dataset": "Kazu1232/record-so101-test",
+  "repo_sha": "f0c3189e8098388e7fdf89dcabc3ba5e7c9d8e8a",
+  "camera": "observation.images.front",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "02.jpg",
+  "dataset": "RoboCOIN/AI2_Alphabot_2_package_fruit",
+  "repo_sha": "4ca82dfaf51870bea980389e548df0f235eb6587",
+  "camera": "observation.images.cam_front_chest_rgb",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "03.jpg",
+  "dataset": "ilBiondo06/eval_act_so100_movelladot_c5",
+  "repo_sha": "b0ff2e0b961d5b83e83377c0d6177b8d9ab22156",
+  "camera": "observation.images.side",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "04.jpg",
+  "dataset": "jiroh2000/so100_test_007",
+  "repo_sha": "7fff967bdc93ec7dcf6807d1762a0d8060bd44b0",
+  "camera": "observation.images.laptop",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "05.jpg",
+  "dataset": "ygtxr1997/bc_z_lerobot",
+  "repo_sha": "74bfebaba2e9362c5a77dae3a8a9cbf5072edaa9",
+  "camera": "observation.images.image",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "06.jpg",
+  "dataset": "IPEC-COMMUNITY/viola_lerobot",
+  "repo_sha": "4808352b4ff3fb8985a91fa7ee12b4d8a80717f3",
+  "camera": "observation.images.agentview_rgb",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "07.jpg",
+  "dataset": "addisonhammer/so101_pink_die_in_cup_20260817_220140_20260819_090202",
+  "repo_sha": "e140a51b95b3ad23342e365cd55e7159a5ac1b0f",
+  "camera": "observation.images.overhead",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "08.jpg",
+  "dataset": "brandonyang/artem-pour-water",
+  "repo_sha": "f002ef4df019a92b518ba73a50b271baa84890bb",
+  "camera": "observation.images.umi1",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "09.jpg",
+  "dataset": "hukewei/lerobot_peg_in_optical",
+  "repo_sha": "6de8b4c5a33ebbbbbc285f4e6a170bb36e303d72",
+  "camera": "observation.images.top",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "10.jpg",
+  "dataset": "humjie/bimanual-so101-fold-towel-v6",
+  "repo_sha": "824544b63286aa1b6c609cf15909273a7afa6724",
+  "camera": "observation.images.top",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "11.jpg",
+  "dataset": "krish5831/tissues_into_box_20260928_194959",
+  "repo_sha": "37823af092f1c69b0ea764cfac0f487a21b30a21",
+  "camera": "observation.images.claw",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "12.jpg",
+  "dataset": "lerobotForScienceEdu/eval_Rock_Acid-v4-gt-hand",
+  "repo_sha": "705afebb62b41452ad5b0d907e0ae72980212244",
+  "camera": "observation.images.camera1",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "13.jpg",
+  "dataset": "lerobot/robomme",
+  "repo_sha": "92796abbc67db4ea6447e5031d04bf47aa3770bb",
+  "camera": "image",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "14.jpg",
+  "dataset": "max-chr/libero_plus_10_texture_all_iiwa",
+  "repo_sha": "64ad50aa005f3e30727eaba04b833462f775f3cf",
+  "camera": "observation.images.image",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "15.jpg",
+  "dataset": "qownscks/pot100",
+  "repo_sha": "98e2fbdbba96722b1d0225b0d43c34eadcd86ef2",
+  "camera": "observation.images.up",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "16.jpg",
+  "dataset": "rbtrprjkt/rollout_pi05_han10e_20260928_075758",
+  "repo_sha": "a9fd987fbfb00ca793028d4557f08a1af0be0674",
+  "camera": "observation.images.cam_high",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "17.jpg",
+  "dataset": "shp314/gr00t_so101",
+  "repo_sha": "fce267a066e9bd873081cee8f23fd2875325b97d",
+  "camera": "observation.images.top",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "18.jpg",
+  "dataset": "ssabats/object-orange-lego-placing-coffe-box_20260928_162843",
+  "repo_sha": "2cd76d34d6417be5bb07c3e21872da8ef7cc9f3b",
+  "camera": "observation.images.front",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "19.jpg",
+  "dataset": "wuc1/bi_so101_ffp_show_20260702_022156",
+  "repo_sha": "224306e38cf8312c643b98dc23ff733c0fd268f2",
+  "camera": "observation.images.left_camera1",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "20.jpg",
+  "dataset": "jio2/clean_desk_v1_pi",
+  "repo_sha": "d21eaf2f2e844db854ed0731a53bc127c066dabe",
+  "camera": "observation.images.left_left_top",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "21.jpg",
+  "dataset": "LTH4663/fod_c3_strategy_desc_v2_216_2cam_20260928",
+  "repo_sha": "d0c78968c2a9a5da9eb800502207c9630d7ba637",
+  "camera": "observation.images.view_1",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "22.jpg",
+  "dataset": "leapshared/Electroscope_new_20260928_202529",
+  "repo_sha": "cedab9f509cc766cf9417914a5b0454ce81d64a6",
+  "camera": "observation.images.follower_d455f",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ },
+ {
+  "tile": "23.jpg",
+  "dataset": "Lyrasilas/eval_ep500_seed1_default_center_guessed_20000_default",
+  "repo_sha": "45ca04cc210b45aaaa9780110a623e01707c6e49",
+  "camera": "observation.images.front",
+  "episode": 0,
+  "frame": 45,
+  "license": "apache-2.0"
+ }
+]

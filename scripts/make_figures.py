@@ -1,7 +1,10 @@
-"""README figures: KPI row, funnel (PNG + animated GIF), modality.json explainer GIF, linter demo GIF.
+"""README figures: dataset mosaic, KPI row, funnel (PNG + animated GIF), modality.json explainer GIF, linter demo GIF.
 
     .venv/bin/python scripts/make_figures.py                 # offline: numbers from results/summary.csv
     .venv/bin/python scripts/make_figures.py --refresh-demo  # re-run the linter for the terminal GIF (network)
+
+The mosaic is composed from the frames in docs/img/mosaic_frames/ (fetched once by
+scripts/fetch_mosaic_frames.py); each badge comes from that dataset's row in summary.csv.
 
 Every number is computed from results/summary.csv and asserted, never typed. The terminal GIF
 replays real linter output saved in docs/img/demo_output.txt (lines are clipped to the terminal
@@ -11,7 +14,9 @@ from __future__ import annotations
 
 import argparse
 import io
+import json
 import math
+import random
 import subprocess
 import sys
 from pathlib import Path
@@ -73,6 +78,63 @@ def save_gif(frames: list[Image.Image], durations: list[int], path: Path) -> Non
     pal = frames[-1].quantize(colors=128, method=Image.Quantize.MEDIANCUT)
     q = [f.quantize(palette=pal, dither=Image.Dither.NONE) for f in frames]
     q[0].save(path, save_all=True, append_images=q[1:], duration=durations, loop=0, optimize=True, disposal=1)
+
+
+# ---------------------------------------------------------------- 0. dataset mosaic
+
+MOSAIC_KINDS = {  # kind -> (badge colour, legend)
+    "one_file": ("#199e70", "One file away (add modality.json)"),
+    "convert": ("#c98500", "Needs format conversion (v3.0 to v2)"),
+    "outside": ("#e66767", "Not robot manipulation (e.g. driving sim)"),
+}
+
+
+def mosaic_kind(row) -> str:
+    if row.embodiment_fit == "outside":
+        return "outside"
+    if row.verdict in ("READY", "NEEDS_MODALITY"):
+        return "one_file"
+    assert row.verdict == "NEEDS_DOWNCONVERT", (row.dataset, row.verdict)
+    return "convert"
+
+
+def mosaic() -> None:
+    src = OUT / "mosaic_frames"
+    tiles = json.loads((src / "sources.json").read_text())
+    df = pd.read_csv(ROOT / "results" / "summary.csv").set_index("dataset", drop=False)
+    kinds = [mosaic_kind(df.loc[t["dataset"]]) for t in tiles]
+    order = list(range(len(tiles)))
+    random.Random(11).shuffle(order)  # fixed layout; spreads the colours out
+    cols, rows, s = 6, 4, 2  # drawn at 2x, downsampled for anti-aliasing
+    tw, th, gap, leg = 240 * s, 180 * s, 4 * s, 52 * s
+    Wm, Hm = cols * tw + (cols - 1) * gap, rows * th + (rows - 1) * gap
+    im = Image.new("RGB", (Wm, Hm + leg), SURFACE)
+    d = ImageDraw.Draw(im)
+    font = ImageFont.truetype("/System/Library/Fonts/HelveticaNeue.ttc", 17 * s)
+
+    def badge(cx, cy, r, kind):
+        d.ellipse([cx - r - 3 * s, cy - r - 3 * s, cx + r + 3 * s, cy + r + 3 * s], fill="white")
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=MOSAIC_KINDS[kind][0])
+        w, k = int(3.2 * s), r * 0.45
+        if kind == "one_file":  # check
+            d.line([(cx - k, cy), (cx - k * 0.25, cy + k * 0.7), (cx + k, cy - k * 0.6)], fill="white", width=w, joint="curve")
+        elif kind == "convert":  # minus: a step to go
+            d.line([(cx - k, cy), (cx + k, cy)], fill="white", width=w)
+        else:  # cross
+            for a, b in (((-1, -1), (1, 1)), ((-1, 1), (1, -1))):
+                d.line([(cx + a[0] * k * .8, cy + a[1] * k * .8), (cx + b[0] * k * .8, cy + b[1] * k * .8)], fill="white", width=w)
+
+    for slot, i in enumerate(order):
+        x, y = (slot % cols) * (tw + gap), (slot // cols) * (th + gap)
+        im.paste(Image.open(src / tiles[i]["tile"]).convert("RGB").resize((tw, th), Image.LANCZOS), (x, y))
+        badge(x + tw - 24 * s, y + 24 * s, 13 * s, kinds[i])
+    x, ly = 4 * s, Hm + leg // 2
+    for kind, (_, label) in MOSAIC_KINDS.items():
+        badge(x + 12 * s, ly, 10 * s, kind)
+        x += 30 * s
+        d.text((x, ly), label, font=font, fill=INK2, anchor="lm")
+        x += d.textlength(label, font=font) + 36 * s
+    im.resize((Wm // s, (Hm + leg) // s), Image.LANCZOS).save(OUT / "mosaic.jpg", quality=85, optimize=True)
 
 
 # ---------------------------------------------------------------- 1. KPI row
@@ -356,6 +418,7 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     if args.refresh_demo or not (OUT / "demo_output.txt").exists():
         refresh_demo()
+    mosaic()
     n = tail_numbers()
     kpi(n)
     funnel(n)

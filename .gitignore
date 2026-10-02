@@ -6,3 +6,6 @@ __pycache__/
 results/dataset_list.json
 results_reaudit/
 results/strata_rebuilt.json
+.readme_preview.html
+.claude/
+docs/_readme_preview.html
