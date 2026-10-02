@@ -1,10 +1,19 @@
-# lerobot-groot-conformance
+# <picture><source media="(prefers-color-scheme: dark)" srcset="docs/img/title_dark.png"><img src="docs/img/title_light.png" alt="Does your robot data pass the smog check?" width="640"></picture>
 
-### How much public robot data can NVIDIA Isaac GR00T load today, and what's in the way for the rest?
+There are more than 78,000 robot datasets on Hugging Face, but no shared standard for what a robot
+model needs in order to load them. This project measures that gap for one model, NVIDIA Isaac GR00T:
+how much public robot data it can use today, and what stands in the way of the rest.
 
-An audit of **562 public Hugging Face robot datasets** against the dataset loader in NVIDIA's
-[Isaac-GR00T](https://github.com/NVIDIA/Isaac-GR00T) reference implementation, plus the open-source
-linter that ran it and a [draft checklist](CHECKLIST.md) for people who record robot data.
+> **TL;DR**
+> - **Audit:** 562 public LeRobot datasets checked against NVIDIA's
+>   [Isaac-GR00T](https://github.com/NVIDIA/Isaac-GR00T) data loader. In a random sample of 200, none
+>   pass as is: 30.5% are one file (`modality.json`) away, and 58% need converting from the newer
+>   LeRobot v3.0 layout first. Metadata checks only; nothing was loaded through GR00T.
+> - **Website:** [Robot Data Smog Check](https://vincentstanfordlead.github.io/lerobot-groot-conformance/)
+>   inspects any Hugging Face dataset in seconds, says what's missing and how to fix it, and drafts
+>   the missing `modality.json` when the dimension names allow.
+> - **Checklist:** a [draft checklist](CHECKLIST.md) for people who record robot data, covering what
+>   to capture so the data is GR00T-ready from the start.
 
 <img src="docs/img/mosaic.jpg" alt="A grid of 24 camera frames from audited LeRobot datasets: robot arms picking, folding, pouring and sorting, plus one top-down race-car track. Each frame has a badge: green check for one file away from GR00T, amber minus for needs format conversion, red cross for not robot manipulation." width="100%">
 
@@ -21,7 +30,7 @@ Frames are from Apache-2.0 datasets at the audited commit
 > it also drafts the missing `modality.json`. It reads metadata only, runs entirely in your browser,
 > and needs no sign-in.
 
-<a href="https://vincentstanfordlead.github.io/lerobot-groot-conformance/"><img src="docs/img/webapp.png" alt="Robot Data Smog Check web app. Left: the landing page, with a box to paste a Hugging Face dataset link and a Run inspection button. Right: an inspection report for an example dataset, rated One step away: 21 checks passed, 1 failed (meta/modality.json missing), with a drafted modality.json offered as the fix." width="100%"></a>
+<a href="https://vincentstanfordlead.github.io/lerobot-groot-conformance/"><img src="docs/img/webapp.gif" alt="Screen recording of the Robot Data Smog Check web app: a Hugging Face link for lerobot/aloha_sim_transfer_cube_human is pasted on the home page and inspected. The report says Two steps away: 16 checks pass, 5 fail; step 1 convert v3.0 to v2 with NVIDIA's converter, step 2 add meta/modality.json, with a draft ready. Then the Model Validation preview page opens, marked Coming soon with sample data, showing loss with and without the dataset." width="100%"></a>
 
 ## Why this matters
 
@@ -134,7 +143,7 @@ is in [`results/report.md`](results/report.md). Per-dataset results are in
 
 </details>
 
-## Try it on any dataset
+## Try it on any LeRobot dataset
 
 <img src="docs/img/linter_demo.gif" alt="Terminal demo: NVIDIA's demo dataset passes (READY); a LeRobot v2.1 dataset only lacks modality.json (NEEDS_MODALITY); a v3.0 dataset needs conversion first (NEEDS_DOWNCONVERT)." width="100%">
 
@@ -149,11 +158,18 @@ python3.11 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
 ```bash
+# a dataset on Hugging Face
 .venv/bin/python -m conformance.inspect_hub <hf-user>/<dataset> --brief
 ```
 
-Use `conformance.inspect_local <path>` for a dataset on disk. Drop `--brief` to see all 28
-checks, or add `--json` for machine-readable output.
+```bash
+# a dataset on disk: your own recordings, a private copy, or the local Hugging Face cache
+.venv/bin/python -m conformance.inspect_local path/to/dataset --brief
+```
+
+Drop `--brief` to see all 28 checks, or add `--json` for machine-readable output. Other robot-data
+formats (RLDS, HDF5, rosbag) come back as `NOT_LEROBOT`; convert them to LeRobot first. The web app
+takes Hugging Face links only.
 
 **Reproduce the whole audit** in seconds and offline, from the committed snapshot and results.
 Add `--reaudit` to re-fetch all 562 repos (about 30 minutes; set `HF_TOKEN` first):
@@ -268,12 +284,13 @@ in [`NOTES.md`](NOTES.md), Phase 2.
 conformance/   checks.py (L1-L12, G1-G16, verdict) · contract.py (generated citations)
                inspect_local.py · inspect_hub.py (metadata-only Hub view) · report.py
 scripts/       reproduce.py · make_figures.py · collect_dataset_list.py · build_strata.py · run_audit.py
-               backfill_2026_10_01.py · fetch_mosaic_frames.py (network; frames for the README mosaic)
+               backfill_2026_10_01.py · fetch_mosaic_frames.py · record_webapp_gif.py · make_title.py
+               (network; README media)
 vendor/        groot_51d4c89/: the GR00T files the contract is read from (Apache-2.0, unmodified)
 fixtures/      control datasets for the tests (meta files real; payload files are empty placeholders)
 results/       raw/<repo>.json per dataset · summary.csv · report.md · conformance_chart.png · strata.json
 docs/          Robot Data Smog Check web app (index.html, app/*.js; served by GitHub Pages) · img/: README figures,
-               mosaic_frames/ (24 thumbnails + sources.json)
+               mosaic_frames/ (24 thumbnails + sources.json) · webapp.gif (scripts/record_webapp_gif.py)
 ```
 </details>
 

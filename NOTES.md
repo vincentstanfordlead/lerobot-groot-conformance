@@ -18,16 +18,20 @@ not named here (ids are in `results/summary.csv`); public fixtures and publisher
   `summary.csv`. All 24 sources are Apache-2.0 (from each card at the audited sha).
 - **Selection** is hand-picked for visual variety, one dataset per author: 7 one file away, 16 needs conversion,
   1 outside scope (a race-car sim). The caption says the mix is illustrative and points to the scorecard.
-- **Web app screenshot** (`docs/img/webapp.png`, under the "Try it in your browser" callout, linked to the site):
-  landing page and the report for `youliangtan/tictac-bot` (a public test fixture), captured at 2× with headless
-  Chrome from `docs/` served locally, composed into browser frames. Not scripted; recapture after UI changes.
+- **Web app GIF** (`docs/img/webapp.gif`, ~15 s, under the "Try it in your browser" callout, linked to the site;
+  replaces a two-screenshot PNG from earlier the same day). `scripts/record_webapp_gif.py` (Playwright driving the
+  installed Chrome, network) types `lerobot/aloha_sim_transfer_cube_human` on the home page, shows its "Two steps
+  away" report, closes it, and opens the Model Validation preview, ending on the "Coming soon / made-up sample
+  data" banner so the mock-up is never shown unlabelled. The example is an official `lerobot` dataset and already
+  the home page's own red example chip.
 
 **Pending approval:**
 1. Red badge means "not robot manipulation" (embodiment), while green/amber are format verdicts. The race-car
    dataset itself is format-wise one file away. The legend states the meaning; an alternative is no red tile.
 2. Real datasets are recognisable in the mosaic even though no names are shown on it; `sources.json` names them
    (needed for Apache-2.0 attribution) but does not say which tile carries which badge beyond the tile number.
-3. The screenshot shows `youliangtan/tictac-bot` by name (already public in `fixtures/`).
+3. The GIF shows a Model Validation result for made-up data next to a real dataset's report; the banner and
+   "sample data" label are on screen for the final ~4 s.
 
 ---
 
