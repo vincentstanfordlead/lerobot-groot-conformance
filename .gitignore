@@ -1,0 +1,7 @@
+.venv/
+*.tmp
+__pycache__/
+.DS_Store
+# rebuilt from dataset_list.json.gz by scripts/reproduce.py
+results/dataset_list.json
+results_reaudit/

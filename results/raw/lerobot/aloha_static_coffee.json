@@ -1,0 +1,329 @@
+{
+ "verdict": "NEEDS_DOWNCONVERT",
+ "steps": [
+  "DOWNCONVERT",
+  "MODALITY"
+ ],
+ "failed_fail_level": [
+  "G2",
+  "G3",
+  "G6",
+  "G7",
+  "G9"
+ ],
+ "unverified_size": [],
+ "checks": [
+  {
+   "id": "L1",
+   "level": "WARN",
+   "passed": true,
+   "detail": "meta/info.json present and parses",
+   "source": null,
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "L2",
+   "level": "INFO",
+   "passed": true,
+   "detail": "codebase_version='v3.0'",
+   "source": null,
+   "blocked_by": null,
+   "data": {
+    "codebase_version": "v3.0"
+   }
+  },
+  {
+   "id": "L3",
+   "level": "INFO",
+   "passed": true,
+   "detail": "data/ contains parquet",
+   "source": null,
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "L4",
+   "level": "INFO",
+   "passed": true,
+   "detail": "videos/ present",
+   "source": null,
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "L5",
+   "level": "WARN",
+   "passed": true,
+   "detail": "episode metadata layout: parquet",
+   "source": null,
+   "blocked_by": null,
+   "data": {
+    "layout": "parquet"
+   }
+  },
+  {
+   "id": "L6",
+   "level": "WARN",
+   "passed": true,
+   "detail": "task metadata layout: parquet",
+   "source": null,
+   "blocked_by": null,
+   "data": {
+    "layout": "parquet"
+   }
+  },
+  {
+   "id": "L7",
+   "level": "WARN",
+   "passed": true,
+   "detail": "stats layout: stats.json",
+   "source": null,
+   "blocked_by": null,
+   "data": {
+    "layout": "stats.json"
+   }
+  },
+  {
+   "id": "L8",
+   "level": "WARN",
+   "passed": true,
+   "detail": "state dim=14, action dim=14, cameras=4, fps=50",
+   "source": null,
+   "blocked_by": null,
+   "data": {
+    "state_dim": 14,
+    "action_dim": 14,
+    "n_cameras": 4,
+    "fps": 50
+   }
+  },
+  {
+   "id": "L9",
+   "level": "INFO",
+   "passed": true,
+   "detail": "names present: {'observation.state': True, 'action': True}",
+   "source": null,
+   "blocked_by": null,
+   "data": {
+    "observation.state": true,
+    "action": true
+   }
+  },
+  {
+   "id": "L10",
+   "level": "INFO",
+   "passed": true,
+   "detail": "layout=v3.0; missing camera dirs: []",
+   "source": null,
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "L11",
+   "level": "WARN",
+   "passed": null,
+   "source": null,
+   "blocked_by": "G2",
+   "data": {},
+   "detail": "episodes.jsonl not parsed by G2 (meta/episodes.jsonl not found); episode count not compared"
+  },
+  {
+   "id": "L12",
+   "level": "WARN",
+   "passed": true,
+   "detail": "fps=50",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L202",
+   "blocked_by": null,
+   "data": {
+    "fps": 50
+   }
+  },
+  {
+   "id": "G1",
+   "level": "FAIL",
+   "passed": true,
+   "detail": "meta/info.json present and parses",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L158-160",
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "G2",
+   "level": "FAIL",
+   "passed": false,
+   "detail": "meta/episodes.jsonl not found",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L163-165, L204-213",
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "G3",
+   "level": "FAIL",
+   "passed": false,
+   "detail": "meta/tasks.jsonl not found",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L168-171",
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "G4",
+   "level": "WARN",
+   "passed": true,
+   "detail": "meta/stats.json present",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L179-182, gr00t/data/dataset/factory.py:L57-60",
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "G5",
+   "level": "WARN",
+   "passed": false,
+   "detail": "stale (GR00T will recompute): ['observation.state', 'observation.effort', 'action', 'timestamp']",
+   "source": "gr00t/data/stats.py:L201-224",
+   "blocked_by": null,
+   "data": {
+    "stale": [
+     "observation.state",
+     "observation.effort",
+     "action",
+     "timestamp"
+    ]
+   }
+  },
+  {
+   "id": "G6",
+   "level": "FAIL",
+   "passed": false,
+   "detail": "meta/modality.json not found",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L174-176",
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "G7",
+   "level": "FAIL",
+   "passed": false,
+   "detail": "data_path='data/chunk-{chunk_index:03d}/file-{file_index:03d}.parquet': placeholders ['chunk_index', 'file_index'] not supplied by the loader (has ['episode_chunk', 'episode_index']); would KeyError",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L198, L363-365",
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "G8",
+   "level": "FAIL",
+   "passed": true,
+   "detail": "chunks_size present",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L201",
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "G9",
+   "level": "FAIL",
+   "passed": false,
+   "detail": "video_path='videos/{video_key}/chunk-{chunk_index:03d}/file-{file_index:03d}.mp4': placeholders ['chunk_index', 'file_index'] not supplied by the loader (has ['episode_chunk', 'episode_index', 'video_key']); would KeyError",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L199, L434-438",
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "G10",
+   "level": "FAIL",
+   "passed": null,
+   "detail": "skipped: modality.json unavailable",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L426-431",
+   "blocked_by": "G6",
+   "data": {}
+  },
+  {
+   "id": "G11",
+   "level": "FAIL",
+   "passed": null,
+   "detail": "skipped: modality.json unavailable",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L325-342",
+   "blocked_by": "G6",
+   "data": {}
+  },
+  {
+   "id": "G12",
+   "level": "FAIL",
+   "passed": null,
+   "detail": "skipped: modality.json unavailable",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L60-63, L333-338, L517-531",
+   "blocked_by": "G6",
+   "data": {}
+  },
+  {
+   "id": "G13",
+   "level": "FAIL",
+   "passed": null,
+   "detail": "skipped: modality.json unavailable",
+   "source": "gr00t/data/dataset/lerobot_episode_loader.py:L376-381",
+   "blocked_by": "G6",
+   "data": {}
+  },
+  {
+   "id": "G14",
+   "level": "FAIL",
+   "passed": null,
+   "detail": "skipped: needs episodes.jsonl, data_path, chunks_size (G2 unresolved)",
+   "source": "scripts/repair_lerobot_metadata.py:L120-163",
+   "blocked_by": "G2",
+   "data": {}
+  },
+  {
+   "id": "G15",
+   "level": "FAIL",
+   "passed": true,
+   "detail": "13 features, all with dtype",
+   "source": "gr00t/data/stats.py:L255-256",
+   "blocked_by": null,
+   "data": {}
+  },
+  {
+   "id": "G16",
+   "level": "FAIL",
+   "passed": true,
+   "detail": "float dtype: ['action', 'observation.state']",
+   "source": "gr00t/data/stats.py:L256, gr00t/data/dataset/lerobot_episode_loader.py:L527",
+   "blocked_by": null,
+   "data": {}
+  }
+ ],
+ "stats_usable_as_is": false,
+ "groot_sha": "51d4c89f72fda44cbf77285c6a8114b52676b8a1",
+ "dataset": "lerobot/aloha_static_coffee",
+ "audit_utc": "2026-09-29T05:45:51+00:00",
+ "audit_date": "2026-09-29",
+ "huggingface_hub_version": "2.0.0",
+ "repo_sha": "b144896feb1f37398a862927b22cd3abdf005a6b",
+ "repo_last_modified": "2025-09-27T11:40:15+00:00",
+ "repo_gated": false,
+ "fetch": {
+  "n_requests": 7,
+  "bytes_downloaded": 17552,
+  "listing_entries_data_videos": 5,
+  "listing_complete": true,
+  "oversize_meta": [],
+  "wall_s": 1.24,
+  "authenticated": false
+ },
+ "size": {
+  "used_storage_bytes": 5994635135,
+  "parquet_bytes_listed": 3328560,
+  "video_bytes_listed": 1562779988
+ },
+ "stratum": "S-curated",
+ "backfill": {
+  "date": "2026-10-01",
+  "renamed_from": null,
+  "added_checks": [
+   "L11",
+   "L12",
+   "G15",
+   "G16"
+  ],
+  "inputs": "meta/info.json (+ modality.json) at repo_sha; L11 count from stored G2"
+ }
+}

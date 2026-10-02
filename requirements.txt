@@ -1,0 +1,4 @@
+# Python 3.11. The linter (conformance/checks.py, inspect_local.py) is stdlib-only.
+huggingface_hub>=2.0   # enumeration + Hub audit; 2.0.0 used for the 2026-09-29 snapshot
+pandas>=2.2            # report
+matplotlib>=3.8        # chart

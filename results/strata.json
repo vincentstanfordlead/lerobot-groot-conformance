@@ -1,0 +1,5741 @@
+{
+ "meta": {
+  "built_utc": "2026-10-02T02:14:48.870621+00:00",
+  "input": "results/dataset_list.json",
+  "input_snapshot_started_utc": "2026-09-29T05:29:27.337256+00:00",
+  "input_n": 78296,
+  "seed": 20260928,
+  "rng": "python random.Random(seed).sample(frame_sorted_by_id, len(frame)); take first n non-gated",
+  "curated_authors": [
+   "huggingfacevla",
+   "ipec-community",
+   "lerobot",
+   "nvidia",
+   "physical-intelligence"
+  ],
+  "curated_cap": null,
+  "sizes_requested": {
+   "S-popular": 100,
+   "S-recent": 100,
+   "S-tail": 200
+  },
+  "rules": {
+   "S-curated": "author.lower() in curated_authors, non-gated; census unless curated_cap",
+   "S-popular": "top n non-gated by downloads (30d) excl. S-curated; ties downloads_all_time desc, id asc",
+   "S-recent": "top n non-gated by last_modified excl. S-curated/S-popular; ties id asc",
+   "S-tail": "first n non-gated of a seeded permutation of all ids not in the three frames above"
+  },
+  "frame_sizes": {
+   "S-curated": 162,
+   "S-popular": 136,
+   "S-recent": 100,
+   "S-tail": 77898
+  },
+  "sample_sizes": {
+   "S-curated": 162,
+   "S-popular": 100,
+   "S-recent": 100,
+   "S-tail": 200
+  },
+  "sample_total": 562,
+  "frame_sha256": {
+   "S-curated": "573c4c761da320e9563d316123e8a6ac380922e0484450b874884d8dba2e88c1",
+   "S-popular": "5938a3b90cae12b607f6b944dc263bbc7e963355b1d31d32c9043b3cfdceaa35",
+   "S-recent": "9236a440bc2cabfc974a2b70a9df3baa9e2f8c1cd77ca6d2294f5906f707e241",
+   "S-tail": "ee53c28ae4bb029cfef317367ca837c4c3931759dd303110c979785446e7604f"
+  },
+  "sample_sha256": {
+   "S-curated": "573c4c761da320e9563d316123e8a6ac380922e0484450b874884d8dba2e88c1",
+   "S-popular": "81a2383e282e2aabc19d8ca6a287ca6a8680993e7db6722d772efbd545622ea8",
+   "S-recent": "9236a440bc2cabfc974a2b70a9df3baa9e2f8c1cd77ca6d2294f5906f707e241",
+   "S-tail": "4091f57c7661fdbb0948ebe81305c20c5a6d7a955c3e332771c6499ae297fd30"
+  },
+  "gated_policy": "excluded from every sample and replaced by the next non-gated id in that stratum's order (rank or seeded permutation); skipped ids stay in the frame, listed in gated_skipped",
+  "gated_skipped": {
+   "S-curated": [],
+   "S-popular": [
+    "RoboCOIN/AgiBot-g1_box_storage_cardboard_box_a",
+    "RoboCOIN/Cobot_Magic_pour_drink",
+    "RoboCOIN/AgiBot-g1_box_storage_part_a",
+    "RoboCOIN/AgiBot-g1_picks_up_parts_b",
+    "RoboCOIN/Agilex_Cobot_Magic_basket_storage_peach",
+    "RoboCOIN/AgiBot-g1_left_capture_part",
+    "RoboCOIN/Cobot_Magic_pull_zipper",
+    "RoboCOIN/AgiBot-g1_picks_up_battery_b",
+    "RoboCOIN/Cobot_Magic_make_hamburger",
+    "RoboCOIN/Cobot_Magic_clean_blackboard",
+    "RoboCOIN/Agilex_Cobot_Magic_fold_clothes",
+    "RoboCOIN/Agilex_Cobot_Magic_basket_storage_orange",
+    "RoboCOIN/Cobot_Magic_twist_bottle_cap",
+    "RoboCOIN/AgiBot-g1_storage_item_e",
+    "RoboCOIN/AgiBot-g1_box_storage_cardboard_box_c",
+    "RoboCOIN/Agilex_Cobot_Magic_basket_storage_egg_yolk_pastry",
+    "RoboCOIN/Cobot_Magic_take_out_the_bread",
+    "RoboCOIN/Cobot_Magic_steamer_storage_dumpling",
+    "RoboCOIN/Cobot_Magic_pot_storage_steamer",
+    "RoboCOIN/Cobot_Magic_desktop_organization",
+    "RoboCOIN/Cobot_Magic_the_plate_holds_the_vegetables",
+    "RoboCOIN/Cobot_Magic_turn_on_the_desk_lamp",
+    "RoboCOIN/Agilex_Cobot_Magic_plate_storage",
+    "RoboCOIN/RMC-AIDA-L_glasses_storage",
+    "RoboCOIN/Cobot_Magic_prepare_breakfast",
+    "RoboCOIN/Cobot_Magic_box_storage_chopsticks",
+    "RoboCOIN/Cobot_Magic_cut_banana",
+    "RoboCOIN/Cobot_Magic_take_out_a_pen_from_the_pen_holder",
+    "RoboCOIN/RMC-AIDA-L_food_packaging",
+    "RoboCOIN/RMC-AIDA-L_desktop_organization",
+    "RoboCOIN/Cobot_Magic_plate_storaje_baozi",
+    "RoboCOIN/Cobot_Magic_classification_of_tableware",
+    "RoboCOIN/RMC-AIDA-L_fold_shorts",
+    "RoboCOIN/Cobot_Magic_turn_off_the_desk_lamp",
+    "RoboCOIN/Agilex_Cobot_Magic_pour_rice",
+    "RoboCOIN/Cobot_Magic_food_packaging"
+   ],
+   "S-recent": [],
+   "S-tail": [
+    "Kaz55/dg5f_ur5e_bluecable60ep",
+    "Aiden82/so101_record_test",
+    "RoboCOIN/G1edu-u3_pick_cup_a",
+    "RoboCOIN/leju_robot_moving_parts_s",
+    "RoboCOIN/AIRBOT_MMK2_toy_storage",
+    "RoboCOIN/R1_Lite_move_the_position_of_the_rubiks_cube"
+   ]
+  },
+  "gated_in_sample": {
+   "S-curated": 0,
+   "S-popular": 0,
+   "S-recent": 0,
+   "S-tail": 0
+  }
+ },
+ "samples": {
+  "S-curated": [
+   {
+    "id": "HuggingFaceVLA/libero",
+    "author": "HuggingFaceVLA",
+    "downloads": 9008,
+    "downloads_all_time": 211991,
+    "likes": 71,
+    "last_modified": "2025-09-30T09:45:51+00:00",
+    "created_at": "2025-09-05T08:48:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "HuggingFaceVLA/metaworld_mt50",
+    "author": "HuggingFaceVLA",
+    "downloads": 519,
+    "downloads_all_time": 4259,
+    "likes": 0,
+    "last_modified": "2025-09-08T16:17:02+00:00",
+    "created_at": "2025-09-08T16:11:34+00:00",
+    "gated": false
+   },
+   {
+    "id": "HuggingFaceVLA/smol-libero",
+    "author": "HuggingFaceVLA",
+    "downloads": 220,
+    "downloads_all_time": 5597,
+    "likes": 1,
+    "last_modified": "2025-09-08T13:03:31+00:00",
+    "created_at": "2025-08-28T13:14:20+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/austin_buds_dataset_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 476,
+    "downloads_all_time": 7004,
+    "likes": 0,
+    "last_modified": "2025-03-07T11:28:25+00:00",
+    "created_at": "2025-02-20T12:36:59+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/austin_sailor_dataset_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 617,
+    "downloads_all_time": 12790,
+    "likes": 0,
+    "last_modified": "2025-03-07T11:34:20+00:00",
+    "created_at": "2025-02-17T19:50:52+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/austin_sirius_dataset_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 884,
+    "downloads_all_time": 19617,
+    "likes": 0,
+    "last_modified": "2025-03-07T11:39:12+00:00",
+    "created_at": "2025-02-18T11:35:09+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/bc_z_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 13622,
+    "downloads_all_time": 522746,
+    "likes": 1,
+    "last_modified": "2025-03-15T08:49:20+00:00",
+    "created_at": "2025-03-15T02:24:39+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/berkeley_autolab_ur5_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 1253,
+    "downloads_all_time": 27404,
+    "likes": 0,
+    "last_modified": "2025-03-07T11:45:18+00:00",
+    "created_at": "2025-02-21T13:32:22+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/berkeley_cable_routing_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 1250,
+    "downloads_all_time": 57171,
+    "likes": 0,
+    "last_modified": "2025-03-07T11:47:22+00:00",
+    "created_at": "2025-02-20T12:02:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/berkeley_fanuc_manipulation_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 707,
+    "downloads_all_time": 19120,
+    "likes": 1,
+    "last_modified": "2025-03-13T16:50:19+00:00",
+    "created_at": "2025-02-21T14:12:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/berkeley_mvp_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 463,
+    "downloads_all_time": 14892,
+    "likes": 0,
+    "last_modified": "2025-03-07T11:56:18+00:00",
+    "created_at": "2025-02-21T11:07:07+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/berkeley_rpt_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 881,
+    "downloads_all_time": 22920,
+    "likes": 0,
+    "last_modified": "2025-02-20T16:51:20+00:00",
+    "created_at": "2025-02-20T16:45:54+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/bridge_orig_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 151395,
+    "downloads_all_time": 5077968,
+    "likes": 27,
+    "last_modified": "2025-02-23T06:25:52+00:00",
+    "created_at": "2025-02-22T11:43:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/cmu_play_fusion_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 749,
+    "downloads_all_time": 20137,
+    "likes": 0,
+    "last_modified": "2025-03-07T11:58:27+00:00",
+    "created_at": "2025-02-20T16:07:51+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/cmu_stretch_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 397,
+    "downloads_all_time": 8980,
+    "likes": 0,
+    "last_modified": "2025-03-07T11:57:08+00:00",
+    "created_at": "2025-02-18T11:57:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/dlr_edan_shared_control_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 341,
+    "downloads_all_time": 6394,
+    "likes": 0,
+    "last_modified": "2025-03-07T11:58:41+00:00",
+    "created_at": "2025-02-17T17:49:48+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/dobbe_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 1474,
+    "downloads_all_time": 70678,
+    "likes": 1,
+    "last_modified": "2025-02-19T01:19:12+00:00",
+    "created_at": "2025-02-18T17:56:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/droid_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 215328,
+    "downloads_all_time": 5802358,
+    "likes": 53,
+    "last_modified": "2025-04-28T02:59:32+00:00",
+    "created_at": "2025-02-26T02:33:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/fmb_dataset_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 4717,
+    "downloads_all_time": 288540,
+    "likes": 1,
+    "last_modified": "2025-04-29T06:45:54+00:00",
+    "created_at": "2025-04-28T02:06:42+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/fractal20220817_data_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 125506,
+    "downloads_all_time": 2674421,
+    "likes": 13,
+    "last_modified": "2025-02-23T06:35:48+00:00",
+    "created_at": "2025-02-18T16:54:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/furniture_bench_dataset_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 4248,
+    "downloads_all_time": 108332,
+    "likes": 0,
+    "last_modified": "2025-02-19T01:52:26+00:00",
+    "created_at": "2025-02-18T13:54:38+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/iamlab_cmu_pickup_insert_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 972,
+    "downloads_all_time": 19807,
+    "likes": 0,
+    "last_modified": "2025-03-07T12:27:29+00:00",
+    "created_at": "2025-02-18T13:08:56+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/jaco_play_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 1174,
+    "downloads_all_time": 31684,
+    "likes": 0,
+    "last_modified": "2025-03-07T12:05:06+00:00",
+    "created_at": "2025-02-17T18:08:28+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/kuka_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 160031,
+    "downloads_all_time": 3803039,
+    "likes": 7,
+    "last_modified": "2025-02-24T15:19:23+00:00",
+    "created_at": "2025-02-23T11:12:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/language_table_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 173431,
+    "downloads_all_time": 7896490,
+    "likes": 29,
+    "last_modified": "2025-03-20T11:33:45+00:00",
+    "created_at": "2025-03-10T02:03:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/libero_90_no_noops_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 3608,
+    "downloads_all_time": 63611,
+    "likes": 3,
+    "last_modified": "2025-07-01T04:03:52+00:00",
+    "created_at": "2025-06-27T05:45:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/nyu_door_opening_surprising_effectiveness_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 607,
+    "downloads_all_time": 14773,
+    "likes": 0,
+    "last_modified": "2025-03-07T12:07:03+00:00",
+    "created_at": "2025-02-17T17:54:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/nyu_franka_play_dataset_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 528,
+    "downloads_all_time": 15956,
+    "likes": 0,
+    "last_modified": "2025-03-07T12:10:26+00:00",
+    "created_at": "2025-02-17T13:17:59+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/roboturk_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 1722,
+    "downloads_all_time": 40270,
+    "likes": 1,
+    "last_modified": "2025-03-07T17:02:03+00:00",
+    "created_at": "2025-02-17T18:33:43+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/stanford_hydra_dataset_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 1020,
+    "downloads_all_time": 23476,
+    "likes": 0,
+    "last_modified": "2025-03-07T12:16:13+00:00",
+    "created_at": "2025-02-21T17:02:55+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/taco_play_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 3094,
+    "downloads_all_time": 64083,
+    "likes": 0,
+    "last_modified": "2025-03-07T12:28:26+00:00",
+    "created_at": "2025-02-17T19:04:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/toto_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 1200,
+    "downloads_all_time": 26788,
+    "likes": 0,
+    "last_modified": "2025-03-07T12:24:23+00:00",
+    "created_at": "2025-02-17T19:37:58+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/ucsd_kitchen_dataset_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 253,
+    "downloads_all_time": 6820,
+    "likes": 0,
+    "last_modified": "2026-02-14T04:48:06+00:00",
+    "created_at": "2025-02-17T17:45:09+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/utaustin_mutex_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 1381,
+    "downloads_all_time": 41003,
+    "likes": 0,
+    "last_modified": "2025-03-07T12:33:22+00:00",
+    "created_at": "2025-02-21T16:39:20+00:00",
+    "gated": false
+   },
+   {
+    "id": "IPEC-COMMUNITY/viola_lerobot",
+    "author": "IPEC-COMMUNITY",
+    "downloads": 609,
+    "downloads_all_time": 9694,
+    "likes": 0,
+    "last_modified": "2025-03-07T12:30:14+00:00",
+    "created_at": "2025-02-17T18:06:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/SMPL_samples",
+    "author": "lerobot",
+    "downloads": 152,
+    "downloads_all_time": 367,
+    "likes": 0,
+    "last_modified": "2026-07-10T13:32:34+00:00",
+    "created_at": "2026-07-10T12:00:55+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/abc_130k_v3_smoke",
+    "author": "lerobot",
+    "downloads": 508,
+    "downloads_all_time": 1237,
+    "likes": 0,
+    "last_modified": "2026-06-24T12:59:03+00:00",
+    "created_at": "2026-06-24T12:58:32+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/abc_130k_v3_train",
+    "author": "lerobot",
+    "downloads": 3828,
+    "downloads_all_time": 35488,
+    "likes": 1,
+    "last_modified": "2026-06-29T21:35:05+00:00",
+    "created_at": "2026-06-29T20:42:53+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/abc_130k_v3_val",
+    "author": "lerobot",
+    "downloads": 724,
+    "downloads_all_time": 2047,
+    "likes": 0,
+    "last_modified": "2026-06-24T19:44:56+00:00",
+    "created_at": "2026-06-24T19:43:01+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_mobile_cabinet",
+    "author": "lerobot",
+    "downloads": 2515,
+    "downloads_all_time": 48837,
+    "likes": 13,
+    "last_modified": "2025-10-23T14:03:34+00:00",
+    "created_at": "2024-05-12T19:59:50+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_mobile_chair",
+    "author": "lerobot",
+    "downloads": 688,
+    "downloads_all_time": 13643,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:28+00:00",
+    "created_at": "2024-05-12T22:08:45+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_mobile_elevator",
+    "author": "lerobot",
+    "downloads": 553,
+    "downloads_all_time": 7415,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:29+00:00",
+    "created_at": "2024-05-12T22:49:22+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_mobile_shrimp",
+    "author": "lerobot",
+    "downloads": 1122,
+    "downloads_all_time": 16037,
+    "likes": 4,
+    "last_modified": "2026-03-10T18:44:51+00:00",
+    "created_at": "2024-05-12T07:41:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_mobile_shrimp_image",
+    "author": "lerobot",
+    "downloads": 226,
+    "downloads_all_time": 1178,
+    "likes": 0,
+    "last_modified": "2026-06-08T16:46:50+00:00",
+    "created_at": "2025-09-12T12:11:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_mobile_wash_pan",
+    "author": "lerobot",
+    "downloads": 597,
+    "downloads_all_time": 9654,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:21+00:00",
+    "created_at": "2024-05-12T17:16:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_mobile_wipe_wine",
+    "author": "lerobot",
+    "downloads": 983,
+    "downloads_all_time": 12046,
+    "likes": 3,
+    "last_modified": "2025-09-27T11:40:14+00:00",
+    "created_at": "2024-05-04T21:54:25+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_sim_insertion_human",
+    "author": "lerobot",
+    "downloads": 21787,
+    "downloads_all_time": 167134,
+    "likes": 13,
+    "last_modified": "2026-06-08T16:58:23+00:00",
+    "created_at": "2024-03-23T13:25:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_sim_insertion_human_image",
+    "author": "lerobot",
+    "downloads": 7594,
+    "downloads_all_time": 91676,
+    "likes": 1,
+    "last_modified": "2026-06-08T16:59:29+00:00",
+    "created_at": "2024-05-13T00:35:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_sim_insertion_scripted",
+    "author": "lerobot",
+    "downloads": 17992,
+    "downloads_all_time": 134225,
+    "likes": 5,
+    "last_modified": "2026-06-08T16:59:57+00:00",
+    "created_at": "2024-03-23T13:27:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_sim_insertion_scripted_image",
+    "author": "lerobot",
+    "downloads": 6793,
+    "downloads_all_time": 88172,
+    "likes": 2,
+    "last_modified": "2026-06-08T17:00:12+00:00",
+    "created_at": "2024-05-13T00:34:09+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_sim_transfer_cube_human",
+    "author": "lerobot",
+    "downloads": 26916,
+    "downloads_all_time": 231983,
+    "likes": 16,
+    "last_modified": "2026-06-08T17:00:42+00:00",
+    "created_at": "2024-03-23T13:27:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_sim_transfer_cube_human_image",
+    "author": "lerobot",
+    "downloads": 6239,
+    "downloads_all_time": 89661,
+    "likes": 2,
+    "last_modified": "2026-06-08T17:00:58+00:00",
+    "created_at": "2024-05-13T00:34:24+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_sim_transfer_cube_scripted",
+    "author": "lerobot",
+    "downloads": 11126,
+    "downloads_all_time": 115323,
+    "likes": 7,
+    "last_modified": "2026-06-08T19:59:29+00:00",
+    "created_at": "2024-03-23T13:28:37+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_sim_transfer_cube_scripted_image",
+    "author": "lerobot",
+    "downloads": 5981,
+    "downloads_all_time": 84974,
+    "likes": 0,
+    "last_modified": "2026-06-08T17:01:28+00:00",
+    "created_at": "2024-05-13T00:34:33+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_battery",
+    "author": "lerobot",
+    "downloads": 1196,
+    "downloads_all_time": 16601,
+    "likes": 1,
+    "last_modified": "2026-03-10T18:50:43+00:00",
+    "created_at": "2024-05-04T23:52:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_candy",
+    "author": "lerobot",
+    "downloads": 1122,
+    "downloads_all_time": 13971,
+    "likes": 4,
+    "last_modified": "2025-09-27T11:40:13+00:00",
+    "created_at": "2024-05-04T21:14:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_coffee",
+    "author": "lerobot",
+    "downloads": 1942,
+    "downloads_all_time": 22406,
+    "likes": 7,
+    "last_modified": "2025-09-27T11:40:15+00:00",
+    "created_at": "2024-05-05T00:21:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_coffee_new",
+    "author": "lerobot",
+    "downloads": 645,
+    "downloads_all_time": 12426,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:18+00:00",
+    "created_at": "2024-05-05T03:54:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_cups_open",
+    "author": "lerobot",
+    "downloads": 1635,
+    "downloads_all_time": 72341,
+    "likes": 12,
+    "last_modified": "2025-09-27T11:40:19+00:00",
+    "created_at": "2024-05-05T04:58:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_fork_pick_up",
+    "author": "lerobot",
+    "downloads": 669,
+    "downloads_all_time": 16894,
+    "likes": 3,
+    "last_modified": "2026-03-10T18:51:49+00:00",
+    "created_at": "2024-05-05T06:37:34+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_pingpong_test",
+    "author": "lerobot",
+    "downloads": 682,
+    "downloads_all_time": 9709,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:20+00:00",
+    "created_at": "2024-05-05T06:50:50+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_pro_pencil",
+    "author": "lerobot",
+    "downloads": 750,
+    "downloads_all_time": 10078,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:20+00:00",
+    "created_at": "2024-05-05T09:19:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_screw_driver",
+    "author": "lerobot",
+    "downloads": 895,
+    "downloads_all_time": 14050,
+    "likes": 3,
+    "last_modified": "2025-09-27T11:40:12+00:00",
+    "created_at": "2024-05-04T20:07:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_tape",
+    "author": "lerobot",
+    "downloads": 852,
+    "downloads_all_time": 19774,
+    "likes": 3,
+    "last_modified": "2026-03-09T12:44:47+00:00",
+    "created_at": "2024-05-04T21:41:20+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_thread_velcro",
+    "author": "lerobot",
+    "downloads": 891,
+    "downloads_all_time": 16356,
+    "likes": 2,
+    "last_modified": "2026-03-10T18:52:01+00:00",
+    "created_at": "2024-05-04T23:14:57+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_towel",
+    "author": "lerobot",
+    "downloads": 1083,
+    "downloads_all_time": 19570,
+    "likes": 3,
+    "last_modified": "2025-12-12T17:35:18+00:00",
+    "created_at": "2024-05-05T00:34:28+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_vinh_cup",
+    "author": "lerobot",
+    "downloads": 883,
+    "downloads_all_time": 16851,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:16+00:00",
+    "created_at": "2024-05-05T01:39:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_vinh_cup_left",
+    "author": "lerobot",
+    "downloads": 775,
+    "downloads_all_time": 16138,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:17+00:00",
+    "created_at": "2024-05-05T02:51:33+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/aloha_static_ziploc_slide",
+    "author": "lerobot",
+    "downloads": 696,
+    "downloads_all_time": 13717,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:17+00:00",
+    "created_at": "2024-05-05T03:35:56+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/asu_table_top",
+    "author": "lerobot",
+    "downloads": 454,
+    "downloads_all_time": 11108,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:37+00:00",
+    "created_at": "2024-07-22T16:20:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/austin_buds_dataset",
+    "author": "lerobot",
+    "downloads": 565,
+    "downloads_all_time": 13389,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:39+00:00",
+    "created_at": "2024-07-22T17:50:58+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/austin_sailor_dataset",
+    "author": "lerobot",
+    "downloads": 513,
+    "downloads_all_time": 14206,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:52+00:00",
+    "created_at": "2024-07-28T05:27:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/austin_sirius_dataset",
+    "author": "lerobot",
+    "downloads": 576,
+    "downloads_all_time": 29524,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:51+00:00",
+    "created_at": "2024-07-28T04:13:55+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/berkeley_autolab_ur5",
+    "author": "lerobot",
+    "downloads": 1010,
+    "downloads_all_time": 48046,
+    "likes": 5,
+    "last_modified": "2025-09-27T11:40:53+00:00",
+    "created_at": "2024-07-28T19:03:34+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/berkeley_cable_routing",
+    "author": "lerobot",
+    "downloads": 4200,
+    "downloads_all_time": 74975,
+    "likes": 1,
+    "last_modified": "2026-03-10T19:00:49+00:00",
+    "created_at": "2024-07-24T00:35:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/berkeley_fanuc_manipulation",
+    "author": "lerobot",
+    "downloads": 435,
+    "downloads_all_time": 16152,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:48+00:00",
+    "created_at": "2024-07-25T03:05:58+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/berkeley_gnm_cory_hall",
+    "author": "lerobot",
+    "downloads": 702,
+    "downloads_all_time": 113645,
+    "likes": 3,
+    "last_modified": "2026-03-09T12:57:31+00:00",
+    "created_at": "2024-08-23T12:03:50+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/berkeley_gnm_recon",
+    "author": "lerobot",
+    "downloads": 463,
+    "downloads_all_time": 133860,
+    "likes": 2,
+    "last_modified": "2026-03-10T19:02:31+00:00",
+    "created_at": "2024-07-27T15:58:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/berkeley_gnm_sac_son",
+    "author": "lerobot",
+    "downloads": 327,
+    "downloads_all_time": 46639,
+    "likes": 1,
+    "last_modified": "2026-03-09T13:08:51+00:00",
+    "created_at": "2024-07-24T22:07:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/berkeley_mvp",
+    "author": "lerobot",
+    "downloads": 421,
+    "downloads_all_time": 16190,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:56+00:00",
+    "created_at": "2024-07-29T00:19:55+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/berkeley_rpt",
+    "author": "lerobot",
+    "downloads": 445,
+    "downloads_all_time": 28458,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:59+00:00",
+    "created_at": "2024-08-22T02:43:42+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/cmu_franka_exploration_dataset",
+    "author": "lerobot",
+    "downloads": 391,
+    "downloads_all_time": 15308,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:45+00:00",
+    "created_at": "2024-07-23T09:46:45+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/cmu_play_fusion",
+    "author": "lerobot",
+    "downloads": 404,
+    "downloads_all_time": 17053,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:47+00:00",
+    "created_at": "2024-07-25T02:01:06+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/cmu_stretch",
+    "author": "lerobot",
+    "downloads": 425,
+    "downloads_all_time": 17143,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:37+00:00",
+    "created_at": "2024-07-22T15:50:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/columbia_cairlab_pusht_real",
+    "author": "lerobot",
+    "downloads": 496,
+    "downloads_all_time": 18688,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:46+00:00",
+    "created_at": "2024-07-23T23:14:24+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/conq_hose_manipulation",
+    "author": "lerobot",
+    "downloads": 321,
+    "downloads_all_time": 17679,
+    "likes": 1,
+    "last_modified": "2026-03-09T16:07:04+00:00",
+    "created_at": "2024-07-24T17:56:21+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/dlr_edan_shared_control",
+    "author": "lerobot",
+    "downloads": 417,
+    "downloads_all_time": 9785,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:41+00:00",
+    "created_at": "2024-07-22T18:30:32+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/dlr_sara_grid_clamp",
+    "author": "lerobot",
+    "downloads": 402,
+    "downloads_all_time": 8493,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:40+00:00",
+    "created_at": "2024-07-22T18:01:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/dlr_sara_pour",
+    "author": "lerobot",
+    "downloads": 388,
+    "downloads_all_time": 8905,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:41+00:00",
+    "created_at": "2024-07-22T18:18:01+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/droid_1.0.1",
+    "author": "lerobot",
+    "downloads": 16799,
+    "downloads_all_time": 170157,
+    "likes": 24,
+    "last_modified": "2026-06-25T16:48:17+00:00",
+    "created_at": "2025-07-16T16:28:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/droid_100",
+    "author": "lerobot",
+    "downloads": 2324,
+    "downloads_all_time": 34416,
+    "likes": 12,
+    "last_modified": "2025-09-27T11:40:59+00:00",
+    "created_at": "2024-08-07T15:17:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/example_hil_serl_dataset",
+    "author": "lerobot",
+    "downloads": 217,
+    "downloads_all_time": 1574,
+    "likes": 2,
+    "last_modified": "2025-09-27T10:36:39+00:00",
+    "created_at": "2025-09-27T10:36:34+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/fmb",
+    "author": "lerobot",
+    "downloads": 456,
+    "downloads_all_time": 69971,
+    "likes": 4,
+    "last_modified": "2026-03-09T16:08:28+00:00",
+    "created_at": "2024-08-06T07:53:23+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/full_folding",
+    "author": "lerobot",
+    "downloads": 1140,
+    "downloads_all_time": 34352,
+    "likes": 6,
+    "last_modified": "2026-02-17T19:59:18+00:00",
+    "created_at": "2026-02-08T21:48:53+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/high_quality_folding",
+    "author": "lerobot",
+    "downloads": 6971,
+    "downloads_all_time": 65280,
+    "likes": 6,
+    "last_modified": "2026-02-26T20:39:21+00:00",
+    "created_at": "2026-02-24T17:10:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/iamlab_cmu_pickup_insert",
+    "author": "lerobot",
+    "downloads": 383,
+    "downloads_all_time": 18303,
+    "likes": 3,
+    "last_modified": "2026-03-06T12:47:22+00:00",
+    "created_at": "2024-08-22T16:08:01+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/imperialcollege_sawyer_wrist_cam",
+    "author": "lerobot",
+    "downloads": 568,
+    "downloads_all_time": 11117,
+    "likes": 2,
+    "last_modified": "2026-03-10T15:55:57+00:00",
+    "created_at": "2024-07-23T09:22:43+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/jaco_play",
+    "author": "lerobot",
+    "downloads": 658,
+    "downloads_all_time": 43529,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:49+00:00",
+    "created_at": "2024-07-25T04:33:23+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/kaist_nonprehensile",
+    "author": "lerobot",
+    "downloads": 402,
+    "downloads_all_time": 11929,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:49+00:00",
+    "created_at": "2024-07-25T05:22:20+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/kitchen",
+    "author": "lerobot",
+    "downloads": 168,
+    "downloads_all_time": 1109,
+    "likes": 0,
+    "last_modified": "2026-06-08T17:03:25+00:00",
+    "created_at": "2025-09-12T13:10:37+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/koch_pick_place_1_lego",
+    "author": "lerobot",
+    "downloads": 292,
+    "downloads_all_time": 4461,
+    "likes": 2,
+    "last_modified": "2026-03-10T19:03:01+00:00",
+    "created_at": "2024-07-29T09:02:42+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/koch_pick_place_1_lego_raph",
+    "author": "lerobot",
+    "downloads": 211,
+    "downloads_all_time": 2161,
+    "likes": 1,
+    "last_modified": "2026-03-10T19:03:08+00:00",
+    "created_at": "2024-07-26T16:56:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/koch_pick_place_5_lego",
+    "author": "lerobot",
+    "downloads": 282,
+    "downloads_all_time": 3794,
+    "likes": 2,
+    "last_modified": "2026-03-10T19:03:16+00:00",
+    "created_at": "2024-07-29T10:15:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/koch_pick_place_5_lego_random_pose",
+    "author": "lerobot",
+    "downloads": 237,
+    "downloads_all_time": 3412,
+    "likes": 3,
+    "last_modified": "2026-03-10T19:03:30+00:00",
+    "created_at": "2024-07-29T09:31:58+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/libero",
+    "author": "lerobot",
+    "downloads": 14415,
+    "downloads_all_time": 64662,
+    "likes": 22,
+    "last_modified": "2026-06-08T19:44:37+00:00",
+    "created_at": "2026-01-16T17:41:32+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/libero_10",
+    "author": "lerobot",
+    "downloads": 994,
+    "downloads_all_time": 11553,
+    "likes": 5,
+    "last_modified": "2026-06-08T19:36:10+00:00",
+    "created_at": "2026-01-20T10:55:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/libero_10_image",
+    "author": "lerobot",
+    "downloads": 1895,
+    "downloads_all_time": 25571,
+    "likes": 6,
+    "last_modified": "2026-03-09T17:02:02+00:00",
+    "created_at": "2025-02-27T16:11:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/libero_10_subtask",
+    "author": "lerobot",
+    "downloads": 449,
+    "downloads_all_time": 1756,
+    "likes": 4,
+    "last_modified": "2026-01-29T17:46:24+00:00",
+    "created_at": "2026-01-29T17:46:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/libero_goal_image",
+    "author": "lerobot",
+    "downloads": 582,
+    "downloads_all_time": 13639,
+    "likes": 5,
+    "last_modified": "2026-03-09T17:17:05+00:00",
+    "created_at": "2025-02-27T16:54:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/libero_object_image",
+    "author": "lerobot",
+    "downloads": 1239,
+    "downloads_all_time": 17986,
+    "likes": 2,
+    "last_modified": "2026-03-09T17:37:49+00:00",
+    "created_at": "2025-02-27T17:05:27+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/libero_spatial_image",
+    "author": "lerobot",
+    "downloads": 1031,
+    "downloads_all_time": 20932,
+    "likes": 7,
+    "last_modified": "2026-03-09T18:06:17+00:00",
+    "created_at": "2025-02-27T16:26:14+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/metaworld_mt50",
+    "author": "lerobot",
+    "downloads": 6773,
+    "downloads_all_time": 84534,
+    "likes": 18,
+    "last_modified": "2026-09-24T13:42:32+00:00",
+    "created_at": "2025-02-19T13:49:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/metaworld_mt50_push_v2_image",
+    "author": "lerobot",
+    "downloads": 241,
+    "downloads_all_time": 3838,
+    "likes": 2,
+    "last_modified": "2026-03-09T18:09:48+00:00",
+    "created_at": "2025-02-13T15:31:33+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/nyu_door_opening_surprising_effectiveness",
+    "author": "lerobot",
+    "downloads": 443,
+    "downloads_all_time": 18101,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:51+00:00",
+    "created_at": "2024-07-28T00:12:37+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/nyu_franka_play_dataset",
+    "author": "lerobot",
+    "downloads": 652,
+    "downloads_all_time": 35068,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:42+00:00",
+    "created_at": "2024-07-22T20:24:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/nyu_rot_dataset",
+    "author": "lerobot",
+    "downloads": 358,
+    "downloads_all_time": 4877,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:35+00:00",
+    "created_at": "2024-07-22T12:43:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/outdoor-depth",
+    "author": "lerobot",
+    "downloads": 227,
+    "downloads_all_time": 524,
+    "likes": 0,
+    "last_modified": "2026-07-06T16:37:22+00:00",
+    "created_at": "2026-06-25T13:53:43+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/paris_street",
+    "author": "lerobot",
+    "downloads": 139,
+    "downloads_all_time": 875,
+    "likes": 0,
+    "last_modified": "2026-06-08T17:04:19+00:00",
+    "created_at": "2025-09-12T14:03:18+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/pusht",
+    "author": "lerobot",
+    "downloads": 21402,
+    "downloads_all_time": 303419,
+    "likes": 59,
+    "last_modified": "2025-09-27T11:40:03+00:00",
+    "created_at": "2024-03-23T13:23:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/pusht_image",
+    "author": "lerobot",
+    "downloads": 6523,
+    "downloads_all_time": 116418,
+    "likes": 11,
+    "last_modified": "2026-06-08T18:14:40+00:00",
+    "created_at": "2024-05-12T18:02:57+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/pusht_keypoints",
+    "author": "lerobot",
+    "downloads": 1684,
+    "downloads_all_time": 10524,
+    "likes": 1,
+    "last_modified": "2026-03-09T18:10:37+00:00",
+    "created_at": "2024-07-04T15:31:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/robocasa_target_human_unified",
+    "author": "lerobot",
+    "downloads": 1691,
+    "downloads_all_time": 13465,
+    "likes": 4,
+    "last_modified": "2026-04-16T14:27:49+00:00",
+    "created_at": "2026-04-16T14:13:06+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/robomme",
+    "author": "lerobot",
+    "downloads": 1367,
+    "downloads_all_time": 11535,
+    "likes": 2,
+    "last_modified": "2026-04-10T22:21:17+00:00",
+    "created_at": "2026-04-10T22:20:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/roboturk",
+    "author": "lerobot",
+    "downloads": 487,
+    "downloads_all_time": 29174,
+    "likes": 2,
+    "last_modified": "2026-03-09T18:18:19+00:00",
+    "created_at": "2024-08-05T14:30:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/stanford_hydra_dataset",
+    "author": "lerobot",
+    "downloads": 666,
+    "downloads_all_time": 21626,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:54+00:00",
+    "created_at": "2024-07-28T20:57:32+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/stanford_kuka_multimodal_dataset",
+    "author": "lerobot",
+    "downloads": 2428,
+    "downloads_all_time": 57452,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:41:00+00:00",
+    "created_at": "2024-08-22T13:18:00+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/stanford_robocook",
+    "author": "lerobot",
+    "downloads": 785,
+    "downloads_all_time": 114765,
+    "likes": 3,
+    "last_modified": "2025-09-27T11:40:57+00:00",
+    "created_at": "2024-07-29T22:43:38+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/svla_so100_pickplace",
+    "author": "lerobot",
+    "downloads": 4771,
+    "downloads_all_time": 28350,
+    "likes": 11,
+    "last_modified": "2026-07-16T16:17:47+00:00",
+    "created_at": "2025-05-12T13:37:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/svla_so100_sorting",
+    "author": "lerobot",
+    "downloads": 3274,
+    "downloads_all_time": 11022,
+    "likes": 12,
+    "last_modified": "2026-07-16T16:17:51+00:00",
+    "created_at": "2025-05-20T14:28:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/svla_so100_stacking",
+    "author": "lerobot",
+    "downloads": 3030,
+    "downloads_all_time": 14106,
+    "likes": 4,
+    "last_modified": "2026-07-16T16:17:55+00:00",
+    "created_at": "2025-05-20T13:27:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/svla_so101_pickplace",
+    "author": "lerobot",
+    "downloads": 3820,
+    "downloads_all_time": 33010,
+    "likes": 44,
+    "last_modified": "2025-09-27T11:25:41+00:00",
+    "created_at": "2025-05-23T12:31:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/taco_play",
+    "author": "lerobot",
+    "downloads": 2092,
+    "downloads_all_time": 94857,
+    "likes": 3,
+    "last_modified": "2025-09-27T11:41:01+00:00",
+    "created_at": "2024-08-23T05:04:33+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/tokyo_u_lsmo",
+    "author": "lerobot",
+    "downloads": 376,
+    "downloads_all_time": 7758,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:35+00:00",
+    "created_at": "2024-07-22T15:25:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/toto",
+    "author": "lerobot",
+    "downloads": 621,
+    "downloads_all_time": 26469,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:58+00:00",
+    "created_at": "2024-08-04T19:00:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/ucsd_kitchen_dataset",
+    "author": "lerobot",
+    "downloads": 608,
+    "downloads_all_time": 13591,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:39+00:00",
+    "created_at": "2024-07-22T17:17:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/ucsd_pick_and_place_dataset",
+    "author": "lerobot",
+    "downloads": 899,
+    "downloads_all_time": 43267,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:42+00:00",
+    "created_at": "2024-07-22T19:38:28+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/uiuc_d3field",
+    "author": "lerobot",
+    "downloads": 319,
+    "downloads_all_time": 9405,
+    "likes": 0,
+    "last_modified": "2026-03-10T16:57:53+00:00",
+    "created_at": "2024-07-24T03:39:14+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/umi_cup_in_the_wild",
+    "author": "lerobot",
+    "downloads": 725,
+    "downloads_all_time": 32365,
+    "likes": 6,
+    "last_modified": "2026-03-10T17:22:03+00:00",
+    "created_at": "2024-04-20T13:21:55+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/unitreeh1_fold_clothes",
+    "author": "lerobot",
+    "downloads": 323,
+    "downloads_all_time": 8656,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:34+00:00",
+    "created_at": "2024-06-14T16:51:35+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/unitreeh1_rearrange_objects",
+    "author": "lerobot",
+    "downloads": 204,
+    "downloads_all_time": 7585,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:32+00:00",
+    "created_at": "2024-06-14T15:48:53+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/unitreeh1_two_robot_greeting",
+    "author": "lerobot",
+    "downloads": 281,
+    "downloads_all_time": 5251,
+    "likes": 0,
+    "last_modified": "2025-09-27T11:40:33+00:00",
+    "created_at": "2024-06-14T15:49:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/unitreeh1_warehouse",
+    "author": "lerobot",
+    "downloads": 326,
+    "downloads_all_time": 5533,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:33+00:00",
+    "created_at": "2024-06-14T15:55:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/usc_cloth_sim",
+    "author": "lerobot",
+    "downloads": 717,
+    "downloads_all_time": 31758,
+    "likes": 2,
+    "last_modified": "2026-03-10T15:59:10+00:00",
+    "created_at": "2024-08-23T23:14:45+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/utaustin_mutex",
+    "author": "lerobot",
+    "downloads": 821,
+    "downloads_all_time": 38916,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:54+00:00",
+    "created_at": "2024-07-28T19:49:07+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/utokyo_pr2_opening_fridge",
+    "author": "lerobot",
+    "downloads": 487,
+    "downloads_all_time": 11631,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:36+00:00",
+    "created_at": "2024-07-22T15:28:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/utokyo_pr2_tabletop_manipulation",
+    "author": "lerobot",
+    "downloads": 612,
+    "downloads_all_time": 16850,
+    "likes": 5,
+    "last_modified": "2025-09-27T11:40:38+00:00",
+    "created_at": "2024-07-22T16:53:16+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/utokyo_saytap",
+    "author": "lerobot",
+    "downloads": 415,
+    "downloads_all_time": 7101,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:44+00:00",
+    "created_at": "2024-07-23T09:09:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/utokyo_xarm_bimanual",
+    "author": "lerobot",
+    "downloads": 536,
+    "downloads_all_time": 11128,
+    "likes": 3,
+    "last_modified": "2025-09-27T11:40:45+00:00",
+    "created_at": "2024-07-23T09:33:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/utokyo_xarm_pick_and_place",
+    "author": "lerobot",
+    "downloads": 591,
+    "downloads_all_time": 14192,
+    "likes": 1,
+    "last_modified": "2026-03-10T09:51:04+00:00",
+    "created_at": "2024-07-23T09:57:01+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/vlabench_unified",
+    "author": "lerobot",
+    "downloads": 471,
+    "downloads_all_time": 2734,
+    "likes": 1,
+    "last_modified": "2026-04-21T09:55:47+00:00",
+    "created_at": "2026-04-16T07:44:58+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/xarm_lift_medium",
+    "author": "lerobot",
+    "downloads": 6984,
+    "downloads_all_time": 125634,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:08+00:00",
+    "created_at": "2024-03-25T11:20:50+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/xarm_lift_medium_image",
+    "author": "lerobot",
+    "downloads": 1088,
+    "downloads_all_time": 39999,
+    "likes": 2,
+    "last_modified": "2026-06-08T18:18:45+00:00",
+    "created_at": "2024-05-12T18:07:00+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/xarm_lift_medium_replay",
+    "author": "lerobot",
+    "downloads": 2163,
+    "downloads_all_time": 56056,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:09+00:00",
+    "created_at": "2024-04-19T17:47:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/xarm_lift_medium_replay_image",
+    "author": "lerobot",
+    "downloads": 1011,
+    "downloads_all_time": 37802,
+    "likes": 1,
+    "last_modified": "2026-06-08T18:22:39+00:00",
+    "created_at": "2024-05-12T18:08:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/xarm_push_medium",
+    "author": "lerobot",
+    "downloads": 2405,
+    "downloads_all_time": 56420,
+    "likes": 1,
+    "last_modified": "2025-09-27T11:40:10+00:00",
+    "created_at": "2024-04-19T17:47:57+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/xarm_push_medium_image",
+    "author": "lerobot",
+    "downloads": 1008,
+    "downloads_all_time": 38300,
+    "likes": 1,
+    "last_modified": "2026-06-08T18:23:21+00:00",
+    "created_at": "2024-05-12T18:09:27+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/xarm_push_medium_replay",
+    "author": "lerobot",
+    "downloads": 1695,
+    "downloads_all_time": 57322,
+    "likes": 2,
+    "last_modified": "2025-09-27T11:40:10+00:00",
+    "created_at": "2024-04-19T17:48:45+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/xarm_push_medium_replay_image",
+    "author": "lerobot",
+    "downloads": 959,
+    "downloads_all_time": 39399,
+    "likes": 2,
+    "last_modified": "2026-06-08T18:24:09+00:00",
+    "created_at": "2024-05-12T18:10:23+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot/xvla-soft-fold",
+    "author": "lerobot",
+    "downloads": 654,
+    "downloads_all_time": 8105,
+    "likes": 7,
+    "last_modified": "2025-12-07T10:05:41+00:00",
+    "created_at": "2025-11-23T23:32:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "nvidia/Arena-GR1-Manipulation-Task-v3",
+    "author": "nvidia",
+    "downloads": 154,
+    "downloads_all_time": 683,
+    "likes": 0,
+    "last_modified": "2025-12-16T10:46:06+00:00",
+    "created_at": "2025-12-12T14:55:54+00:00",
+    "gated": false
+   },
+   {
+    "id": "physical-intelligence/aloha_pen_uncap_diverse",
+    "author": "physical-intelligence",
+    "downloads": 1139,
+    "downloads_all_time": 19990,
+    "likes": 8,
+    "last_modified": "2025-02-14T19:40:28+00:00",
+    "created_at": "2025-02-02T02:20:35+00:00",
+    "gated": false
+   },
+   {
+    "id": "physical-intelligence/libero",
+    "author": "physical-intelligence",
+    "downloads": 40749,
+    "downloads_all_time": 443899,
+    "likes": 92,
+    "last_modified": "2025-02-02T20:40:22+00:00",
+    "created_at": "2025-02-01T10:42:45+00:00",
+    "gated": false
+   }
+  ],
+  "S-popular": [
+   {
+    "id": "cadene/droid_1.0.1",
+    "author": "cadene",
+    "downloads": 225132,
+    "downloads_all_time": 4879234,
+    "likes": 57,
+    "last_modified": "2025-03-20T13:14:51+00:00",
+    "created_at": "2025-03-17T13:55:45+00:00",
+    "gated": false
+   },
+   {
+    "id": "cadene/agibot_alpha_v30",
+    "author": "cadene",
+    "downloads": 68040,
+    "downloads_all_time": 306739,
+    "likes": 2,
+    "last_modified": "2025-05-15T12:19:19+00:00",
+    "created_at": "2025-05-11T01:19:18+00:00",
+    "gated": false
+   },
+   {
+    "id": "yaak-ai/L2D",
+    "author": "yaak-ai",
+    "downloads": 66103,
+    "downloads_all_time": 589976,
+    "likes": 53,
+    "last_modified": "2026-05-26T10:14:30+00:00",
+    "created_at": "2025-03-05T10:27:23+00:00",
+    "gated": false
+   },
+   {
+    "id": "cadene/droid",
+    "author": "cadene",
+    "downloads": 61272,
+    "downloads_all_time": 3891382,
+    "likes": 29,
+    "last_modified": "2025-02-27T14:00:10+00:00",
+    "created_at": "2025-02-22T13:32:51+00:00",
+    "gated": false
+   },
+   {
+    "id": "zekaiwang/trex_dataset",
+    "author": "zekaiwang",
+    "downloads": 34559,
+    "downloads_all_time": 292593,
+    "likes": 30,
+    "last_modified": "2026-06-16T09:09:32+00:00",
+    "created_at": "2026-06-11T22:41:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "configinc/HABIT",
+    "author": "configinc",
+    "downloads": 28488,
+    "downloads_all_time": 42854,
+    "likes": 7,
+    "last_modified": "2026-07-01T13:57:58+00:00",
+    "created_at": "2026-07-01T13:06:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "allenai/MolmoAct2-BimanualYAM-Dataset",
+    "author": "allenai",
+    "downloads": 27217,
+    "downloads_all_time": 119884,
+    "likes": 11,
+    "last_modified": "2026-06-11T07:37:47+00:00",
+    "created_at": "2026-05-10T16:16:25+00:00",
+    "gated": false
+   },
+   {
+    "id": "behavior-1k/2025-challenge-demos",
+    "author": "behavior-1k",
+    "downloads": 26232,
+    "downloads_all_time": 1709323,
+    "likes": 38,
+    "last_modified": "2025-12-02T06:22:23+00:00",
+    "created_at": "2025-08-22T05:07:37+00:00",
+    "gated": false
+   },
+   {
+    "id": "Qu3tzal/bridgev2",
+    "author": "Qu3tzal",
+    "downloads": 25757,
+    "downloads_all_time": 396819,
+    "likes": 2,
+    "last_modified": "2025-05-15T01:26:30+00:00",
+    "created_at": "2025-05-12T22:37:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "saaduddinM/rbo_oxe_base_language_table_lerobot",
+    "author": "saaduddinM",
+    "downloads": 20394,
+    "downloads_all_time": 146957,
+    "likes": 0,
+    "last_modified": "2025-08-14T21:15:14+00:00",
+    "created_at": "2025-08-13T21:49:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "BitRobot/HIW-500-LeRobot",
+    "author": "BitRobot",
+    "downloads": 14875,
+    "downloads_all_time": 91342,
+    "likes": 24,
+    "last_modified": "2026-07-17T07:54:23+00:00",
+    "created_at": "2026-06-09T08:46:12+00:00",
+    "gated": false
+   },
+   {
+    "id": "TacVerse/opendata",
+    "author": "TacVerse",
+    "downloads": 13337,
+    "downloads_all_time": 13337,
+    "likes": 7,
+    "last_modified": "2026-09-17T10:51:33+00:00",
+    "created_at": "2026-09-08T07:20:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "EgoSteer/EgoSteer-RealWorld",
+    "author": "EgoSteer",
+    "downloads": 12792,
+    "downloads_all_time": 12792,
+    "likes": 8,
+    "last_modified": "2026-09-19T03:07:54+00:00",
+    "created_at": "2026-09-15T06:19:43+00:00",
+    "gated": false
+   },
+   {
+    "id": "brandonyang/artem-pour-water",
+    "author": "brandonyang",
+    "downloads": 12424,
+    "downloads_all_time": 12424,
+    "likes": 0,
+    "last_modified": "2026-09-22T01:49:59+00:00",
+    "created_at": "2026-09-01T18:42:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "ember-lab-berkeley/robocasa365-pretrain-mg",
+    "author": "ember-lab-berkeley",
+    "downloads": 11914,
+    "downloads_all_time": 33255,
+    "likes": 2,
+    "last_modified": "2026-05-11T02:58:06+00:00",
+    "created_at": "2026-05-08T03:46:00+00:00",
+    "gated": false
+   },
+   {
+    "id": "ryanqian1994/bridge_v2_lerobot",
+    "author": "ryanqian1994",
+    "downloads": 11418,
+    "downloads_all_time": 303801,
+    "likes": 1,
+    "last_modified": "2025-12-31T05:50:47+00:00",
+    "created_at": "2025-12-31T05:50:45+00:00",
+    "gated": false
+   },
+   {
+    "id": "ZZJAsher/wuji_ego_mint",
+    "author": "ZZJAsher",
+    "downloads": 11241,
+    "downloads_all_time": 15568,
+    "likes": 3,
+    "last_modified": "2026-08-31T03:06:30+00:00",
+    "created_at": "2026-08-16T14:25:00+00:00",
+    "gated": false
+   },
+   {
+    "id": "saaduddinM/rbo_oxe_base_droid_lerobot",
+    "author": "saaduddinM",
+    "downloads": 10568,
+    "downloads_all_time": 40051,
+    "likes": 0,
+    "last_modified": "2025-08-13T09:21:44+00:00",
+    "created_at": "2025-08-13T02:59:33+00:00",
+    "gated": false
+   },
+   {
+    "id": "brandonyang/artem-fold-towel",
+    "author": "brandonyang",
+    "downloads": 9788,
+    "downloads_all_time": 25431,
+    "likes": 0,
+    "last_modified": "2026-08-29T17:31:27+00:00",
+    "created_at": "2026-08-20T02:46:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "jesbu1/bridge_v2_lerobot",
+    "author": "jesbu1",
+    "downloads": 9215,
+    "downloads_all_time": 308280,
+    "likes": 1,
+    "last_modified": "2025-06-04T03:43:27+00:00",
+    "created_at": "2025-06-03T23:42:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "ryanqian1994/bridge_orig_lerobot",
+    "author": "ryanqian1994",
+    "downloads": 7440,
+    "downloads_all_time": 253182,
+    "likes": 0,
+    "last_modified": "2025-12-31T01:54:07+00:00",
+    "created_at": "2025-12-31T01:54:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "Dario-Shit4/behavior-1k_2025-challenge-demos",
+    "author": "Dario-Shit4",
+    "downloads": 7437,
+    "downloads_all_time": 23830,
+    "likes": 0,
+    "last_modified": "2026-07-17T06:06:46+00:00",
+    "created_at": "2026-07-16T11:41:16+00:00",
+    "gated": false
+   },
+   {
+    "id": "elonelonelon/2025-challenge-demos",
+    "author": "elonelonelon",
+    "downloads": 6637,
+    "downloads_all_time": 154176,
+    "likes": 1,
+    "last_modified": "2025-12-12T01:32:34+00:00",
+    "created_at": "2025-12-12T01:32:00+00:00",
+    "gated": false
+   },
+   {
+    "id": "periphanes/droid_filter_lerobot",
+    "author": "periphanes",
+    "downloads": 5708,
+    "downloads_all_time": 35394,
+    "likes": 0,
+    "last_modified": "2026-06-26T04:56:40+00:00",
+    "created_at": "2026-06-25T16:11:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "jnogga/droid_failure",
+    "author": "jnogga",
+    "downloads": 5401,
+    "downloads_all_time": 17341,
+    "likes": 0,
+    "last_modified": "2026-02-22T22:51:28+00:00",
+    "created_at": "2026-02-20T10:42:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "ankile/real01b-routing-d1-umirel-lineage-15arm-heldout-sobol50-s2026090701",
+    "author": "ankile",
+    "downloads": 5350,
+    "downloads_all_time": 5350,
+    "likes": 0,
+    "last_modified": "2026-09-15T07:50:45+00:00",
+    "created_at": "2026-09-07T21:51:21+00:00",
+    "gated": false
+   },
+   {
+    "id": "sii-rhos-ai/vifailback-dataset-lerobot",
+    "author": "sii-rhos-ai",
+    "downloads": 5185,
+    "downloads_all_time": 5249,
+    "likes": 3,
+    "last_modified": "2026-08-28T17:47:56+00:00",
+    "created_at": "2026-08-28T16:15:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "macrodata/aloha_static_battery_ep000_004",
+    "author": "macrodata",
+    "downloads": 5102,
+    "downloads_all_time": 12068,
+    "likes": 0,
+    "last_modified": "2026-03-15T11:13:50+00:00",
+    "created_at": "2026-03-15T11:12:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "Biscue5/egoscaler-v2",
+    "author": "Biscue5",
+    "downloads": 5083,
+    "downloads_all_time": 51826,
+    "likes": 1,
+    "last_modified": "2026-05-24T04:26:46+00:00",
+    "created_at": "2026-05-22T08:35:06+00:00",
+    "gated": false
+   },
+   {
+    "id": "macrodata/aloha_static_battery_ep005_009",
+    "author": "macrodata",
+    "downloads": 5063,
+    "downloads_all_time": 12113,
+    "likes": 0,
+    "last_modified": "2026-03-15T11:14:54+00:00",
+    "created_at": "2026-03-15T11:13:51+00:00",
+    "gated": false
+   },
+   {
+    "id": "Joocjun/GR1-Tabletop-NextState-1000x24",
+    "author": "Joocjun",
+    "downloads": 4938,
+    "downloads_all_time": 29972,
+    "likes": 0,
+    "last_modified": "2026-04-09T08:17:06+00:00",
+    "created_at": "2026-04-09T04:48:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "ygtxr1997/bc_z_lerobot",
+    "author": "ygtxr1997",
+    "downloads": 4725,
+    "downloads_all_time": 107737,
+    "likes": 0,
+    "last_modified": "2026-01-14T07:43:15+00:00",
+    "created_at": "2026-01-14T07:43:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "ember-lab-berkeley/robocasa365-pretrain-composite",
+    "author": "ember-lab-berkeley",
+    "downloads": 4293,
+    "downloads_all_time": 18737,
+    "likes": 2,
+    "last_modified": "2026-05-11T02:37:38+00:00",
+    "created_at": "2026-05-08T03:03:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "REBOOT26/rca_remove",
+    "author": "REBOOT26",
+    "downloads": 3529,
+    "downloads_all_time": 4086,
+    "likes": 0,
+    "last_modified": "2026-05-03T03:26:42+00:00",
+    "created_at": "2026-05-03T03:15:22+00:00",
+    "gated": false
+   },
+   {
+    "id": "YOLO2431/kitchen_rack_combo_v2",
+    "author": "YOLO2431",
+    "downloads": 3454,
+    "downloads_all_time": 4978,
+    "likes": 0,
+    "last_modified": "2026-06-25T22:02:43+00:00",
+    "created_at": "2026-06-25T14:18:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "mickeykang/dvla-place7obj-roll-250hz-events-250fps-delta-trim",
+    "author": "mickeykang",
+    "downloads": 3372,
+    "downloads_all_time": 5323,
+    "likes": 0,
+    "last_modified": "2026-08-04T13:08:56+00:00",
+    "created_at": "2026-07-31T08:28:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Agilex_Cobot_Magic_heat_burger",
+    "author": "RoboCOIN",
+    "downloads": 3292,
+    "downloads_all_time": 20927,
+    "likes": 0,
+    "last_modified": "2026-04-02T11:04:13+00:00",
+    "created_at": "2026-04-02T07:31:20+00:00",
+    "gated": false
+   },
+   {
+    "id": "REBOOT26/nema1-15-plug_install",
+    "author": "REBOOT26",
+    "downloads": 3244,
+    "downloads_all_time": 3684,
+    "likes": 0,
+    "last_modified": "2026-05-02T21:47:40+00:00",
+    "created_at": "2026-05-02T20:37:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "YOLO2431/kitchen_rack_combo",
+    "author": "YOLO2431",
+    "downloads": 3122,
+    "downloads_all_time": 5608,
+    "likes": 0,
+    "last_modified": "2026-06-16T21:44:52+00:00",
+    "created_at": "2026-06-16T21:11:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "Saberlve/bridgev2",
+    "author": "Saberlve",
+    "downloads": 3054,
+    "downloads_all_time": 743057,
+    "likes": 0,
+    "last_modified": "2026-01-07T09:54:20+00:00",
+    "created_at": "2026-01-07T09:54:16+00:00",
+    "gated": false
+   },
+   {
+    "id": "latency-sensitive-bench/benchmark-datasets",
+    "author": "latency-sensitive-bench",
+    "downloads": 2984,
+    "downloads_all_time": 2984,
+    "likes": 0,
+    "last_modified": "2026-09-20T03:39:11+00:00",
+    "created_at": "2026-09-03T14:28:45+00:00",
+    "gated": false
+   },
+   {
+    "id": "REBOOT26/usb-c_remove",
+    "author": "REBOOT26",
+    "downloads": 2858,
+    "downloads_all_time": 4713,
+    "likes": 0,
+    "last_modified": "2026-05-01T23:47:29+00:00",
+    "created_at": "2026-05-01T23:35:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Unitree_G1edu_u3_place_bread",
+    "author": "RoboCOIN",
+    "downloads": 2694,
+    "downloads_all_time": 6397,
+    "likes": 0,
+    "last_modified": "2026-07-16T00:14:14+00:00",
+    "created_at": "2026-07-15T21:37:42+00:00",
+    "gated": false
+   },
+   {
+    "id": "REBOOT26/rca_recovery_install",
+    "author": "REBOOT26",
+    "downloads": 2635,
+    "downloads_all_time": 3015,
+    "likes": 0,
+    "last_modified": "2026-05-04T02:19:11+00:00",
+    "created_at": "2026-05-04T02:06:45+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_package_fruit",
+    "author": "RoboCOIN",
+    "downloads": 2593,
+    "downloads_all_time": 9221,
+    "likes": 0,
+    "last_modified": "2026-07-15T15:21:37+00:00",
+    "created_at": "2026-07-02T11:14:27+00:00",
+    "gated": false
+   },
+   {
+    "id": "yinchenghust/libero_cot",
+    "author": "yinchenghust",
+    "downloads": 2553,
+    "downloads_all_time": 12994,
+    "likes": 0,
+    "last_modified": "2026-04-22T08:06:47+00:00",
+    "created_at": "2025-05-11T23:54:57+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Agilex_Cobot_Magic_heat_sandwich",
+    "author": "RoboCOIN",
+    "downloads": 2539,
+    "downloads_all_time": 11595,
+    "likes": 0,
+    "last_modified": "2026-04-02T12:29:31+00:00",
+    "created_at": "2026-04-02T11:34:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "LeCAR-Lab/Wanda",
+    "author": "LeCAR-Lab",
+    "downloads": 2508,
+    "downloads_all_time": 21935,
+    "likes": 3,
+    "last_modified": "2026-07-20T23:32:26+00:00",
+    "created_at": "2026-07-12T03:07:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Agilex_Cobot_Magic_place_towel_flat",
+    "author": "RoboCOIN",
+    "downloads": 2493,
+    "downloads_all_time": 18905,
+    "likes": 0,
+    "last_modified": "2026-04-02T13:57:19+00:00",
+    "created_at": "2026-04-02T12:45:42+00:00",
+    "gated": false
+   },
+   {
+    "id": "REBOOT26/16mm-cylinder_recovery_install",
+    "author": "REBOOT26",
+    "downloads": 2416,
+    "downloads_all_time": 2887,
+    "likes": 0,
+    "last_modified": "2026-05-04T19:59:29+00:00",
+    "created_at": "2026-05-04T18:42:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_package_fruit_2",
+    "author": "RoboCOIN",
+    "downloads": 2399,
+    "downloads_all_time": 6142,
+    "likes": 0,
+    "last_modified": "2026-07-16T03:07:04+00:00",
+    "created_at": "2026-07-16T03:04:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "adityx23/icl-dataset",
+    "author": "adityx23",
+    "downloads": 2241,
+    "downloads_all_time": 3528,
+    "likes": 0,
+    "last_modified": "2026-08-20T18:22:16+00:00",
+    "created_at": "2026-08-06T00:43:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "lance-format/agibotworld-beta-rgb-lance",
+    "author": "lance-format",
+    "downloads": 2241,
+    "downloads_all_time": 2241,
+    "likes": 0,
+    "last_modified": "2026-09-03T09:53:56+00:00",
+    "created_at": "2026-08-31T09:19:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "unitreerobotics/G1_Dex1_Stack_Block",
+    "author": "unitreerobotics",
+    "downloads": 2223,
+    "downloads_all_time": 13300,
+    "likes": 6,
+    "last_modified": "2026-09-16T22:14:10+00:00",
+    "created_at": "2026-01-28T07:13:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_insert_hose_into_hole",
+    "author": "RoboCOIN",
+    "downloads": 2219,
+    "downloads_all_time": 9339,
+    "likes": 0,
+    "last_modified": "2026-07-02T17:20:29+00:00",
+    "created_at": "2026-07-02T16:51:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "allenai/MolmoAct2-DROID-Dataset",
+    "author": "allenai",
+    "downloads": 2170,
+    "downloads_all_time": 28566,
+    "likes": 4,
+    "last_modified": "2026-05-05T14:29:51+00:00",
+    "created_at": "2026-05-04T16:52:28+00:00",
+    "gated": false
+   },
+   {
+    "id": "zcyqyq/dgn2_2",
+    "author": "zcyqyq",
+    "downloads": 2099,
+    "downloads_all_time": 16322,
+    "likes": 0,
+    "last_modified": "2025-10-20T06:22:28+00:00",
+    "created_at": "2025-10-10T06:18:53+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Unitree_G1edu_u3_place_bread_1",
+    "author": "RoboCOIN",
+    "downloads": 2097,
+    "downloads_all_time": 5445,
+    "likes": 0,
+    "last_modified": "2026-07-15T12:21:03+00:00",
+    "created_at": "2026-07-15T09:45:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_sort_garbage_bag_and_box",
+    "author": "RoboCOIN",
+    "downloads": 2090,
+    "downloads_all_time": 10106,
+    "likes": 0,
+    "last_modified": "2026-06-26T08:22:39+00:00",
+    "created_at": "2026-06-08T01:54:18+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_store_toys_5",
+    "author": "RoboCOIN",
+    "downloads": 2089,
+    "downloads_all_time": 11136,
+    "likes": 0,
+    "last_modified": "2026-07-06T09:56:36+00:00",
+    "created_at": "2026-07-01T06:04:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "OpenDriveLab-org/Kai0",
+    "author": "OpenDriveLab-org",
+    "downloads": 2085,
+    "downloads_all_time": 184207,
+    "likes": 35,
+    "last_modified": "2026-03-05T08:03:22+00:00",
+    "created_at": "2026-01-18T09:09:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "dunnolab/so-combined-eng",
+    "author": "dunnolab",
+    "downloads": 2072,
+    "downloads_all_time": 30847,
+    "likes": 6,
+    "last_modified": "2025-11-15T14:59:06+00:00",
+    "created_at": "2025-11-14T13:21:09+00:00",
+    "gated": false
+   },
+   {
+    "id": "Yotofu/so100_sweeper_shoes",
+    "author": "Yotofu",
+    "downloads": 2060,
+    "downloads_all_time": 4590,
+    "likes": 1,
+    "last_modified": "2025-03-28T04:21:15+00:00",
+    "created_at": "2025-03-27T13:22:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_stamp_document",
+    "author": "RoboCOIN",
+    "downloads": 2052,
+    "downloads_all_time": 10403,
+    "likes": 0,
+    "last_modified": "2026-06-26T08:22:45+00:00",
+    "created_at": "2026-06-03T21:30:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Unitree_G1edu_u3_pour_drink",
+    "author": "RoboCOIN",
+    "downloads": 2034,
+    "downloads_all_time": 4494,
+    "likes": 0,
+    "last_modified": "2026-07-15T17:59:04+00:00",
+    "created_at": "2026-07-15T15:25:14+00:00",
+    "gated": false
+   },
+   {
+    "id": "Hannibal52Barca/icl-dataset-joint-space",
+    "author": "Hannibal52Barca",
+    "downloads": 2023,
+    "downloads_all_time": 2023,
+    "likes": 0,
+    "last_modified": "2026-09-09T23:31:59+00:00",
+    "created_at": "2026-09-07T23:56:24+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot-data-collection/dagger_final_1_21",
+    "author": "lerobot-data-collection",
+    "downloads": 2001,
+    "downloads_all_time": 14455,
+    "likes": 0,
+    "last_modified": "2026-02-13T14:44:38+00:00",
+    "created_at": "2026-02-13T14:44:33+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_test_data_cable",
+    "author": "RoboCOIN",
+    "downloads": 1995,
+    "downloads_all_time": 9576,
+    "likes": 0,
+    "last_modified": "2026-06-26T08:22:54+00:00",
+    "created_at": "2026-06-04T04:04:42+00:00",
+    "gated": false
+   },
+   {
+    "id": "infope/robocasa",
+    "author": "infope",
+    "downloads": 1934,
+    "downloads_all_time": 1934,
+    "likes": 0,
+    "last_modified": "2026-09-22T07:10:27+00:00",
+    "created_at": "2026-09-10T05:10:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_insert_water_pipe",
+    "author": "RoboCOIN",
+    "downloads": 1931,
+    "downloads_all_time": 9383,
+    "likes": 0,
+    "last_modified": "2026-06-26T08:22:12+00:00",
+    "created_at": "2026-06-03T18:47:45+00:00",
+    "gated": false
+   },
+   {
+    "id": "Hannibal52Barca/icl-dataset-end-effector-space",
+    "author": "Hannibal52Barca",
+    "downloads": 1923,
+    "downloads_all_time": 1923,
+    "likes": 0,
+    "last_modified": "2026-09-09T23:30:36+00:00",
+    "created_at": "2026-09-09T22:44:06+00:00",
+    "gated": false
+   },
+   {
+    "id": "aractingi/droid_1.0.1_test",
+    "author": "aractingi",
+    "downloads": 1905,
+    "downloads_all_time": 11231,
+    "likes": 0,
+    "last_modified": "2025-12-12T00:40:34+00:00",
+    "created_at": "2025-12-11T17:23:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Galbot_G1_load_floor_trash_7",
+    "author": "RoboCOIN",
+    "downloads": 1889,
+    "downloads_all_time": 3293,
+    "likes": 0,
+    "last_modified": "2026-08-06T11:21:45+00:00",
+    "created_at": "2026-08-06T03:00:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Agilex_Cobot_Magic_make_sandwiche",
+    "author": "RoboCOIN",
+    "downloads": 1888,
+    "downloads_all_time": 13988,
+    "likes": 0,
+    "last_modified": "2026-04-02T07:19:29+00:00",
+    "created_at": "2026-04-02T05:07:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "OpenWAM/LIBERO",
+    "author": "OpenWAM",
+    "downloads": 1836,
+    "downloads_all_time": 1836,
+    "likes": 0,
+    "last_modified": "2026-09-03T18:53:48+00:00",
+    "created_at": "2026-09-03T18:37:22+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Agilex_Cobot_Magic_move_object",
+    "author": "RoboCOIN",
+    "downloads": 1827,
+    "downloads_all_time": 14681,
+    "likes": 0,
+    "last_modified": "2026-03-20T15:21:55+00:00",
+    "created_at": "2026-03-20T15:11:33+00:00",
+    "gated": false
+   },
+   {
+    "id": "REBOOT26/nema1-15-plug_remove",
+    "author": "REBOOT26",
+    "downloads": 1800,
+    "downloads_all_time": 2248,
+    "likes": 0,
+    "last_modified": "2026-05-02T23:30:59+00:00",
+    "created_at": "2026-05-02T23:18:57+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_heat_test_tube",
+    "author": "RoboCOIN",
+    "downloads": 1789,
+    "downloads_all_time": 5564,
+    "likes": 0,
+    "last_modified": "2026-06-26T08:22:09+00:00",
+    "created_at": "2026-06-04T12:03:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_1",
+    "author": "RoboCOIN",
+    "downloads": 1784,
+    "downloads_all_time": 6364,
+    "likes": 0,
+    "last_modified": "2026-07-02T23:09:00+00:00",
+    "created_at": "2026-07-02T22:17:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "dunnolab/so-combined-ru",
+    "author": "dunnolab",
+    "downloads": 1775,
+    "downloads_all_time": 114340,
+    "likes": 1,
+    "last_modified": "2025-11-15T15:47:14+00:00",
+    "created_at": "2025-11-14T12:13:21+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_14",
+    "author": "RoboCOIN",
+    "downloads": 1770,
+    "downloads_all_time": 5573,
+    "likes": 0,
+    "last_modified": "2026-07-02T18:42:15+00:00",
+    "created_at": "2026-07-02T17:52:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "unitreerobotics/G1_Dex1_Wipe_Table",
+    "author": "unitreerobotics",
+    "downloads": 1768,
+    "downloads_all_time": 9787,
+    "likes": 4,
+    "last_modified": "2026-09-23T22:47:31+00:00",
+    "created_at": "2026-01-28T07:13:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Galbot_G1_use_dryer",
+    "author": "RoboCOIN",
+    "downloads": 1756,
+    "downloads_all_time": 5341,
+    "likes": 0,
+    "last_modified": "2026-07-15T06:57:04+00:00",
+    "created_at": "2026-07-15T02:05:52+00:00",
+    "gated": false
+   },
+   {
+    "id": "k1000dai/behavior1k-only-rgb",
+    "author": "k1000dai",
+    "downloads": 1751,
+    "downloads_all_time": 21001,
+    "likes": 0,
+    "last_modified": "2025-10-05T08:43:57+00:00",
+    "created_at": "2025-10-02T22:50:12+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_pick_stirring_rod",
+    "author": "RoboCOIN",
+    "downloads": 1750,
+    "downloads_all_time": 9029,
+    "likes": 0,
+    "last_modified": "2026-06-26T08:22:24+00:00",
+    "created_at": "2026-06-01T07:34:55+00:00",
+    "gated": false
+   },
+   {
+    "id": "unitreerobotics/G1_Dex3_ToastedBread_Dataset",
+    "author": "unitreerobotics",
+    "downloads": 1749,
+    "downloads_all_time": 35993,
+    "likes": 6,
+    "last_modified": "2025-09-16T06:52:53+00:00",
+    "created_at": "2025-02-19T03:43:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "Miical/verl_vla_libero_collected",
+    "author": "Miical",
+    "downloads": 1737,
+    "downloads_all_time": 2171,
+    "likes": 0,
+    "last_modified": "2026-06-22T10:57:00+00:00",
+    "created_at": "2026-06-19T08:54:53+00:00",
+    "gated": false
+   },
+   {
+    "id": "ember-lab-berkeley/robocasa365-target-composite-seen",
+    "author": "ember-lab-berkeley",
+    "downloads": 1730,
+    "downloads_all_time": 5652,
+    "likes": 2,
+    "last_modified": "2026-05-11T02:31:21+00:00",
+    "created_at": "2026-05-07T21:52:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_6",
+    "author": "RoboCOIN",
+    "downloads": 1729,
+    "downloads_all_time": 5373,
+    "likes": 0,
+    "last_modified": "2026-07-02T16:50:56+00:00",
+    "created_at": "2026-07-02T13:45:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_sort_personal_care_items",
+    "author": "RoboCOIN",
+    "downloads": 1726,
+    "downloads_all_time": 7722,
+    "likes": 0,
+    "last_modified": "2026-06-26T08:22:41+00:00",
+    "created_at": "2026-06-08T04:30:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_organize_cosmetics",
+    "author": "RoboCOIN",
+    "downloads": 1711,
+    "downloads_all_time": 5162,
+    "likes": 0,
+    "last_modified": "2026-07-17T03:16:11+00:00",
+    "created_at": "2026-07-17T03:00:44+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_17",
+    "author": "RoboCOIN",
+    "downloads": 1704,
+    "downloads_all_time": 5865,
+    "likes": 0,
+    "last_modified": "2026-07-03T04:51:22+00:00",
+    "created_at": "2026-07-03T04:15:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_2",
+    "author": "RoboCOIN",
+    "downloads": 1704,
+    "downloads_all_time": 5649,
+    "likes": 0,
+    "last_modified": "2026-06-26T13:30:01+00:00",
+    "created_at": "2026-06-26T12:48:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Leju_Kuavo_4_sensor_card_swiping",
+    "author": "RoboCOIN",
+    "downloads": 1703,
+    "downloads_all_time": 5287,
+    "likes": 0,
+    "last_modified": "2026-07-03T03:25:44+00:00",
+    "created_at": "2026-07-03T02:47:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "Voxel51/aloha_pen_uncap",
+    "author": "Voxel51",
+    "downloads": 1691,
+    "downloads_all_time": 71448,
+    "likes": 1,
+    "last_modified": "2025-08-06T19:47:09+00:00",
+    "created_at": "2025-08-01T22:38:51+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_5",
+    "author": "RoboCOIN",
+    "downloads": 1680,
+    "downloads_all_time": 5794,
+    "likes": 0,
+    "last_modified": "2026-07-01T10:12:10+00:00",
+    "created_at": "2026-07-01T07:21:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Galbot_G1_discard_towel_1",
+    "author": "RoboCOIN",
+    "downloads": 1661,
+    "downloads_all_time": 2515,
+    "likes": 0,
+    "last_modified": "2026-08-05T02:51:55+00:00",
+    "created_at": "2026-08-04T19:24:16+00:00",
+    "gated": false
+   },
+   {
+    "id": "Jordano/demogen-rgbd-fr3-cube-stacking",
+    "author": "Jordano",
+    "downloads": 1639,
+    "downloads_all_time": 1639,
+    "likes": 0,
+    "last_modified": "2026-09-19T11:21:28+00:00",
+    "created_at": "2026-09-19T08:09:41+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/Galbot_G1_clear_table_trash_3",
+    "author": "RoboCOIN",
+    "downloads": 1634,
+    "downloads_all_time": 3627,
+    "likes": 0,
+    "last_modified": "2026-08-05T02:45:26+00:00",
+    "created_at": "2026-08-04T01:59:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "RoboCOIN/AI2_Alphabot_2_shake_test_tube_1",
+    "author": "RoboCOIN",
+    "downloads": 1633,
+    "downloads_all_time": 4092,
+    "likes": 0,
+    "last_modified": "2026-07-16T03:13:26+00:00",
+    "created_at": "2026-07-16T03:08:03+00:00",
+    "gated": false
+   }
+  ],
+  "S-recent": [
+   {
+    "id": "klinzw/autolife_fridge",
+    "author": "klinzw",
+    "downloads": 23,
+    "downloads_all_time": 23,
+    "likes": 0,
+    "last_modified": "2026-09-29T05:24:38+00:00",
+    "created_at": "2026-09-21T14:23:02+00:00",
+    "gated": false
+   },
+   {
+    "id": "Sumair15/pickup_cuboid_2_20260928_213711",
+    "author": "Sumair15",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T04:43:02+00:00",
+    "created_at": "2026-09-29T04:42:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "azorematter/dice_white_pnp_und_sf_500_b02",
+    "author": "azorematter",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T04:40:33+00:00",
+    "created_at": "2026-09-28T10:22:14+00:00",
+    "gated": false
+   },
+   {
+    "id": "qiujun/jnbk_20260929_122643",
+    "author": "qiujun",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T04:38:35+00:00",
+    "created_at": "2026-09-29T04:37:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "Sumair15/pickup_cuboid_1_20260928_212445",
+    "author": "Sumair15",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T04:31:33+00:00",
+    "created_at": "2026-09-29T04:31:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "kdaterao/so101_data5",
+    "author": "kdaterao",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T04:25:41+00:00",
+    "created_at": "2026-09-29T03:25:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "Sumair15/pickup_cuboid_1_20260928_211721",
+    "author": "Sumair15",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T04:21:17+00:00",
+    "created_at": "2026-09-29T04:21:07+00:00",
+    "gated": false
+   },
+   {
+    "id": "seriintan/rollout_turbovla_stacked_objects_20260929_112833",
+    "author": "seriintan",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T04:02:34+00:00",
+    "created_at": "2026-09-29T04:00:48+00:00",
+    "gated": false
+   },
+   {
+    "id": "jetsonmom/omx_yellow_bear_box_2cam",
+    "author": "jetsonmom",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T03:38:08+00:00",
+    "created_at": "2026-09-29T03:37:37+00:00",
+    "gated": false
+   },
+   {
+    "id": "Promexile/tape_dataset_xy_middle",
+    "author": "Promexile",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T03:22:11+00:00",
+    "created_at": "2026-09-29T03:21:24+00:00",
+    "gated": false
+   },
+   {
+    "id": "NickHuang323/bimanual-so101-pickvials-sim-2Dcam",
+    "author": "NickHuang323",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T03:21:49+00:00",
+    "created_at": "2026-09-29T03:19:39+00:00",
+    "gated": false
+   },
+   {
+    "id": "Promexile/tape_dataset_xy_depth",
+    "author": "Promexile",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T03:21:22+00:00",
+    "created_at": "2026-09-29T03:20:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "Promexile/tape_dataset_xy_spread",
+    "author": "Promexile",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T03:20:39+00:00",
+    "created_at": "2026-09-29T03:19:44+00:00",
+    "gated": false
+   },
+   {
+    "id": "Promexile/tape_dataset_zero",
+    "author": "Promexile",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T03:19:42+00:00",
+    "created_at": "2026-09-29T03:18:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "KoukiHagiwara/eval_act_stl_4cam_viewdrop_wide",
+    "author": "KoukiHagiwara",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T02:55:19+00:00",
+    "created_at": "2026-09-29T02:41:51+00:00",
+    "gated": false
+   },
+   {
+    "id": "oumeanin/rebot_weld_corner_fillet",
+    "author": "oumeanin",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T02:21:01+00:00",
+    "created_at": "2026-09-29T02:18:57+00:00",
+    "gated": false
+   },
+   {
+    "id": "yamaisanerd/clean_20260927_salvation",
+    "author": "yamaisanerd",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T01:55:34+00:00",
+    "created_at": "2026-09-29T01:55:20+00:00",
+    "gated": false
+   },
+   {
+    "id": "yamaisanerd/clean_20260821_new",
+    "author": "yamaisanerd",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T01:51:51+00:00",
+    "created_at": "2026-09-29T01:49:35+00:00",
+    "gated": false
+   },
+   {
+    "id": "luke0831/press_gear_shifter_start_button_h1_2_v4_plus_shift_gear_into_reverse_h1_2_v3",
+    "author": "luke0831",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T01:36:16+00:00",
+    "created_at": "2026-09-29T01:36:07+00:00",
+    "gated": false
+   },
+   {
+    "id": "justink04/m2-negative-room-sep28-26",
+    "author": "justink04",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T01:32:28+00:00",
+    "created_at": "2026-09-29T01:04:21+00:00",
+    "gated": false
+   },
+   {
+    "id": "yamaisanerd/clean_20260927_combined",
+    "author": "yamaisanerd",
+    "downloads": 61,
+    "downloads_all_time": 61,
+    "likes": 0,
+    "last_modified": "2026-09-29T01:30:48+00:00",
+    "created_at": "2026-09-27T16:39:50+00:00",
+    "gated": false
+   },
+   {
+    "id": "LTH4663/fod_c3_strategy_desc_v2_216_2cam_20260928",
+    "author": "LTH4663",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T01:29:08+00:00",
+    "created_at": "2026-09-28T15:03:22+00:00",
+    "gated": false
+   },
+   {
+    "id": "LTH4663/fod_c1_object_name_v2_216_2cam_20260928",
+    "author": "LTH4663",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T01:28:47+00:00",
+    "created_at": "2026-09-28T15:02:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "dream-79/omx_f_0929DJ",
+    "author": "dream-79",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-29T00:47:45+00:00",
+    "created_at": "2026-09-29T00:47:12+00:00",
+    "gated": false
+   },
+   {
+    "id": "alphabot2/23Sep_STEA_pick_Cortex_prefer_bag_time",
+    "author": "alphabot2",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T23:33:42+00:00",
+    "created_at": "2026-09-28T23:33:22+00:00",
+    "gated": false
+   },
+   {
+    "id": "wenjingbian/RobotData",
+    "author": "wenjingbian",
+    "downloads": 266,
+    "downloads_all_time": 266,
+    "likes": 0,
+    "last_modified": "2026-09-28T23:24:34+00:00",
+    "created_at": "2026-09-04T21:40:27+00:00",
+    "gated": false
+   },
+   {
+    "id": "AliBeydoun/widowxai-cube-pickup_20260928_185930",
+    "author": "AliBeydoun",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T23:04:08+00:00",
+    "created_at": "2026-09-28T23:04:02+00:00",
+    "gated": false
+   },
+   {
+    "id": "AliBeydoun/widowxai-cube-pickup_20260928_184700",
+    "author": "AliBeydoun",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T22:48:52+00:00",
+    "created_at": "2026-09-28T22:48:43+00:00",
+    "gated": false
+   },
+   {
+    "id": "charlieK123/gripper_Top_Base_Camera_Views_Continued",
+    "author": "charlieK123",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T21:59:04+00:00",
+    "created_at": "2026-09-28T20:35:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "Kovavavvavava/pick_place_potato_onehouse_random",
+    "author": "Kovavavvavava",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T21:47:02+00:00",
+    "created_at": "2026-09-28T21:46:50+00:00",
+    "gated": false
+   },
+   {
+    "id": "Kovavavvavava/pick_place_potato_onehouse_fixed",
+    "author": "Kovavavvavava",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T21:46:49+00:00",
+    "created_at": "2026-09-28T21:46:38+00:00",
+    "gated": false
+   },
+   {
+    "id": "Kovavavvavava/peg_insertion_onehouse_random",
+    "author": "Kovavavvavava",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T21:46:37+00:00",
+    "created_at": "2026-09-28T21:46:25+00:00",
+    "gated": false
+   },
+   {
+    "id": "Kovavavvavava/peg_insertion_onehouse_fixed",
+    "author": "Kovavavvavava",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T21:46:24+00:00",
+    "created_at": "2026-09-28T21:46:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "satyamtud/so101_cube_pick_act_20260928_214631",
+    "author": "satyamtud",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:48:15+00:00",
+    "created_at": "2026-09-28T20:47:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-square-d2-r05-eval-historical",
+    "author": "mulligan",
+    "downloads": 354,
+    "downloads_all_time": 354,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:22:04+00:00",
+    "created_at": "2026-09-22T21:38:02+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-square-d2-r05-eval",
+    "author": "mulligan",
+    "downloads": 357,
+    "downloads_all_time": 357,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:21:54+00:00",
+    "created_at": "2026-09-22T21:35:56+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-square-d2-r04-eval",
+    "author": "mulligan",
+    "downloads": 116,
+    "downloads_all_time": 116,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:21:42+00:00",
+    "created_at": "2026-09-22T21:41:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-square-d2-r03-eval",
+    "author": "mulligan",
+    "downloads": 113,
+    "downloads_all_time": 113,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:21:25+00:00",
+    "created_at": "2026-09-22T21:29:57+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-square-d2-r02-eval",
+    "author": "mulligan",
+    "downloads": 133,
+    "downloads_all_time": 133,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:21:17+00:00",
+    "created_at": "2026-09-22T21:28:56+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-square-d2-r01-eval",
+    "author": "mulligan",
+    "downloads": 104,
+    "downloads_all_time": 104,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:21:09+00:00",
+    "created_at": "2026-09-22T21:29:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-routing-d2-r00-r05-eval",
+    "author": "mulligan",
+    "downloads": 947,
+    "downloads_all_time": 947,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:20:11+00:00",
+    "created_at": "2026-09-22T21:51:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "liam-martiiin/extract_multitask_1_20260928_160941",
+    "author": "liam-martiiin",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:18:59+00:00",
+    "created_at": "2026-09-28T20:18:54+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-marker-d2-r05-eval-historical",
+    "author": "mulligan",
+    "downloads": 111,
+    "downloads_all_time": 111,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:17:09+00:00",
+    "created_at": "2026-09-22T21:44:57+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-marker-d2-r05-eval",
+    "author": "mulligan",
+    "downloads": 137,
+    "downloads_all_time": 137,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:16:59+00:00",
+    "created_at": "2026-09-22T21:44:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-marker-d2-r04-eval",
+    "author": "mulligan",
+    "downloads": 119,
+    "downloads_all_time": 119,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:16:51+00:00",
+    "created_at": "2026-09-22T21:45:38+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-marker-d2-r03-eval",
+    "author": "mulligan",
+    "downloads": 126,
+    "downloads_all_time": 126,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:16:41+00:00",
+    "created_at": "2026-09-22T21:47:50+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-marker-d2-r02-eval",
+    "author": "mulligan",
+    "downloads": 296,
+    "downloads_all_time": 296,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:16:31+00:00",
+    "created_at": "2026-09-22T21:30:25+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-marker-d2-r01-eval",
+    "author": "mulligan",
+    "downloads": 96,
+    "downloads_all_time": 96,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:16:27+00:00",
+    "created_at": "2026-09-22T21:32:43+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-marker-d2-r00-eval",
+    "author": "mulligan",
+    "downloads": 92,
+    "downloads_all_time": 92,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:16:20+00:00",
+    "created_at": "2026-09-22T21:33:21+00:00",
+    "gated": false
+   },
+   {
+    "id": "mulligan/real-square-d2-r00-eval",
+    "author": "mulligan",
+    "downloads": 125,
+    "downloads_all_time": 125,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:14:59+00:00",
+    "created_at": "2026-09-22T21:28:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "liam-martiiin/extract_multitask_1_20260928_154316",
+    "author": "liam-martiiin",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:09:12+00:00",
+    "created_at": "2026-09-28T20:09:06+00:00",
+    "gated": false
+   },
+   {
+    "id": "hnghia517/molmoact",
+    "author": "hnghia517",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T20:03:54+00:00",
+    "created_at": "2026-09-28T19:06:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "ssmit203/assignment3_3",
+    "author": "ssmit203",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T19:57:34+00:00",
+    "created_at": "2026-09-28T19:57:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "naavox/79west-sep28",
+    "author": "naavox",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T19:49:47+00:00",
+    "created_at": "2026-09-28T19:47:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "ResidentEvian/record-test_20260928_212454",
+    "author": "ResidentEvian",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T19:26:23+00:00",
+    "created_at": "2026-09-28T19:26:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "ResidentEvian/record-test_20260928_212249",
+    "author": "ResidentEvian",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T19:23:58+00:00",
+    "created_at": "2026-09-28T19:23:52+00:00",
+    "gated": false
+   },
+   {
+    "id": "charlieK123/gripper_Top_Base_Camera_Views",
+    "author": "charlieK123",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T19:16:35+00:00",
+    "created_at": "2026-09-28T18:03:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "krish5831/tissues_into_box_20260928_195253",
+    "author": "krish5831",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T18:46:36+00:00",
+    "created_at": "2026-09-28T18:31:24+00:00",
+    "gated": false
+   },
+   {
+    "id": "olagh/stretch4_mouse_test_20260928_112927",
+    "author": "olagh",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T18:31:55+00:00",
+    "created_at": "2026-09-28T18:31:41+00:00",
+    "gated": false
+   },
+   {
+    "id": "PEN2044/set36cub_20260928_204306",
+    "author": "PEN2044",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T18:05:20+00:00",
+    "created_at": "2026-09-28T18:04:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "krish5831/tissues_into_box_20260928_194959",
+    "author": "krish5831",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T17:52:09+00:00",
+    "created_at": "2026-09-28T17:51:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "PEN2044/set50cub_20260928_201427",
+    "author": "PEN2044",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T17:24:07+00:00",
+    "created_at": "2026-09-28T17:23:32+00:00",
+    "gated": false
+   },
+   {
+    "id": "DAVIAN-Robotics/robocasa-H50-256",
+    "author": "DAVIAN-Robotics",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T16:48:26+00:00",
+    "created_at": "2026-09-28T16:47:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "fanqi-robo/busybox_push_green_button",
+    "author": "fanqi-robo",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T16:35:22+00:00",
+    "created_at": "2026-09-28T16:35:18+00:00",
+    "gated": false
+   },
+   {
+    "id": "acleary/vega_pick_up_box",
+    "author": "acleary",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T16:00:38+00:00",
+    "created_at": "2026-09-28T15:59:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "armnet/eval_push_green_button_15h45m_28-sep-2026",
+    "author": "armnet",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T15:59:32+00:00",
+    "created_at": "2026-09-28T15:59:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "armnet/eval_push_green_button_15h43m_28-sep-2026",
+    "author": "armnet",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T15:57:03+00:00",
+    "created_at": "2026-09-28T15:56:37+00:00",
+    "gated": false
+   },
+   {
+    "id": "Artefacts/shape-sorting-so101-30fps",
+    "author": "Artefacts",
+    "downloads": 461,
+    "downloads_all_time": 461,
+    "likes": 0,
+    "last_modified": "2026-09-28T15:49:17+00:00",
+    "created_at": "2026-09-09T14:00:18+00:00",
+    "gated": false
+   },
+   {
+    "id": "armnet/eval_push_green_button_15h11m_28-sep-2026",
+    "author": "armnet",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T15:25:08+00:00",
+    "created_at": "2026-09-28T15:23:42+00:00",
+    "gated": false
+   },
+   {
+    "id": "ssabats/object-placing-multitask-v4",
+    "author": "ssabats",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T15:18:13+00:00",
+    "created_at": "2026-09-28T15:18:07+00:00",
+    "gated": false
+   },
+   {
+    "id": "ssabats/object-blu-lego-placing-coffe-box_20260928_165620",
+    "author": "ssabats",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T15:12:03+00:00",
+    "created_at": "2026-09-28T15:11:35+00:00",
+    "gated": false
+   },
+   {
+    "id": "armnet/eval_push_green_button_14h50m_28-sep-2026",
+    "author": "armnet",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T15:03:48+00:00",
+    "created_at": "2026-09-28T15:03:09+00:00",
+    "gated": false
+   },
+   {
+    "id": "maximellerbach/omx_multicubes_annotated",
+    "author": "maximellerbach",
+    "downloads": 138,
+    "downloads_all_time": 138,
+    "likes": 0,
+    "last_modified": "2026-09-28T14:54:06+00:00",
+    "created_at": "2026-09-25T13:21:51+00:00",
+    "gated": false
+   },
+   {
+    "id": "ssabats/object-orange-lego-placing-coffe-box_20260928_162843",
+    "author": "ssabats",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T14:48:44+00:00",
+    "created_at": "2026-09-28T14:48:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "Fabyo04/so101_cube_v2",
+    "author": "Fabyo04",
+    "downloads": 109,
+    "downloads_all_time": 109,
+    "likes": 0,
+    "last_modified": "2026-09-28T14:44:49+00:00",
+    "created_at": "2026-09-27T15:29:24+00:00",
+    "gated": false
+   },
+   {
+    "id": "auntowen/so101_test_dataset_2cams_20260928_214357",
+    "author": "auntowen",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T14:37:49+00:00",
+    "created_at": "2026-09-28T13:18:07+00:00",
+    "gated": false
+   },
+   {
+    "id": "armnet/eval_push_green_button_14h30m_28-sep-2026",
+    "author": "armnet",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T14:36:10+00:00",
+    "created_at": "2026-09-28T14:35:56+00:00",
+    "gated": false
+   },
+   {
+    "id": "armnet/eval_push_green_button_14h04m_28-sep-2026",
+    "author": "armnet",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T14:17:55+00:00",
+    "created_at": "2026-09-28T14:17:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "armnet/eval_push_green_button_14h02m_28-sep-2026",
+    "author": "armnet",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T14:15:43+00:00",
+    "created_at": "2026-09-28T14:15:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "rbalazs/rollout_smolvla_allcups_right_20260928_155433",
+    "author": "rbalazs",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T14:10:56+00:00",
+    "created_at": "2026-09-28T14:10:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "leapshared/Electroscope_113epi_subtask",
+    "author": "leapshared",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T14:06:09+00:00",
+    "created_at": "2026-09-28T14:05:58+00:00",
+    "gated": false
+   },
+   {
+    "id": "rbalazs/rollout_smolvla_allcups_middle_20260928_153900",
+    "author": "rbalazs",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T13:54:14+00:00",
+    "created_at": "2026-09-28T13:54:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "rbalazs/rollout_smolvla_allcups_left_20260928_152242",
+    "author": "rbalazs",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T13:38:39+00:00",
+    "created_at": "2026-09-28T13:38:27+00:00",
+    "gated": false
+   },
+   {
+    "id": "leapshared/Redox_131epi_subtask",
+    "author": "leapshared",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T13:19:05+00:00",
+    "created_at": "2026-09-28T11:18:51+00:00",
+    "gated": false
+   },
+   {
+    "id": "leapshared/Electroscope_new_20260928_202529",
+    "author": "leapshared",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T13:16:39+00:00",
+    "created_at": "2026-09-28T12:51:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "miladgholami/rollout_posevary_kyc_condD_20260928_210745",
+    "author": "miladgholami",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T13:11:27+00:00",
+    "created_at": "2026-09-28T13:11:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "miladgholami/eval_posevary_rectified_condD",
+    "author": "miladgholami",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T13:06:57+00:00",
+    "created_at": "2026-09-28T13:06:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "miladgholami/eval_posevary_baseline_condD",
+    "author": "miladgholami",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T13:01:30+00:00",
+    "created_at": "2026-09-28T13:01:18+00:00",
+    "gated": false
+   },
+   {
+    "id": "rbtrprjkt/rollout_pi05_han10e_20260928_075758",
+    "author": "rbtrprjkt",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T12:59:14+00:00",
+    "created_at": "2026-09-28T12:59:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "rbtrprjkt/rollout_gract_han10e_20260928_074804",
+    "author": "rbtrprjkt",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T12:53:49+00:00",
+    "created_at": "2026-09-28T12:53:42+00:00",
+    "gated": false
+   },
+   {
+    "id": "chouziel/test_cam",
+    "author": "chouziel",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T12:36:40+00:00",
+    "created_at": "2026-09-28T12:36:39+00:00",
+    "gated": false
+   },
+   {
+    "id": "haijian06/yellow_cube_brown_box_v1",
+    "author": "haijian06",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 1,
+    "last_modified": "2026-09-28T12:34:27+00:00",
+    "created_at": "2026-09-28T10:28:39+00:00",
+    "gated": false
+   },
+   {
+    "id": "Xense/insert-ethernet-above-desk-0916",
+    "author": "Xense",
+    "downloads": 209,
+    "downloads_all_time": 209,
+    "likes": 0,
+    "last_modified": "2026-09-28T12:31:19+00:00",
+    "created_at": "2026-09-16T08:35:55+00:00",
+    "gated": false
+   },
+   {
+    "id": "alphabot2/28Sep_STEA_pick_Cortex_clean_v1",
+    "author": "alphabot2",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T12:25:25+00:00",
+    "created_at": "2026-09-28T12:25:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "ar0s/kuka-centrifuge-10ep",
+    "author": "ar0s",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T12:23:30+00:00",
+    "created_at": "2026-09-28T12:23:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "ar0s/kuka-heat-reaction-10ep",
+    "author": "ar0s",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T12:12:04+00:00",
+    "created_at": "2026-09-28T12:11:56+00:00",
+    "gated": false
+   },
+   {
+    "id": "Ngseo/camera-ready",
+    "author": "Ngseo",
+    "downloads": 1,
+    "downloads_all_time": 1,
+    "likes": 0,
+    "last_modified": "2026-09-28T12:09:45+00:00",
+    "created_at": "2026-09-28T07:24:39+00:00",
+    "gated": false
+   },
+   {
+    "id": "ar0s/kuka-sonicator-10ep",
+    "author": "ar0s",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T11:58:07+00:00",
+    "created_at": "2026-09-28T11:57:58+00:00",
+    "gated": false
+   },
+   {
+    "id": "thanhnguyen23/unbox_rdk",
+    "author": "thanhnguyen23",
+    "downloads": 22,
+    "downloads_all_time": 22,
+    "likes": 0,
+    "last_modified": "2026-09-28T11:56:37+00:00",
+    "created_at": "2026-09-28T07:43:28+00:00",
+    "gated": false
+   },
+   {
+    "id": "fysical/rollout_diffusion_S025_seed2_20260928_133940",
+    "author": "fysical",
+    "downloads": 0,
+    "downloads_all_time": 0,
+    "likes": 0,
+    "last_modified": "2026-09-28T11:49:34+00:00",
+    "created_at": "2026-09-28T11:49:05+00:00",
+    "gated": false
+   }
+  ],
+  "S-tail": [
+   {
+    "id": "123shark/test002",
+    "author": "123shark",
+    "downloads": 32,
+    "downloads_all_time": 150,
+    "likes": 0,
+    "last_modified": "2025-12-20T20:19:02+00:00",
+    "created_at": "2025-12-20T20:18:54+00:00",
+    "gated": false
+   },
+   {
+    "id": "1g0rrr/debug_run13_crop",
+    "author": "1g0rrr",
+    "downloads": 30,
+    "downloads_all_time": 177,
+    "likes": 0,
+    "last_modified": "2025-12-18T21:43:04+00:00",
+    "created_at": "2025-12-18T21:43:00+00:00",
+    "gated": false
+   },
+   {
+    "id": "1g0rrr/demo3_frames_grab",
+    "author": "1g0rrr",
+    "downloads": 28,
+    "downloads_all_time": 461,
+    "likes": 0,
+    "last_modified": "2025-06-04T06:16:18+00:00",
+    "created_at": "2025-06-04T06:16:14+00:00",
+    "gated": false
+   },
+   {
+    "id": "7smile/omx_f_task_0916",
+    "author": "7smile",
+    "downloads": 84,
+    "downloads_all_time": 84,
+    "likes": 0,
+    "last_modified": "2026-09-16T02:59:27+00:00",
+    "created_at": "2026-09-16T02:57:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "ASet97/augmented-aloha-episodes-10-color-jitter-gaussian-noise",
+    "author": "ASet97",
+    "downloads": 33,
+    "downloads_all_time": 184,
+    "likes": 0,
+    "last_modified": "2026-04-09T15:12:05+00:00",
+    "created_at": "2026-04-09T15:00:33+00:00",
+    "gated": false
+   },
+   {
+    "id": "Aasdfip/subtask_pick_grape_drop_in_cup_new_table",
+    "author": "Aasdfip",
+    "downloads": 12,
+    "downloads_all_time": 98,
+    "likes": 0,
+    "last_modified": "2026-04-24T21:25:15+00:00",
+    "created_at": "2026-04-24T21:25:14+00:00",
+    "gated": false
+   },
+   {
+    "id": "Alkatt/so_101_CubeToBowl_v3",
+    "author": "Alkatt",
+    "downloads": 26,
+    "downloads_all_time": 254,
+    "likes": 0,
+    "last_modified": "2026-04-21T06:30:24+00:00",
+    "created_at": "2026-04-21T06:30:02+00:00",
+    "gated": false
+   },
+   {
+    "id": "Allen-488/koch_dataset_50",
+    "author": "Allen-488",
+    "downloads": 46,
+    "downloads_all_time": 776,
+    "likes": 0,
+    "last_modified": "2025-04-26T05:51:51+00:00",
+    "created_at": "2025-03-30T08:52:25+00:00",
+    "gated": false
+   },
+   {
+    "id": "AndaXieOfficial/record-test_20260627_114756",
+    "author": "AndaXieOfficial",
+    "downloads": 24,
+    "downloads_all_time": 120,
+    "likes": 0,
+    "last_modified": "2026-06-27T17:49:00+00:00",
+    "created_at": "2026-06-27T17:48:57+00:00",
+    "gated": false
+   },
+   {
+    "id": "Andresg324/rollout_recovery_new_positions_20260810_134854",
+    "author": "Andresg324",
+    "downloads": 30,
+    "downloads_all_time": 91,
+    "likes": 0,
+    "last_modified": "2026-08-10T18:07:20+00:00",
+    "created_at": "2026-08-10T18:07:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "Aneesha/eval_so101_lego_pickplace_v1_24apr_run10",
+    "author": "Aneesha",
+    "downloads": 22,
+    "downloads_all_time": 113,
+    "likes": 0,
+    "last_modified": "2026-05-06T06:55:39+00:00",
+    "created_at": "2026-05-06T06:55:37+00:00",
+    "gated": false
+   },
+   {
+    "id": "Anijar/dataset-certopinkbal900",
+    "author": "Anijar",
+    "downloads": 27,
+    "downloads_all_time": 166,
+    "likes": 0,
+    "last_modified": "2025-11-30T18:53:01+00:00",
+    "created_at": "2025-11-30T18:52:53+00:00",
+    "gated": false
+   },
+   {
+    "id": "AymenRobot/yellow_orange_v3",
+    "author": "AymenRobot",
+    "downloads": 13,
+    "downloads_all_time": 105,
+    "likes": 0,
+    "last_modified": "2026-04-17T11:17:03+00:00",
+    "created_at": "2026-04-17T11:17:01+00:00",
+    "gated": false
+   },
+   {
+    "id": "BlankHead/irl_test1_pickcube",
+    "author": "BlankHead",
+    "downloads": 18,
+    "downloads_all_time": 292,
+    "likes": 0,
+    "last_modified": "2026-04-22T12:30:25+00:00",
+    "created_at": "2026-04-22T11:41:28+00:00",
+    "gated": false
+   },
+   {
+    "id": "BrunoM42/robocasa_target_WashLettuce",
+    "author": "BrunoM42",
+    "downloads": 29,
+    "downloads_all_time": 197,
+    "likes": 0,
+    "last_modified": "2026-03-28T17:48:22+00:00",
+    "created_at": "2026-03-27T10:37:38+00:00",
+    "gated": false
+   },
+   {
+    "id": "BrunoM42/shelf_picking_mustard_v2",
+    "author": "BrunoM42",
+    "downloads": 146,
+    "downloads_all_time": 273,
+    "likes": 0,
+    "last_modified": "2026-07-10T15:48:57+00:00",
+    "created_at": "2026-07-10T15:48:28+00:00",
+    "gated": false
+   },
+   {
+    "id": "Davidei/eval_Stack_blocks_lay7_90000",
+    "author": "Davidei",
+    "downloads": 23,
+    "downloads_all_time": 206,
+    "likes": 0,
+    "last_modified": "2026-03-11T18:12:16+00:00",
+    "created_at": "2026-03-11T18:10:52+00:00",
+    "gated": false
+   },
+   {
+    "id": "Dejian0/eval_ds3_recordpolicy1_9",
+    "author": "Dejian0",
+    "downloads": 10,
+    "downloads_all_time": 71,
+    "likes": 0,
+    "last_modified": "2026-02-27T14:39:32+00:00",
+    "created_at": "2026-02-27T14:39:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "FAlatyr/test2",
+    "author": "FAlatyr",
+    "downloads": 92,
+    "downloads_all_time": 661,
+    "likes": 0,
+    "last_modified": "2025-06-26T08:44:35+00:00",
+    "created_at": "2025-06-26T08:44:14+00:00",
+    "gated": false
+   },
+   {
+    "id": "Fan1024/lerobot-test",
+    "author": "Fan1024",
+    "downloads": 19,
+    "downloads_all_time": 160,
+    "likes": 0,
+    "last_modified": "2026-04-22T16:42:32+00:00",
+    "created_at": "2026-04-22T16:42:27+00:00",
+    "gated": false
+   },
+   {
+    "id": "Fransece/franka_sweep_merged_2",
+    "author": "Fransece",
+    "downloads": 32,
+    "downloads_all_time": 142,
+    "likes": 0,
+    "last_modified": "2026-07-10T10:19:48+00:00",
+    "created_at": "2026-07-10T10:19:16+00:00",
+    "gated": false
+   },
+   {
+    "id": "Fransece/franka_sweep_test_eepose_20260710_151219",
+    "author": "Fransece",
+    "downloads": 34,
+    "downloads_all_time": 148,
+    "likes": 0,
+    "last_modified": "2026-07-10T15:14:10+00:00",
+    "created_at": "2026-07-10T15:13:41+00:00",
+    "gated": false
+   },
+   {
+    "id": "Fransece/lerobot_20260710_103845",
+    "author": "Fransece",
+    "downloads": 26,
+    "downloads_all_time": 136,
+    "likes": 0,
+    "last_modified": "2026-07-10T10:40:04+00:00",
+    "created_at": "2026-07-10T10:39:50+00:00",
+    "gated": false
+   },
+   {
+    "id": "Grievous-Robot/table-sweep-20260216_120500",
+    "author": "Grievous-Robot",
+    "downloads": 13,
+    "downloads_all_time": 84,
+    "likes": 0,
+    "last_modified": "2026-02-16T18:06:04+00:00",
+    "created_at": "2026-02-16T18:06:02+00:00",
+    "gated": false
+   },
+   {
+    "id": "InfiH/so100_test",
+    "author": "InfiH",
+    "downloads": 105,
+    "downloads_all_time": 689,
+    "likes": 0,
+    "last_modified": "2025-03-17T15:36:38+00:00",
+    "created_at": "2025-03-17T15:06:01+00:00",
+    "gated": false
+   },
+   {
+    "id": "JiabinQ/eval_tray_clean_7aug_5wv1",
+    "author": "JiabinQ",
+    "downloads": 19,
+    "downloads_all_time": 309,
+    "likes": 0,
+    "last_modified": "2025-08-08T03:04:58+00:00",
+    "created_at": "2025-08-08T03:04:18+00:00",
+    "gated": false
+   },
+   {
+    "id": "Jingyi-Z/rollout_dry_pi_20260916_190007",
+    "author": "Jingyi-Z",
+    "downloads": 104,
+    "downloads_all_time": 104,
+    "likes": 0,
+    "last_modified": "2026-09-16T23:00:38+00:00",
+    "created_at": "2026-09-16T23:00:35+00:00",
+    "gated": false
+   },
+   {
+    "id": "Jingyi-Z/rollout_eval_B_50ep",
+    "author": "Jingyi-Z",
+    "downloads": 150,
+    "downloads_all_time": 150,
+    "likes": 0,
+    "last_modified": "2026-09-05T18:31:07+00:00",
+    "created_at": "2026-09-05T18:29:07+00:00",
+    "gated": false
+   },
+   {
+    "id": "Jinyu220/circle_2",
+    "author": "Jinyu220",
+    "downloads": 165,
+    "downloads_all_time": 1345,
+    "likes": 0,
+    "last_modified": "2025-08-14T09:39:03+00:00",
+    "created_at": "2025-08-14T09:33:32+00:00",
+    "gated": false
+   },
+   {
+    "id": "Jinyu220/put_polygon",
+    "author": "Jinyu220",
+    "downloads": 186,
+    "downloads_all_time": 859,
+    "likes": 0,
+    "last_modified": "2025-08-04T23:42:38+00:00",
+    "created_at": "2025-08-04T23:40:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "Jungsy/fin_lekiwi",
+    "author": "Jungsy",
+    "downloads": 34,
+    "downloads_all_time": 171,
+    "likes": 0,
+    "last_modified": "2025-11-27T19:12:25+00:00",
+    "created_at": "2025-11-27T19:12:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "KS325/open-lower-drawer-emp-r1_train",
+    "author": "KS325",
+    "downloads": 30,
+    "downloads_all_time": 152,
+    "likes": 0,
+    "last_modified": "2026-04-30T04:53:24+00:00",
+    "created_at": "2026-04-30T04:53:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "KS325/place-upper-r2-occ-train",
+    "author": "KS325",
+    "downloads": 27,
+    "downloads_all_time": 163,
+    "likes": 0,
+    "last_modified": "2026-05-27T04:28:29+00:00",
+    "created_at": "2026-05-27T04:28:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "KS325/skill-set-r2-train",
+    "author": "KS325",
+    "downloads": 38,
+    "downloads_all_time": 155,
+    "likes": 0,
+    "last_modified": "2026-05-27T08:43:54+00:00",
+    "created_at": "2026-05-27T08:43:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "Kaz55/dg5f-cable-teleop-3cables-new-training-v7",
+    "author": "Kaz55",
+    "downloads": 30,
+    "downloads_all_time": 171,
+    "likes": 0,
+    "last_modified": "2026-01-11T11:38:03+00:00",
+    "created_at": "2026-01-11T11:37:32+00:00",
+    "gated": false
+   },
+   {
+    "id": "Kazu1232/record-so101-test",
+    "author": "Kazu1232",
+    "downloads": 84,
+    "downloads_all_time": 534,
+    "likes": 0,
+    "last_modified": "2025-07-07T00:45:44+00:00",
+    "created_at": "2025-07-07T00:45:35+00:00",
+    "gated": false
+   },
+   {
+    "id": "LPSlvlv/ur5_blueblock_box_v2_30",
+    "author": "LPSlvlv",
+    "downloads": 246,
+    "downloads_all_time": 370,
+    "likes": 0,
+    "last_modified": "2026-03-30T10:42:59+00:00",
+    "created_at": "2026-03-30T10:42:43+00:00",
+    "gated": false
+   },
+   {
+    "id": "LSY-lab/plate_v1",
+    "author": "LSY-lab",
+    "downloads": 47,
+    "downloads_all_time": 801,
+    "likes": 0,
+    "last_modified": "2025-12-09T18:43:25+00:00",
+    "created_at": "2025-12-09T18:27:06+00:00",
+    "gated": false
+   },
+   {
+    "id": "Lyrasilas/eval_ep500_seed1_default_center_guessed_20000_default",
+    "author": "Lyrasilas",
+    "downloads": 88,
+    "downloads_all_time": 225,
+    "likes": 0,
+    "last_modified": "2026-02-24T15:11:40+00:00",
+    "created_at": "2026-02-23T08:34:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "Lyrasilas/eval_ep50_seed1_circle_small_center_guessed_40000_default",
+    "author": "Lyrasilas",
+    "downloads": 130,
+    "downloads_all_time": 255,
+    "likes": 0,
+    "last_modified": "2026-02-24T13:13:09+00:00",
+    "created_at": "2026-02-23T07:41:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "Manasa0107/sort_boards_tools_parts_20ep_arm2",
+    "author": "Manasa0107",
+    "downloads": 32,
+    "downloads_all_time": 132,
+    "likes": 0,
+    "last_modified": "2026-08-12T10:54:44+00:00",
+    "created_at": "2026-08-12T10:54:20+00:00",
+    "gated": false
+   },
+   {
+    "id": "Moizbinjaafar123/eval_s0101_pick_chess_3",
+    "author": "Moizbinjaafar123",
+    "downloads": 22,
+    "downloads_all_time": 378,
+    "likes": 0,
+    "last_modified": "2025-08-17T09:18:42+00:00",
+    "created_at": "2025-08-17T09:18:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "MrPsarik/rollout_SortToy_20260527_143413_20260612_172222",
+    "author": "MrPsarik",
+    "downloads": 21,
+    "downloads_all_time": 130,
+    "likes": 0,
+    "last_modified": "2026-06-12T15:22:50+00:00",
+    "created_at": "2026-06-12T15:22:43+00:00",
+    "gated": false
+   },
+   {
+    "id": "Nebliss/eval_Twix05_test",
+    "author": "Nebliss",
+    "downloads": 10,
+    "downloads_all_time": 95,
+    "likes": 0,
+    "last_modified": "2026-03-21T09:11:28+00:00",
+    "created_at": "2026-03-21T09:06:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "OliverHausdoerfer/libero_goal_additionalCams",
+    "author": "OliverHausdoerfer",
+    "downloads": 32,
+    "downloads_all_time": 247,
+    "likes": 1,
+    "last_modified": "2026-04-12T17:43:40+00:00",
+    "created_at": "2026-04-12T17:43:27+00:00",
+    "gated": false
+   },
+   {
+    "id": "PengChenPCPCPC/Grab_gray_cube1",
+    "author": "PengChenPCPCPC",
+    "downloads": 32,
+    "downloads_all_time": 1550,
+    "likes": 0,
+    "last_modified": "2025-07-29T01:08:02+00:00",
+    "created_at": "2025-07-29T00:37:34+00:00",
+    "gated": false
+   },
+   {
+    "id": "Qipei/Task_woodbrick2_no_sheet_08",
+    "author": "Qipei",
+    "downloads": 27,
+    "downloads_all_time": 194,
+    "likes": 0,
+    "last_modified": "2025-11-06T20:48:25+00:00",
+    "created_at": "2025-11-06T20:48:16+00:00",
+    "gated": false
+   },
+   {
+    "id": "RickRain/Imperio_train",
+    "author": "RickRain",
+    "downloads": 40,
+    "downloads_all_time": 176,
+    "likes": 0,
+    "last_modified": "2026-04-04T12:55:30+00:00",
+    "created_at": "2026-04-04T12:48:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "RobotisSW/ffw_sg2_rev1_task_189_0120_bokyung_1",
+    "author": "RobotisSW",
+    "downloads": 36,
+    "downloads_all_time": 372,
+    "likes": 0,
+    "last_modified": "2026-01-20T05:12:22+00:00",
+    "created_at": "2026-01-20T05:10:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "RobotisSW/ffw_sg2_rev1_task_255_0128_jungmin_1",
+    "author": "RobotisSW",
+    "downloads": 26,
+    "downloads_all_time": 184,
+    "likes": 0,
+    "last_modified": "2026-01-28T07:02:08+00:00",
+    "created_at": "2026-01-28T07:01:28+00:00",
+    "gated": false
+   },
+   {
+    "id": "RobotisSW/ffw_sg2_rev1_task_314_0204_bokyung_1_edit",
+    "author": "RobotisSW",
+    "downloads": 45,
+    "downloads_all_time": 768,
+    "likes": 0,
+    "last_modified": "2026-02-04T08:11:28+00:00",
+    "created_at": "2026-02-04T08:11:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "Setsunainn/mpm_cloth-turn-128-rgb-v0-turn",
+    "author": "Setsunainn",
+    "downloads": 159,
+    "downloads_all_time": 977,
+    "likes": 0,
+    "last_modified": "2025-07-21T07:48:20+00:00",
+    "created_at": "2025-07-21T07:41:53+00:00",
+    "gated": false
+   },
+   {
+    "id": "Setsunainn/piper_flip-test-pull",
+    "author": "Setsunainn",
+    "downloads": 41,
+    "downloads_all_time": 432,
+    "likes": 0,
+    "last_modified": "2025-07-18T02:41:59+00:00",
+    "created_at": "2025-07-18T02:41:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "Simple-Testbed/pick-place-6ep-arm-retreats-2",
+    "author": "Simple-Testbed",
+    "downloads": 21,
+    "downloads_all_time": 132,
+    "likes": 0,
+    "last_modified": "2026-01-31T00:06:23+00:00",
+    "created_at": "2026-01-31T00:06:18+00:00",
+    "gated": false
+   },
+   {
+    "id": "StefanWagnerWandelbots/virtual_teleop_pickplace_easy",
+    "author": "StefanWagnerWandelbots",
+    "downloads": 43,
+    "downloads_all_time": 740,
+    "likes": 0,
+    "last_modified": "2026-04-14T20:09:37+00:00",
+    "created_at": "2026-02-23T21:44:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "THULab/leisaac-pick-orange",
+    "author": "THULab",
+    "downloads": 35,
+    "downloads_all_time": 151,
+    "likes": 0,
+    "last_modified": "2026-08-20T12:44:17+00:00",
+    "created_at": "2026-07-24T04:52:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "THULab/thomas0829_bimanual_so100_stack_blocks",
+    "author": "THULab",
+    "downloads": 41,
+    "downloads_all_time": 113,
+    "likes": 0,
+    "last_modified": "2026-08-21T05:18:33+00:00",
+    "created_at": "2026-08-13T02:54:55+00:00",
+    "gated": false
+   },
+   {
+    "id": "TeddyUST/TrainData_20260919_154424",
+    "author": "TeddyUST",
+    "downloads": 106,
+    "downloads_all_time": 106,
+    "likes": 0,
+    "last_modified": "2026-09-19T08:13:30+00:00",
+    "created_at": "2026-09-19T08:13:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "Tna001/eval_pi05_lora_r16_lr3e4",
+    "author": "Tna001",
+    "downloads": 16,
+    "downloads_all_time": 108,
+    "likes": 0,
+    "last_modified": "2026-03-30T18:12:51+00:00",
+    "created_at": "2026-03-30T18:12:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "U-RIL/eval_act_51",
+    "author": "U-RIL",
+    "downloads": 208,
+    "downloads_all_time": 770,
+    "likes": 0,
+    "last_modified": "2025-07-31T19:17:17+00:00",
+    "created_at": "2025-07-31T18:46:25+00:00",
+    "gated": false
+   },
+   {
+    "id": "YUGOROU/eval_act_grasp_ginko",
+    "author": "YUGOROU",
+    "downloads": 14,
+    "downloads_all_time": 90,
+    "likes": 0,
+    "last_modified": "2026-03-05T00:09:07+00:00",
+    "created_at": "2026-03-05T00:09:00+00:00",
+    "gated": false
+   },
+   {
+    "id": "YamatoJ21/Dice",
+    "author": "YamatoJ21",
+    "downloads": 22,
+    "downloads_all_time": 145,
+    "likes": 0,
+    "last_modified": "2026-03-29T17:44:03+00:00",
+    "created_at": "2026-03-29T17:43:24+00:00",
+    "gated": false
+   },
+   {
+    "id": "Zengyang/record-pick-suger",
+    "author": "Zengyang",
+    "downloads": 22,
+    "downloads_all_time": 318,
+    "likes": 0,
+    "last_modified": "2026-01-07T10:23:12+00:00",
+    "created_at": "2026-01-02T17:07:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "aHiroakiIshikawa/so101-fold-towel-wrist-exact-stats-unified-prompt",
+    "author": "aHiroakiIshikawa",
+    "downloads": 48,
+    "downloads_all_time": 197,
+    "likes": 0,
+    "last_modified": "2026-07-20T13:32:21+00:00",
+    "created_at": "2026-07-20T13:32:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "access-robotics-team/so-ft-ma-100",
+    "author": "access-robotics-team",
+    "downloads": 56,
+    "downloads_all_time": 95,
+    "likes": 0,
+    "last_modified": "2026-07-31T19:50:36+00:00",
+    "created_at": "2026-07-31T19:32:37+00:00",
+    "gated": false
+   },
+   {
+    "id": "addisonhammer/so101_pink_die_in_cup_20260817_220140_20260819_090202",
+    "author": "addisonhammer",
+    "downloads": 35,
+    "downloads_all_time": 82,
+    "likes": 0,
+    "last_modified": "2026-08-19T13:12:48+00:00",
+    "created_at": "2026-08-19T13:12:44+00:00",
+    "gated": false
+   },
+   {
+    "id": "aidg-developer/picktape-50epi-251113",
+    "author": "aidg-developer",
+    "downloads": 27,
+    "downloads_all_time": 150,
+    "likes": 0,
+    "last_modified": "2025-11-13T11:56:33+00:00",
+    "created_at": "2025-11-13T11:56:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "airkfx/omx_pick_doll_test",
+    "author": "airkfx",
+    "downloads": 13,
+    "downloads_all_time": 92,
+    "likes": 0,
+    "last_modified": "2026-05-03T08:56:28+00:00",
+    "created_at": "2026-05-03T08:56:24+00:00",
+    "gated": false
+   },
+   {
+    "id": "alan-123456/so101_test_619_11",
+    "author": "alan-123456",
+    "downloads": 98,
+    "downloads_all_time": 680,
+    "likes": 0,
+    "last_modified": "2025-06-30T04:58:13+00:00",
+    "created_at": "2025-06-30T04:53:22+00:00",
+    "gated": false
+   },
+   {
+    "id": "allenai/20122025-foldclo-05",
+    "author": "allenai",
+    "downloads": 99,
+    "downloads_all_time": 900,
+    "likes": 0,
+    "last_modified": "2026-05-05T14:46:17+00:00",
+    "created_at": "2025-12-20T02:36:53+00:00",
+    "gated": false
+   },
+   {
+    "id": "allenai/29122025-tablebuss-01",
+    "author": "allenai",
+    "downloads": 79,
+    "downloads_all_time": 1132,
+    "likes": 0,
+    "last_modified": "2026-05-05T14:52:56+00:00",
+    "created_at": "2025-12-29T01:57:54+00:00",
+    "gated": false
+   },
+   {
+    "id": "alphabot2/aibot2_2026-07-15_clockwise_bottom_right",
+    "author": "alphabot2",
+    "downloads": 26,
+    "downloads_all_time": 164,
+    "likes": 0,
+    "last_modified": "2026-07-15T10:59:34+00:00",
+    "created_at": "2026-07-15T10:59:06+00:00",
+    "gated": false
+   },
+   {
+    "id": "andysigler/plate-test-1",
+    "author": "andysigler",
+    "downloads": 30,
+    "downloads_all_time": 409,
+    "likes": 0,
+    "last_modified": "2025-07-23T11:05:16+00:00",
+    "created_at": "2025-07-22T19:51:23+00:00",
+    "gated": false
+   },
+   {
+    "id": "anewhouse/so101_pick_and_place_v1",
+    "author": "anewhouse",
+    "downloads": 26,
+    "downloads_all_time": 196,
+    "likes": 0,
+    "last_modified": "2026-05-18T01:02:05+00:00",
+    "created_at": "2026-03-31T22:54:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "ankile/real01c-marker-insert-d1-blind-dagger-r1-100ep",
+    "author": "ankile",
+    "downloads": 56,
+    "downloads_all_time": 445,
+    "likes": 0,
+    "last_modified": "2026-08-19T21:09:25+00:00",
+    "created_at": "2026-06-05T03:44:59+00:00",
+    "gated": false
+   },
+   {
+    "id": "apal99/record-test-1",
+    "author": "apal99",
+    "downloads": 28,
+    "downloads_all_time": 128,
+    "likes": 0,
+    "last_modified": "2026-02-05T08:33:46+00:00",
+    "created_at": "2026-02-05T08:30:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "arclabmit/xarm7_beavrsim_pickplace_image_dataset",
+    "author": "arclabmit",
+    "downloads": 33,
+    "downloads_all_time": 322,
+    "likes": 0,
+    "last_modified": "2026-01-30T00:38:54+00:00",
+    "created_at": "2026-01-30T00:38:51+00:00",
+    "gated": false
+   },
+   {
+    "id": "arjunsinghyadav2/lego_sort_b5_03012026",
+    "author": "arjunsinghyadav2",
+    "downloads": 31,
+    "downloads_all_time": 134,
+    "likes": 0,
+    "last_modified": "2026-03-02T02:13:25+00:00",
+    "created_at": "2026-03-02T02:12:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "arminfg/right2left",
+    "author": "arminfg",
+    "downloads": 24,
+    "downloads_all_time": 200,
+    "likes": 0,
+    "last_modified": "2025-10-15T05:55:16+00:00",
+    "created_at": "2025-10-15T05:53:25+00:00",
+    "gated": false
+   },
+   {
+    "id": "asdffaawe/record-test_20260713_112607",
+    "author": "asdffaawe",
+    "downloads": 20,
+    "downloads_all_time": 97,
+    "likes": 0,
+    "last_modified": "2026-07-13T03:31:55+00:00",
+    "created_at": "2026-07-13T03:31:16+00:00",
+    "gated": false
+   },
+   {
+    "id": "aytsaiusc/play_robot_fruits_5_eef",
+    "author": "aytsaiusc",
+    "downloads": 43,
+    "downloads_all_time": 117,
+    "likes": 0,
+    "last_modified": "2026-08-12T01:52:47+00:00",
+    "created_at": "2026-08-12T01:52:37+00:00",
+    "gated": false
+   },
+   {
+    "id": "biggson/record-test2",
+    "author": "biggson",
+    "downloads": 15,
+    "downloads_all_time": 121,
+    "likes": 0,
+    "last_modified": "2026-02-03T15:25:03+00:00",
+    "created_at": "2026-02-03T15:24:22+00:00",
+    "gated": false
+   },
+   {
+    "id": "binhng/robocasa_30_demos_lerobot_5_chosen_tasks_v1",
+    "author": "binhng",
+    "downloads": 154,
+    "downloads_all_time": 2270,
+    "likes": 0,
+    "last_modified": "2025-12-30T08:30:58+00:00",
+    "created_at": "2025-12-30T08:29:16+00:00",
+    "gated": false
+   },
+   {
+    "id": "boat1470/eval_so101_chilli",
+    "author": "boat1470",
+    "downloads": 23,
+    "downloads_all_time": 125,
+    "likes": 0,
+    "last_modified": "2026-04-23T16:16:33+00:00",
+    "created_at": "2026-04-23T16:16:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "booang/record-test6",
+    "author": "booang",
+    "downloads": 25,
+    "downloads_all_time": 1653,
+    "likes": 0,
+    "last_modified": "2026-02-05T16:59:36+00:00",
+    "created_at": "2026-02-05T16:18:34+00:00",
+    "gated": false
+   },
+   {
+    "id": "bybifoc/record-50x",
+    "author": "bybifoc",
+    "downloads": 16,
+    "downloads_all_time": 72,
+    "likes": 0,
+    "last_modified": "2026-02-17T11:44:29+00:00",
+    "created_at": "2026-02-17T11:44:27+00:00",
+    "gated": false
+   },
+   {
+    "id": "chair0/chess_single_rook_noon_trimmed",
+    "author": "chair0",
+    "downloads": 151,
+    "downloads_all_time": 151,
+    "likes": 0,
+    "last_modified": "2026-09-14T07:01:18+00:00",
+    "created_at": "2026-09-14T07:01:07+00:00",
+    "gated": false
+   },
+   {
+    "id": "chair0/rollout_20260810_20260810_194517",
+    "author": "chair0",
+    "downloads": 27,
+    "downloads_all_time": 64,
+    "likes": 0,
+    "last_modified": "2026-08-23T16:17:37+00:00",
+    "created_at": "2026-08-23T16:17:34+00:00",
+    "gated": false
+   },
+   {
+    "id": "choiwoong/cucumber-dual-camera-test",
+    "author": "choiwoong",
+    "downloads": 47,
+    "downloads_all_time": 47,
+    "likes": 0,
+    "last_modified": "2026-09-10T10:53:49+00:00",
+    "created_at": "2026-09-10T10:53:47+00:00",
+    "gated": false
+   },
+   {
+    "id": "cijerezg/eval_pickup_policy_pi05_v2.4",
+    "author": "cijerezg",
+    "downloads": 31,
+    "downloads_all_time": 189,
+    "likes": 0,
+    "last_modified": "2025-10-18T06:38:17+00:00",
+    "created_at": "2025-10-18T06:38:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "ckckcharlie/eval_pickcube259",
+    "author": "ckckcharlie",
+    "downloads": 15,
+    "downloads_all_time": 78,
+    "likes": 0,
+    "last_modified": "2026-03-05T22:23:19+00:00",
+    "created_at": "2026-03-05T22:23:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "csacan/eval_act_banana_bowl",
+    "author": "csacan",
+    "downloads": 20,
+    "downloads_all_time": 141,
+    "likes": 0,
+    "last_modified": "2026-04-30T23:54:27+00:00",
+    "created_at": "2026-04-30T23:39:32+00:00",
+    "gated": false
+   },
+   {
+    "id": "danielwp22/record-test-1",
+    "author": "danielwp22",
+    "downloads": 21,
+    "downloads_all_time": 95,
+    "likes": 0,
+    "last_modified": "2026-02-23T19:47:00+00:00",
+    "created_at": "2026-02-23T19:32:34+00:00",
+    "gated": false
+   },
+   {
+    "id": "douzi999/so100_test_10",
+    "author": "douzi999",
+    "downloads": 32,
+    "downloads_all_time": 540,
+    "likes": 0,
+    "last_modified": "2025-04-01T09:45:00+00:00",
+    "created_at": "2025-04-01T09:44:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "ducido/merged_libero_s40_original_s40_synthetic_5ep_all_normal_task_20ep_2_hard_task_PA",
+    "author": "ducido",
+    "downloads": 23,
+    "downloads_all_time": 2979,
+    "likes": 0,
+    "last_modified": "2026-01-14T03:05:21+00:00",
+    "created_at": "2026-01-14T03:03:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "erebius/sow4",
+    "author": "erebius",
+    "downloads": 24,
+    "downloads_all_time": 496,
+    "likes": 0,
+    "last_modified": "2025-09-02T04:18:17+00:00",
+    "created_at": "2025-09-02T03:19:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "ethanCSL/Ting_grip_block_2color_new",
+    "author": "ethanCSL",
+    "downloads": 31,
+    "downloads_all_time": 407,
+    "likes": 0,
+    "last_modified": "2026-01-24T16:13:25+00:00",
+    "created_at": "2026-01-23T09:54:16+00:00",
+    "gated": false
+   },
+   {
+    "id": "fedemartino/record-test-50-v2_20260709_201148",
+    "author": "fedemartino",
+    "downloads": 24,
+    "downloads_all_time": 116,
+    "likes": 0,
+    "last_modified": "2026-07-09T23:12:03+00:00",
+    "created_at": "2026-07-09T23:11:57+00:00",
+    "gated": false
+   },
+   {
+    "id": "frogsterr/rollout_cards_to_bowl_nas20_20260925_001930",
+    "author": "frogsterr",
+    "downloads": 60,
+    "downloads_all_time": 60,
+    "likes": 0,
+    "last_modified": "2026-09-25T04:19:38+00:00",
+    "created_at": "2026-09-25T04:19:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "geonmin-kim/rollout_xvla_so101_morig_d6231_step30000_large_green_cube_sync_0807_1028_20260807_102857",
+    "author": "geonmin-kim",
+    "downloads": 37,
+    "downloads_all_time": 104,
+    "likes": 0,
+    "last_modified": "2026-08-07T01:31:38+00:00",
+    "created_at": "2026-08-07T01:31:28+00:00",
+    "gated": false
+   },
+   {
+    "id": "giacomoran/so101_data_collection_gba_hand",
+    "author": "giacomoran",
+    "downloads": 46,
+    "downloads_all_time": 312,
+    "likes": 0,
+    "last_modified": "2026-01-08T15:43:53+00:00",
+    "created_at": "2026-01-08T15:34:56+00:00",
+    "gated": false
+   },
+   {
+    "id": "guanfengliu/eval_grab_tooth_brush_orient2_60k",
+    "author": "guanfengliu",
+    "downloads": 66,
+    "downloads_all_time": 414,
+    "likes": 0,
+    "last_modified": "2025-09-06T06:15:31+00:00",
+    "created_at": "2025-09-06T06:15:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "helper2424/eval_smolval_movet_to_blue_test3",
+    "author": "helper2424",
+    "downloads": 24,
+    "downloads_all_time": 486,
+    "likes": 0,
+    "last_modified": "2025-07-20T18:09:24+00:00",
+    "created_at": "2025-07-20T18:09:14+00:00",
+    "gated": false
+   },
+   {
+    "id": "huihui060124/eval_act_so101_test_50grab02",
+    "author": "huihui060124",
+    "downloads": 35,
+    "downloads_all_time": 499,
+    "likes": 0,
+    "last_modified": "2025-07-31T03:13:02+00:00",
+    "created_at": "2025-07-31T03:11:56+00:00",
+    "gated": false
+   },
+   {
+    "id": "hukewei/lerobot_peg_in_optical",
+    "author": "hukewei",
+    "downloads": 75,
+    "downloads_all_time": 242,
+    "likes": 0,
+    "last_modified": "2026-05-23T10:21:17+00:00",
+    "created_at": "2026-05-23T09:42:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "humjie/bimanual-so101-fold-towel-v6",
+    "author": "humjie",
+    "downloads": 38,
+    "downloads_all_time": 193,
+    "likes": 0,
+    "last_modified": "2026-03-26T07:33:32+00:00",
+    "created_at": "2026-03-23T05:46:38+00:00",
+    "gated": false
+   },
+   {
+    "id": "ilBiondo06/eval_act_so100_movelladot_c5",
+    "author": "ilBiondo06",
+    "downloads": 36,
+    "downloads_all_time": 368,
+    "likes": 0,
+    "last_modified": "2025-06-24T12:30:15+00:00",
+    "created_at": "2025-06-24T12:29:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "imstevenpmwork/test_stream_linux5",
+    "author": "imstevenpmwork",
+    "downloads": 20,
+    "downloads_all_time": 83,
+    "likes": 0,
+    "last_modified": "2026-02-16T17:21:36+00:00",
+    "created_at": "2026-02-16T17:21:34+00:00",
+    "gated": false
+   },
+   {
+    "id": "jackvial/screwdriver_panel_ls_t1_e2",
+    "author": "jackvial",
+    "downloads": 18,
+    "downloads_all_time": 295,
+    "likes": 0,
+    "last_modified": "2025-08-15T00:58:51+00:00",
+    "created_at": "2025-08-15T00:58:46+00:00",
+    "gated": false
+   },
+   {
+    "id": "javadcc/record_grab_orio",
+    "author": "javadcc",
+    "downloads": 27,
+    "downloads_all_time": 157,
+    "likes": 0,
+    "last_modified": "2025-11-13T08:06:31+00:00",
+    "created_at": "2025-11-13T08:06:07+00:00",
+    "gated": false
+   },
+   {
+    "id": "jborbon/tape_pick_and_place",
+    "author": "jborbon",
+    "downloads": 44,
+    "downloads_all_time": 1212,
+    "likes": 1,
+    "last_modified": "2024-09-16T21:59:09+00:00",
+    "created_at": "2024-09-16T21:58:12+00:00",
+    "gated": false
+   },
+   {
+    "id": "jio2/clean_desk_v1_pi",
+    "author": "jio2",
+    "downloads": 63,
+    "downloads_all_time": 483,
+    "likes": 0,
+    "last_modified": "2026-05-13T13:35:38+00:00",
+    "created_at": "2026-05-12T14:27:07+00:00",
+    "gated": false
+   },
+   {
+    "id": "jiroh2000/so100_test_007",
+    "author": "jiroh2000",
+    "downloads": 74,
+    "downloads_all_time": 683,
+    "likes": 0,
+    "last_modified": "2025-05-25T10:21:08+00:00",
+    "created_at": "2025-05-25T10:21:02+00:00",
+    "gated": false
+   },
+   {
+    "id": "joenewbry/chess_robot_1756261306",
+    "author": "joenewbry",
+    "downloads": 26,
+    "downloads_all_time": 287,
+    "likes": 0,
+    "last_modified": "2025-08-27T02:22:09+00:00",
+    "created_at": "2025-08-27T02:22:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "jogarulfop/rollout_2026-09-24_plug_cable_iolite_dagger_v0_20260924_112258",
+    "author": "jogarulfop",
+    "downloads": 115,
+    "downloads_all_time": 115,
+    "likes": 0,
+    "last_modified": "2026-09-24T09:32:27+00:00",
+    "created_at": "2026-09-24T09:32:21+00:00",
+    "gated": false
+   },
+   {
+    "id": "juliobellano/wristcam_ripeunripe",
+    "author": "juliobellano",
+    "downloads": 27,
+    "downloads_all_time": 248,
+    "likes": 0,
+    "last_modified": "2025-11-02T16:38:21+00:00",
+    "created_at": "2025-11-02T11:40:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "junshin02/so101_pickplace_v2trim_ee_cc_ho135",
+    "author": "junshin02",
+    "downloads": 76,
+    "downloads_all_time": 76,
+    "likes": 0,
+    "last_modified": "2026-08-31T10:38:37+00:00",
+    "created_at": "2026-08-31T10:38:22+00:00",
+    "gated": false
+   },
+   {
+    "id": "k1000dai/so101-self-replica-500ep-durable-test",
+    "author": "k1000dai",
+    "downloads": 33,
+    "downloads_all_time": 239,
+    "likes": 0,
+    "last_modified": "2026-06-28T19:29:58+00:00",
+    "created_at": "2026-06-28T19:28:27+00:00",
+    "gated": false
+   },
+   {
+    "id": "kaiserbuffle/so101_test",
+    "author": "kaiserbuffle",
+    "downloads": 191,
+    "downloads_all_time": 1250,
+    "likes": 0,
+    "last_modified": "2025-04-30T08:47:36+00:00",
+    "created_at": "2025-04-30T08:25:09+00:00",
+    "gated": false
+   },
+   {
+    "id": "kaixiyao/widowxai_pipe_bomb_transfer_merged",
+    "author": "kaixiyao",
+    "downloads": 59,
+    "downloads_all_time": 166,
+    "likes": 0,
+    "last_modified": "2026-05-21T13:23:23+00:00",
+    "created_at": "2026-05-21T13:23:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "kaze72/pickplace_v2_50ep",
+    "author": "kaze72",
+    "downloads": 22,
+    "downloads_all_time": 143,
+    "likes": 0,
+    "last_modified": "2025-11-15T12:09:06+00:00",
+    "created_at": "2025-11-15T12:07:45+00:00",
+    "gated": false
+   },
+   {
+    "id": "kimz1121/eval__pick_banana_2025_09_11_23_03_37",
+    "author": "kimz1121",
+    "downloads": 22,
+    "downloads_all_time": 242,
+    "likes": 0,
+    "last_modified": "2025-09-11T14:06:36+00:00",
+    "created_at": "2025-09-11T14:06:28+00:00",
+    "gated": false
+   },
+   {
+    "id": "kimz1121/lerobot_tutorial_2025_07_24_13_59_32",
+    "author": "kimz1121",
+    "downloads": 24,
+    "downloads_all_time": 374,
+    "likes": 0,
+    "last_modified": "2025-07-24T05:00:42+00:00",
+    "created_at": "2025-07-24T05:00:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "kinghanse/HS_nut1",
+    "author": "kinghanse",
+    "downloads": 25,
+    "downloads_all_time": 268,
+    "likes": 0,
+    "last_modified": "2025-09-17T09:51:08+00:00",
+    "created_at": "2025-09-17T09:50:33+00:00",
+    "gated": false
+   },
+   {
+    "id": "kiroaiseoul/eval_pi0full_s30k_fps21_task11",
+    "author": "kiroaiseoul",
+    "downloads": 102,
+    "downloads_all_time": 102,
+    "likes": 0,
+    "last_modified": "2026-09-25T14:43:12+00:00",
+    "created_at": "2026-09-25T14:36:59+00:00",
+    "gated": false
+   },
+   {
+    "id": "kumarhans/ethernetGrab6",
+    "author": "kumarhans",
+    "downloads": 28,
+    "downloads_all_time": 2352,
+    "likes": 0,
+    "last_modified": "2025-07-12T09:01:47+00:00",
+    "created_at": "2025-07-12T08:53:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "leochien1110/record-test",
+    "author": "leochien1110",
+    "downloads": 22,
+    "downloads_all_time": 152,
+    "likes": 0,
+    "last_modified": "2025-12-03T18:19:29+00:00",
+    "created_at": "2025-12-03T18:19:09+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot-data-collection/level1_final_setup_1",
+    "author": "lerobot-data-collection",
+    "downloads": 18,
+    "downloads_all_time": 97,
+    "likes": 0,
+    "last_modified": "2026-02-09T16:49:11+00:00",
+    "created_at": "2026-02-09T16:49:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobot-data-collection/level1_rac3_rtc_s7_1",
+    "author": "lerobot-data-collection",
+    "downloads": 27,
+    "downloads_all_time": 146,
+    "likes": 0,
+    "last_modified": "2026-01-16T16:38:12+00:00",
+    "created_at": "2026-01-16T16:38:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "lerobotForScienceEdu/eval_Rock_Acid-v4-gt-hand",
+    "author": "lerobotForScienceEdu",
+    "downloads": 37,
+    "downloads_all_time": 165,
+    "likes": 0,
+    "last_modified": "2026-01-13T10:34:54+00:00",
+    "created_at": "2026-01-13T10:34:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "liorbenhorin-nv/so101-sim-rock-a-stack-hard-comp",
+    "author": "liorbenhorin-nv",
+    "downloads": 59,
+    "downloads_all_time": 322,
+    "likes": 0,
+    "last_modified": "2025-11-02T09:11:11+00:00",
+    "created_at": "2025-11-02T09:11:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "lirislab/eval_bimanual_scene2_take1_60K_outside",
+    "author": "lirislab",
+    "downloads": 65,
+    "downloads_all_time": 785,
+    "likes": 0,
+    "last_modified": "2025-03-20T13:26:49+00:00",
+    "created_at": "2025-03-20T13:26:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "max-chr/libero_plus_10_texture_all_iiwa",
+    "author": "max-chr",
+    "downloads": 45,
+    "downloads_all_time": 695,
+    "likes": 0,
+    "last_modified": "2026-07-17T19:17:37+00:00",
+    "created_at": "2026-07-17T19:15:44+00:00",
+    "gated": false
+   },
+   {
+    "id": "maximellerbach/rollout_lingbot_test_20260702_120838",
+    "author": "maximellerbach",
+    "downloads": 25,
+    "downloads_all_time": 179,
+    "likes": 0,
+    "last_modified": "2026-07-02T10:27:17+00:00",
+    "created_at": "2026-07-02T10:27:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "mfgcvguy/742322",
+    "author": "mfgcvguy",
+    "downloads": 29,
+    "downloads_all_time": 149,
+    "likes": 0,
+    "last_modified": "2026-01-04T05:26:20+00:00",
+    "created_at": "2026-01-04T05:26:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "michellelxliu/pick-blue-usb-dagger2",
+    "author": "michellelxliu",
+    "downloads": 241,
+    "downloads_all_time": 507,
+    "likes": 0,
+    "last_modified": "2026-07-09T02:21:44+00:00",
+    "created_at": "2026-07-09T02:20:00+00:00",
+    "gated": false
+   },
+   {
+    "id": "mim-chess-vlas/train_800_complex__mask__overlay_a50__sim__all_cameras__live",
+    "author": "mim-chess-vlas",
+    "downloads": 74,
+    "downloads_all_time": 74,
+    "likes": 0,
+    "last_modified": "2026-09-16T10:11:32+00:00",
+    "created_at": "2026-09-16T10:03:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "mklovin/test1",
+    "author": "mklovin",
+    "downloads": 91,
+    "downloads_all_time": 136,
+    "likes": 0,
+    "last_modified": "2026-08-25T15:40:50+00:00",
+    "created_at": "2026-08-25T15:40:35+00:00",
+    "gated": false
+   },
+   {
+    "id": "mrrl-emcnei/trossen_PnPcube",
+    "author": "mrrl-emcnei",
+    "downloads": 228,
+    "downloads_all_time": 847,
+    "likes": 0,
+    "last_modified": "2025-07-07T21:56:59+00:00",
+    "created_at": "2025-07-07T21:06:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "msmandelbrot/eval_bi101_diffusion_workbench_threading_bolt_240000",
+    "author": "msmandelbrot",
+    "downloads": 35,
+    "downloads_all_time": 751,
+    "likes": 0,
+    "last_modified": "2025-12-15T13:08:47+00:00",
+    "created_at": "2025-12-15T12:30:09+00:00",
+    "gated": false
+   },
+   {
+    "id": "nakanakagawa/eval_sponge_task_9_24_v2",
+    "author": "nakanakagawa",
+    "downloads": 92,
+    "downloads_all_time": 92,
+    "likes": 0,
+    "last_modified": "2026-09-24T07:32:41+00:00",
+    "created_at": "2026-09-24T07:27:58+00:00",
+    "gated": false
+   },
+   {
+    "id": "namin72/pick-up-erasers-place-in-drawers-rgbd-v2-merged",
+    "author": "namin72",
+    "downloads": 89,
+    "downloads_all_time": 177,
+    "likes": 0,
+    "last_modified": "2026-07-31T06:16:27+00:00",
+    "created_at": "2026-07-31T06:11:16+00:00",
+    "gated": false
+   },
+   {
+    "id": "nc8304/so101_032326_white_back_032726_17",
+    "author": "nc8304",
+    "downloads": 25,
+    "downloads_all_time": 163,
+    "likes": 0,
+    "last_modified": "2026-03-27T17:43:41+00:00",
+    "created_at": "2026-03-27T17:43:38+00:00",
+    "gated": false
+   },
+   {
+    "id": "nhmacwan/Cube_Stacking_Dataset_1",
+    "author": "nhmacwan",
+    "downloads": 41,
+    "downloads_all_time": 195,
+    "likes": 0,
+    "last_modified": "2026-03-30T00:01:14+00:00",
+    "created_at": "2026-03-29T23:17:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "noorzamri86/so100_test",
+    "author": "noorzamri86",
+    "downloads": 76,
+    "downloads_all_time": 713,
+    "likes": 0,
+    "last_modified": "2025-05-20T08:00:58+00:00",
+    "created_at": "2025-05-20T08:00:32+00:00",
+    "gated": false
+   },
+   {
+    "id": "orbbecwuxin/so101_task",
+    "author": "orbbecwuxin",
+    "downloads": 59,
+    "downloads_all_time": 202,
+    "likes": 0,
+    "last_modified": "2026-03-06T08:57:48+00:00",
+    "created_at": "2026-03-06T08:55:58+00:00",
+    "gated": false
+   },
+   {
+    "id": "ozayash/yam_so101_teleop_cam_slots_test",
+    "author": "ozayash",
+    "downloads": 22,
+    "downloads_all_time": 138,
+    "likes": 0,
+    "last_modified": "2026-05-10T08:03:57+00:00",
+    "created_at": "2026-05-10T08:03:43+00:00",
+    "gated": false
+   },
+   {
+    "id": "pepijn223/task_374",
+    "author": "pepijn223",
+    "downloads": 36,
+    "downloads_all_time": 290,
+    "likes": 0,
+    "last_modified": "2025-10-10T09:08:30+00:00",
+    "created_at": "2025-10-10T09:07:01+00:00",
+    "gated": false
+   },
+   {
+    "id": "pravsels/so101_bimanual_smoke",
+    "author": "pravsels",
+    "downloads": 34,
+    "downloads_all_time": 117,
+    "likes": 0,
+    "last_modified": "2026-08-04T15:12:28+00:00",
+    "created_at": "2026-08-04T15:12:24+00:00",
+    "gated": false
+   },
+   {
+    "id": "psg777/gluepickup103",
+    "author": "psg777",
+    "downloads": 79,
+    "downloads_all_time": 694,
+    "likes": 0,
+    "last_modified": "2025-06-03T23:00:05+00:00",
+    "created_at": "2025-06-03T22:59:51+00:00",
+    "gated": false
+   },
+   {
+    "id": "qownscks/pot100",
+    "author": "qownscks",
+    "downloads": 76,
+    "downloads_all_time": 132,
+    "likes": 0,
+    "last_modified": "2026-08-24T10:02:23+00:00",
+    "created_at": "2026-08-24T10:02:14+00:00",
+    "gated": false
+   },
+   {
+    "id": "rdoshi21/1m2r-rope-zoom-fifteen",
+    "author": "rdoshi21",
+    "downloads": 20,
+    "downloads_all_time": 148,
+    "likes": 0,
+    "last_modified": "2026-03-15T18:43:14+00:00",
+    "created_at": "2026-03-15T18:26:33+00:00",
+    "gated": false
+   },
+   {
+    "id": "reece-omahoney/pick-and-place_20260821_142833",
+    "author": "reece-omahoney",
+    "downloads": 22,
+    "downloads_all_time": 92,
+    "likes": 0,
+    "last_modified": "2026-08-21T13:53:36+00:00",
+    "created_at": "2026-08-21T13:53:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "rfruit/so100_building_house",
+    "author": "rfruit",
+    "downloads": 107,
+    "downloads_all_time": 1461,
+    "likes": 0,
+    "last_modified": "2025-06-14T22:58:59+00:00",
+    "created_at": "2025-06-14T22:58:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "rishgang22/LH_toy_sort",
+    "author": "rishgang22",
+    "downloads": 22,
+    "downloads_all_time": 143,
+    "likes": 0,
+    "last_modified": "2026-04-25T13:03:10+00:00",
+    "created_at": "2026-04-25T13:01:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "rishgang22/workspace_cleaning_merged_v1",
+    "author": "rishgang22",
+    "downloads": 34,
+    "downloads_all_time": 165,
+    "likes": 0,
+    "last_modified": "2026-06-06T14:23:47+00:00",
+    "created_at": "2026-06-06T14:23:30+00:00",
+    "gated": false
+   },
+   {
+    "id": "rli14/10132025_pick_bluepearlspoon_redlinentablecloth",
+    "author": "rli14",
+    "downloads": 78,
+    "downloads_all_time": 337,
+    "likes": 0,
+    "last_modified": "2025-10-17T00:39:11+00:00",
+    "created_at": "2025-10-17T00:38:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "rngllz/record-test",
+    "author": "rngllz",
+    "downloads": 26,
+    "downloads_all_time": 564,
+    "likes": 0,
+    "last_modified": "2025-06-14T19:16:25+00:00",
+    "created_at": "2025-06-14T17:32:54+00:00",
+    "gated": false
+   },
+   {
+    "id": "robot-learning-group47/eval_try_10k_phase1_grasp_lift_n20_i0_20260520_190530",
+    "author": "robot-learning-group47",
+    "downloads": 20,
+    "downloads_all_time": 105,
+    "likes": 0,
+    "last_modified": "2026-05-20T17:06:13+00:00",
+    "created_at": "2026-05-20T17:06:11+00:00",
+    "gated": false
+   },
+   {
+    "id": "sarviinageelen/so101_pickplace",
+    "author": "sarviinageelen",
+    "downloads": 28,
+    "downloads_all_time": 138,
+    "likes": 0,
+    "last_modified": "2026-06-04T02:13:03+00:00",
+    "created_at": "2026-06-03T16:18:55+00:00",
+    "gated": false
+   },
+   {
+    "id": "shimazukosen/eval__so101_act_policy_airhockey_1224_ep2",
+    "author": "shimazukosen",
+    "downloads": 27,
+    "downloads_all_time": 153,
+    "likes": 0,
+    "last_modified": "2025-12-24T02:03:47+00:00",
+    "created_at": "2025-12-24T02:03:40+00:00",
+    "gated": false
+   },
+   {
+    "id": "shp314/gr00t_so101",
+    "author": "shp314",
+    "downloads": 16,
+    "downloads_all_time": 124,
+    "likes": 0,
+    "last_modified": "2026-03-08T16:32:40+00:00",
+    "created_at": "2026-03-08T15:15:03+00:00",
+    "gated": false
+   },
+   {
+    "id": "shylee/eval_DP_cube_downDims1_cropNo_freeze1_32_1_ema1_1e-4_ckpt300000",
+    "author": "shylee",
+    "downloads": 51,
+    "downloads_all_time": 332,
+    "likes": 0,
+    "last_modified": "2025-05-05T12:06:31+00:00",
+    "created_at": "2025-05-03T12:27:31+00:00",
+    "gated": false
+   },
+   {
+    "id": "shylee/eval_StaticB1_Ours",
+    "author": "shylee",
+    "downloads": 20,
+    "downloads_all_time": 480,
+    "likes": 0,
+    "last_modified": "2025-05-11T20:21:58+00:00",
+    "created_at": "2025-05-11T20:16:42+00:00",
+    "gated": false
+   },
+   {
+    "id": "sicsai/sort_cubes_slide_rgby",
+    "author": "sicsai",
+    "downloads": 152,
+    "downloads_all_time": 2496,
+    "likes": 0,
+    "last_modified": "2025-09-24T11:58:12+00:00",
+    "created_at": "2025-09-18T13:24:55+00:00",
+    "gated": false
+   },
+   {
+    "id": "siyulw2025/cableholder-approach",
+    "author": "siyulw2025",
+    "downloads": 22,
+    "downloads_all_time": 819,
+    "likes": 0,
+    "last_modified": "2026-04-27T01:12:50+00:00",
+    "created_at": "2026-04-27T01:12:37+00:00",
+    "gated": false
+   },
+   {
+    "id": "so101/gatorade_cap_pickup_a4_v2_20260922",
+    "author": "so101",
+    "downloads": 112,
+    "downloads_all_time": 112,
+    "likes": 0,
+    "last_modified": "2026-09-22T14:36:02+00:00",
+    "created_at": "2026-09-22T13:50:24+00:00",
+    "gated": false
+   },
+   {
+    "id": "suz22/RoboTwin_place_mouse_pad_randomized",
+    "author": "suz22",
+    "downloads": 643,
+    "downloads_all_time": 2235,
+    "likes": 0,
+    "last_modified": "2026-03-26T06:19:35+00:00",
+    "created_at": "2026-03-26T06:18:15+00:00",
+    "gated": false
+   },
+   {
+    "id": "taomon/eval_so101_test_v34",
+    "author": "taomon",
+    "downloads": 21,
+    "downloads_all_time": 118,
+    "likes": 0,
+    "last_modified": "2026-01-03T04:00:21+00:00",
+    "created_at": "2026-01-03T04:00:17+00:00",
+    "gated": false
+   },
+   {
+    "id": "tegara/trossen_ai_stationary_ope275",
+    "author": "tegara",
+    "downloads": 54,
+    "downloads_all_time": 202,
+    "likes": 0,
+    "last_modified": "2026-03-05T05:16:48+00:00",
+    "created_at": "2026-03-05T05:16:04+00:00",
+    "gated": false
+   },
+   {
+    "id": "thewisp/sam3d_pick_sim_101x19_jun20",
+    "author": "thewisp",
+    "downloads": 33,
+    "downloads_all_time": 110,
+    "likes": 0,
+    "last_modified": "2026-06-20T07:07:52+00:00",
+    "created_at": "2026-06-20T07:07:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "tkyoun13/so101",
+    "author": "tkyoun13",
+    "downloads": 33,
+    "downloads_all_time": 103,
+    "likes": 0,
+    "last_modified": "2026-08-10T06:27:06+00:00",
+    "created_at": "2026-08-10T06:19:52+00:00",
+    "gated": false
+   },
+   {
+    "id": "tomneutens/up-grab-test-session_2025-11-23_12.53.34",
+    "author": "tomneutens",
+    "downloads": 34,
+    "downloads_all_time": 125,
+    "likes": 0,
+    "last_modified": "2025-11-23T11:55:13+00:00",
+    "created_at": "2025-11-23T11:55:00+00:00",
+    "gated": false
+   },
+   {
+    "id": "vdags/TicTacToe-b-merged-2-c",
+    "author": "vdags",
+    "downloads": 30,
+    "downloads_all_time": 144,
+    "likes": 0,
+    "last_modified": "2025-12-14T10:08:31+00:00",
+    "created_at": "2025-12-14T10:08:25+00:00",
+    "gated": false
+   },
+   {
+    "id": "vibsthebot/tape_policy_current_test",
+    "author": "vibsthebot",
+    "downloads": 23,
+    "downloads_all_time": 119,
+    "likes": 0,
+    "last_modified": "2026-02-16T02:21:17+00:00",
+    "created_at": "2026-02-14T20:13:10+00:00",
+    "gated": false
+   },
+   {
+    "id": "victor70/record-test",
+    "author": "victor70",
+    "downloads": 61,
+    "downloads_all_time": 185,
+    "likes": 0,
+    "last_modified": "2026-02-23T08:09:05+00:00",
+    "created_at": "2026-02-23T07:26:54+00:00",
+    "gated": false
+   },
+   {
+    "id": "villekuosmanen/agilex_spell_sun",
+    "author": "villekuosmanen",
+    "downloads": 40,
+    "downloads_all_time": 638,
+    "likes": 0,
+    "last_modified": "2026-03-19T08:33:16+00:00",
+    "created_at": "2025-02-13T13:14:50+00:00",
+    "gated": false
+   },
+   {
+    "id": "villekuosmanen/busybox_move_right_slider_to_5_cell_3",
+    "author": "villekuosmanen",
+    "downloads": 123,
+    "downloads_all_time": 123,
+    "likes": 0,
+    "last_modified": "2026-09-16T15:35:31+00:00",
+    "created_at": "2026-09-16T15:35:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "villekuosmanen/eval_debug_task_cell_8_12h23m_02-jul-2026",
+    "author": "villekuosmanen",
+    "downloads": 42,
+    "downloads_all_time": 217,
+    "likes": 0,
+    "last_modified": "2026-07-02T12:50:26+00:00",
+    "created_at": "2026-07-02T12:49:22+00:00",
+    "gated": false
+   },
+   {
+    "id": "vraiRobotLab/ROS2-so101-pick-and-place",
+    "author": "vraiRobotLab",
+    "downloads": 33,
+    "downloads_all_time": 140,
+    "likes": 0,
+    "last_modified": "2026-07-21T19:53:47+00:00",
+    "created_at": "2026-07-21T19:53:27+00:00",
+    "gated": false
+   },
+   {
+    "id": "weedmo/bimanual_so100_dataset_1",
+    "author": "weedmo",
+    "downloads": 66,
+    "downloads_all_time": 690,
+    "likes": 0,
+    "last_modified": "2026-02-07T16:23:10+00:00",
+    "created_at": "2026-02-07T14:35:36+00:00",
+    "gated": false
+   },
+   {
+    "id": "wenyudu/demo_pi05_260114_1534",
+    "author": "wenyudu",
+    "downloads": 18,
+    "downloads_all_time": 146,
+    "likes": 0,
+    "last_modified": "2026-01-14T07:52:47+00:00",
+    "created_at": "2026-01-14T07:48:23+00:00",
+    "gated": false
+   },
+   {
+    "id": "windfromthenorth/drawer_m04_s1",
+    "author": "windfromthenorth",
+    "downloads": 31,
+    "downloads_all_time": 1067,
+    "likes": 0,
+    "last_modified": "2025-12-04T07:36:26+00:00",
+    "created_at": "2025-12-04T07:36:14+00:00",
+    "gated": false
+   },
+   {
+    "id": "woool0824/so101_cube_pan_to_plate",
+    "author": "woool0824",
+    "downloads": 28,
+    "downloads_all_time": 109,
+    "likes": 0,
+    "last_modified": "2026-08-12T08:21:06+00:00",
+    "created_at": "2026-08-12T07:07:58+00:00",
+    "gated": false
+   },
+   {
+    "id": "wuc1/bi_so101_ffp_show_20260702_022156",
+    "author": "wuc1",
+    "downloads": 32,
+    "downloads_all_time": 170,
+    "likes": 0,
+    "last_modified": "2026-07-01T18:25:58+00:00",
+    "created_at": "2026-07-01T18:24:59+00:00",
+    "gated": false
+   },
+   {
+    "id": "wudixiaodingzai/record-test-30fps",
+    "author": "wudixiaodingzai",
+    "downloads": 24,
+    "downloads_all_time": 152,
+    "likes": 0,
+    "last_modified": "2026-06-21T19:47:33+00:00",
+    "created_at": "2026-06-21T19:46:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "xdd0225/depth_test",
+    "author": "xdd0225",
+    "downloads": 26,
+    "downloads_all_time": 403,
+    "likes": 0,
+    "last_modified": "2025-07-21T07:46:21+00:00",
+    "created_at": "2025-07-21T07:46:05+00:00",
+    "gated": false
+   },
+   {
+    "id": "yen-0/eval_smolvla_write7-2",
+    "author": "yen-0",
+    "downloads": 24,
+    "downloads_all_time": 139,
+    "likes": 0,
+    "last_modified": "2026-06-21T02:43:58+00:00",
+    "created_at": "2026-06-21T02:43:39+00:00",
+    "gated": false
+   },
+   {
+    "id": "yj33/eval_so100",
+    "author": "yj33",
+    "downloads": 15,
+    "downloads_all_time": 83,
+    "likes": 0,
+    "last_modified": "2026-03-10T00:26:23+00:00",
+    "created_at": "2026-03-10T00:26:19+00:00",
+    "gated": false
+   },
+   {
+    "id": "ykorkmaz/image_trial",
+    "author": "ykorkmaz",
+    "downloads": 17,
+    "downloads_all_time": 137,
+    "likes": 0,
+    "last_modified": "2026-03-10T21:12:28+00:00",
+    "created_at": "2026-03-10T21:12:23+00:00",
+    "gated": false
+   },
+   {
+    "id": "yoavca/record-test",
+    "author": "yoavca",
+    "downloads": 16,
+    "downloads_all_time": 145,
+    "likes": 0,
+    "last_modified": "2026-05-31T20:10:31+00:00",
+    "created_at": "2026-05-31T15:03:08+00:00",
+    "gated": false
+   },
+   {
+    "id": "younghyopark/pick_tblock_mp_centered_0701_tiny_render",
+    "author": "younghyopark",
+    "downloads": 25,
+    "downloads_all_time": 522,
+    "likes": 0,
+    "last_modified": "2025-07-11T18:57:51+00:00",
+    "created_at": "2025-07-11T18:57:49+00:00",
+    "gated": false
+   },
+   {
+    "id": "yucy207/robopanoptes_test3",
+    "author": "yucy207",
+    "downloads": 66,
+    "downloads_all_time": 644,
+    "likes": 0,
+    "last_modified": "2025-05-22T08:26:43+00:00",
+    "created_at": "2025-05-22T06:46:59+00:00",
+    "gated": false
+   },
+   {
+    "id": "zeicul/record-test-v19",
+    "author": "zeicul",
+    "downloads": 23,
+    "downloads_all_time": 127,
+    "likes": 0,
+    "last_modified": "2025-12-03T11:58:19+00:00",
+    "created_at": "2025-12-03T11:58:13+00:00",
+    "gated": false
+   },
+   {
+    "id": "zhengyangshi/so101_manual50_auto100a_v30",
+    "author": "zhengyangshi",
+    "downloads": 24,
+    "downloads_all_time": 246,
+    "likes": 0,
+    "last_modified": "2026-04-15T00:17:39+00:00",
+    "created_at": "2026-04-14T23:26:29+00:00",
+    "gated": false
+   },
+   {
+    "id": "zhenxuan/pingti_put_tape_largest_grid_0_20",
+    "author": "zhenxuan",
+    "downloads": 94,
+    "downloads_all_time": 594,
+    "likes": 0,
+    "last_modified": "2025-03-16T07:48:40+00:00",
+    "created_at": "2025-03-16T07:48:02+00:00",
+    "gated": false
+   },
+   {
+    "id": "zhuoKCL/prgvla_stack",
+    "author": "zhuoKCL",
+    "downloads": 26,
+    "downloads_all_time": 1071,
+    "likes": 0,
+    "last_modified": "2026-05-05T16:07:12+00:00",
+    "created_at": "2026-05-05T16:06:42+00:00",
+    "gated": false
+   },
+   {
+    "id": "ziyiweng/tape_20260604_153059",
+    "author": "ziyiweng",
+    "downloads": 31,
+    "downloads_all_time": 138,
+    "likes": 0,
+    "last_modified": "2026-06-04T08:02:33+00:00",
+    "created_at": "2026-06-04T08:01:34+00:00",
+    "gated": false
+   },
+   {
+    "id": "zjandaman/eval_train_simpel_5.5",
+    "author": "zjandaman",
+    "downloads": 15,
+    "downloads_all_time": 67,
+    "likes": 0,
+    "last_modified": "2026-06-23T08:32:28+00:00",
+    "created_at": "2026-06-23T08:32:26+00:00",
+    "gated": false
+   },
+   {
+    "id": "zzhtx/record-test_20260817_160707",
+    "author": "zzhtx",
+    "downloads": 20,
+    "downloads_all_time": 76,
+    "likes": 0,
+    "last_modified": "2026-08-17T08:11:02+00:00",
+    "created_at": "2026-08-17T08:10:33+00:00",
+    "gated": false
+   }
+  ]
+ }
+}

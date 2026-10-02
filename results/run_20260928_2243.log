@@ -1,0 +1,586 @@
+554 to audit (workers=2, authenticated=False, GR00T @51d4c89, huggingface_hub 2.0.0)
+[   1/554] S-curated  IPEC-COMMUNITY/austin_buds_dataset_lerobot                   NEEDS_SEMANTICS         SEMANTICS
+[   2/554] S-curated  HuggingFaceVLA/smol-libero                                   NEEDS_SEMANTICS         SEMANTICS
+[   3/554] S-curated  IPEC-COMMUNITY/austin_sailor_dataset_lerobot                 NEEDS_SEMANTICS         SEMANTICS
+[   4/554] S-curated  IPEC-COMMUNITY/austin_sirius_dataset_lerobot                 NEEDS_SEMANTICS         SEMANTICS
+[   5/554] S-curated  IPEC-COMMUNITY/berkeley_autolab_ur5_lerobot                  NEEDS_SEMANTICS         SEMANTICS
+[   6/554] S-curated  IPEC-COMMUNITY/bc_z_lerobot                                  NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[   7/554] S-curated  IPEC-COMMUNITY/berkeley_cable_routing_lerobot                NEEDS_SEMANTICS         SEMANTICS
+[   8/554] S-curated  IPEC-COMMUNITY/berkeley_fanuc_manipulation_lerobot           NEEDS_SEMANTICS         SEMANTICS
+[   9/554] S-curated  IPEC-COMMUNITY/berkeley_mvp_lerobot                          NEEDS_SEMANTICS         SEMANTICS
+[  10/554] S-curated  IPEC-COMMUNITY/berkeley_rpt_lerobot                          NEEDS_SEMANTICS         SEMANTICS
+[  11/554] S-curated  IPEC-COMMUNITY/cmu_play_fusion_lerobot                       NEEDS_SEMANTICS         SEMANTICS
+[  12/554] S-curated  IPEC-COMMUNITY/cmu_stretch_lerobot                           NEEDS_SEMANTICS         SEMANTICS
+[  13/554] S-curated  IPEC-COMMUNITY/bridge_orig_lerobot                           NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[  14/554] S-curated  IPEC-COMMUNITY/dlr_edan_shared_control_lerobot               NEEDS_SEMANTICS         SEMANTICS
+[  15/554] S-curated  IPEC-COMMUNITY/droid_lerobot                                 NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G3,G14)
+[  16/554] S-curated  IPEC-COMMUNITY/dobbe_lerobot                                 NEEDS_SEMANTICS         SEMANTICS
+[  17/554] S-curated  IPEC-COMMUNITY/fractal20220817_data_lerobot                  NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[  18/554] S-curated  IPEC-COMMUNITY/furniture_bench_dataset_lerobot               NEEDS_SEMANTICS         SEMANTICS
+[  19/554] S-curated  IPEC-COMMUNITY/fmb_dataset_lerobot                           NEEDS_SEMANTICS         SEMANTICS
+[  20/554] S-curated  IPEC-COMMUNITY/iamlab_cmu_pickup_insert_lerobot              NEEDS_SEMANTICS         SEMANTICS
+[  21/554] S-curated  IPEC-COMMUNITY/jaco_play_lerobot                             NEEDS_SEMANTICS         SEMANTICS
+[  22/554] S-curated  IPEC-COMMUNITY/kuka_lerobot                                  NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[  23/554] S-curated  IPEC-COMMUNITY/libero_90_no_noops_lerobot                    NEEDS_SEMANTICS         SEMANTICS
+[  24/554] S-curated  IPEC-COMMUNITY/nyu_door_opening_surprising_effectiveness_lerobot NEEDS_SEMANTICS         SEMANTICS
+[  25/554] S-curated  IPEC-COMMUNITY/language_table_lerobot                        NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G3,G14)
+[  26/554] S-curated  IPEC-COMMUNITY/nyu_franka_play_dataset_lerobot               NEEDS_SEMANTICS         SEMANTICS
+[  27/554] S-curated  IPEC-COMMUNITY/roboturk_lerobot                              NEEDS_SEMANTICS         SEMANTICS
+[  28/554] S-curated  IPEC-COMMUNITY/stanford_hydra_dataset_lerobot                NEEDS_SEMANTICS         SEMANTICS
+[  29/554] S-curated  IPEC-COMMUNITY/toto_lerobot                                  NEEDS_SEMANTICS         SEMANTICS
+[  30/554] S-curated  IPEC-COMMUNITY/taco_play_lerobot                             NEEDS_SEMANTICS         SEMANTICS
+[  31/554] S-curated  IPEC-COMMUNITY/ucsd_kitchen_dataset_lerobot                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  32/554] S-curated  IPEC-COMMUNITY/utaustin_mutex_lerobot                        NEEDS_SEMANTICS         SEMANTICS
+[  33/554] S-curated  IPEC-COMMUNITY/viola_lerobot                                 NEEDS_SEMANTICS         SEMANTICS
+[  34/554] S-curated  lerobot/SMPL_samples                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  35/554] S-curated  lerobot/abc_130k_v3_smoke                                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  36/554] S-curated  lerobot/abc_130k_v3_val                                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  37/554] S-curated  lerobot/abc_130k_v3_train                                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  38/554] S-curated  lerobot/aloha_mobile_cabinet                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  39/554] S-curated  lerobot/aloha_mobile_chair                                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  40/554] S-curated  lerobot/aloha_mobile_elevator                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  41/554] S-curated  lerobot/aloha_mobile_shrimp                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  42/554] S-curated  lerobot/aloha_mobile_shrimp_image                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  43/554] S-curated  lerobot/aloha_mobile_wash_pan                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  44/554] S-curated  lerobot/aloha_mobile_wipe_wine                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  45/554] S-curated  lerobot/aloha_sim_insertion_human                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  46/554] S-curated  lerobot/aloha_sim_insertion_human_image                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  47/554] S-curated  lerobot/aloha_sim_insertion_scripted                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  48/554] S-curated  lerobot/aloha_sim_insertion_scripted_image                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  49/554] S-curated  lerobot/aloha_sim_transfer_cube_human                        EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[  50/554] S-curated  lerobot/aloha_sim_transfer_cube_human_image                  EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[  51/554] S-curated  lerobot/aloha_sim_transfer_cube_scripted                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  52/554] S-curated  lerobot/aloha_sim_transfer_cube_scripted_image               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  53/554] S-curated  lerobot/aloha_static_battery                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  54/554] S-curated  lerobot/aloha_static_candy                                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  55/554] S-curated  lerobot/aloha_static_coffee                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  56/554] S-curated  lerobot/aloha_static_coffee_new                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  57/554] S-curated  lerobot/aloha_static_cups_open                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  58/554] S-curated  lerobot/aloha_static_fork_pick_up                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  59/554] S-curated  lerobot/aloha_static_pingpong_test                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  60/554] S-curated  lerobot/aloha_static_pro_pencil                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  61/554] S-curated  lerobot/aloha_static_screw_driver                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  62/554] S-curated  lerobot/aloha_static_tape                                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  63/554] S-curated  lerobot/aloha_static_thread_velcro                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  64/554] S-curated  lerobot/aloha_static_towel                                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  65/554] S-curated  lerobot/aloha_static_vinh_cup                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  66/554] S-curated  lerobot/aloha_static_vinh_cup_left                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  67/554] S-curated  lerobot/aloha_static_ziploc_slide                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  68/554] S-curated  lerobot/asu_table_top                                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  69/554] S-curated  lerobot/austin_buds_dataset                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  70/554] S-curated  lerobot/austin_sailor_dataset                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  71/554] S-curated  lerobot/austin_sirius_dataset                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  72/554] S-curated  lerobot/berkeley_autolab_ur5                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  73/554] S-curated  lerobot/berkeley_fanuc_manipulation                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  74/554] S-curated  lerobot/berkeley_cable_routing                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  75/554] S-curated  lerobot/berkeley_gnm_cory_hall                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  76/554] S-curated  lerobot/berkeley_gnm_recon                                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  77/554] S-curated  lerobot/berkeley_gnm_sac_son                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  78/554] S-curated  lerobot/berkeley_mvp                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  79/554] S-curated  lerobot/berkeley_rpt                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  80/554] S-curated  lerobot/cmu_franka_exploration_dataset                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  81/554] S-curated  lerobot/cmu_stretch                                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  82/554] S-curated  lerobot/cmu_play_fusion                                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  83/554] S-curated  lerobot/columbia_cairlab_pusht_real                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  84/554] S-curated  lerobot/conq_hose_manipulation                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  85/554] S-curated  lerobot/dlr_sara_grid_clamp                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  86/554] S-curated  lerobot/dlr_edan_shared_control                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  87/554] S-curated  lerobot/dlr_sara_pour                                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  88/554] S-curated  lerobot/droid_1.0.1                                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  89/554] S-curated  lerobot/droid_100                                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  90/554] S-curated  lerobot/example_hil_serl_dataset                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  91/554] S-curated  lerobot/fmb                                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  92/554] S-curated  lerobot/full_folding                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  93/554] S-curated  lerobot/high_quality_folding                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  94/554] S-curated  lerobot/iamlab_cmu_pickup_insert                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  95/554] S-curated  lerobot/imperialcollege_sawyer_wrist_cam                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  96/554] S-curated  lerobot/jaco_play                                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  97/554] S-curated  lerobot/kaist_nonprehensile                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  98/554] S-curated  lerobot/kitchen                                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  99/554] S-curated  lerobot/koch_pick_place_1_lego                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 100/554] S-curated  lerobot/koch_pick_place_1_lego_raph                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 101/554] S-curated  lerobot/koch_pick_place_5_lego_random_pose                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 102/554] S-curated  lerobot/koch_pick_place_5_lego                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 103/554] S-curated  lerobot/libero                                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 104/554] S-curated  lerobot/libero_10                                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 105/554] S-curated  lerobot/libero_10_image                                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 106/554] S-curated  lerobot/libero_10_subtask                                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 107/554] S-curated  lerobot/libero_goal_image                                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 108/554] S-curated  lerobot/libero_object_image                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 109/554] S-curated  lerobot/libero_spatial_image                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 110/554] S-curated  lerobot/metaworld_mt50                                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 111/554] S-curated  lerobot/metaworld_mt50_push_v2_image                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 112/554] S-curated  lerobot/nyu_door_opening_surprising_effectiveness            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 113/554] S-curated  lerobot/nyu_franka_play_dataset                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 114/554] S-curated  lerobot/nyu_rot_dataset                                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 115/554] S-curated  lerobot/outdoor-depth                                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 116/554] S-curated  lerobot/pusht                                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 117/554] S-curated  lerobot/paris_street                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 118/554] S-curated  lerobot/pusht_image                                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 119/554] S-curated  lerobot/pusht_keypoints                                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 120/554] S-curated  lerobot/robocasa_target_human_unified                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 121/554] S-curated  lerobot/robomme                                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 122/554] S-curated  lerobot/roboturk                                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 123/554] S-curated  lerobot/stanford_hydra_dataset                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 124/554] S-curated  lerobot/stanford_kuka_multimodal_dataset                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 125/554] S-curated  lerobot/stanford_robocook                                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 126/554] S-curated  lerobot/svla_so100_pickplace                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 127/554] S-curated  lerobot/svla_so100_sorting                                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 128/554] S-curated  lerobot/svla_so100_stacking                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 129/554] S-curated  lerobot/svla_so101_pickplace                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 130/554] S-curated  lerobot/taco_play                                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 131/554] S-curated  lerobot/tokyo_u_lsmo                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 132/554] S-curated  lerobot/toto                                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 133/554] S-curated  lerobot/ucsd_kitchen_dataset                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 134/554] S-curated  lerobot/ucsd_pick_and_place_dataset                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 135/554] S-curated  lerobot/uiuc_d3field                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 136/554] S-curated  lerobot/umi_cup_in_the_wild                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 137/554] S-curated  lerobot/unitreeh1_fold_clothes                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 138/554] S-curated  lerobot/unitreeh1_two_robot_greeting                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 139/554] S-curated  lerobot/unitreeh1_rearrange_objects                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 140/554] S-curated  lerobot/unitreeh1_warehouse                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 141/554] S-curated  lerobot/usc_cloth_sim                                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 142/554] S-curated  lerobot/utaustin_mutex                                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 143/554] S-curated  lerobot/utokyo_pr2_opening_fridge                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 144/554] S-curated  lerobot/utokyo_pr2_tabletop_manipulation                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 145/554] S-curated  lerobot/utokyo_saytap                                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 146/554] S-curated  lerobot/utokyo_xarm_bimanual                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 147/554] S-curated  lerobot/utokyo_xarm_pick_and_place                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 148/554] S-curated  lerobot/vlabench_unified                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 149/554] S-curated  lerobot/xarm_lift_medium                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 150/554] S-curated  lerobot/xarm_lift_medium_image                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 151/554] S-curated  lerobot/xarm_lift_medium_replay                              EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 152/554] S-curated  lerobot/xarm_lift_medium_replay_image                        EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 153/554] S-curated  lerobot/xarm_push_medium                                     EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 154/554] S-curated  lerobot/xarm_push_medium_image                               EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 155/554] S-curated  lerobot/xarm_push_medium_replay                              EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 156/554] S-curated  lerobot/xarm_push_medium_replay_image                        EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 157/554] S-curated  lerobot/xvla-soft-fold                                       EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 158/554] S-curated  nvidia/Arena-GR1-Manipulation-Task-v3                        EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 159/554] S-curated  physical-intelligence/aloha_pen_uncap_diverse                EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 160/554] S-curated  physical-intelligence/libero                                 EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 161/554] S-popular  cadene/droid                                                 EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 162/554] S-popular  yaak-ai/L2D                                                  EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 163/554] S-popular  configinc/HABIT                                              NOT_LEROBOT             -
+[ 164/554] S-popular  zekaiwang/trex_dataset                                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 165/554] S-popular  allenai/MolmoAct2-BimanualYAM-Dataset                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 166/554] S-popular  behavior-1k/2025-challenge-demos                             NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 167/554] S-popular  Qu3tzal/bridgev2                                             NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 168/554] S-popular  BitRobot/HIW-500-LeRobot                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 169/554] S-popular  TacVerse/opendata                                            NOT_LEROBOT             -
+[ 170/554] S-popular  EgoSteer/EgoSteer-RealWorld                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 171/554] S-popular  saaduddinM/rbo_oxe_base_language_table_lerobot               NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G3,G14)
+[ 172/554] S-popular  brandonyang/artem-pour-water                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 173/554] S-popular  ember-lab-berkeley/robocasa365-pretrain-mg                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 174/554] S-popular  ZZJAsher/wuji_ego_mint                                       NOT_LEROBOT             -
+[ 175/554] S-popular  saaduddinM/rbo_oxe_base_droid_lerobot                        NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G3,G14)
+[ 176/554] S-popular  ryanqian1994/bridge_v2_lerobot                               NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 177/554] S-popular  brandonyang/artem-fold-towel                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 178/554] S-popular  jesbu1/bridge_v2_lerobot                                     NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 179/554] S-popular  ryanqian1994/bridge_orig_lerobot                             NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 180/554] S-popular  Dario-Shit4/behavior-1k_2025-challenge-demos                 NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 181/554] S-popular  elonelonelon/2025-challenge-demos                            NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 182/554] S-popular  jnogga/droid_failure                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 183/554] S-popular  ankile/real01b-routing-d1-umirel-lineage-15arm-heldout-sobol50-s2026090701 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 184/554] S-popular  periphanes/droid_filter_lerobot                              INCONSISTENT_MODALITY   INCONSISTENT_MODALITY  (unverified: G2,G3,G14)
+[ 185/554] S-popular  macrodata/aloha_static_battery_ep000_004                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 186/554] S-popular  sii-rhos-ai/vifailback-dataset-lerobot                       NEEDS_SEMANTICS         SEMANTICS
+[ 187/554] S-popular  macrodata/aloha_static_battery_ep005_009                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 188/554] S-popular  Biscue5/egoscaler-v2                                         NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G3,G14)
+[ 189/554] S-popular  Joocjun/GR1-Tabletop-NextState-1000x24                       READY                   -  (unverified: G2,G14)
+[ 190/554] S-popular  ygtxr1997/bc_z_lerobot                                       NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 191/554] S-popular  ember-lab-berkeley/robocasa365-pretrain-composite            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 192/554] S-popular  REBOOT26/rca_remove                                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 193/554] S-popular  YOLO2431/kitchen_rack_combo_v2                               NEEDS_SEMANTICS         SEMANTICS
+[ 194/554] S-popular  RoboCOIN/Agilex_Cobot_Magic_heat_burger                      NEEDS_SEMANTICS         SEMANTICS
+[ 195/554] S-popular  REBOOT26/nema1-15-plug_install                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 196/554] S-popular  YOLO2431/kitchen_rack_combo                                  NEEDS_SEMANTICS         SEMANTICS
+[ 197/554] S-popular  Saberlve/bridgev2                                            NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 198/554] S-popular  latency-sensitive-bench/benchmark-datasets                   NOT_LEROBOT             -
+[ 199/554] S-popular  REBOOT26/usb-c_remove                                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 200/554] S-popular  RoboCOIN/Unitree_G1edu_u3_place_bread                        NEEDS_SEMANTICS         SEMANTICS
+[ 201/554] S-popular  REBOOT26/rca_recovery_install                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/datasets/mickeykang/dvla-place7obj-roll-250hz-events-250fps-delta-trim/tree/8ded7c2eded1e3b68a3ea2de99999da55e468f14/videos?expand=false&recursive=true&limit=1000&cursor=ZXlKbWFXeGxYMjVoYldVaU9pSjJhV1JsYjNNdlkyaDFibXN0TURBNEwyOWljMlZ5ZG1GMGFXOXVMbWx0WVdkbGN5NTNjbWx6ZEY5allXMWZaWFpsYm5SekwyVndhWE52WkdWZk1EQTRPRGswTG0xd05DSXNJblJ5WldWZmIybGtJam9pT1dabVpEZG1ZelE1Wm1JNU1qbGhaakprT1dRM05tRXlaR05pWXpBNFlXTmlNR1k0TURWaE55Sjk6NTQwMDA%3D
+Rate limited. Waiting 188.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/datasets/RoboCOIN/AI2_Alphabot_2_package_fruit/tree/4ca82dfaf51870bea980389e548df0f235eb6587/videos?expand=false&recursive=true&limit=1000&cursor=ZXlKbWFXeGxYMjVoYldVaU9pSjJhV1JsYjNNdlkyaDFibXN0TURBd0wyOWljMlZ5ZG1GMGFXOXVMbWx0WVdkbGN5NWpZVzFmYkdWbWRGOTNjbWx6ZEY5eVoySXZaWEJwYzI5a1pWOHdNREF3TVRndWJYQTBJaXdpZEhKbFpWOXZhV1FpT2lJeU1UazRPV1ZtWkdGa01UWXhNR0ZpTmpGa1pqQXlaRFEzWXpobFpqWTNabU0xT0dZeE1HVTFJbjA9OjIwMDA%3D
+Rate limited. Waiting 188.0s before retry [Retry 1/5].
+[ 202/554] S-popular  RoboCOIN/AI2_Alphabot_2_package_fruit                        NEEDS_SEMANTICS         SEMANTICS
+[ 203/554] S-popular  yinchenghust/libero_cot                                      NEEDS_SEMANTICS         SEMANTICS
+[ 204/554] S-popular  RoboCOIN/Agilex_Cobot_Magic_heat_sandwich                    NEEDS_SEMANTICS         SEMANTICS
+[ 205/554] S-popular  LeCAR-Lab/Wanda                                              NOT_LEROBOT             -
+[ 206/554] S-popular  RoboCOIN/Agilex_Cobot_Magic_place_towel_flat                 NEEDS_SEMANTICS         SEMANTICS
+[ 207/554] S-popular  REBOOT26/16mm-cylinder_recovery_install                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 208/554] S-popular  mickeykang/dvla-place7obj-roll-250hz-events-250fps-delta-trim NEEDS_SEMANTICS         SEMANTICS
+[ 209/554] S-popular  RoboCOIN/AI2_Alphabot_2_package_fruit_2                      NEEDS_SEMANTICS         SEMANTICS
+[ 210/554] S-popular  lance-format/agibotworld-beta-rgb-lance                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 211/554] S-popular  unitreerobotics/G1_Dex1_Stack_Block                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 212/554] S-popular  adityx23/icl-dataset                                         NEEDS_SEMANTICS         SEMANTICS
+[ 213/554] S-popular  allenai/MolmoAct2-DROID-Dataset                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 214/554] S-popular  RoboCOIN/AI2_Alphabot_2_insert_hose_into_hole                NEEDS_SEMANTICS         SEMANTICS
+[ 215/554] S-popular  RoboCOIN/Unitree_G1edu_u3_place_bread_1                      NEEDS_SEMANTICS         SEMANTICS
+[ 216/554] S-popular  zcyqyq/dgn2_2                                                NEEDS_SEMANTICS         SEMANTICS
+[ 217/554] S-popular  RoboCOIN/AI2_Alphabot_2_sort_garbage_bag_and_box             NEEDS_SEMANTICS         SEMANTICS
+[ 218/554] S-popular  RoboCOIN/AI2_Alphabot_2_store_toys_5                         NEEDS_SEMANTICS         SEMANTICS
+[ 219/554] S-popular  OpenDriveLab-org/Kai0                                        NOT_LEROBOT             -
+[ 220/554] S-popular  Yotofu/so100_sweeper_shoes                                   NEEDS_SEMANTICS         SEMANTICS+REPAIR
+[ 221/554] S-popular  dunnolab/so-combined-eng                                     NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 222/554] S-popular  RoboCOIN/AI2_Alphabot_2_stamp_document                       NEEDS_SEMANTICS         SEMANTICS
+[ 223/554] S-popular  RoboCOIN/Unitree_G1edu_u3_pour_drink                         NEEDS_SEMANTICS         SEMANTICS
+[ 224/554] S-popular  lerobot-data-collection/dagger_final_1_21                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 225/554] S-popular  Hannibal52Barca/icl-dataset-joint-space                      NEEDS_SEMANTICS         SEMANTICS+REPAIR
+[ 226/554] S-popular  infope/robocasa                                              NOT_LEROBOT             -
+[ 227/554] S-popular  RoboCOIN/AI2_Alphabot_2_test_data_cable                      NEEDS_SEMANTICS         SEMANTICS
+[ 228/554] S-popular  RoboCOIN/AI2_Alphabot_2_insert_water_pipe                    NEEDS_SEMANTICS         SEMANTICS
+[ 229/554] S-popular  aractingi/droid_1.0.1_test                                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 230/554] S-popular  Hannibal52Barca/icl-dataset-end-effector-space               NEEDS_SEMANTICS         SEMANTICS+REPAIR
+[ 231/554] S-popular  RoboCOIN/Galbot_G1_load_floor_trash_7                        NEEDS_SEMANTICS         SEMANTICS
+[ 232/554] S-popular  RoboCOIN/Agilex_Cobot_Magic_make_sandwiche                   NEEDS_SEMANTICS         SEMANTICS
+[ 233/554] S-popular  OpenWAM/LIBERO                                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 234/554] S-popular  REBOOT26/nema1-15-plug_remove                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 235/554] S-popular  RoboCOIN/Agilex_Cobot_Magic_move_object                      NEEDS_SEMANTICS         SEMANTICS
+[ 236/554] S-popular  RoboCOIN/AI2_Alphabot_2_heat_test_tube                       NEEDS_SEMANTICS         SEMANTICS
+[ 237/554] S-popular  RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_1                  NEEDS_SEMANTICS         SEMANTICS
+[ 238/554] S-popular  RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_14                 NEEDS_SEMANTICS         SEMANTICS
+[ 239/554] S-popular  unitreerobotics/G1_Dex1_Wipe_Table                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 240/554] S-popular  dunnolab/so-combined-ru                                      NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G14)
+[ 241/554] S-popular  RoboCOIN/Galbot_G1_use_dryer                                 NEEDS_SEMANTICS         SEMANTICS
+[ 242/554] S-popular  k1000dai/behavior1k-only-rgb                                 UNCLASSIFIED_STRUCTURE  UNCLASSIFIED_STRUCTURE+SEMANTICS
+[ 243/554] S-popular  RoboCOIN/AI2_Alphabot_2_pick_stirring_rod                    NEEDS_SEMANTICS         SEMANTICS
+[ 244/554] S-popular  unitreerobotics/G1_Dex3_ToastedBread_Dataset                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 245/554] S-popular  Miical/verl_vla_libero_collected                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 246/554] S-popular  ember-lab-berkeley/robocasa365-target-composite-seen         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 247/554] S-popular  RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_6                  NEEDS_SEMANTICS         SEMANTICS
+[ 248/554] S-popular  RoboCOIN/AI2_Alphabot_2_sort_personal_care_items             NEEDS_SEMANTICS         SEMANTICS
+[ 249/554] S-popular  RoboCOIN/AI2_Alphabot_2_organize_cosmetics                   NEEDS_SEMANTICS         SEMANTICS
+[ 250/554] S-popular  RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_17                 NEEDS_SEMANTICS         SEMANTICS
+[ 251/554] S-popular  RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_2                  NEEDS_SEMANTICS         SEMANTICS
+[ 252/554] S-popular  RoboCOIN/Leju_Kuavo_4_sensor_card_swiping                    NEEDS_SEMANTICS         SEMANTICS
+[ 253/554] S-popular  RoboCOIN/Leju_Kuavo_4_sensor_card_swiping_5                  NEEDS_SEMANTICS         SEMANTICS
+[ 254/554] S-popular  Voxel51/aloha_pen_uncap                                      NOT_LEROBOT             -
+[ 255/554] S-popular  RoboCOIN/Galbot_G1_discard_towel_1                           NEEDS_SEMANTICS         SEMANTICS
+[ 256/554] S-popular  RoboCOIN/Galbot_G1_clear_table_trash_3                       NEEDS_SEMANTICS         SEMANTICS
+[ 257/554] S-popular  Jordano/demogen-rgbd-fr3-cube-stacking                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 258/554] S-recent   azorematter/dice_white_pnp_und_sf_500_b02                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 259/554] S-popular  RoboCOIN/AI2_Alphabot_2_shake_test_tube_1                    NEEDS_SEMANTICS         SEMANTICS
+[ 260/554] S-recent   qiujun/jnbk_20260929_122643                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 261/554] S-recent   Sumair15/pickup_cuboid_1_20260928_212445                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 262/554] S-recent   kdaterao/so101_data5                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 263/554] S-recent   Sumair15/pickup_cuboid_1_20260928_211721                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 264/554] S-recent   seriintan/rollout_turbovla_stacked_objects_20260929_112833   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 265/554] S-recent   jetsonmom/omx_yellow_bear_box_2cam                           NEEDS_SEMANTICS         SEMANTICS
+[ 266/554] S-recent   Promexile/tape_dataset_xy_middle                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 267/554] S-recent   NickHuang323/bimanual-so101-pickvials-sim-2Dcam              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 268/554] S-recent   Promexile/tape_dataset_xy_depth                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 269/554] S-recent   Promexile/tape_dataset_xy_spread                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 270/554] S-recent   Promexile/tape_dataset_zero                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 271/554] S-recent   KoukiHagiwara/eval_act_stl_4cam_viewdrop_wide                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 272/554] S-recent   oumeanin/rebot_weld_corner_fillet                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 273/554] S-recent   yamaisanerd/clean_20260927_salvation                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 274/554] S-recent   luke0831/press_gear_shifter_start_button_h1_2_v4_plus_shift_gear_into_reverse_h1_2_v3 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 275/554] S-recent   yamaisanerd/clean_20260821_new                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 276/554] S-recent   yamaisanerd/clean_20260927_combined                          EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 277/554] S-recent   justink04/m2-negative-room-sep28-26                          EXCLUDED rate_limited: tree /: gave up after 5 tries (429)
+[ 278/554] S-recent   LTH4663/fod_c3_strategy_desc_v2_216_2cam_20260928            EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 279/554] S-recent   LTH4663/fod_c1_object_name_v2_216_2cam_20260928              EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 280/554] S-recent   alphabot2/23Sep_STEA_pick_Cortex_prefer_bag_time             EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 281/554] S-recent   dream-79/omx_f_0929DJ                                        EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 282/554] S-recent   AliBeydoun/widowxai-cube-pickup_20260928_185930              EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 283/554] S-recent   wenjingbian/RobotData                                        EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 284/554] S-recent   AliBeydoun/widowxai-cube-pickup_20260928_184700              EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 285/554] S-recent   charlieK123/gripper_Top_Base_Camera_Views_Continued          EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 286/554] S-recent   Kovavavvavava/pick_place_potato_onehouse_random              EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 287/554] S-recent   Kovavavvavava/pick_place_potato_onehouse_fixed               EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 288/554] S-recent   Kovavavvavava/peg_insertion_onehouse_random                  READY                   -
+[ 289/554] S-recent   Kovavavvavava/peg_insertion_onehouse_fixed                   READY                   -
+[ 290/554] S-recent   satyamtud/so101_cube_pick_act_20260928_214631                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 291/554] S-recent   mulligan/real-square-d2-r05-eval-historical                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 292/554] S-recent   mulligan/real-square-d2-r05-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 293/554] S-recent   mulligan/real-square-d2-r04-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 294/554] S-recent   mulligan/real-square-d2-r02-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 295/554] S-recent   mulligan/real-square-d2-r03-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 296/554] S-recent   mulligan/real-square-d2-r01-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 297/554] S-recent   liam-martiiin/extract_multitask_1_20260928_160941            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 298/554] S-recent   mulligan/real-routing-d2-r00-r05-eval                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 299/554] S-recent   mulligan/real-marker-d2-r05-eval-historical                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 300/554] S-recent   mulligan/real-marker-d2-r05-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 301/554] S-recent   mulligan/real-marker-d2-r04-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 302/554] S-recent   mulligan/real-marker-d2-r03-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 303/554] S-recent   mulligan/real-marker-d2-r02-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 304/554] S-recent   mulligan/real-marker-d2-r01-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 305/554] S-recent   mulligan/real-marker-d2-r00-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 306/554] S-recent   mulligan/real-square-d2-r00-eval                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 307/554] S-recent   liam-martiiin/extract_multitask_1_20260928_154316            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 308/554] S-recent   hnghia517/molmoact                                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 309/554] S-recent   ssmit203/assignment3_3                                       NEEDS_SEMANTICS         SEMANTICS
+[ 310/554] S-recent   naavox/79west-sep28                                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 311/554] S-recent   ResidentEvian/record-test_20260928_212454                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 312/554] S-recent   ResidentEvian/record-test_20260928_212249                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 313/554] S-recent   charlieK123/gripper_Top_Base_Camera_Views                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 314/554] S-recent   krish5831/tissues_into_box_20260928_195253                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 315/554] S-recent   olagh/stretch4_mouse_test_20260928_112927                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 316/554] S-recent   PEN2044/set36cub_20260928_204306                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 317/554] S-recent   krish5831/tissues_into_box_20260928_194959                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 318/554] S-recent   PEN2044/set50cub_20260928_201427                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 319/554] S-recent   DAVIAN-Robotics/robocasa-H50-256                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 320/554] S-recent   fanqi-robo/busybox_push_green_button                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 321/554] S-recent   acleary/vega_pick_up_box                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 322/554] S-recent   armnet/eval_push_green_button_15h45m_28-sep-2026             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 323/554] S-recent   armnet/eval_push_green_button_15h43m_28-sep-2026             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 324/554] S-recent   Artefacts/shape-sorting-so101-30fps                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 325/554] S-recent   armnet/eval_push_green_button_15h11m_28-sep-2026             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 326/554] S-recent   ssabats/object-placing-multitask-v4                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 327/554] S-recent   ssabats/object-blu-lego-placing-coffe-box_20260928_165620    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 328/554] S-recent   armnet/eval_push_green_button_14h50m_28-sep-2026             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 329/554] S-recent   maximellerbach/omx_multicubes_annotated                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 330/554] S-recent   ssabats/object-orange-lego-placing-coffe-box_20260928_162843 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 331/554] S-recent   Fabyo04/so101_cube_v2                                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 332/554] S-recent   auntowen/so101_test_dataset_2cams_20260928_214357            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 333/554] S-recent   armnet/eval_push_green_button_14h30m_28-sep-2026             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 334/554] S-recent   armnet/eval_push_green_button_14h04m_28-sep-2026             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 335/554] S-recent   armnet/eval_push_green_button_14h02m_28-sep-2026             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 336/554] S-recent   rbalazs/rollout_smolvla_allcups_right_20260928_155433        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 337/554] S-recent   leapshared/Electroscope_113epi_subtask                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 338/554] S-recent   rbalazs/rollout_smolvla_allcups_middle_20260928_153900       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 339/554] S-recent   rbalazs/rollout_smolvla_allcups_left_20260928_152242         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 340/554] S-recent   leapshared/Redox_131epi_subtask                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 341/554] S-recent   leapshared/Electroscope_new_20260928_202529                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 342/554] S-recent   miladgholami/rollout_posevary_kyc_condD_20260928_210745      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 343/554] S-recent   miladgholami/eval_posevary_rectified_condD                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 344/554] S-recent   miladgholami/eval_posevary_baseline_condD                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 345/554] S-recent   rbtrprjkt/rollout_pi05_han10e_20260928_075758                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 346/554] S-recent   rbtrprjkt/rollout_gract_han10e_20260928_074804               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 347/554] S-recent   chouziel/test_cam                                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 348/554] S-recent   haijian06/yellow_cube_brown_box_v1                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 349/554] S-recent   Xense/insert-ethernet-above-desk-0916                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 350/554] S-recent   alphabot2/28Sep_STEA_pick_Cortex_clean_v1                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 351/554] S-recent   ar0s/kuka-centrifuge-10ep                                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 352/554] S-recent   ar0s/kuka-heat-reaction-10ep                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 353/554] S-recent   Ngseo/camera-ready                                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 354/554] S-recent   ar0s/kuka-sonicator-10ep                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 355/554] S-recent   thanhnguyen23/unbox_rdk                                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 356/554] S-recent   fysical/rollout_diffusion_S025_seed2_20260928_133940         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 357/554] S-tail     1g0rrr/demo3_frames_grab                                     NEEDS_SEMANTICS         SEMANTICS
+[ 358/554] S-tail     7smile/omx_f_task_0916                                       NEEDS_SEMANTICS         SEMANTICS
+[ 359/554] S-tail     ASet97/augmented-aloha-episodes-10-color-jitter-gaussian-noise NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 360/554] S-tail     Aasdfip/subtask_pick_grape_drop_in_cup_new_table             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 361/554] S-tail     Alkatt/so_101_CubeToBowl_v3                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 362/554] S-tail     Allen-488/koch_dataset_50                                    NEEDS_SEMANTICS         SEMANTICS
+[ 363/554] S-tail     AndaXieOfficial/record-test_20260627_114756                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 364/554] S-tail     Andresg324/rollout_recovery_new_positions_20260810_134854    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 365/554] S-tail     Aneesha/eval_so101_lego_pickplace_v1_24apr_run10             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 366/554] S-tail     Anijar/dataset-certopinkbal900                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 367/554] S-tail     AymenRobot/yellow_orange_v3                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 368/554] S-tail     BlankHead/irl_test1_pickcube                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 369/554] S-tail     BrunoM42/robocasa_target_WashLettuce                         NEEDS_DOWNCONVERT       DOWNCONVERT
+[ 370/554] S-tail     BrunoM42/shelf_picking_mustard_v2                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 371/554] S-tail     Davidei/eval_Stack_blocks_lay7_90000                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 372/554] S-tail     Dejian0/eval_ds3_recordpolicy1_9                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 373/554] S-tail     FAlatyr/test2                                                NEEDS_SEMANTICS         SEMANTICS
+[ 374/554] S-tail     Fan1024/lerobot-test                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 375/554] S-tail     Fransece/franka_sweep_merged_2                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 376/554] S-tail     Fransece/franka_sweep_test_eepose_20260710_151219            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 377/554] S-tail     Grievous-Robot/table-sweep-20260216_120500                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 378/554] S-tail     Fransece/lerobot_20260710_103845                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 379/554] S-tail     InfiH/so100_test                                             NEEDS_SEMANTICS         SEMANTICS
+[ 380/554] S-tail     JiabinQ/eval_tray_clean_7aug_5wv1                            NEEDS_SEMANTICS         SEMANTICS
+[ 381/554] S-tail     Jingyi-Z/rollout_dry_pi_20260916_190007                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 382/554] S-tail     Jingyi-Z/rollout_eval_B_50ep                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 383/554] S-tail     Jinyu220/circle_2                                            NEEDS_SEMANTICS         SEMANTICS
+[ 384/554] S-tail     Jinyu220/put_polygon                                         NEEDS_SEMANTICS         SEMANTICS
+[ 385/554] S-tail     Jungsy/fin_lekiwi                                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 386/554] S-tail     KS325/open-lower-drawer-emp-r1_train                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 387/554] S-tail     KS325/place-upper-r2-occ-train                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 388/554] S-tail     KS325/skill-set-r2-train                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 389/554] S-tail     Kaz55/dg5f-cable-teleop-3cables-new-training-v7              EXCLUDED rate_limited: tree meta: gave up after 5 tries (429)
+[ 390/554] S-tail     Kazu1232/record-so101-test                                   EXCLUDED rate_limited: tree /: gave up after 5 tries (429)
+[ 391/554] S-tail     LPSlvlv/ur5_blueblock_box_v2_30                              EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 392/554] S-tail     LSY-lab/plate_v1                                             EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 393/554] S-tail     Lyrasilas/eval_ep500_seed1_default_center_guessed_20000_default EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 394/554] S-tail     Lyrasilas/eval_ep50_seed1_circle_small_center_guessed_40000_default EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 395/554] S-tail     Manasa0107/sort_boards_tools_parts_20ep_arm2                 EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 396/554] S-tail     Moizbinjaafar123/eval_s0101_pick_chess_3                     EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 397/554] S-tail     MrPsarik/rollout_SortToy_20260527_143413_20260612_172222     EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 398/554] S-tail     Nebliss/eval_Twix05_test                                     EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 399/554] S-tail     OliverHausdoerfer/libero_goal_additionalCams                 EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 400/554] S-tail     PengChenPCPCPC/Grab_gray_cube1                               EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 401/554] S-tail     RickRain/Imperio_train                                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 402/554] S-tail     Qipei/Task_woodbrick2_no_sheet_08                            NEEDS_SEMANTICS         SEMANTICS
+[ 403/554] S-tail     RobotisSW/ffw_sg2_rev1_task_255_0128_jungmin_1               NEEDS_SEMANTICS         SEMANTICS
+[ 404/554] S-tail     RobotisSW/ffw_sg2_rev1_task_189_0120_bokyung_1               NEEDS_SEMANTICS         SEMANTICS
+[ 405/554] S-tail     RobotisSW/ffw_sg2_rev1_task_314_0204_bokyung_1_edit          NEEDS_SEMANTICS         SEMANTICS
+[ 406/554] S-tail     Setsunainn/mpm_cloth-turn-128-rgb-v0-turn                    NEEDS_SEMANTICS         SEMANTICS
+[ 407/554] S-tail     Setsunainn/piper_flip-test-pull                              NEEDS_SEMANTICS         SEMANTICS
+[ 408/554] S-tail     Simple-Testbed/pick-place-6ep-arm-retreats-2                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 409/554] S-tail     THULab/leisaac-pick-orange                                   UNCLASSIFIED_STRUCTURE  UNCLASSIFIED_STRUCTURE+SEMANTICS
+[ 410/554] S-tail     StefanWagnerWandelbots/virtual_teleop_pickplace_easy         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 411/554] S-tail     THULab/thomas0829_bimanual_so100_stack_blocks                UNCLASSIFIED_STRUCTURE  UNCLASSIFIED_STRUCTURE+SEMANTICS
+[ 412/554] S-tail     TeddyUST/TrainData_20260919_154424                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 413/554] S-tail     Tna001/eval_pi05_lora_r16_lr3e4                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 414/554] S-tail     U-RIL/eval_act_51                                            NEEDS_SEMANTICS         SEMANTICS
+[ 415/554] S-tail     YUGOROU/eval_act_grasp_ginko                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 416/554] S-tail     YamatoJ21/Dice                                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 417/554] S-tail     Zengyang/record-pick-suger                                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 418/554] S-tail     aHiroakiIshikawa/so101-fold-towel-wrist-exact-stats-unified-prompt NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 419/554] S-tail     access-robotics-team/so-ft-ma-100                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 420/554] S-tail     addisonhammer/so101_pink_die_in_cup_20260817_220140_20260819_090202 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 421/554] S-tail     aidg-developer/picktape-50epi-251113                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 422/554] S-tail     airkfx/omx_pick_doll_test                                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 423/554] S-tail     alan-123456/so101_test_619_11                                NEEDS_SEMANTICS         SEMANTICS
+[ 424/554] S-tail     allenai/20122025-foldclo-05                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 425/554] S-tail     allenai/29122025-tablebuss-01                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 426/554] S-tail     alphabot2/aibot2_2026-07-15_clockwise_bottom_right           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 427/554] S-tail     andysigler/plate-test-1                                      NEEDS_SEMANTICS         SEMANTICS
+[ 428/554] S-tail     anewhouse/so101_pick_and_place_v1                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 429/554] S-tail     ankile/real01c-marker-insert-d1-blind-dagger-r1-100ep        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 430/554] S-tail     apal99/record-test-1                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 431/554] S-tail     arclabmit/xarm7_beavrsim_pickplace_image_dataset             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 432/554] S-tail     arjunsinghyadav2/lego_sort_b5_03012026                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 433/554] S-tail     asdffaawe/record-test_20260713_112607                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 434/554] S-tail     arminfg/right2left                                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 435/554] S-tail     biggson/record-test2                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 436/554] S-tail     aytsaiusc/play_robot_fruits_5_eef                            NEEDS_SEMANTICS         SEMANTICS
+[ 437/554] S-tail     boat1470/eval_so101_chilli                                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 438/554] S-tail     binhng/robocasa_30_demos_lerobot_5_chosen_tasks_v1           NEEDS_SEMANTICS         SEMANTICS
+[ 439/554] S-tail     bybifoc/record-50x                                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 440/554] S-tail     booang/record-test6                                          NEEDS_SEMANTICS         SEMANTICS
+[ 441/554] S-tail     chair0/chess_single_rook_noon_trimmed                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 442/554] S-tail     chair0/rollout_20260810_20260810_194517                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 443/554] S-tail     choiwoong/cucumber-dual-camera-test                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 444/554] S-tail     ckckcharlie/eval_pickcube259                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 445/554] S-tail     cijerezg/eval_pickup_policy_pi05_v2.4                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 446/554] S-tail     danielwp22/record-test-1                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 447/554] S-tail     csacan/eval_act_banana_bowl                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 448/554] S-tail     douzi999/so100_test_10                                       NEEDS_SEMANTICS         SEMANTICS
+[ 449/554] S-tail     ducido/merged_libero_s40_original_s40_synthetic_5ep_all_normal_task_20ep_2_hard_task_PA NEEDS_SEMANTICS         SEMANTICS
+[ 450/554] S-tail     ethanCSL/Ting_grip_block_2color_new                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 451/554] S-tail     erebius/sow4                                                 NEEDS_SEMANTICS         SEMANTICS
+[ 452/554] S-tail     fedemartino/record-test-50-v2_20260709_201148                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 453/554] S-tail     frogsterr/rollout_cards_to_bowl_nas20_20260925_001930        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 454/554] S-tail     geonmin-kim/rollout_xvla_so101_morig_d6231_step30000_large_green_cube_sync_0807_1028_20260807_102857 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 455/554] S-tail     giacomoran/so101_data_collection_gba_hand                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 456/554] S-tail     guanfengliu/eval_grab_tooth_brush_orient2_60k                NEEDS_SEMANTICS         SEMANTICS
+[ 457/554] S-tail     helper2424/eval_smolval_movet_to_blue_test3                  NEEDS_SEMANTICS         SEMANTICS
+[ 458/554] S-tail     huihui060124/eval_act_so101_test_50grab02                    NEEDS_SEMANTICS         SEMANTICS
+[ 459/554] S-tail     hukewei/lerobot_peg_in_optical                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 460/554] S-tail     humjie/bimanual-so101-fold-towel-v6                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 461/554] S-tail     ilBiondo06/eval_act_so100_movelladot_c5                      NEEDS_SEMANTICS         SEMANTICS
+[ 462/554] S-tail     imstevenpmwork/test_stream_linux5                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 463/554] S-tail     jackvial/screwdriver_panel_ls_t1_e2                          NEEDS_SEMANTICS         SEMANTICS
+[ 464/554] S-tail     javadcc/record_grab_orio                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 465/554] S-tail     jborbon/tape_pick_and_place                                  NOT_LEROBOT             -
+[ 466/554] S-tail     jio2/clean_desk_v1_pi                                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 467/554] S-tail     jiroh2000/so100_test_007                                     NEEDS_SEMANTICS         SEMANTICS
+[ 468/554] S-tail     joenewbry/chess_robot_1756261306                             NEEDS_SEMANTICS         SEMANTICS
+[ 469/554] S-tail     jogarulfop/rollout_2026-09-24_plug_cable_iolite_dagger_v0_20260924_112258 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 470/554] S-tail     juliobellano/wristcam_ripeunripe                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 471/554] S-tail     junshin02/so101_pickplace_v2trim_ee_cc_ho135                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 472/554] S-tail     k1000dai/so101-self-replica-500ep-durable-test               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 473/554] S-tail     kaiserbuffle/so101_test                                      NEEDS_SEMANTICS         SEMANTICS
+[ 474/554] S-tail     kaixiyao/widowxai_pipe_bomb_transfer_merged                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 475/554] S-tail     kaze72/pickplace_v2_50ep                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 476/554] S-tail     kimz1121/eval__pick_banana_2025_09_11_23_03_37               NEEDS_SEMANTICS         SEMANTICS
+[ 477/554] S-tail     kimz1121/lerobot_tutorial_2025_07_24_13_59_32                NEEDS_SEMANTICS         SEMANTICS
+[ 478/554] S-tail     kiroaiseoul/eval_pi0full_s30k_fps21_task11                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 479/554] S-tail     kinghanse/HS_nut1                                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 480/554] S-tail     leochien1110/record-test                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 481/554] S-tail     kumarhans/ethernetGrab6                                      NEEDS_SEMANTICS         SEMANTICS
+[ 482/554] S-tail     lerobot-data-collection/level1_final_setup_1                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 483/554] S-tail     lerobot-data-collection/level1_rac3_rtc_s7_1                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 484/554] S-tail     lerobotForScienceEdu/eval_Rock_Acid-v4-gt-hand               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 485/554] S-tail     liorbenhorin-nv/so101-sim-rock-a-stack-hard-comp             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 486/554] S-tail     max-chr/libero_plus_10_texture_all_iiwa                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 487/554] S-tail     lirislab/eval_bimanual_scene2_take1_60K_outside              NEEDS_SEMANTICS         SEMANTICS
+[ 488/554] S-tail     mfgcvguy/742322                                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 489/554] S-tail     maximellerbach/rollout_lingbot_test_20260702_120838          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 490/554] S-tail     michellelxliu/pick-blue-usb-dagger2                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 491/554] S-tail     mim-chess-vlas/train_800_complex__mask__overlay_a50__sim__all_cameras__live NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 492/554] S-tail     mklovin/test1                                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 493/554] S-tail     mrrl-emcnei/trossen_PnPcube                                  NEEDS_SEMANTICS         SEMANTICS
+[ 494/554] S-tail     msmandelbrot/eval_bi101_diffusion_workbench_threading_bolt_240000 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 495/554] S-tail     nakanakagawa/eval_sponge_task_9_24_v2                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 496/554] S-tail     namin72/pick-up-erasers-place-in-drawers-rgbd-v2-merged      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 497/554] S-tail     nc8304/so101_032326_white_back_032726_17                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 498/554] S-tail     nhmacwan/Cube_Stacking_Dataset_1                             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 499/554] S-tail     noorzamri86/so100_test                                       NEEDS_SEMANTICS         SEMANTICS
+[ 500/554] S-tail     orbbecwuxin/so101_task                                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 501/554] S-tail     ozayash/yam_so101_teleop_cam_slots_test                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 502/554] S-tail     pepijn223/task_374                                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 503/554] S-tail     pravsels/so101_bimanual_smoke                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 504/554] S-tail     qownscks/pot100                                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 505/554] S-tail     psg777/gluepickup103                                         NEEDS_SEMANTICS         SEMANTICS
+[ 506/554] S-tail     rdoshi21/1m2r-rope-zoom-fifteen                              EXCLUDED rate_limited: tree /: gave up after 5 tries (429)
+[ 507/554] S-tail     reece-omahoney/pick-and-place_20260821_142833                EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 508/554] S-tail     rfruit/so100_building_house                                  EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 509/554] S-tail     rishgang22/LH_toy_sort                                       EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 510/554] S-tail     rli14/10132025_pick_bluepearlspoon_redlinentablecloth        EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 511/554] S-tail     rishgang22/workspace_cleaning_merged_v1                      EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 512/554] S-tail     robot-learning-group47/eval_try_10k_phase1_grasp_lift_n20_i0_20260520_190530 EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 513/554] S-tail     rngllz/record-test                                           EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 514/554] S-tail     shimazukosen/eval__so101_act_policy_airhockey_1224_ep2       EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 515/554] S-tail     sarviinageelen/so101_pickplace                               EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 516/554] S-tail     shp314/gr00t_so101                                           EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 517/554] S-tail     shylee/eval_DP_cube_downDims1_cropNo_freeze1_32_1_ema1_1e-4_ckpt300000 EXCLUDED rate_limited: dataset_info: gave up after 5 tries (429)
+[ 518/554] S-tail     shylee/eval_StaticB1_Ours                                    NEEDS_SEMANTICS         SEMANTICS
+[ 519/554] S-tail     sicsai/sort_cubes_slide_rgby                                 NEEDS_SEMANTICS         SEMANTICS
+[ 520/554] S-tail     siyulw2025/cableholder-approach                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 521/554] S-tail     so101/gatorade_cap_pickup_a4_v2_20260922                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 522/554] S-tail     taomon/eval_so101_test_v34                                   NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 523/554] S-tail     suz22/RoboTwin_place_mouse_pad_randomized                    NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 524/554] S-tail     thewisp/sam3d_pick_sim_101x19_jun20                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 525/554] S-tail     tegara/trossen_ai_stationary_ope275                          NEEDS_SEMANTICS         SEMANTICS
+[ 526/554] S-tail     tkyoun13/so101                                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 527/554] S-tail     tomneutens/up-grab-test-session_2025-11-23_12.53.34          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 528/554] S-tail     vdags/TicTacToe-b-merged-2-c                                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 529/554] S-tail     vibsthebot/tape_policy_current_test                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 530/554] S-tail     victor70/record-test                                         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 531/554] S-tail     villekuosmanen/agilex_spell_sun                              NEEDS_SEMANTICS         SEMANTICS
+[ 532/554] S-tail     villekuosmanen/busybox_move_right_slider_to_5_cell_3         NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 533/554] S-tail     villekuosmanen/eval_debug_task_cell_8_12h23m_02-jul-2026     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 534/554] S-tail     vraiRobotLab/ROS2-so101-pick-and-place                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 535/554] S-tail     weedmo/bimanual_so100_dataset_1                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 536/554] S-tail     wenyudu/demo_pi05_260114_1534                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 537/554] S-tail     woool0824/so101_cube_pan_to_plate                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 538/554] S-tail     windfromthenorth/drawer_m04_s1                               NEEDS_SEMANTICS         SEMANTICS
+[ 539/554] S-tail     wuc1/bi_so101_ffp_show_20260702_022156                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 540/554] S-tail     wudixiaodingzai/record-test-30fps                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 541/554] S-tail     xdd0225/depth_test                                           NEEDS_SEMANTICS         SEMANTICS
+[ 542/554] S-tail     yen-0/eval_smolvla_write7-2                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 543/554] S-tail     yj33/eval_so100                                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 544/554] S-tail     ykorkmaz/image_trial                                         NEEDS_SEMANTICS         SEMANTICS
+[ 545/554] S-tail     yoavca/record-test                                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 546/554] S-tail     younghyopark/pick_tblock_mp_centered_0701_tiny_render        NEEDS_SEMANTICS         SEMANTICS
+[ 547/554] S-tail     yucy207/robopanoptes_test3                                   NEEDS_SEMANTICS         SEMANTICS
+[ 548/554] S-tail     zeicul/record-test-v19                                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 549/554] S-tail     zhengyangshi/so101_manual50_auto100a_v30                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 550/554] S-tail     zhenxuan/pingti_put_tape_largest_grid_0_20                   NEEDS_SEMANTICS         SEMANTICS
+[ 551/554] S-tail     zhuoKCL/prgvla_stack                                         NEEDS_SEMANTICS         SEMANTICS
+[ 552/554] S-tail     zjandaman/eval_train_simpel_5.5                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 553/554] S-tail     ziyiweng/tape_20260604_153059                                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[ 554/554] S-tail     zzhtx/record-test_20260817_160707                            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+
+this run: 554 datasets, 4181 requests, 30.0 MB downloaded, 27.6 min
+
+cumulative, per stratum (audited n / sample n) — never pooled:
+  S-curated  audited 150/162  excluded  12  pending   0
+      NEEDS_DOWNCONVERT          117  (78% of audited)
+      NEEDS_SEMANTICS             33  (22% of audited)
+      excluded:rate_limited       12
+  S-popular  audited  98/100  excluded   2  pending   0
+      NEEDS_SEMANTICS             57  (58% of audited)
+      NEEDS_DOWNCONVERT           30  (31% of audited)
+      NOT_LEROBOT                  8  (8% of audited)
+      INCONSISTENT_MODALITY        1  (1% of audited)
+      READY                        1  (1% of audited)
+      UNCLASSIFIED_STRUCTURE       1  (1% of audited)
+      excluded:rate_limited        2
+  S-recent   audited  88/100  excluded  12  pending   0
+      NEEDS_DOWNCONVERT           84  (95% of audited)
+      NEEDS_SEMANTICS              2  (2% of audited)
+      READY                        2  (2% of audited)
+      excluded:rate_limited       12
+  S-tail     audited 176/200  excluded  24  pending   0
+      NEEDS_DOWNCONVERT          123  (70% of audited)
+      NEEDS_SEMANTICS             50  (28% of audited)
+      UNCLASSIFIED_STRUCTURE       2  (1% of audited)
+      NOT_LEROBOT                  1  (1% of audited)
+      excluded:rate_limited       24

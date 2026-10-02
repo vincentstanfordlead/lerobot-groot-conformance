@@ -1,0 +1,75 @@
+50 to audit (workers=1, authenticated=False, GR00T @51d4c89, huggingface_hub 2.0.0)
+[   1/50] S-curated  lerobot/aloha_sim_transfer_cube_human                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[   2/50] S-curated  lerobot/aloha_sim_transfer_cube_human_image                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[   3/50] S-curated  lerobot/xarm_lift_medium_replay                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[   4/50] S-curated  lerobot/xarm_lift_medium_replay_image                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[   5/50] S-curated  lerobot/xarm_push_medium                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[   6/50] S-curated  lerobot/xarm_push_medium_image                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[   7/50] S-curated  lerobot/xarm_push_medium_replay                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[   8/50] S-curated  lerobot/xarm_push_medium_replay_image                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[   9/50] S-curated  lerobot/xvla-soft-fold                                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  10/50] S-curated  nvidia/Arena-GR1-Manipulation-Task-v3                        NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  11/50] S-curated  physical-intelligence/aloha_pen_uncap_diverse                NEEDS_SEMANTICS         SEMANTICS
+[  12/50] S-curated  physical-intelligence/libero                                 NEEDS_SEMANTICS         SEMANTICS
+[  13/50] S-popular  yaak-ai/L2D                                                  NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  14/50] S-popular  cadene/droid                                                 NEEDS_SEMANTICS         SEMANTICS  (unverified: G2,G3,G14)
+[  15/50] S-recent   justink04/m2-negative-room-sep28-26                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  16/50] S-recent   yamaisanerd/clean_20260927_combined                          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  17/50] S-recent   LTH4663/fod_c3_strategy_desc_v2_216_2cam_20260928            NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  18/50] S-recent   LTH4663/fod_c1_object_name_v2_216_2cam_20260928              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  19/50] S-recent   dream-79/omx_f_0929DJ                                        NEEDS_SEMANTICS         SEMANTICS
+[  20/50] S-recent   alphabot2/23Sep_STEA_pick_Cortex_prefer_bag_time             NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  21/50] S-recent   wenjingbian/RobotData                                        NOT_LEROBOT             -
+[  22/50] S-recent   AliBeydoun/widowxai-cube-pickup_20260928_185930              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  23/50] S-recent   AliBeydoun/widowxai-cube-pickup_20260928_184700              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  24/50] S-recent   charlieK123/gripper_Top_Base_Camera_Views_Continued          NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  25/50] S-recent   Kovavavvavava/pick_place_potato_onehouse_random              READY                   -
+[  26/50] S-recent   Kovavavvavava/pick_place_potato_onehouse_fixed               READY                   -
+[  27/50] S-tail     Kaz55/dg5f-cable-teleop-3cables-new-training-v7              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  28/50] S-tail     Kazu1232/record-so101-test                                   NEEDS_SEMANTICS         SEMANTICS
+[  29/50] S-tail     LPSlvlv/ur5_blueblock_box_v2_30                              NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  30/50] S-tail     LSY-lab/plate_v1                                             NEEDS_SEMANTICS         SEMANTICS
+[  31/50] S-tail     Lyrasilas/eval_ep500_seed1_default_center_guessed_20000_default NEEDS_SEMANTICS         SEMANTICS
+[  32/50] S-tail     Lyrasilas/eval_ep50_seed1_circle_small_center_guessed_40000_default NEEDS_SEMANTICS         SEMANTICS
+[  33/50] S-tail     Manasa0107/sort_boards_tools_parts_20ep_arm2                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  34/50] S-tail     Moizbinjaafar123/eval_s0101_pick_chess_3                     NEEDS_SEMANTICS         SEMANTICS
+[  35/50] S-tail     MrPsarik/rollout_SortToy_20260527_143413_20260612_172222     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  36/50] S-tail     Nebliss/eval_Twix05_test                                     NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  37/50] S-tail     OliverHausdoerfer/libero_goal_additionalCams                 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  38/50] S-tail     PengChenPCPCPC/Grab_gray_cube1                               NEEDS_SEMANTICS         SEMANTICS
+[  39/50] S-tail     rdoshi21/1m2r-rope-zoom-fifteen                              NEEDS_SEMANTICS         SEMANTICS
+[  40/50] S-tail     reece-omahoney/pick-and-place_20260821_142833                NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  41/50] S-tail     rfruit/so100_building_house                                  NEEDS_SEMANTICS         SEMANTICS
+[  42/50] S-tail     rishgang22/LH_toy_sort                                       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  43/50] S-tail     rishgang22/workspace_cleaning_merged_v1                      NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  44/50] S-tail     rli14/10132025_pick_bluepearlspoon_redlinentablecloth        NEEDS_SEMANTICS         SEMANTICS
+[  45/50] S-tail     rngllz/record-test                                           NEEDS_SEMANTICS         SEMANTICS
+[  46/50] S-tail     robot-learning-group47/eval_try_10k_phase1_grasp_lift_n20_i0_20260520_190530 NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  47/50] S-tail     sarviinageelen/so101_pickplace                               NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  48/50] S-tail     shimazukosen/eval__so101_act_policy_airhockey_1224_ep2       NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  49/50] S-tail     shp314/gr00t_so101                                           NEEDS_DOWNCONVERT       DOWNCONVERT+SEMANTICS
+[  50/50] S-tail     shylee/eval_DP_cube_downDims1_cropNo_freeze1_32_1_ema1_1e-4_ckpt300000 NEEDS_SEMANTICS         SEMANTICS
+
+this run: 50 datasets, 365 requests, 0.8 MB downloaded, 2.3 min
+
+cumulative, per stratum (audited n / sample n) — never pooled:
+  S-curated  audited 162/162  excluded   0  pending   0
+      NEEDS_DOWNCONVERT          127  (78% of audited)
+      NEEDS_SEMANTICS             35  (22% of audited)
+  S-popular  audited 100/100  excluded   0  pending   0
+      NEEDS_SEMANTICS             58  (58% of audited)
+      NEEDS_DOWNCONVERT           31  (31% of audited)
+      NOT_LEROBOT                  8  (8% of audited)
+      INCONSISTENT_MODALITY        1  (1% of audited)
+      READY                        1  (1% of audited)
+      UNCLASSIFIED_STRUCTURE       1  (1% of audited)
+  S-recent   audited 100/100  excluded   0  pending   0
+      NEEDS_DOWNCONVERT           92  (92% of audited)
+      READY                        4  (4% of audited)
+      NEEDS_SEMANTICS              3  (3% of audited)
+      NOT_LEROBOT                  1  (1% of audited)
+  S-tail     audited 200/200  excluded   0  pending   0
+      NEEDS_DOWNCONVERT          136  (68% of audited)
+      NEEDS_SEMANTICS             61  (30% of audited)
+      UNCLASSIFIED_STRUCTURE       2  (1% of audited)
+      NOT_LEROBOT                  1  (0% of audited)
