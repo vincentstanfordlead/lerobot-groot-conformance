@@ -8,6 +8,55 @@ not named here (ids are in `results/summary.csv`); public fixtures and publisher
 
 ---
 
+## 2026-10-01 — Rebrand to "Robot Data Smog Check", industrial theme, and a "what kind of data" check
+
+**Name.** The web app is now *Robot Data Smog Check*; GripCheck is retired. The metaphor: a standardized
+inspection with measured readings, done before the data "hits the road" to training. The UI copy
+avoids "FAIL" stamps on datasets. The stamp reads PASS or NOT YET, and verdicts stay in
+distance-to-ready language. The localStorage key changed, so the old GripCheck history doesn't carry
+over.
+
+**Theme.** Industrial "inspection station": graphite and steel, safety-yellow accents, a hazard
+stripe, a blueprint grid, Space Grotesk headings and monospace labels. The mascot became a line-art
+robot arm, which animates while an inspection runs, and each result gets a readiness gauge
+(blocked → ready) like an emissions readout. The previous stylesheet is not kept in the repo.
+
+**New: what kind of data is this?** (`conformance/embodiment.py` + `docs/app/embodiment.js`, kept in
+agreement by `tests/test_js_parity.py` over all 552 cached `info.json` files). Prompted by
+`yaak-ai/lerobot-driving-school`: well-formed LeRobot v2.1, `robot_type: "KIA Niro EV 2023"`, steering /
+brake / gear actions. The format checks rate it "one step away", which is accurate about format and
+misleading about usefulness.
+- **Categories:** arm, bimanual, humanoid, mobile manipulator (these fit GR00T); vehicle, human motion
+  (outside GR00T's scope); unclear.
+- **Evidence order:** `robot_type`, then vehicle (≥2 of steer/brake/throttle/gear/lat/long) or
+  human-motion (SMPL / mocap) feature names, then arm/body dimension names, then the dataset name.
+  The name is used only for robot categories: "human" in `robocasa_..._human` means
+  human-teleoperated.
+- **Bugs caught while building it:** `koch_screwdriver_follower` matched "drive". `lerobot` in a
+  dataset name was counted as arm evidence. A `\b` escaping slip stopped `yam` matching.
+  `tests/test_embodiment.py` covers each case.
+- **Audit result** (from `info.json` at the audited sha; no re-audit):
+  - fits: 130/162, 89/92, 98/99, 193/199;
+  - outside: 1 / 2 / 0 / 2;
+  - unclear: 31 / 1 / 1 / 4.
+  - 3 outside-scope datasets pass every FAIL-level check except modality.json, including 2 of the
+    61 "one file away" in S-tail. So the robot-data share of the headline is 59/200.
+- It doesn't change any verdict. It is reported as report.md §2c, `summary.csv` columns
+  `embodiment*`, README "Format is not the same as fit", CHECKLIST 2.5a/2.5b/3.8, and a "What kind of
+  data is this?" panel plus a violet callout in the web app.
+- **Side finding:** `robot_type` is missing or "unknown" in 75/162 curated datasets (the old Open-X
+  ports).
+
+Report section 2c was renumbered (the old 2c "top 5 overall" is now 2d); the README's §2 anchor is
+unchanged.
+
+**Pending approval:**
+1. The name "Robot Data Smog Check".
+2. The theme.
+3. Keeping embodiment separate from the verdict (option b would fold "outside scope" into a verdict).
+
+---
+
 ## 2026-10-01 — GripCheck web app (`docs/`)
 
 **What it is.** Paste a Hugging Face dataset link and get a verdict, every check explained in plain
@@ -52,7 +101,7 @@ which changed `fixtures/cube_to_bowl_5/meta/episodes.jsonl`. The file was restor
 mutation now writes a new file and renames it. The suite leaves `fixtures/` clean.
 
 **Pending approval:**
-1. The name "GripCheck".
+1. ~~The name "GripCheck".~~ Superseded: renamed to Robot Data Smog Check (entry above).
 2. Hosting on GitHub Pages: Settings → Pages → Deploy from branch `main`, folder `/docs`.
 3. Linking it from the top of the README.
 

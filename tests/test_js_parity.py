@@ -111,3 +111,23 @@ class JsDraftParity(unittest.TestCase):
         rows = list(csvmod.DictReader(csv.open()))
         diff = [(r["dataset"], r["tier"], js_tiers.get(r["dataset"])) for r in rows if js_tiers.get(r["dataset"]) != r["tier"]]
         self.assertEqual(diff, [], f"{len(diff)} of {len(rows)} differ")
+
+
+@unittest.skipUnless(NODE, "node not installed")
+class JsEmbodimentParity(unittest.TestCase):
+    """docs/app/embodiment.js classifies every audited info.json exactly as conformance/embodiment.py."""
+
+    def test_embodiment_matches(self):
+        from conformance.embodiment import classify
+        cache = ROOT / "results" / "info_cache"
+        if not cache.is_dir():
+            self.skipTest("audit results not present")
+        out = subprocess.run([NODE, str(ROOT / "tests" / "js_embodiment.mjs"), str(cache)], capture_output=True, text=True, check=True)
+        js_res = json.loads(out.stdout)
+        diff = []
+        for p in sorted(cache.rglob("*.json")):
+            rid = p.relative_to(cache).as_posix()[:-5]
+            py = classify(json.loads(p.read_text()), rid)
+            if py != js_res.get(rid):
+                diff.append((rid, py, js_res.get(rid)))
+        self.assertEqual(diff, [], f"{len(diff)} differ")

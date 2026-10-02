@@ -310,6 +310,35 @@ CHECK_TEXT = {
 }
 
 
+def add_embodiment(df: pd.DataFrame, results: Path) -> None:
+    """embodiment / embodiment_fit / embodiment_evidence from info.json at the audited sha (info_cache)."""
+    from .embodiment import classify
+    cats, fits, evs = [], [], []
+    for r in df.itertuples():
+        p = results / "info_cache" / f"{r.dataset}.json"
+        if r.verdict == "NOT_LEROBOT" or not p.exists():
+            cats.append(""); fits.append(""); evs.append("")
+            continue
+        e = classify(json.loads(p.read_text()), r.dataset)
+        cats.append(e["category"]); fits.append(e["fit"]); evs.append(e["evidence"])
+    df["embodiment"], df["embodiment_fit"], df["embodiment_evidence"] = cats, fits, evs
+
+
+def embodiment_table(strat: dict[str, pd.DataFrame]) -> str:
+    from .embodiment import CATEGORIES
+    lrs = {s: d[d.verdict != "NOT_LEROBOT"] for s, d in strat.items()}
+    rows = []
+    for cat, (label, fit) in CATEGORIES.items():
+        cells = [pct(int((d.embodiment == cat).sum()), len(d)) for d in lrs.values()]
+        if all(c == "0" for c in cells):
+            continue
+        rows.append([label, {"fits": "fits GR00T's embodiments", "outside": "**likely outside GR00T's scope**",
+                             "unclear": "unclear"}[fit]] + cells)
+    rows.append(["**of which: well-formed but outside scope**", "passes every FAIL-level check except modality.json"]
+                + [str(int(((d.embodiment_fit == "outside") & d.clean_except_modality).sum())) for d in lrs.values()])
+    return md_table(["what the data is", "fit"] + [f"{s} (n={len(d)})" for s, d in lrs.items()], rows)
+
+
 def stats_table(strat: dict[str, pd.DataFrame]) -> str:
     rows = []
     for s, d in strat.items():
@@ -608,6 +637,7 @@ def main(argv=None) -> int:
 
     raw, errors = load_raw(results), load_errors(results)
     df = build_frame(raw)
+    add_embodiment(df, results)
     strat = {s: df[df.stratum == s] for s in STRATA}
     shas = sorted(df.groot_sha.unique())
     assert len(shas) == 1, f"mixed GR00T pins in results/raw: {shas}"
@@ -672,7 +702,15 @@ def main(argv=None) -> int:
     add("\n### 2b. By check (every check except G6 and the checks that only run once `modality.json` exists), "
         "ranked by S-tail\n")
     add(failures_excluding_modality(strat))
-    add("\n### 2c. Top 5 FAIL-level failures overall (including `modality.json`), per stratum\n")
+    add("\n### 2c. Is it the kind of robot data GR00T targets?\n")
+    add("Loading and fit are different questions. A dataset can pass every format check and still not be "
+        "GR00T training data: GR00T N1.7 targets arms, bimanual setups, mobile manipulators and humanoids, so a "
+        "well-formed car-driving or human-motion dataset is outside its scope. **Heuristic** "
+        "(`conformance/embodiment.py`): `info.json:robot_type` first, then vehicle / human-motion feature names, "
+        "then arm/body dimension names, then (weakest, robot categories only) the dataset name. It does not "
+        "change any verdict. Denominator: LeRobot-format datasets.\n")
+    add(embodiment_table(strat))
+    add("\n### 2d. Top 5 FAIL-level failures overall (including `modality.json`), per stratum\n")
     add(top_failures(strat))
     add("\n`G2/G3/G7/G8/G9` share **one root cause** on a v3.0 layout (episodes.parquet / tasks.parquet / "
         "file-indexed paths), so they rank together; the `v3-style` column shows how much of each count is that. "

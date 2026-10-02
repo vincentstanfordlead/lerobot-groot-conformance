@@ -112,7 +112,23 @@ S-popular with and without RoboCOIN (one producer's converter accounts for 32 of
 | 17 | `G13` | FAIL | annotation column not in features | 0 (0%) | 1 (1%) | 0 (0%) | 0 (0%) |
 
 
-### 2c. Top 5 FAIL-level failures overall (including `modality.json`), per stratum
+### 2c. Is it the kind of robot data GR00T targets?
+
+Loading and fit are different questions. A dataset can pass every format check and still not be GR00T training data: GR00T N1.7 targets arms, bimanual setups, mobile manipulators and humanoids, so a well-formed car-driving or human-motion dataset is outside its scope. **Heuristic** (`conformance/embodiment.py`): `info.json:robot_type` first, then vehicle / human-motion feature names, then arm/body dimension names, then (weakest, robot categories only) the dataset name. It does not change any verdict. Denominator: LeRobot-format datasets.
+
+| what the data is | fit | S-curated (n=162) | S-popular (n=92) | S-recent (n=99) | S-tail (n=199) |
+|---|---|---|---|---|---|
+| Single robot arm | fits GR00T's embodiments | 84 (52%) | 29 (32%) | 83 (84%) | 160 (80%) |
+| Two-arm (bimanual) robot | fits GR00T's embodiments | 36 (22%) | 19 (21%) | 8 (8%) | 25 (13%) |
+| Humanoid / whole-body robot | fits GR00T's embodiments | 5 (3%) | 25 (27%) | 2 (2%) | 2 (1%) |
+| Mobile manipulator | fits GR00T's embodiments | 5 (3%) | 16 (17%) | 5 (5%) | 6 (3%) |
+| Vehicle / driving | **likely outside GR00T's scope** | 0 (0%) | 1 (1%) | 0 (0%) | 2 (1%) |
+| Human motion (no robot) | **likely outside GR00T's scope** | 1 (1%) | 1 (1%) | 0 (0%) | 0 (0%) |
+| Couldn't tell from metadata | unclear | 31 (19%) | 1 (1%) | 1 (1%) | 4 (2%) |
+| **of which: well-formed but outside scope** | passes every FAIL-level check except modality.json | 0 | 1 | 0 | 2 |
+
+
+### 2d. Top 5 FAIL-level failures overall (including `modality.json`), per stratum
 
 **S-curated** - 162 LeRobot-format datasets (of 162 audited; NOT_LEROBOT excluded because it trivially fails G1/G2/G3/G6)
 

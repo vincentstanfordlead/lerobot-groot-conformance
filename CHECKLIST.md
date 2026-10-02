@@ -165,6 +165,16 @@ Full tables: [`results/report.md`](results/report.md).
   are all common. A dataset that omitted `fps` (1.3) would be read at the wrong rate about
   half the time.
 
+- [ ] **2.5a Set `info.json:robot_type` to the actual robot.** It's the one field that says what
+  recorded the data. `robot_type` is missing or `"unknown"`: **75/162 / 7/92 / 0/99 / 4/199**. For the
+  curated stratum (mostly older Open-X ports) that's nearly half, so neither people nor tools can tell
+  what robot recorded those datasets without going back to the source paper.
+
+- [ ] **2.5b Check that it's robot data the target model trains on.** Format and fit are separate.
+  Well-formed LeRobot datasets that are vehicle driving or human motion capture, outside GR00T's arm /
+  hand / humanoid scope: **1 / 2 / 0 / 2** (heuristic, `conformance/embodiment.py`). Three of these
+  pass every FAIL-level check except `modality.json`.
+
 ### Converter-side
 
 - [ ] **2.6 Ship `meta/modality.json`.** Absent: **162/162 / 90/92 / 95/99 / 198/199**. This is
@@ -234,6 +244,10 @@ training runs, not metadata checks.
 - **3.6 Should evaluation rollouts be published alongside demonstrations, and how should they be
   labelled?** Many public repos are `eval_*` runs (see 2.2). Are failed or partial rollouts useful
   training data if they are labelled as such?
+- **3.8 Should `robot_type` be a controlled vocabulary?** Today it's free text (`so101_follower`,
+  `SO-101`, `so_follower`, `KIA Niro EV 2023`, `my_cool_robot`). A shared list of embodiment types would
+  let tools route data to the right model automatically. Who would maintain it, and how fine should
+  it be?
 - **3.7 What calibration and unit metadata should travel with the data?** Examples: joint zero
   offsets, units, camera intrinsics. GR00T reads none of these, but they decide whether 3.1's
   conversion is possible later.

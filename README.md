@@ -8,10 +8,11 @@ linter that ran it and a [draft checklist](CHECKLIST.md) for people who record r
 
 <img src="docs/img/kpi.png" alt="562 datasets audited. 0 of 200 randomly sampled datasets pass every static check as is. 30.5% are one file away (only modality.json missing, 95% CI 25–37%). 58% need a format conversion first (v3.0 layout, CI 51–65%)." width="100%">
 
-> **Try it in your browser: [GripCheck](https://vincentstanfordlead.github.io/lerobot-groot-conformance/).**
-> Paste a Hugging Face dataset link and see in seconds what matches GR00T, what's missing, and how
-> to fix it. Where the dimension names allow, it also drafts the missing `modality.json`. It reads
-> metadata only, runs entirely in your browser, and needs no sign-in.
+> **Try it in your browser: [Robot Data Smog Check](https://vincentstanfordlead.github.io/lerobot-groot-conformance/).**
+> Paste a Hugging Face dataset link and see in seconds what matches GR00T, what's missing, how to
+> fix it, and whether it's the kind of robot data GR00T trains on. Where the dimension names allow,
+> it also drafts the missing `modality.json`. It reads metadata only, runs entirely in your browser,
+> and needs no sign-in.
 
 ## Why this matters
 
@@ -33,6 +34,7 @@ formats.
 In a random sample of 200 public datasets:
 - **None pass every check as is.**
 - **30.5% are one small file away.** The data is in the layout GR00T reads; only `meta/modality.json` is missing.
+  Two of those 61 are race-car driving data, which is well-formed but not what GR00T is built for (see below).
 - **58% use the newer LeRobot v3.0 layout.** GR00T reads v2 today, ships a converter, and its docs
   say native v3 support is planned
   ([data_preparation.md L15](https://github.com/NVIDIA/Isaac-GR00T/blob/51d4c89f72fda44cbf77285c6a8114b52676b8a1/getting_started/data_preparation.md?plain=1#L15)).
@@ -52,6 +54,25 @@ That knowledge often already sits in the data. 84% of the random sample name the
 clearly (`shoulder_pan.pos`, `gripper.pos`), so a script could draft the file. The curated
 publisher datasets are the exception: 57% of them use `motor_0`…`motor_5` names that only the
 original team can decode.
+
+### Format is not the same as fit
+
+A dataset can pass every format check and still not be GR00T training data. Some public "LeRobot"
+datasets aren't robot manipulation at all. One example is a car-driving dataset (`robot_type: "KIA Niro EV 2023"`,
+with steering, brake and gear as actions). Others are race-car simulations and human motion capture. A metadata
+heuristic (`conformance/embodiment.py`: `robot_type` first, then feature names) classifies each dataset:
+
+| what the data is | curated (n=162) | popular (n=92) | recent (n=99) | tail (n=199) |
+|---|---|---|---|---|
+| arm, bimanual, humanoid or mobile manipulator: **fits GR00T** | 130 (80%) | 89 (97%) | 98 (99%) | 193 (97%) |
+| vehicle / driving, or human motion: **likely outside GR00T's scope** | 1 | 2 | 0 | 2 |
+| couldn't tell from metadata | 31 (19%) | 1 | 1 | 4 |
+
+The scale of the out-of-scope group is small: 5 of 552. Three of them pass every format check except
+`modality.json`, which a format-only check would report as "one file away". The curated "couldn't
+tell" row is the bigger finding: 75 of the 162 curated datasets have `robot_type: "unknown"` (mostly
+older Open-X ports), so neither tools nor people can tell what robot recorded them without reading the
+paper.
 
 ### Across the whole sample
 
@@ -110,7 +131,7 @@ is in [`results/report.md`](results/report.md). Per-dataset results are in
 
 The linter reads metadata only, so it downloads no video or episode data. Each check cites the
 line of GR00T code that requires it. The same 28 checks run in the
-[GripCheck web app](https://vincentstanfordlead.github.io/lerobot-groot-conformance/) (`docs/`,
+[Robot Data Smog Check web app](https://vincentstanfordlead.github.io/lerobot-groot-conformance/) (`docs/`,
 plain JavaScript, no build step). `tests/test_js_parity.py` keeps the browser version and the Python
 version in agreement on every test fixture and on all 545 audited `info.json` files.
 
@@ -242,7 +263,7 @@ scripts/       reproduce.py · make_figures.py · collect_dataset_list.py · bui
 vendor/        groot_51d4c89/: the GR00T files the contract is read from (Apache-2.0, unmodified)
 fixtures/      control datasets for the tests (meta files real; payload files are empty placeholders)
 results/       raw/<repo>.json per dataset · summary.csv · report.md · conformance_chart.png · strata.json
-docs/          GripCheck web app (index.html, app/*.js; served by GitHub Pages) · img/: README figures
+docs/          Robot Data Smog Check web app (index.html, app/*.js; served by GitHub Pages) · img/: README figures
 ```
 </details>
 
