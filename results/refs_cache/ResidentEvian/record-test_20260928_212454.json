@@ -1,0 +1,16 @@
+{
+ "id": "ResidentEvian/record-test_20260928_212454",
+ "fetched_utc": "2026-10-03T05:17:33+00:00",
+ "branches": [
+  [
+   "main",
+   "a68e00f985a33efea5cf5da2f9bcc330c3e88779"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "a68e00f985a33efea5cf5da2f9bcc330c3e88779"
+  ]
+ ]
+}

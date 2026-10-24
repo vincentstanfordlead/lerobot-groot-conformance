@@ -1,0 +1,16 @@
+{
+ "id": "leapshared/Electroscope_new_20260928_202529",
+ "fetched_utc": "2026-10-03T05:17:43+00:00",
+ "branches": [
+  [
+   "main",
+   "cedab9f509cc766cf9417914a5b0454ce81d64a6"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "cedab9f509cc766cf9417914a5b0454ce81d64a6"
+  ]
+ ]
+}

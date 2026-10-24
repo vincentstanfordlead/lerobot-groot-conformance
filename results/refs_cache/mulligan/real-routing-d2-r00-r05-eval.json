@@ -1,0 +1,20 @@
+{
+ "id": "mulligan/real-routing-d2-r00-r05-eval",
+ "fetched_utc": "2026-10-03T05:17:53+00:00",
+ "branches": [
+  [
+   "main",
+   "56b6e9d4b55c856656c4f85fd45acd3a08363111"
+  ]
+ ],
+ "tags": [
+  [
+   "release-1",
+   "56b6e9d4b55c856656c4f85fd45acd3a08363111"
+  ],
+  [
+   "v3.0",
+   "56b6e9d4b55c856656c4f85fd45acd3a08363111"
+  ]
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "id": "auntowen/so101_test_dataset_2cams_20260928_214357",
+ "fetched_utc": "2026-10-03T05:17:39+00:00",
+ "branches": [
+  [
+   "main",
+   "370253ff81b1468e354882cad07763bdc6e406f7"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "370253ff81b1468e354882cad07763bdc6e406f7"
+  ]
+ ]
+}

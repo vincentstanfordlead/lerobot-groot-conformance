@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/berkeley_autolab_ur5",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "c4e26a697fc4c04776b0558f83e563d14be0109f"
+  ],
+  [
+   "v1.6",
+   "68d885b8359455375a03cd26bbaec5d16eb6e64d"
+  ],
+  [
+   "v2.0",
+   "7aa2a32478958ad4be30df554de0903c383df990"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "6306aa91c00b9b0de28831b7fceaa42b8096bb4f"
+  ],
+  [
+   "v3.0",
+   "c4e26a697fc4c04776b0558f83e563d14be0109f"
+  ]
+ ]
+}

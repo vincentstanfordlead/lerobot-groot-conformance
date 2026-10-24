@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/tokyo_u_lsmo",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "729d997f2ecc7675d490f8de587fe20ed57fe549"
+  ],
+  [
+   "v1.6",
+   "d719ebfbb992dcd2864c5a64b20671e75da63017"
+  ],
+  [
+   "v2.0",
+   "62b87fc0926c0681b03361c719cf652d84e2f20b"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "79a34f9b22d799f696d2c89fe8efedd34a617a56"
+  ],
+  [
+   "v3.0",
+   "729d997f2ecc7675d490f8de587fe20ed57fe549"
+  ]
+ ]
+}

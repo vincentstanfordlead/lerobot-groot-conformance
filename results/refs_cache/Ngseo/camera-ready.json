@@ -1,0 +1,16 @@
+{
+ "id": "Ngseo/camera-ready",
+ "fetched_utc": "2026-10-03T05:17:32+00:00",
+ "branches": [
+  [
+   "main",
+   "d5dfa3f3185185ba418fac6f6cf4e37aed784fdb"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "8a673d09ef81df2679601c317983b3cc497bfb76"
+  ]
+ ]
+}

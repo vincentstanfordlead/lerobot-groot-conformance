@@ -1,0 +1,36 @@
+{
+ "id": "lerobot/aloha_sim_transfer_cube_scripted_image",
+ "fetched_utc": "2026-10-03T05:17:45+00:00",
+ "branches": [
+  [
+   "main",
+   "ac028b2d1a3f26275f4fc6b2d366646bac3c0491"
+  ],
+  [
+   "v1.4",
+   "86d1ffc63c95f116a989879155e1a14e71466c48"
+  ],
+  [
+   "v1.5",
+   "86d1ffc63c95f116a989879155e1a14e71466c48"
+  ],
+  [
+   "v1.6",
+   "cde7972d056e00bda4dbff02a2f5fbc02c1163d3"
+  ],
+  [
+   "v2.0",
+   "582688c0ea3dc12b523f1a7053aad4983c85bc63"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "8ecc594be260f328c334734a7a31b5cc5a304169"
+  ],
+  [
+   "v3.0",
+   "ac028b2d1a3f26275f4fc6b2d366646bac3c0491"
+  ]
+ ]
+}

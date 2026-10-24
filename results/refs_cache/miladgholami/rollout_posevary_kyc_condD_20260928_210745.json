@@ -1,0 +1,16 @@
+{
+ "id": "miladgholami/rollout_posevary_kyc_condD_20260928_210745",
+ "fetched_utc": "2026-10-03T05:17:52+00:00",
+ "branches": [
+  [
+   "main",
+   "080824d37404c7f43aaa9918e60b311e72749b3a"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "080824d37404c7f43aaa9918e60b311e72749b3a"
+  ]
+ ]
+}

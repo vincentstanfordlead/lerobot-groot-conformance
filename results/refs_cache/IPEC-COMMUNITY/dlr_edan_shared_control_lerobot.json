@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/dlr_edan_shared_control_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "61601fb54fba0cf6648bccf14e7a3427d1ae8e58"
+  ],
+  [
+   "v2.0",
+   "581fc19d781b05d525c98b540e2a5ae5ffb27df1"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "61601fb54fba0cf6648bccf14e7a3427d1ae8e58"
+  ]
+ ]
+}

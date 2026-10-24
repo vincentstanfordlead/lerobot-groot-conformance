@@ -1,0 +1,44 @@
+{
+ "id": "yaak-ai/L2D",
+ "fetched_utc": "2026-10-03T05:20:58+00:00",
+ "branches": [
+  [
+   "R2",
+   "b5259f0f12e705f8577f4be4013c4c467161cd4a"
+  ],
+  [
+   "bug/update-episodes-R2",
+   "6a4b9dc5f2b29fdb6caafb962b8e33e847743fa3"
+  ],
+  [
+   "feat/R3-OSRM-instructions",
+   "6a42eb8d93ca24181fbe1e55d96b923d2610c174"
+  ],
+  [
+   "main",
+   "1e7578b183c1cabd3b0f1061828b4cc76a323bd2"
+  ],
+  [
+   "pr/9",
+   "cdefccfda130d012f4898d9599ffaf756bbd0f07"
+  ]
+ ],
+ "tags": [
+  [
+   "R0",
+   "49115405b552802c9838d4a4c85a4ed947f901b3"
+  ],
+  [
+   "R1",
+   "5bbce59c05e547a42f890926c824696edcff125b"
+  ],
+  [
+   "v2.1",
+   "fd760d91acde985faf33b2f44cb175cc770cc254"
+  ],
+  [
+   "v3.0",
+   "0eee6d013ca5447b034708e1fe9dfbb507c41853"
+  ]
+ ]
+}

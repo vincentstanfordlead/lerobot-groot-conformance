@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/abc_130k_v3_val",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "46ca817c39d3df08115a75c31b3cd3867e3d875a"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "46ca817c39d3df08115a75c31b3cd3867e3d875a"
+  ]
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "id": "apal99/record-test-1",
+ "fetched_utc": "2026-10-03T05:17:38+00:00",
+ "branches": [
+  [
+   "main",
+   "07e30fa27d565c1d5fc8552bd57be41927b107c7"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "07e30fa27d565c1d5fc8552bd57be41927b107c7"
+  ]
+ ]
+}

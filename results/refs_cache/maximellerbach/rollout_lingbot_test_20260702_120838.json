@@ -1,0 +1,16 @@
+{
+ "id": "maximellerbach/rollout_lingbot_test_20260702_120838",
+ "fetched_utc": "2026-10-03T05:17:51+00:00",
+ "branches": [
+  [
+   "main",
+   "2e074813f237d3b008eb48ea3b56d9e87d433cb6"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "2e074813f237d3b008eb48ea3b56d9e87d433cb6"
+  ]
+ ]
+}

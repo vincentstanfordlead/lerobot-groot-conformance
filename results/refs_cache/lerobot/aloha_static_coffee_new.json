@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_static_coffee_new",
+ "fetched_utc": "2026-10-03T05:17:45+00:00",
+ "branches": [
+  [
+   "main",
+   "a6e434c083dbd1e69e195c2f77ecd0a99948378b"
+  ],
+  [
+   "v1.3",
+   "03dd928de30d83d9dfb009c7ad9128cba997ff1b"
+  ],
+  [
+   "v1.4",
+   "b605f5c465c7dd7fc0cb695ede51346db0991994"
+  ],
+  [
+   "v1.5",
+   "b605f5c465c7dd7fc0cb695ede51346db0991994"
+  ],
+  [
+   "v1.6",
+   "1704e12a7cc766481a38d3a82e5fc2c3da704bfb"
+  ],
+  [
+   "v2.0",
+   "4f8c712349b83a40e25ef43cbddfbcb9816e3e63"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "3b199a8bc5f6d70a04cdc012b5c4bee4f046d39f"
+  ],
+  [
+   "v3.0",
+   "a6e434c083dbd1e69e195c2f77ecd0a99948378b"
+  ]
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/stanford_hydra_dataset",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "ff06383708a1df7f38c21ec960a286ca6d0b7e7e"
+  ],
+  [
+   "v1.6",
+   "224c71d051f1340e48b189d09f2566c939643451"
+  ],
+  [
+   "v2.0",
+   "4fef6d861c5f1ac80bb24b055d57d5902d8c57e6"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "aa6b6233ca497348aad87b69de2326b5c05f426b"
+  ],
+  [
+   "v3.0",
+   "ff06383708a1df7f38c21ec960a286ca6d0b7e7e"
+  ]
+ ]
+}

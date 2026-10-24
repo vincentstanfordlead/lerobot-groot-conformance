@@ -1,0 +1,32 @@
+{
+ "id": "lerobot/unitreeh1_fold_clothes",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "a0926b4dd672560fdc4e6c9d1e68cda17631d608"
+  ],
+  [
+   "v1.4",
+   "d2644753a3fd929ef2bf167161a2325b950dc090"
+  ],
+  [
+   "v1.6",
+   "78d48f8a03ce4aca5024fdfe8ce4521948fecf20"
+  ],
+  [
+   "v2.0",
+   "8fa12945f36717b7aa75eb4947029bf57de906b2"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "b10c5b7117ff3f4a00aeb190bcfc096c90dd8d71"
+  ],
+  [
+   "v3.0",
+   "a0926b4dd672560fdc4e6c9d1e68cda17631d608"
+  ]
+ ]
+}

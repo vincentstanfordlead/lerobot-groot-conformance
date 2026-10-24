@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/SMPL_samples",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "5d5674524b6b9824f6a21955e5f93ab92717c73d"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "b3a5ea81c7a5f9146f1e0093c944167ad53e87f4"
+  ]
+ ]
+}

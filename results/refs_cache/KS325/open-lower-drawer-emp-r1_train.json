@@ -1,0 +1,16 @@
+{
+ "id": "KS325/open-lower-drawer-emp-r1_train",
+ "fetched_utc": "2026-10-03T05:17:31+00:00",
+ "branches": [
+  [
+   "main",
+   "1b90f9e63e41de7d137cf6aecbfa304535d8d570"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "1b90f9e63e41de7d137cf6aecbfa304535d8d570"
+  ]
+ ]
+}

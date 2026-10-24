@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/berkeley_mvp",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "076135b96e92917da3404c2aa3d97e36f312cf73"
+  ],
+  [
+   "v1.6",
+   "133a260ce7258e60817b6577abab1612cc85ddea"
+  ],
+  [
+   "v2.0",
+   "df9fdcfe53992480c3e0a82199ac1ad5449b3fd7"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "f20cc98d6d2d95e0f751b16d66f9f012abf2c30b"
+  ],
+  [
+   "v3.0",
+   "076135b96e92917da3404c2aa3d97e36f312cf73"
+  ]
+ ]
+}

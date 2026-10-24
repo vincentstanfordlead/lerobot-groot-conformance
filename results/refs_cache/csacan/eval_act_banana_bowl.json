@@ -1,0 +1,16 @@
+{
+ "id": "csacan/eval_act_banana_bowl",
+ "fetched_utc": "2026-10-03T05:17:40+00:00",
+ "branches": [
+  [
+   "main",
+   "32e5df2d13e1a319d9eb8850f821c2aac5877a4a"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "32e5df2d13e1a319d9eb8850f821c2aac5877a4a"
+  ]
+ ]
+}

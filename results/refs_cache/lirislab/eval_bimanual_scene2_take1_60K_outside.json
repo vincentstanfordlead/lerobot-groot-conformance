@@ -1,0 +1,15 @@
+{
+ "id": "lirislab/eval_bimanual_scene2_take1_60K_outside",
+ "fetched_utc": "2026-10-03T05:17:51+00:00",
+ "branches": [
+  [
+   "main",
+   "4e6d2a713f334e626bf624571cd3261452b8a93a"
+  ],
+  [
+   "v2.0",
+   "4e6d2a713f334e626bf624571cd3261452b8a93a"
+  ]
+ ],
+ "tags": []
+}

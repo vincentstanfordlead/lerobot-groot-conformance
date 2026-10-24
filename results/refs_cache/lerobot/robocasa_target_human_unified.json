@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/robocasa_target_human_unified",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "a1c7cba1a128f5dd8d3084012ba366d10ce174d9"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "a1c7cba1a128f5dd8d3084012ba366d10ce174d9"
+  ]
+ ]
+}

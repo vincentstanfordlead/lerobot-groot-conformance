@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/utokyo_xarm_pick_and_place",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "da56c23e1b6d32c101c300b85dc54288b53ea63c"
+  ],
+  [
+   "v1.6",
+   "4e9ec762b56ff7394a92457d032406b2574475e3"
+  ],
+  [
+   "v2.0",
+   "125f8cca704ac2699495750a74ffdb792e772f01"
+  ],
+  [
+   "v2.1",
+   "e94b525beeed11f094f8b8bf02749c52a3eed67c"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "da56c23e1b6d32c101c300b85dc54288b53ea63c"
+  ]
+ ]
+}

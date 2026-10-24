@@ -1,0 +1,32 @@
+{
+ "id": "lerobot/stanford_kuka_multimodal_dataset",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "93927d10c07233ddbe3d6e3cec433af9430121c7"
+  ],
+  [
+   "v1.6",
+   "931df21214136dad2a6e0d2531819030a9353edc"
+  ],
+  [
+   "v2.0",
+   "b8d6d3a2cadf2737c61809db557aabba80d5f082"
+  ],
+  [
+   "v2.0.test",
+   "cd073e20ebf129dd6459a8b003c7919d24757a03"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "9ae6a6d4596bf6f3734bf1bb47626400433f04c7"
+  ],
+  [
+   "v3.0",
+   "93927d10c07233ddbe3d6e3cec433af9430121c7"
+  ]
+ ]
+}

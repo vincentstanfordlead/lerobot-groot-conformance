@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/koch_pick_place_1_lego_raph",
+ "fetched_utc": "2026-10-03T05:17:47+00:00",
+ "branches": [
+  [
+   "main",
+   "1e7afb6601bb4d2405962d27d58109dcfaddc096"
+  ],
+  [
+   "v1.6",
+   "dce0cbbed97f2f5813d2cd2d1194b52492bb0168"
+  ],
+  [
+   "v2.0",
+   "ca90998d4f3993a3f31a66818ceb5956a8dad0bc"
+  ],
+  [
+   "v2.1",
+   "f40645b1fce5db293afffaf402175add735282b0"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "1e7afb6601bb4d2405962d27d58109dcfaddc096"
+  ]
+ ]
+}

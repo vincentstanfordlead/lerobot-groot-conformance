@@ -1,0 +1,16 @@
+{
+ "id": "fysical/rollout_diffusion_S025_seed2_20260928_133940",
+ "fetched_utc": "2026-10-03T05:17:41+00:00",
+ "branches": [
+  [
+   "main",
+   "8b240c9fd28507180318112d9ef05c8da851f874"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "8b240c9fd28507180318112d9ef05c8da851f874"
+  ]
+ ]
+}

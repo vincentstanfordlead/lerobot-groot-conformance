@@ -1,0 +1,16 @@
+{
+ "id": "rngllz/record-test",
+ "fetched_utc": "2026-10-03T05:17:55+00:00",
+ "branches": [
+  [
+   "main",
+   "31da4e23f063c72848e58e946741e310cb49a134"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "31da4e23f063c72848e58e946741e310cb49a134"
+  ]
+ ]
+}

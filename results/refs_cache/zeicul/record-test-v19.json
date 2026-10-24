@@ -1,0 +1,16 @@
+{
+ "id": "zeicul/record-test-v19",
+ "fetched_utc": "2026-10-03T05:20:58+00:00",
+ "branches": [
+  [
+   "main",
+   "15e4c618638eae426bc8ca7f9d5b34d1a21cb864"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "15e4c618638eae426bc8ca7f9d5b34d1a21cb864"
+  ]
+ ]
+}

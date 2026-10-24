@@ -1,0 +1,16 @@
+{
+ "id": "HuggingFaceVLA/smol-libero",
+ "fetched_utc": "2026-10-03T05:17:28+00:00",
+ "branches": [
+  [
+   "main",
+   "24b61cce80e40919ab5fd8f221708947634ab42c"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "fb7aebf31d50ab3d0b5232451afcc5e2c41b87d0"
+  ]
+ ]
+}

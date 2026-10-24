@@ -1,0 +1,15 @@
+{
+ "id": "IPEC-COMMUNITY/droid_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "96dd57f36d85a542a874e73aea5d9e0843caea58"
+  ],
+  [
+   "v2.0",
+   "dd8e24447708b3b0b1c02e8db7b69b803df5a30d"
+  ]
+ ],
+ "tags": []
+}

@@ -1,0 +1,16 @@
+{
+ "id": "weedmo/bimanual_so100_dataset_1",
+ "fetched_utc": "2026-10-03T05:20:57+00:00",
+ "branches": [
+  [
+   "main",
+   "378be1f9cd1799b957c0db447fc9c33c4bba37f0"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "378be1f9cd1799b957c0db447fc9c33c4bba37f0"
+  ]
+ ]
+}

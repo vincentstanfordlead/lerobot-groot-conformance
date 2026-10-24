@@ -1,0 +1,11 @@
+{
+ "id": "allenai/MolmoAct2-BimanualYAM-Dataset",
+ "fetched_utc": "2026-10-03T05:17:37+00:00",
+ "branches": [
+  [
+   "main",
+   "e9f21ae15074330839f2ac25ed4b49d76dfa1f9c"
+  ]
+ ],
+ "tags": []
+}

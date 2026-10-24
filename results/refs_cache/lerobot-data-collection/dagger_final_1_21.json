@@ -1,0 +1,16 @@
+{
+ "id": "lerobot-data-collection/dagger_final_1_21",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "6af4f6031bac1af47c7fd8aca678ea60dcbe93d9"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "6af4f6031bac1af47c7fd8aca678ea60dcbe93d9"
+  ]
+ ]
+}

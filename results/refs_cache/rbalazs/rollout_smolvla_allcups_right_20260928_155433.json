@@ -1,0 +1,16 @@
+{
+ "id": "rbalazs/rollout_smolvla_allcups_right_20260928_155433",
+ "fetched_utc": "2026-10-03T05:17:54+00:00",
+ "branches": [
+  [
+   "main",
+   "277da7d1facc944e41d5b37bed52b8a01f2c3b45"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "277da7d1facc944e41d5b37bed52b8a01f2c3b45"
+  ]
+ ]
+}

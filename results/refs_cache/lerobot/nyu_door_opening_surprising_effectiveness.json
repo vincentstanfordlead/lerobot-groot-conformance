@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/nyu_door_opening_surprising_effectiveness",
+ "fetched_utc": "2026-10-03T05:17:48+00:00",
+ "branches": [
+  [
+   "main",
+   "4ae8986f61485f5026fcff7269fff047149e3cba"
+  ],
+  [
+   "v1.6",
+   "0aacfbdb65e54f4c91ee8b9d416a000d1fff1177"
+  ],
+  [
+   "v2.0",
+   "8979827d8d3854fc629800bce3ba7d6f1e77dfe6"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "4f02d56db3bac0b7f19263ccdb53042c17283c87"
+  ],
+  [
+   "v3.0",
+   "4ae8986f61485f5026fcff7269fff047149e3cba"
+  ]
+ ]
+}

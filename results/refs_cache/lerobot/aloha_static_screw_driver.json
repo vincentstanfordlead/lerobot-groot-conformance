@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_static_screw_driver",
+ "fetched_utc": "2026-10-03T05:17:45+00:00",
+ "branches": [
+  [
+   "main",
+   "21eead16760a8d94d449cadf4bc438b322ab528d"
+  ],
+  [
+   "v1.3",
+   "0148ed962c8865e076b60254643b7edeea635634"
+  ],
+  [
+   "v1.4",
+   "d225aec271eecab41e60a811e3ab88195beb197c"
+  ],
+  [
+   "v1.5",
+   "d225aec271eecab41e60a811e3ab88195beb197c"
+  ],
+  [
+   "v1.6",
+   "77e6f902bc8b946113769863cb7f15dda9127bc9"
+  ],
+  [
+   "v2.0",
+   "24e3d5b66c8b48e5ce0b082fb940787c6d9a147b"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "51448b4e7638c1773fd07c1e7febce8ebb104635"
+  ],
+  [
+   "v3.0",
+   "21eead16760a8d94d449cadf4bc438b322ab528d"
+  ]
+ ]
+}

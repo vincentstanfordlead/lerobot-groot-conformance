@@ -1,0 +1,16 @@
+{
+ "id": "klinzw/autolife_fridge",
+ "fetched_utc": "2026-10-03T05:17:43+00:00",
+ "branches": [
+  [
+   "main",
+   "21c260293ec453c0da351f1caa5aad8286502487"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "31ff7acf57875c1e5582205ffabb12a41fb95d43"
+  ]
+ ]
+}

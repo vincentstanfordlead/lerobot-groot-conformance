@@ -1,0 +1,15 @@
+{
+ "id": "IPEC-COMMUNITY/fractal20220817_data_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "91bf7d7f7ce50770a1ba5c6db14b8d1c0815122e"
+  ],
+  [
+   "v2.0",
+   "91bf7d7f7ce50770a1ba5c6db14b8d1c0815122e"
+  ]
+ ],
+ "tags": []
+}

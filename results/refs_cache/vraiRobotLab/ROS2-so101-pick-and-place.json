@@ -1,0 +1,16 @@
+{
+ "id": "vraiRobotLab/ROS2-so101-pick-and-place",
+ "fetched_utc": "2026-10-03T05:20:57+00:00",
+ "branches": [
+  [
+   "main",
+   "2697dcc8c0ac2541b0bdbf0206069cb97fa12b62"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "2697dcc8c0ac2541b0bdbf0206069cb97fa12b62"
+  ]
+ ]
+}

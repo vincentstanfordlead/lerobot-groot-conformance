@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/austin_sailor_dataset_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "da8ad6a93d288df66d022387eeb13bc6e55d1d61"
+  ],
+  [
+   "v2.0",
+   "b261f283bbc4f260d11b98cc6b8220c858d53274"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "da8ad6a93d288df66d022387eeb13bc6e55d1d61"
+  ]
+ ]
+}

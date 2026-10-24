@@ -1,0 +1,32 @@
+{
+ "id": "lerobot/taco_play",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "15f69c9346a10fa5e9a93f0460febd86d3450206"
+  ],
+  [
+   "v1.6",
+   "a00ea0d974f51f149858099c4ab20dff0679e036"
+  ],
+  [
+   "v2.0",
+   "a1b20e05e4ff79718611a185ba34bfbc4e3f39f2"
+  ],
+  [
+   "v2.0.test",
+   "b08c0c8e5d740d87f23bd36e6ed50aba7cfc226a"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "8f5176abefa1fcd96d9a84239bc9c8d8e7793d62"
+  ],
+  [
+   "v3.0",
+   "15f69c9346a10fa5e9a93f0460febd86d3450206"
+  ]
+ ]
+}

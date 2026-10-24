@@ -1,0 +1,16 @@
+{
+ "id": "cadene/droid",
+ "fetched_utc": "2026-10-03T05:17:39+00:00",
+ "branches": [
+  [
+   "main",
+   "c8fbc029c9786fd4377ea20d9535e86d88199c0f"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "ee27c402d7ca384d6e82afa698f994543cf04e3d"
+  ]
+ ]
+}

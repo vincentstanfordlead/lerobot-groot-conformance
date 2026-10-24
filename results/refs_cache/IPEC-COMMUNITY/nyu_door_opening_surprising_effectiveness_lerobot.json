@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/nyu_door_opening_surprising_effectiveness_lerobot",
+ "fetched_utc": "2026-10-03T05:17:30+00:00",
+ "branches": [
+  [
+   "main",
+   "f5be91c13e6240402d4977480aec0440e32786aa"
+  ],
+  [
+   "v2.0",
+   "7cd5b06ca3cdc0ab69b51c3d2d2f62f8ad141f9d"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "f5be91c13e6240402d4977480aec0440e32786aa"
+  ]
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/berkeley_cable_routing_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "2ce23db5a4da14ce88d5678b8d384f5c376625b8"
+  ],
+  [
+   "v2.0",
+   "79dd3441742284de47b8d88c7ea513306c10b601"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "2ce23db5a4da14ce88d5678b8d384f5c376625b8"
+  ]
+ ]
+}

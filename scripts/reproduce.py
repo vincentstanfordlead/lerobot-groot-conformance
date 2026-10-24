@@ -71,6 +71,9 @@ def main() -> int:
 
     # 4. report
     run("-m", "conformance.report", "--results", str(res), *([] if reaudit else ["--offline"]))
+    # 5. LeRobot + openpi columns (offline; needs results/refs_cache from scripts/fetch_refs.py, network)
+    if (res / "refs_cache").exists():
+        run("scripts/run_models.py", "--results", str(res))
     print(f"\ndone: {res / 'report.md'}")
     return 0
 

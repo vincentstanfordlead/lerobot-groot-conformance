@@ -1,0 +1,16 @@
+{
+ "id": "Promexile/tape_dataset_xy_depth",
+ "fetched_utc": "2026-10-03T05:17:33+00:00",
+ "branches": [
+  [
+   "main",
+   "6688d7fb1cb3159dc7fb7eccec2156f7e707fa16"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "6688d7fb1cb3159dc7fb7eccec2156f7e707fa16"
+  ]
+ ]
+}

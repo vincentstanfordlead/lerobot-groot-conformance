@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/high_quality_folding",
+ "fetched_utc": "2026-10-03T05:17:47+00:00",
+ "branches": [
+  [
+   "main",
+   "c9eb858d4b84e520edecbda84a3534c3c1e78436"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "a6558ad51e757178a81a5b9350f37c9d974fa061"
+  ]
+ ]
+}

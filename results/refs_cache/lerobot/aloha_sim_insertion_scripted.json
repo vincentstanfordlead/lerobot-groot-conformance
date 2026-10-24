@@ -1,0 +1,52 @@
+{
+ "id": "lerobot/aloha_sim_insertion_scripted",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "8ab660912970111cbb26738b11458e6fc4a4aed1"
+  ],
+  [
+   "v1.0",
+   "1ef60617d3cd45e9e8f749b4a34676b4083ae11f"
+  ],
+  [
+   "v1.1",
+   "856f569e6ba191b9170e04688be8bbd0b45e58dc"
+  ],
+  [
+   "v1.2",
+   "d7542b1e6343fea19dba4cbfb56ac93eb0acf554"
+  ],
+  [
+   "v1.3",
+   "ee817a819e5ad4617f6a809cbd22dab553c0eac7"
+  ],
+  [
+   "v1.4",
+   "5206593083544054abc3b39a3a6ff1fb3fdaa2a3"
+  ],
+  [
+   "v1.5",
+   "5206593083544054abc3b39a3a6ff1fb3fdaa2a3"
+  ],
+  [
+   "v1.6",
+   "50590cbbed514dd08e5ef368efb3afa0c6a1f93a"
+  ],
+  [
+   "v2.0",
+   "0a535847e4d85149c0c80844fda8afe80326618d"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "548b33701f17619673f9fe37b164a547e4a282bc"
+  ],
+  [
+   "v3.0",
+   "8ab660912970111cbb26738b11458e6fc4a4aed1"
+  ]
+ ]
+}

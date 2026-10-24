@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/columbia_cairlab_pusht_real",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "66482aa15878b5362c98620f7f60ee23ef1d5a2c"
+  ],
+  [
+   "v1.6",
+   "dde9d6cac4fd61b47489c6b81d97073013adb0ea"
+  ],
+  [
+   "v2.0",
+   "0369565fe3410c39f8c3b788381bef37f5d022d8"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "43e892c6fadb68d4fed43190e050f6f1ab2c9e28"
+  ],
+  [
+   "v3.0",
+   "66482aa15878b5362c98620f7f60ee23ef1d5a2c"
+  ]
+ ]
+}

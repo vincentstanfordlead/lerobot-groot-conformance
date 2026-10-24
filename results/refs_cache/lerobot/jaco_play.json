@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/jaco_play",
+ "fetched_utc": "2026-10-03T05:17:47+00:00",
+ "branches": [
+  [
+   "main",
+   "265773f4d24610e89040a9e11e1e39cbf4c8a5db"
+  ],
+  [
+   "v1.6",
+   "9fc62643c9b67aae0a1dfb198e7fa9ee3bc9f529"
+  ],
+  [
+   "v2.0",
+   "1cd05c874884e648d2de510a8d34286fb68e0fd0"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "6aba5d3c8ea69244a14c8f36989f7cd74731ee29"
+  ],
+  [
+   "v3.0",
+   "265773f4d24610e89040a9e11e1e39cbf4c8a5db"
+  ]
+ ]
+}

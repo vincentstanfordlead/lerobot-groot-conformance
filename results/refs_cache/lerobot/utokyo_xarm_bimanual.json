@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/utokyo_xarm_bimanual",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "13533b961150faf398ae9b82cf6d6323b56f9070"
+  ],
+  [
+   "v1.6",
+   "0bc3a6c9edc5a922cca02c23698c733b5646aaca"
+  ],
+  [
+   "v2.0",
+   "baba48f5edccb477abc6df955439f7f8f3e0707e"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "f664db7868182fc9b434d7a98c955b0e18d0c7dd"
+  ],
+  [
+   "v3.0",
+   "13533b961150faf398ae9b82cf6d6323b56f9070"
+  ]
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "id": "IPEC-COMMUNITY/ucsd_kitchen_dataset_lerobot",
+ "fetched_utc": "2026-10-03T05:17:30+00:00",
+ "branches": [
+  [
+   "main",
+   "7efea00ab6334c69508e08e5f5683ddbe3ab2edc"
+  ],
+  [
+   "v2.0",
+   "6eef82d53081f1e858e1c69d213095246b4f1a4c"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "7396df9bf211f3c8ccfc0f925322eba1170b52fb"
+  ],
+  [
+   "v3.0",
+   "7efea00ab6334c69508e08e5f5683ddbe3ab2edc"
+  ]
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "id": "lerobot/aloha_sim_transfer_cube_human_image",
+ "fetched_utc": "2026-10-03T05:17:45+00:00",
+ "branches": [
+  [
+   "main",
+   "7f12409e382ffd5ffa0e8018d2ef76d0a43d8c67"
+  ],
+  [
+   "v1.4",
+   "2d073f9a78349d8b31fe1fd8917e3fe7962d9315"
+  ],
+  [
+   "v1.5",
+   "2d073f9a78349d8b31fe1fd8917e3fe7962d9315"
+  ],
+  [
+   "v1.6",
+   "d312d4ecbed5e8cc5e07141321930359a70392af"
+  ],
+  [
+   "v2.0",
+   "786acc7c290f54267c617fc98fd3276b6b24664c"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "912ff944818633eb38b916c8a484f68eef3861f6"
+  ],
+  [
+   "v3.0",
+   "7f12409e382ffd5ffa0e8018d2ef76d0a43d8c67"
+  ]
+ ]
+}

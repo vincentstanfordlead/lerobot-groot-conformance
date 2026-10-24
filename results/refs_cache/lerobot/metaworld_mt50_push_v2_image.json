@@ -1,0 +1,24 @@
+{
+ "id": "lerobot/metaworld_mt50_push_v2_image",
+ "fetched_utc": "2026-10-03T05:17:48+00:00",
+ "branches": [
+  [
+   "main",
+   "d105b817b01adf8986b05637f94f6a645e4de9f1"
+  ],
+  [
+   "v2.0",
+   "94dc7d35ef294bd39b74241091ac8510272ea755"
+  ],
+  [
+   "v2.1",
+   "6e3ee6d9248cde4fc1059d5788752f468ca5361d"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "d105b817b01adf8986b05637f94f6a645e4de9f1"
+  ]
+ ]
+}

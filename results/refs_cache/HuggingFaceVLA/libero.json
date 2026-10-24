@@ -1,0 +1,24 @@
+{
+ "id": "HuggingFaceVLA/libero",
+ "fetched_utc": "2026-10-03T05:17:28+00:00",
+ "branches": [
+  [
+   "main",
+   "86958911c0f959db2bbbdb107eb3e17c5f9c798e"
+  ],
+  [
+   "v3",
+   "cc29b569e0c32cd8d492757c7f2e076de90c7ba5"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "affa19c0de0f6bce2a7edd26dddef8a532e7e6f6"
+  ],
+  [
+   "v3.0",
+   "86958911c0f959db2bbbdb107eb3e17c5f9c798e"
+  ]
+ ]
+}

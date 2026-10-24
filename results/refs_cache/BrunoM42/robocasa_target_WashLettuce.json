@@ -1,0 +1,20 @@
+{
+ "id": "BrunoM42/robocasa_target_WashLettuce",
+ "fetched_utc": "2026-10-03T05:17:27+00:00",
+ "branches": [
+  [
+   "main",
+   "aa8a77db5d73c1334470503091a1eb61c3a546da"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "7e5c34a40ae68f38daaedd7af9e60f06834f3ca1"
+  ],
+  [
+   "v3.0",
+   "aa8a77db5d73c1334470503091a1eb61c3a546da"
+  ]
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "id": "lerobot/umi_cup_in_the_wild",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "c16ab60ce0862c60a6c83c200d050b4013af3333"
+  ],
+  [
+   "v1.0",
+   "7e7b7129604201f8289a0e92892a0fecc9039375"
+  ],
+  [
+   "v1.3",
+   "e837e9ef1c241f18c0ac4bd72c513a5d5dd8ae7e"
+  ],
+  [
+   "v1.4",
+   "ecbe3e8d93643050eb83a8009142604d41de3deb"
+  ],
+  [
+   "v1.5",
+   "ecbe3e8d93643050eb83a8009142604d41de3deb"
+  ],
+  [
+   "v1.6",
+   "51c5bf2e69affa4eb9f39e7e17e55e472f0f5fb0"
+  ],
+  [
+   "v2.0",
+   "2df895f4f5d105ac45a04770a61880c6ab44e103"
+  ],
+  [
+   "v2.1",
+   "375cf012eef54b500f97f1cc65f8dbb48a79f431"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "c16ab60ce0862c60a6c83c200d050b4013af3333"
+  ]
+ ]
+}

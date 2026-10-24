@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/usc_cloth_sim",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "6c4fb6acf8a6db8c4d0692b318023272c4967b5f"
+  ],
+  [
+   "v1.6",
+   "be82e87b219b224eb28aa8a8f538548337cb328d"
+  ],
+  [
+   "v2.0",
+   "3150e45c2dc466bd32e2e3e58bc8da080764b26f"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "78de45d85478a33e6512781d42614f12a88e3045"
+  ],
+  [
+   "v3.0",
+   "6c4fb6acf8a6db8c4d0692b318023272c4967b5f"
+  ]
+ ]
+}

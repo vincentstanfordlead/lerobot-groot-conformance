@@ -1,0 +1,16 @@
+{
+ "id": "REBOOT26/usb-c_remove",
+ "fetched_utc": "2026-10-03T05:17:33+00:00",
+ "branches": [
+  [
+   "main",
+   "0aa5c24fcc2e2cdb87b6bc3b1ba6ed5a5b0014a5"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "0aa5c24fcc2e2cdb87b6bc3b1ba6ed5a5b0014a5"
+  ]
+ ]
+}

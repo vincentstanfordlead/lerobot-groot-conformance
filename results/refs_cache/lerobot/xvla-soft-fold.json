@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/xvla-soft-fold",
+ "fetched_utc": "2026-10-03T05:17:51+00:00",
+ "branches": [
+  [
+   "main",
+   "d4d219929b2d417c5dcbc723148fd6b7aaca7261"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "b9c247c39e54900383be71dc27a5915e93ae6a51"
+  ]
+ ]
+}

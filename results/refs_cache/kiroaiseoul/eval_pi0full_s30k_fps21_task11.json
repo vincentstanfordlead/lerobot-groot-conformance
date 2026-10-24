@@ -1,0 +1,16 @@
+{
+ "id": "kiroaiseoul/eval_pi0full_s30k_fps21_task11",
+ "fetched_utc": "2026-10-03T05:17:43+00:00",
+ "branches": [
+  [
+   "main",
+   "221c2f255de311f20b27ce31e2d7726ae8a1894a"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "221c2f255de311f20b27ce31e2d7726ae8a1894a"
+  ]
+ ]
+}

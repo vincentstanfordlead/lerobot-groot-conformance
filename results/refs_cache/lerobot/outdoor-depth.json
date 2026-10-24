@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/outdoor-depth",
+ "fetched_utc": "2026-10-03T05:17:48+00:00",
+ "branches": [
+  [
+   "main",
+   "7c63dc16226035cdd79fffc95404e82723bda5ad"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "7c63dc16226035cdd79fffc95404e82723bda5ad"
+  ]
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "id": "StefanWagnerWandelbots/virtual_teleop_pickplace_easy",
+ "fetched_utc": "2026-10-03T05:17:36+00:00",
+ "branches": [
+  [
+   "main",
+   "8603fc571cabe9c61dc49dd62a765652bd9e49a8"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "b26a93989d4a391a35d7a83bbed62d0e82e03168"
+  ]
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "id": "Fransece/franka_sweep_merged_2",
+ "fetched_utc": "2026-10-03T05:17:28+00:00",
+ "branches": [
+  [
+   "main",
+   "d4a3419c8004fe0bf7891f9e98181d4111820090"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "d4a3419c8004fe0bf7891f9e98181d4111820090"
+  ]
+ ]
+}

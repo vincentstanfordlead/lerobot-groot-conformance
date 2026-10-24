@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_static_cups_open",
+ "fetched_utc": "2026-10-03T05:17:45+00:00",
+ "branches": [
+  [
+   "main",
+   "d793c969cf716001dcca18a0842c3d7e9de9e41b"
+  ],
+  [
+   "v1.3",
+   "a2cff66dcc0118226c96fe0ad4fb3002582accdb"
+  ],
+  [
+   "v1.4",
+   "be3c30ea3bcec83b69b1535707e7191bfe471a14"
+  ],
+  [
+   "v1.5",
+   "be3c30ea3bcec83b69b1535707e7191bfe471a14"
+  ],
+  [
+   "v1.6",
+   "c1ad0cec1cdc9a21f0a01e23d9c370e73d79e446"
+  ],
+  [
+   "v2.0",
+   "0bbc8a92272a2ee4f3fcc109faac1b216fdcdaec"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "fc9f40db2aba836a3005f7908652b85aa2a2c6e1"
+  ],
+  [
+   "v3.0",
+   "d793c969cf716001dcca18a0842c3d7e9de9e41b"
+  ]
+ ]
+}

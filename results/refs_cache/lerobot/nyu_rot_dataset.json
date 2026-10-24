@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/nyu_rot_dataset",
+ "fetched_utc": "2026-10-03T05:17:48+00:00",
+ "branches": [
+  [
+   "main",
+   "72e8343e26cf1e18730e5c7111afc044abc34ef2"
+  ],
+  [
+   "v1.6",
+   "9d0b8a7751a2cb50928a58d83f72837f18e583df"
+  ],
+  [
+   "v2.0",
+   "0ac7b09dc58f42158ca71524fd389a25f2c0849f"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "44b85508a0d832ef31bea65071855e217dc275bf"
+  ],
+  [
+   "v3.0",
+   "72e8343e26cf1e18730e5c7111afc044abc34ef2"
+  ]
+ ]
+}

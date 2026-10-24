@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/cmu_play_fusion_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "076e8a3bdea88883914c16e32aed0db6cf932218"
+  ],
+  [
+   "v2.0",
+   "ddff6c8f9dfa78229070b533422b5c81fd7a1bae"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "076e8a3bdea88883914c16e32aed0db6cf932218"
+  ]
+ ]
+}

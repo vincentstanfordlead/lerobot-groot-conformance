@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_static_ziploc_slide",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "ef8fef75fe96d4f35bdd8bf7bb5035709176f1f9"
+  ],
+  [
+   "v1.3",
+   "5ad3d1299805a27632aa91af520c5cdc96413b3c"
+  ],
+  [
+   "v1.4",
+   "cc447c5b3be48017513227700f6db2ef58ab3d15"
+  ],
+  [
+   "v1.5",
+   "cc447c5b3be48017513227700f6db2ef58ab3d15"
+  ],
+  [
+   "v1.6",
+   "3880bab79f67c04d47dc89b2b8b0358399470756"
+  ],
+  [
+   "v2.0",
+   "3c90a4a3dbe38e7eec710a93919002f43b3e335d"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "cd239ccf1dc3eff34de340e99637904f54c36194"
+  ],
+  [
+   "v3.0",
+   "ef8fef75fe96d4f35bdd8bf7bb5035709176f1f9"
+  ]
+ ]
+}

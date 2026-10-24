@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/utokyo_pr2_tabletop_manipulation",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "a0b6918864b3fd0f58ca29acc7e06e572f7c985c"
+  ],
+  [
+   "v1.6",
+   "d49c2a04a4988d81bc5f9f9425b1a504b7dc5f81"
+  ],
+  [
+   "v2.0",
+   "dd5547c0cf350157a66cff68952573fb1afce819"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "024bf159ed24e98851de25f809e0944b7fbb184f"
+  ],
+  [
+   "v3.0",
+   "a0b6918864b3fd0f58ca29acc7e06e572f7c985c"
+  ]
+ ]
+}

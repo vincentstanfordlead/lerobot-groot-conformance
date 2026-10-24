@@ -1,0 +1,16 @@
+{
+ "id": "DAVIAN-Robotics/robocasa-H50-256",
+ "fetched_utc": "2026-10-03T05:17:28+00:00",
+ "branches": [
+  [
+   "main",
+   "9dbcfc5f48f982cba2d00eba1b0f982dd5197ef6"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "9dbcfc5f48f982cba2d00eba1b0f982dd5197ef6"
+  ]
+ ]
+}

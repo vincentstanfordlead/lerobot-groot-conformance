@@ -1,0 +1,16 @@
+{
+ "id": "shylee/eval_DP_cube_downDims1_cropNo_freeze1_32_1_ema1_1e-4_ckpt300000",
+ "fetched_utc": "2026-10-03T05:17:55+00:00",
+ "branches": [
+  [
+   "main",
+   "9054e598ae4410f7a7149c5ac5f8cb4bd32603eb"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "9054e598ae4410f7a7149c5ac5f8cb4bd32603eb"
+  ]
+ ]
+}

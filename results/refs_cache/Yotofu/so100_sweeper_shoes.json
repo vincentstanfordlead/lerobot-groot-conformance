@@ -1,0 +1,19 @@
+{
+ "id": "Yotofu/so100_sweeper_shoes",
+ "fetched_utc": "2026-10-03T05:17:37+00:00",
+ "branches": [
+  [
+   "main",
+   "41193d343c65ad540499ebd445a4d08441f8155e"
+  ],
+  [
+   "v1.6",
+   "4d10028011af0e06d82fa50ca466e86230ed2dc2"
+  ],
+  [
+   "v2.0",
+   "41193d343c65ad540499ebd445a4d08441f8155e"
+  ]
+ ],
+ "tags": []
+}

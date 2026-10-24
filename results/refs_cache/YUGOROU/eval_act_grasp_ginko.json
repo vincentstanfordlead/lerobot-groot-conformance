@@ -1,0 +1,16 @@
+{
+ "id": "YUGOROU/eval_act_grasp_ginko",
+ "fetched_utc": "2026-10-03T05:17:37+00:00",
+ "branches": [
+  [
+   "main",
+   "b77ab157ad6f1938ab09745f0fa0eb823aeed1c8"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "b77ab157ad6f1938ab09745f0fa0eb823aeed1c8"
+  ]
+ ]
+}

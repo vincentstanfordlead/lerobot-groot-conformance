@@ -1,0 +1,16 @@
+{
+ "id": "lerobotForScienceEdu/eval_Rock_Acid-v4-gt-hand",
+ "fetched_utc": "2026-10-03T05:17:51+00:00",
+ "branches": [
+  [
+   "main",
+   "705afebb62b41452ad5b0d907e0ae72980212244"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "705afebb62b41452ad5b0d907e0ae72980212244"
+  ]
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_mobile_wipe_wine",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "b57bde2a10c343cbc2be9a0052f126854c4bb091"
+  ],
+  [
+   "v1.3",
+   "0f7ebc23fdd38830139c958d76c35111289bc14f"
+  ],
+  [
+   "v1.4",
+   "2be77af318777b45dcb32cf640b8ee3b246895f8"
+  ],
+  [
+   "v1.5",
+   "2be77af318777b45dcb32cf640b8ee3b246895f8"
+  ],
+  [
+   "v1.6",
+   "c8f411f1ee059bdc33c1bcde1f0900d8e3b7992f"
+  ],
+  [
+   "v2.0",
+   "2c3c5b38a460ac534d23394070a6b6a5963b3d92"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "3545a66132c50a78902e604539ea359a8ed06c3d"
+  ],
+  [
+   "v3.0",
+   "b57bde2a10c343cbc2be9a0052f126854c4bb091"
+  ]
+ ]
+}

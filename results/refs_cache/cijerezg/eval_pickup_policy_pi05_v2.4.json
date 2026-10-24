@@ -1,0 +1,16 @@
+{
+ "id": "cijerezg/eval_pickup_policy_pi05_v2.4",
+ "fetched_utc": "2026-10-03T05:17:40+00:00",
+ "branches": [
+  [
+   "main",
+   "c95862315902e1579c85c180e770aba549c182b3"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "c95862315902e1579c85c180e770aba549c182b3"
+  ]
+ ]
+}

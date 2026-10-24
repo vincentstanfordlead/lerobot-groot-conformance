@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_static_pingpong_test",
+ "fetched_utc": "2026-10-03T05:17:45+00:00",
+ "branches": [
+  [
+   "main",
+   "fb29aadd5f0c3f78c439913984ef3bec7a297803"
+  ],
+  [
+   "v1.3",
+   "c84faf61db10ec1ad939fd8b9d7456c3c788b343"
+  ],
+  [
+   "v1.4",
+   "5f5d9cc2cead6e19b4c5f075b71934271fbfd116"
+  ],
+  [
+   "v1.5",
+   "5f5d9cc2cead6e19b4c5f075b71934271fbfd116"
+  ],
+  [
+   "v1.6",
+   "5c9682b4e000f858889314bafe036bc85e2e4770"
+  ],
+  [
+   "v2.0",
+   "618e3c6cad3b358681018ced76fd6091c1f34b4a"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "2c871c9122b6f61bae6d7ce413c886083fc14bbf"
+  ],
+  [
+   "v3.0",
+   "fb29aadd5f0c3f78c439913984ef3bec7a297803"
+  ]
+ ]
+}

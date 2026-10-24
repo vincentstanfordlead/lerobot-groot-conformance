@@ -1,0 +1,16 @@
+{
+ "id": "huihui060124/eval_act_so101_test_50grab02",
+ "fetched_utc": "2026-10-03T05:17:41+00:00",
+ "branches": [
+  [
+   "main",
+   "f20666bebc0a10db805f612c66d779ac665eadfd"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "f20666bebc0a10db805f612c66d779ac665eadfd"
+  ]
+ ]
+}

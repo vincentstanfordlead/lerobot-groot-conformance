@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/jaco_play_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "c5638a111bc03ad40884848d36fa4ee9235951d7"
+  ],
+  [
+   "v2.0",
+   "1ec4557eec9ab0ca4fffb489b4a37e19ae30f3f1"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "c5638a111bc03ad40884848d36fa4ee9235951d7"
+  ]
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/cmu_stretch_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "219a6a3b16eee91306b342e0c58729591b5e72a8"
+  ],
+  [
+   "v2.0",
+   "239a805b1dae0856b2e40d5dd7a115c8ebb8fc32"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "219a6a3b16eee91306b342e0c58729591b5e72a8"
+  ]
+ ]
+}

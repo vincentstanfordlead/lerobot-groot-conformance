@@ -1,0 +1,16 @@
+{
+ "id": "IPEC-COMMUNITY/fmb_dataset_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "e2c90a49ee640a23d4f7440c7a5d000e62cf7192"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "e2c90a49ee640a23d4f7440c7a5d000e62cf7192"
+  ]
+ ]
+}

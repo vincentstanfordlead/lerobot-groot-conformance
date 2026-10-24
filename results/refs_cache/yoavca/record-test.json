@@ -1,0 +1,16 @@
+{
+ "id": "yoavca/record-test",
+ "fetched_utc": "2026-10-03T05:20:58+00:00",
+ "branches": [
+  [
+   "main",
+   "cb46fa0efb0d23361db00cfa9b87e362e474de1d"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "cb46fa0efb0d23361db00cfa9b87e362e474de1d"
+  ]
+ ]
+}

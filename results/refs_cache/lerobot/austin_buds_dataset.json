@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/austin_buds_dataset",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "d9f9289c349f4985e525bf38f3dea0f1c63ec146"
+  ],
+  [
+   "v1.6",
+   "6d2f10e6e24c9ae7c331b988809810afc241b732"
+  ],
+  [
+   "v2.0",
+   "75888a0c11d33e459b0200f410a1059bace704dc"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "ee072f428c2e90a528db00e80ca10f02df14c9d4"
+  ],
+  [
+   "v3.0",
+   "d9f9289c349f4985e525bf38f3dea0f1c63ec146"
+  ]
+ ]
+}

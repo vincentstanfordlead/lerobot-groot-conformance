@@ -1,0 +1,16 @@
+{
+ "id": "LSY-lab/plate_v1",
+ "fetched_utc": "2026-10-03T05:17:31+00:00",
+ "branches": [
+  [
+   "main",
+   "a1a0cb8b66c84e769b1f6ca5f42459c0f90cbc10"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "a1a0cb8b66c84e769b1f6ca5f42459c0f90cbc10"
+  ]
+ ]
+}

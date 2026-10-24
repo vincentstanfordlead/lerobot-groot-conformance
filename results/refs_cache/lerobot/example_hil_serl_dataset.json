@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/example_hil_serl_dataset",
+ "fetched_utc": "2026-10-03T05:17:47+00:00",
+ "branches": [
+  [
+   "main",
+   "828ec53664f7298a284bcde569b4ae4d1da19675"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "828ec53664f7298a284bcde569b4ae4d1da19675"
+  ]
+ ]
+}

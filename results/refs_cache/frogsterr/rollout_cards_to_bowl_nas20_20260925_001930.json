@@ -1,0 +1,16 @@
+{
+ "id": "frogsterr/rollout_cards_to_bowl_nas20_20260925_001930",
+ "fetched_utc": "2026-10-03T05:17:41+00:00",
+ "branches": [
+  [
+   "main",
+   "cf64437f64c2001370f7f13347e25d7f52c57ef3"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "cf64437f64c2001370f7f13347e25d7f52c57ef3"
+  ]
+ ]
+}

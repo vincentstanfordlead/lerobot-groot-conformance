@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/austin_sirius_dataset",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "dfc49b81782231edad89ce3156f1ef138eaba55e"
+  ],
+  [
+   "v1.6",
+   "c1a41b0eb1bc178bcdbdce33217b7d6c5d3716af"
+  ],
+  [
+   "v2.0",
+   "bdc37d994ae349495a2604d44035cf06af3dbbc6"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "1a7eb0f23c7745c60d93f90994b1397533ff6eae"
+  ],
+  [
+   "v3.0",
+   "dfc49b81782231edad89ce3156f1ef138eaba55e"
+  ]
+ ]
+}

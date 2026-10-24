@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/koch_pick_place_5_lego",
+ "fetched_utc": "2026-10-03T05:17:48+00:00",
+ "branches": [
+  [
+   "main",
+   "af1f4ff76be9fa752424b176125119744a6ef3f6"
+  ],
+  [
+   "v1.6",
+   "3159e7e303ccb11bd469790997effc1b7512e471"
+  ],
+  [
+   "v2.0",
+   "42d966a1ac4e5badf882d78a2b5c48a40e509116"
+  ],
+  [
+   "v2.1",
+   "4030aa5eb352243733b8df3344909c098279457c"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "af1f4ff76be9fa752424b176125119744a6ef3f6"
+  ]
+ ]
+}

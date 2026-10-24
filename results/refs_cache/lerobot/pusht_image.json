@@ -1,0 +1,36 @@
+{
+ "id": "lerobot/pusht_image",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "1b84c4882e2ab57ccfa3135e4becec6448a32f22"
+  ],
+  [
+   "v1.4",
+   "7411427bec8fed6a0857b1ff83f85583a231c13e"
+  ],
+  [
+   "v1.5",
+   "7411427bec8fed6a0857b1ff83f85583a231c13e"
+  ],
+  [
+   "v1.6",
+   "2e377d0acd5bdaef68f2f5696e57f5f7e97a3d75"
+  ],
+  [
+   "v2.0",
+   "356c213a967c9d72eb7ad2288780d5552e23609f"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "96d10ccbf94cb6ab28fb73431272fc8651141a5d"
+  ],
+  [
+   "v3.0",
+   "1b84c4882e2ab57ccfa3135e4becec6448a32f22"
+  ]
+ ]
+}

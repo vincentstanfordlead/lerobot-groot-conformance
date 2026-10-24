@@ -1,0 +1,16 @@
+{
+ "id": "RobotisSW/ffw_sg2_rev1_task_255_0128_jungmin_1",
+ "fetched_utc": "2026-10-03T05:17:36+00:00",
+ "branches": [
+  [
+   "main",
+   "a17fd2ae7c7dd403ac1d006eb24cb8c9c92c3c93"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "a17fd2ae7c7dd403ac1d006eb24cb8c9c92c3c93"
+  ]
+ ]
+}

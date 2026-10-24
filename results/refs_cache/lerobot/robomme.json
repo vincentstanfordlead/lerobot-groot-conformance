@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/robomme",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "92796abbc67db4ea6447e5031d04bf47aa3770bb"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "92796abbc67db4ea6447e5031d04bf47aa3770bb"
+  ]
+ ]
+}

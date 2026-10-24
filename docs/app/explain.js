@@ -67,3 +67,46 @@ export function sourceUrl(src) {
   }
   return out;
 }
+
+// LeRobot-native and openpi columns (conformance/models.py, CONTRACT_lerobot_openpi.md).
+export const MODEL_VERDICTS = {
+  PASS: { label: "Loads", tone: "good", sub: "LeRobot's loader can pull this from the Hub and read its metadata." },
+  NEEDS_CONFIG: { label: "Needs a config", tone: "close", sub: "The files load. openpi still needs a data config for this dataset and a normalization-stats run; no dataset loads there as is." },
+  NEEDS_TAG: { label: "Needs a version tag", tone: "close", sub: "The files are in the right layout, but the repo has no version tag the loader accepts, so loading by repo id fails." },
+  NEEDS_CONVERT: { label: "Needs converting", tone: "mid", sub: "The data is in the other layout from the one this loader reads." },
+  BLOCKED: { label: "Blocked", tone: "bad", sub: "No episodes, not a LeRobot dataset, a required metadata file is missing, or no tool exists for this version." },
+  UNASSESSED: { label: "Not assessed", tone: "bad", sub: "The Hub's tag list could not be read." },
+};
+
+// Steps by column. Commands are the ones each loader prints in its own error message (vendor/ copies).
+export const MODEL_STEPS = {
+  lerobot: {
+    TAG: `<b>Tag the repo with its codebase version</b> (for example <code>v3.0</code>). LeRobot prints the call: <code>HfApi().create_tag(repo_id, tag="v3.0", repo_type="dataset")</code>.`,
+    CONVERT: `<b>Convert v2.1 → v3.0</b> with LeRobot's converter: <code>python -m lerobot.scripts.convert_dataset_v21_to_v30 --repo-id=…</code>.`,
+    CONVERT_V20_V21: `<b>Upgrade v2.0 → v2.1 first.</b> The current loader names no converter for v2.0; the older LeRobot ships <code>convert_dataset_v20_to_v21.py</code>.`,
+  },
+  openpi: {
+    TAG: `<b>Tag the repo with its codebase version</b> (for example <code>v2.1</code>); openpi's pinned LeRobot looks tags up by version.`,
+    CONVERT: `<b>Convert v3.0 → v2.1.</b> openpi's pinned LeRobot reads v2.x only. GR00T's <code>convert_v3_to_v2.py</code> is the one converter we know of; it has not been tried with openpi.`,
+    CONFIG: `<b>Write an openpi data config</b> for this dataset: which keys are images, state and actions, and the action-sequence key.`,
+    NORM_STATS: `<b>Run <code>scripts/compute_norm_stats.py</code></b> for that config; training stops without the stats.`,
+  },
+};
+
+// π0.5 model fit (conformance/models.py pi05_fit, CONTRACT_lerobot_openpi.md §7).
+export const PI05_VERDICTS = {
+  FIT: { label: "Fits π0.5", tone: "good", sub: "The contents match π0.5's defaults: the data config only has to rename keys." },
+  ADAPT: { label: "Fits with changes", tone: "close", sub: "π0.5 can train on it, but the config (or one model setting) has to do more than rename keys." },
+  NO_FIT: { label: "Doesn't fit π0.5", tone: "bad", sub: "π0.5 as shipped can't train on it without changing the data itself." },
+  UNASSESSED: { label: "Not assessed", tone: "bad", sub: "info.json could not be read." },
+};
+export const PI05_CHECKS = {
+  P1: "Actions are one float vector",
+  P2: "Action dimension ≤ 32",
+  P3: "State is one float vector, ≤ 32",
+  P4: "1–3 RGB cameras for 3 image slots",
+  P5: "Camera size vs 224×224",
+  P6: "Frame rate vs the 50-step action chunk",
+  P7: "Episodes at least one chunk long",
+  P8: "Task text for the prompt",
+};

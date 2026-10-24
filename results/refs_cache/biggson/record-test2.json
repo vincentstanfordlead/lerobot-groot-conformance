@@ -1,0 +1,16 @@
+{
+ "id": "biggson/record-test2",
+ "fetched_utc": "2026-10-03T05:17:39+00:00",
+ "branches": [
+  [
+   "main",
+   "35c63837fe3800acf962868fe4a570c27069a2da"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "35c63837fe3800acf962868fe4a570c27069a2da"
+  ]
+ ]
+}

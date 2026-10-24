@@ -1,0 +1,36 @@
+{
+ "id": "lerobot/aloha_mobile_cabinet",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "7a752b39f7e69de7e38aee485a6bab07528a061a"
+  ],
+  [
+   "v1.4",
+   "64e67ce13f3ab221db8fc438b3e8c6b4e1bac60f"
+  ],
+  [
+   "v1.5",
+   "64e67ce13f3ab221db8fc438b3e8c6b4e1bac60f"
+  ],
+  [
+   "v1.6",
+   "9504bde97103934b3295e9737477c1fad6e3ef4a"
+  ],
+  [
+   "v2.0",
+   "06b31f027432e008e6af68ccd3ce74ce446cfc4d"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "d91337fadf5f9692ead0c89b638cacc4fa29792b"
+  ],
+  [
+   "v3.0",
+   "7a752b39f7e69de7e38aee485a6bab07528a061a"
+  ]
+ ]
+}

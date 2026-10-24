@@ -1,0 +1,16 @@
+{
+ "id": "lance-format/agibotworld-beta-rgb-lance",
+ "fetched_utc": "2026-10-03T05:17:43+00:00",
+ "branches": [
+  [
+   "main",
+   "e5996a49ca63035ccffee53ea04df86d10abb879"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "e5996a49ca63035ccffee53ea04df86d10abb879"
+  ]
+ ]
+}

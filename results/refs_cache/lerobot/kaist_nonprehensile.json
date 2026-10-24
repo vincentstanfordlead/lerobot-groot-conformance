@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/kaist_nonprehensile",
+ "fetched_utc": "2026-10-03T05:17:47+00:00",
+ "branches": [
+  [
+   "main",
+   "f12d4385f2f72897b2a673f810d8da083b342e88"
+  ],
+  [
+   "v1.6",
+   "c9d77973c15a89f9e21f57f93f744b6f36761986"
+  ],
+  [
+   "v2.0",
+   "39f4c4effe342278a9317db1a8fdeea230394b21"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "600c2906be27b22fa895aae11f698f03d37007ae"
+  ],
+  [
+   "v3.0",
+   "f12d4385f2f72897b2a673f810d8da083b342e88"
+  ]
+ ]
+}

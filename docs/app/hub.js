@@ -34,8 +34,17 @@ async function getJSON(url, what, signal) {
   return [await r.json(), r];
 }
 
+// Branches and tags of a dataset repo: [{name, commit}]. The LeRobot loaders pick the revision to download from
+// these version-named refs, not from info.json (CONTRACT_lerobot_openpi.md §1).
+export async function fetchRefs(repoId, signal) {
+  const [j] = await getJSON(`${HF}/api/datasets/${repoId}/refs`, "refs", signal);
+  return [...(j.branches ?? []), ...(j.tags ?? [])].map((r) => ({ name: r.name, commit: r.targetCommit }));
+}
+
 export class HubView {
-  constructor(repoId) {
+  // `snapshot` (a commit sha) inspects that exact commit instead of the default branch.
+  constructor(repoId, snapshot = null) {
+    this.snapshot = snapshot;
     this.repoId = repoId;
     this.files = {};
     this.text = {};
@@ -80,14 +89,19 @@ export class HubView {
 
   // progress(step, detail) is called as each stage completes, for the live log in the UI.
   async load(progress = () => {}, signal) {
-    this.nRequests++;
-    const [info] = await getJSON(`${HF}/api/datasets/${this.repoId}?expand[]=sha&expand[]=gated&expand[]=private&expand[]=disabled&expand[]=lastModified&expand[]=usedStorage`, "dataset info", signal);
-    if (info.disabled) throw new FetchError("disabled", "this repo is disabled on Hugging Face");
-    this.sha = info.sha;
-    this.lastModified = info.lastModified;
-    this.usedStorage = info.usedStorage;
-    this.gated = info.gated;
-    progress("repo", `Found ${this.repoId} @ ${this.sha.slice(0, 7)}`);
+    if (this.snapshot) {
+      this.sha = this.snapshot;
+      progress("repo", `Reading snapshot @${this.sha.slice(0, 7)}`);
+    } else {
+      this.nRequests++;
+      const [info] = await getJSON(`${HF}/api/datasets/${this.repoId}?expand[]=sha&expand[]=gated&expand[]=private&expand[]=disabled&expand[]=lastModified&expand[]=usedStorage`, "dataset info", signal);
+      if (info.disabled) throw new FetchError("disabled", "this repo is disabled on Hugging Face");
+      this.sha = info.sha;
+      this.lastModified = info.lastModified;
+      this.usedStorage = info.usedStorage;
+      this.gated = info.gated;
+      progress("repo", `Found ${this.repoId} @ ${this.sha.slice(0, 7)}`);
+    }
 
     const root = await this._tree(null, { recursive: false, folders: true, signal });
     if (!root.length) throw new FetchError("empty_repo", "the repo has no files");

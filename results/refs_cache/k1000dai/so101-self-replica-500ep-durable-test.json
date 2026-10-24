@@ -1,0 +1,16 @@
+{
+ "id": "k1000dai/so101-self-replica-500ep-durable-test",
+ "fetched_utc": "2026-10-03T05:17:42+00:00",
+ "branches": [
+  [
+   "main",
+   "9016b9c687d371076d44ab8d0eb7c2e024d72167"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "9016b9c687d371076d44ab8d0eb7c2e024d72167"
+  ]
+ ]
+}

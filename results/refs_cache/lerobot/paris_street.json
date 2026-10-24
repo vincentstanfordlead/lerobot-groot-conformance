@@ -1,0 +1,24 @@
+{
+ "id": "lerobot/paris_street",
+ "fetched_utc": "2026-10-03T05:17:48+00:00",
+ "branches": [
+  [
+   "main",
+   "1de484da74031e047a96ab02b5822480e96c885d"
+  ],
+  [
+   "v2.0",
+   "bc2f69010c44f6b6d38676f92897a6cc2260354f"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "e1552ac2e4c48ecddf473070f46829a1f78ebe43"
+  ],
+  [
+   "v3.0",
+   "1de484da74031e047a96ab02b5822480e96c885d"
+  ]
+ ]
+}

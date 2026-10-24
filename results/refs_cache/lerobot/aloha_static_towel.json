@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_static_towel",
+ "fetched_utc": "2026-10-03T05:17:45+00:00",
+ "branches": [
+  [
+   "main",
+   "13ad96f5ed0e219e48c72471626a2e3d0eb5aeff"
+  ],
+  [
+   "v1.3",
+   "d022ec878c5bb3b0a2e2e7670604ceaa95d25d9a"
+  ],
+  [
+   "v1.4",
+   "1f7743bdba4c9a3eb60f24427d51ad5ca1fa1cfb"
+  ],
+  [
+   "v1.5",
+   "1f7743bdba4c9a3eb60f24427d51ad5ca1fa1cfb"
+  ],
+  [
+   "v1.6",
+   "26959d7079bdd1fc0dde3e481e851ad97573c8ec"
+  ],
+  [
+   "v2.0",
+   "7b52490df608dffb27af32ac67eadcf3faa25ce8"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "4eaa143593ad1547ec9a80b1d980d705b5315afe"
+  ],
+  [
+   "v3.0",
+   "13ad96f5ed0e219e48c72471626a2e3d0eb5aeff"
+  ]
+ ]
+}

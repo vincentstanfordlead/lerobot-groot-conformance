@@ -1,0 +1,16 @@
+{
+ "id": "kaiserbuffle/so101_test",
+ "fetched_utc": "2026-10-03T05:17:43+00:00",
+ "branches": [
+  [
+   "main",
+   "5653f25f955d42aea22de9d70d05acf0e50148f6"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "5653f25f955d42aea22de9d70d05acf0e50148f6"
+  ]
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/dlr_sara_grid_clamp",
+ "fetched_utc": "2026-10-03T05:17:47+00:00",
+ "branches": [
+  [
+   "main",
+   "1470122a60d60b608db9f2c2a7d4f1f25ae9041c"
+  ],
+  [
+   "v1.6",
+   "820f3c21959235207efd7119d7d54f761dcb3ac3"
+  ],
+  [
+   "v2.0",
+   "605f251c56a8cbcae16dfa2b4743d949f60bca68"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "e720187f997bd1d09ae0603ada298ee6133b3c7f"
+  ],
+  [
+   "v3.0",
+   "1470122a60d60b608db9f2c2a7d4f1f25ae9041c"
+  ]
+ ]
+}

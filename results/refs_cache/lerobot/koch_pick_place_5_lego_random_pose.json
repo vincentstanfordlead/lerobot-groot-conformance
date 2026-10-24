@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/koch_pick_place_5_lego_random_pose",
+ "fetched_utc": "2026-10-03T05:17:48+00:00",
+ "branches": [
+  [
+   "main",
+   "e4c9188d25a62ae7736cffc188f785b592b63956"
+  ],
+  [
+   "v1.6",
+   "f545677f6cffafe9b5b8805949083b7055233cf7"
+  ],
+  [
+   "v2.0",
+   "f3111fc9d36b9f29a79cd21fe550fb85c1dba174"
+  ],
+  [
+   "v2.1",
+   "d26110efcf0a4304e68f8b257013b2b47163307e"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "e4c9188d25a62ae7736cffc188f785b592b63956"
+  ]
+ ]
+}

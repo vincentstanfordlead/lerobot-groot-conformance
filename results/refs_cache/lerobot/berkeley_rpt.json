@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/berkeley_rpt",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "692eff9f1d091c33bfad88d77bf0094a14e6fc76"
+  ],
+  [
+   "v1.6",
+   "609cc2b1e8834f31a18bc053fd58d087a976c327"
+  ],
+  [
+   "v2.0",
+   "2619627acc366294e3d2741aa93182f2667646c4"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "18f5fc62cfdbfd8737b2b63bcd8d4c036cc0a54a"
+  ],
+  [
+   "v3.0",
+   "692eff9f1d091c33bfad88d77bf0094a14e6fc76"
+  ]
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "id": "arclabmit/xarm7_beavrsim_pickplace_image_dataset",
+ "fetched_utc": "2026-10-03T05:17:38+00:00",
+ "branches": [
+  [
+   "main",
+   "d6a9ae08bdd5bf156b0a3b92d6517e9b7d0d494e"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "d6a9ae08bdd5bf156b0a3b92d6517e9b7d0d494e"
+  ]
+ ]
+}

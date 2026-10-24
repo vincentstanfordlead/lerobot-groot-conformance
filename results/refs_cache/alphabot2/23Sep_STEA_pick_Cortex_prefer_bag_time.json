@@ -1,0 +1,16 @@
+{
+ "id": "alphabot2/23Sep_STEA_pick_Cortex_prefer_bag_time",
+ "fetched_utc": "2026-10-03T05:17:38+00:00",
+ "branches": [
+  [
+   "main",
+   "f81a3d3dbe4263817c4420c286f7166b7f37eea1"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "f81a3d3dbe4263817c4420c286f7166b7f37eea1"
+  ]
+ ]
+}

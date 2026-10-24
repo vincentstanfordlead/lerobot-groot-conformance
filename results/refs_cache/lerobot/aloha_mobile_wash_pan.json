@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_mobile_wash_pan",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "2d7d8593d81eeec29f5785f21e0a8c92bc78bcc0"
+  ],
+  [
+   "v1.4",
+   "e8495e42eadb42223b24711d68e5d8d24949e593"
+  ],
+  [
+   "v1.5",
+   "e8495e42eadb42223b24711d68e5d8d24949e593"
+  ],
+  [
+   "v1.6",
+   "e44e58e42202fbd1d959bb792eed64157410cf1f"
+  ],
+  [
+   "v2.0",
+   "11149fc00957a1998fa715ee77dc1486d739bfe9"
+  ],
+  [
+   "v2.0.test",
+   "b41e8730f06bd5a50973f35bb67a9403a9775ee0"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "bf9e5e928327b4b99f425eca0b3fe13bf078627d"
+  ],
+  [
+   "v3.0",
+   "2d7d8593d81eeec29f5785f21e0a8c92bc78bcc0"
+  ]
+ ]
+}

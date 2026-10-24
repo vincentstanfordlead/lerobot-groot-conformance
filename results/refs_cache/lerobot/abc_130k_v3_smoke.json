@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/abc_130k_v3_smoke",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "b342a0ff262195d49bae3eece6e3f40c6e1dbe15"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "b342a0ff262195d49bae3eece6e3f40c6e1dbe15"
+  ]
+ ]
+}

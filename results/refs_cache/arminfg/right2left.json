@@ -1,0 +1,16 @@
+{
+ "id": "arminfg/right2left",
+ "fetched_utc": "2026-10-03T05:17:38+00:00",
+ "branches": [
+  [
+   "main",
+   "bcb2b3715d08dcdb78a98f1058ed7240ee320299"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "bcb2b3715d08dcdb78a98f1058ed7240ee320299"
+  ]
+ ]
+}

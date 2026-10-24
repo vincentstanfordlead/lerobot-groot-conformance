@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/berkeley_gnm_cory_hall",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "9aa4a06750ab4d7fa7a2ae6d774d82a11f20c6fc"
+  ],
+  [
+   "v1.6",
+   "1cb248a7fc13695e123e9d4827a1e05cf603e0ad"
+  ],
+  [
+   "v2.0",
+   "5e731f79b482d22217109c73b525b6ad7ee8c3e7"
+  ],
+  [
+   "v2.1",
+   "b513b211f2bb2ecbf3827f563f6c86387301d316"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "9aa4a06750ab4d7fa7a2ae6d774d82a11f20c6fc"
+  ]
+ ]
+}

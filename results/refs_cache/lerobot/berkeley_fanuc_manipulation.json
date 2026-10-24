@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/berkeley_fanuc_manipulation",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "51bdefb6c7f24659fb3cfef61ba70246062193c2"
+  ],
+  [
+   "v1.6",
+   "3dc01c508860acd6dfae036609d9ad98d7bdf566"
+  ],
+  [
+   "v2.0",
+   "f21d8d289efc96da6ad5d37b67a332e598c32de1"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "a4f57f82137e37bb20019929a1bcf43d68c988f1"
+  ],
+  [
+   "v3.0",
+   "51bdefb6c7f24659fb3cfef61ba70246062193c2"
+  ]
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/droid_1.0.1",
+ "fetched_utc": "2026-10-03T05:17:47+00:00",
+ "branches": [
+  [
+   "main",
+   "0eabc778f959c54b8c5aa3626cc1128d2d2e54d4"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "bd92a2c4d6c85f9e16bd7c1f9729f5496d8be672"
+  ]
+ ]
+}

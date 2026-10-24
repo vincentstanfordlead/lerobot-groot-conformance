@@ -1,0 +1,11 @@
+{
+ "id": "allenai/MolmoAct2-DROID-Dataset",
+ "fetched_utc": "2026-10-03T05:17:38+00:00",
+ "branches": [
+  [
+   "main",
+   "e44d3138c64cfeb1c24fbbce087b475fb1233728"
+  ]
+ ],
+ "tags": []
+}

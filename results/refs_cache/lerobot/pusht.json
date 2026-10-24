@@ -1,0 +1,60 @@
+{
+ "id": "lerobot/pusht",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "jadechoghari/pusht-subtask",
+   "b1c3ecbae7f244acc039a3dbc255a00dad1372b9"
+  ],
+  [
+   "main",
+   "7628202a2180972f291ba1bc6723834921e72c19"
+  ],
+  [
+   "pr/3",
+   "8b9b800741a4c3e6de87c800c0612217f6e4582b"
+  ],
+  [
+   "v1.0",
+   "323a9502f4d775de79f6a0cdbbdc06258d01971b"
+  ],
+  [
+   "v1.1",
+   "ca80673ccbc1c6f2645fc9d2c37e8678e123a7a9"
+  ],
+  [
+   "v1.2",
+   "191868ea059e8179417a4ad7e795e5f3902ae351"
+  ],
+  [
+   "v1.3",
+   "c6a94703ab2557bb2b2f67668efec172726ea663"
+  ],
+  [
+   "v1.4",
+   "31a41e121d12821207155735793fb9175d29a5dd"
+  ],
+  [
+   "v1.5",
+   "c1df3abeac5765aa90727551dc559f91bb6df247"
+  ],
+  [
+   "v1.6",
+   "6971621631ad39c6d26e21b408b6fbcb4d1e6fbe"
+  ],
+  [
+   "v2.0",
+   "a16737ffb6c8dbe935291b9fd2f36d14c9bf0820"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "6e1d9c95aaf8abb19342e723935b6af7c54b5903"
+  ],
+  [
+   "v3.0",
+   "b1c3ecbae7f244acc039a3dbc255a00dad1372b9"
+  ]
+ ]
+}

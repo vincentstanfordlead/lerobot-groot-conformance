@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/cmu_franka_exploration_dataset",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "d8105d004a7bde73e3d0c579e9bada9ef04c5c71"
+  ],
+  [
+   "v1.6",
+   "b89cc0acbce2ebf7c578fc2f0090e4a39231d0e3"
+  ],
+  [
+   "v2.0",
+   "ff983749523bac9056f809873b0d56b186e004bd"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "740e90fb55e0a99014d4f0556048d92c1b0776ae"
+  ],
+  [
+   "v3.0",
+   "d8105d004a7bde73e3d0c579e9bada9ef04c5c71"
+  ]
+ ]
+}

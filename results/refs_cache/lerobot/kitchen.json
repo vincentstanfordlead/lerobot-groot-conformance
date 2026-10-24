@@ -1,0 +1,24 @@
+{
+ "id": "lerobot/kitchen",
+ "fetched_utc": "2026-10-03T05:17:47+00:00",
+ "branches": [
+  [
+   "main",
+   "75bfbd04ad2fe132593c39a73f235df5c923065e"
+  ],
+  [
+   "v2.0",
+   "574a3057de2582d5449ae575cb25387f5f2f7f06"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "bfcf65e98efb78580eb724e48fb3ed64d21beec2"
+  ],
+  [
+   "v3.0",
+   "75bfbd04ad2fe132593c39a73f235df5c923065e"
+  ]
+ ]
+}

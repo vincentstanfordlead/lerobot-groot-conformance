@@ -1,0 +1,15 @@
+{
+ "id": "IPEC-COMMUNITY/dobbe_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "538cbb8366c61164d89bfe5e2f4976f00f839103"
+  ],
+  [
+   "v2.0",
+   "538cbb8366c61164d89bfe5e2f4976f00f839103"
+  ]
+ ],
+ "tags": []
+}

@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/roboturk_lerobot",
+ "fetched_utc": "2026-10-03T05:17:30+00:00",
+ "branches": [
+  [
+   "main",
+   "95cd7d6db09905e3850e215a349239d3c85e5123"
+  ],
+  [
+   "v2.0",
+   "bf54738ae1d971521208372f16d3041b7670a5b8"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "95cd7d6db09905e3850e215a349239d3c85e5123"
+  ]
+ ]
+}

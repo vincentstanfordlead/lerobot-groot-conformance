@@ -1,0 +1,36 @@
+{
+ "id": "lerobot/xarm_push_medium_replay_image",
+ "fetched_utc": "2026-10-03T05:17:51+00:00",
+ "branches": [
+  [
+   "main",
+   "66545a69ebf4e648ab7ce5ffbe39956e680f6dc8"
+  ],
+  [
+   "v1.4",
+   "9ff11e5347062a7e430cae27d218ce9ae11f58ea"
+  ],
+  [
+   "v1.5",
+   "9ff11e5347062a7e430cae27d218ce9ae11f58ea"
+  ],
+  [
+   "v1.6",
+   "ca2ee2bc705df211d47b16b88a537d3017d27ff8"
+  ],
+  [
+   "v2.0",
+   "f453bb7d212fb9a68bf717abb75a54eff6c09004"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "024bf541531b864070578d2e89a3d1c75a20ab89"
+  ],
+  [
+   "v3.0",
+   "66545a69ebf4e648ab7ce5ffbe39956e680f6dc8"
+  ]
+ ]
+}

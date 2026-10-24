@@ -1,0 +1,32 @@
+{
+ "id": "lerobot/berkeley_gnm_recon",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "bce624b353d7420ea1daa6acc75c95ceaa741fc1"
+  ],
+  [
+   "v1.6",
+   "fa007cf84deaebe8eeb33e1444c40a01f80b32eb"
+  ],
+  [
+   "v2.0",
+   "2ff9c6adafb704745262f4a17cae15f8ed36ab84"
+  ],
+  [
+   "v2.0.test",
+   "f5a5798e7b28e7d849a3ab78f1945154dfd21a08"
+  ],
+  [
+   "v2.1",
+   "0308b9d1971009ca8df54b57bec0b146d21465fa"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "bce624b353d7420ea1daa6acc75c95ceaa741fc1"
+  ]
+ ]
+}

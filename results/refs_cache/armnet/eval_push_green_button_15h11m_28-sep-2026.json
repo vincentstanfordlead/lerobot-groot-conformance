@@ -1,0 +1,16 @@
+{
+ "id": "armnet/eval_push_green_button_15h11m_28-sep-2026",
+ "fetched_utc": "2026-10-03T05:17:39+00:00",
+ "branches": [
+  [
+   "main",
+   "42361a3f2d3ca7356f4f906a179848f406a5ecc6"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "42361a3f2d3ca7356f4f906a179848f406a5ecc6"
+  ]
+ ]
+}

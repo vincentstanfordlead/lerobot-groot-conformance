@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/iamlab_cmu_pickup_insert_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "5eefec3e74101d955d7c1bc5d8fc0940d2ccdd67"
+  ],
+  [
+   "v2.0",
+   "012bbf0c6c5182ffe8dfb2e35a303c165b5d11e1"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "5eefec3e74101d955d7c1bc5d8fc0940d2ccdd67"
+  ]
+ ]
+}

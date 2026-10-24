@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/conq_hose_manipulation",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "a7e212c5ce3b0924e80c64d27ca8aa5225d4e0ce"
+  ],
+  [
+   "v1.6",
+   "3db456197df9c0939543020bd2af5a7f68cb53cd"
+  ],
+  [
+   "v2.0",
+   "f9ff211628ac369b915ce7c8e8f78aad48940fac"
+  ],
+  [
+   "v2.1",
+   "6ea4b44176ad16d3df62f63d7ca034718fcc46cf"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "a7e212c5ce3b0924e80c64d27ca8aa5225d4e0ce"
+  ]
+ ]
+}

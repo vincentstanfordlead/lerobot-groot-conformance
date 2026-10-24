@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/dlr_edan_shared_control",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "2e7a7879c3f467e468132ab719835bd432a0aeb2"
+  ],
+  [
+   "v1.6",
+   "17933b7dcc276f92c11732976946f6fd5bc598a8"
+  ],
+  [
+   "v2.0",
+   "454e93b341cdc7b14c33c1133173d897c8b0427b"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "56a3dc834aae8cbdb9777c6551e755598d673ed2"
+  ],
+  [
+   "v3.0",
+   "2e7a7879c3f467e468132ab719835bd432a0aeb2"
+  ]
+ ]
+}

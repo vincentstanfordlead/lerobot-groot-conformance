@@ -1,0 +1,16 @@
+{
+ "id": "yj33/eval_so100",
+ "fetched_utc": "2026-10-03T05:20:58+00:00",
+ "branches": [
+  [
+   "main",
+   "060aee7783caf3059cad902c72a33cbe4ca80434"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "060aee7783caf3059cad902c72a33cbe4ca80434"
+  ]
+ ]
+}

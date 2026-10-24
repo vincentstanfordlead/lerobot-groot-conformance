@@ -1,0 +1,15 @@
+{
+ "id": "IPEC-COMMUNITY/furniture_bench_dataset_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "00ce24057a680b7e8f10aab3e6203edf21499384"
+  ],
+  [
+   "v2.0",
+   "00ce24057a680b7e8f10aab3e6203edf21499384"
+  ]
+ ],
+ "tags": []
+}

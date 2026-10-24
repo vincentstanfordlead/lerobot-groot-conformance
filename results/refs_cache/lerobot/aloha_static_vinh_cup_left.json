@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_static_vinh_cup_left",
+ "fetched_utc": "2026-10-03T05:17:45+00:00",
+ "branches": [
+  [
+   "main",
+   "dab1a67546dab14b7d91a3f8c38cd87aa9be5e49"
+  ],
+  [
+   "v1.3",
+   "42eeda08d3e25bcc9973e53954729e94e73fb661"
+  ],
+  [
+   "v1.4",
+   "2b8d241d34625603bb06ab49f54f0a42b2ddce75"
+  ],
+  [
+   "v1.5",
+   "2b8d241d34625603bb06ab49f54f0a42b2ddce75"
+  ],
+  [
+   "v1.6",
+   "4c0142d2060b021118f26b9f42aa74e2cc125196"
+  ],
+  [
+   "v2.0",
+   "6e044831b5bb88e1129e1c652e027ab60888bb8d"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "c24c0f66d1bb537be36155bd9818ae00f3ade429"
+  ],
+  [
+   "v3.0",
+   "dab1a67546dab14b7d91a3f8c38cd87aa9be5e49"
+  ]
+ ]
+}

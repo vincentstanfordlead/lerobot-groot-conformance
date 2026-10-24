@@ -1,0 +1,16 @@
+{
+ "id": "lerobot/vlabench_unified",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "f61ad898199e746c20af3112f278cc86eb3ca3c4"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "f61ad898199e746c20af3112f278cc86eb3ca3c4"
+  ]
+ ]
+}

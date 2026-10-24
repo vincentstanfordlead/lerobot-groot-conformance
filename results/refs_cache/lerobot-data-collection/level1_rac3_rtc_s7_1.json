@@ -1,0 +1,16 @@
+{
+ "id": "lerobot-data-collection/level1_rac3_rtc_s7_1",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "39d4059b320387f68eb35f18299a77fff6034a0a"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "39d4059b320387f68eb35f18299a77fff6034a0a"
+  ]
+ ]
+}

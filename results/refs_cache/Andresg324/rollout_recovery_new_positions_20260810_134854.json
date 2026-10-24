@@ -1,0 +1,16 @@
+{
+ "id": "Andresg324/rollout_recovery_new_positions_20260810_134854",
+ "fetched_utc": "2026-10-03T05:17:27+00:00",
+ "branches": [
+  [
+   "main",
+   "f746608b332c0110db13880533d507d655fe4479"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "f746608b332c0110db13880533d507d655fe4479"
+  ]
+ ]
+}

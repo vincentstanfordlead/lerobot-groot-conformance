@@ -1,0 +1,36 @@
+{
+ "id": "lerobot/xarm_lift_medium_image",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "e09bcd486afc459a55b2e3e8a2248a3c4fad56ba"
+  ],
+  [
+   "v1.4",
+   "c1e57f2e92b5b4119a545d184fd2c8f02da0190a"
+  ],
+  [
+   "v1.5",
+   "c1e57f2e92b5b4119a545d184fd2c8f02da0190a"
+  ],
+  [
+   "v1.6",
+   "4d1271f30029a1e6c6a289e404b7bd4e63edc464"
+  ],
+  [
+   "v2.0",
+   "af2ccc8c08df325892e2e3d4da3a29c014d93fc5"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "c1e7f3ab03741df9b0e007c41084fb0175f1c5ef"
+  ],
+  [
+   "v3.0",
+   "e09bcd486afc459a55b2e3e8a2248a3c4fad56ba"
+  ]
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "id": "REBOOT26/nema1-15-plug_remove",
+ "fetched_utc": "2026-10-03T05:17:33+00:00",
+ "branches": [
+  [
+   "main",
+   "6b328b2d62ce52163efa107097aa790ef37126f4"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "6b328b2d62ce52163efa107097aa790ef37126f4"
+  ]
+ ]
+}

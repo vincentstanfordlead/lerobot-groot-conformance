@@ -1,0 +1,16 @@
+{
+ "id": "geonmin-kim/rollout_xvla_so101_morig_d6231_step30000_large_green_cube_sync_0807_1028_20260807_102857",
+ "fetched_utc": "2026-10-03T05:17:41+00:00",
+ "branches": [
+  [
+   "main",
+   "63e20badd7f09f6a7952f7e32aed22edf76b074e"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "63e20badd7f09f6a7952f7e32aed22edf76b074e"
+  ]
+ ]
+}

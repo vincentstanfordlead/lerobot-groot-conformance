@@ -1,0 +1,16 @@
+{
+ "id": "booang/record-test6",
+ "fetched_utc": "2026-10-03T05:17:39+00:00",
+ "branches": [
+  [
+   "main",
+   "244793307b32fc36c06c1c8c9611e480276bc2ef"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "244793307b32fc36c06c1c8c9611e480276bc2ef"
+  ]
+ ]
+}

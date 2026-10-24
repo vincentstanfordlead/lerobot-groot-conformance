@@ -1,0 +1,16 @@
+{
+ "id": "rfruit/so100_building_house",
+ "fetched_utc": "2026-10-03T05:17:55+00:00",
+ "branches": [
+  [
+   "main",
+   "e008a9f0a1f5bc1ef6c3c7c296f4520530da3b76"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "e008a9f0a1f5bc1ef6c3c7c296f4520530da3b76"
+  ]
+ ]
+}

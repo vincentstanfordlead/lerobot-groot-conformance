@@ -1,0 +1,16 @@
+{
+ "id": "hukewei/lerobot_peg_in_optical",
+ "fetched_utc": "2026-10-03T05:17:41+00:00",
+ "branches": [
+  [
+   "main",
+   "6de8b4c5a33ebbbbbc285f4e6a170bb36e303d72"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "6de8b4c5a33ebbbbbc285f4e6a170bb36e303d72"
+  ]
+ ]
+}

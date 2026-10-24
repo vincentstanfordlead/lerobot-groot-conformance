@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/berkeley_gnm_sac_son",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "325f7e57b15de6bcdcca7c0269a31e94fe14888d"
+  ],
+  [
+   "v1.6",
+   "44f8d29adcc5dbed5e66fcac0a96b55401b4828c"
+  ],
+  [
+   "v2.0",
+   "9b2a0f3c60bbced73f14e730be78abdf2e0cf2ba"
+  ],
+  [
+   "v2.1",
+   "0e3e2dd4ab13343198796eef18e69a259b996d11"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "325f7e57b15de6bcdcca7c0269a31e94fe14888d"
+  ]
+ ]
+}

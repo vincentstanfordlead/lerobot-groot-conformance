@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/asu_table_top",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "8067c85183c2c118b660e5dc3c6f92aaca32fb6a"
+  ],
+  [
+   "v1.6",
+   "9b18c49feb2d160d89a758b11fc71be808b8f4b4"
+  ],
+  [
+   "v2.0",
+   "1fc3322cfc03ddd7621ea7c93f466c242ad0a626"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "c62e5a3c472f22827674048f4b22e4d1ce80c0b7"
+  ],
+  [
+   "v3.0",
+   "8067c85183c2c118b660e5dc3c6f92aaca32fb6a"
+  ]
+ ]
+}

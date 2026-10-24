@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/austin_buds_dataset_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "466d7a73e992208693b825a9ed31efa4c06da9e3"
+  ],
+  [
+   "v2.0",
+   "d0826ded2977b2967f7c99fbc8e023639626e4fa"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "466d7a73e992208693b825a9ed31efa4c06da9e3"
+  ]
+ ]
+}

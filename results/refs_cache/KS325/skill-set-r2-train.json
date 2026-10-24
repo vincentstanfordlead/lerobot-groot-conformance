@@ -1,0 +1,16 @@
+{
+ "id": "KS325/skill-set-r2-train",
+ "fetched_utc": "2026-10-03T05:17:31+00:00",
+ "branches": [
+  [
+   "main",
+   "8655740ecb01e747870309ed7b9feaef4321cc18"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "8655740ecb01e747870309ed7b9feaef4321cc18"
+  ]
+ ]
+}

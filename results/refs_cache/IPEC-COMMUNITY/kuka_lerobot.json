@@ -1,0 +1,15 @@
+{
+ "id": "IPEC-COMMUNITY/kuka_lerobot",
+ "fetched_utc": "2026-10-03T05:17:30+00:00",
+ "branches": [
+  [
+   "main",
+   "e17b0de50bf8711222d957aac2b21245ef33af75"
+  ],
+  [
+   "v2.0",
+   "e17b0de50bf8711222d957aac2b21245ef33af75"
+  ]
+ ],
+ "tags": []
+}

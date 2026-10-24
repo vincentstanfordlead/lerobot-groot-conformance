@@ -1,0 +1,16 @@
+{
+ "id": "InfiH/so100_test",
+ "fetched_utc": "2026-10-03T05:17:30+00:00",
+ "branches": [
+  [
+   "main",
+   "119bed09c9c70339dd07a4ef248dce710147405f"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "119bed09c9c70339dd07a4ef248dce710147405f"
+  ]
+ ]
+}

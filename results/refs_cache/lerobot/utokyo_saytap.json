@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/utokyo_saytap",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "2792c13d3f049e8642d03f7597001a44ac392107"
+  ],
+  [
+   "v1.6",
+   "b4de8f49050fc4379a50b963cfd520d011b178d1"
+  ],
+  [
+   "v2.0",
+   "60a1e45da63f40397b63abd3acff03a82cd9cea6"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "43afc899cabf9958a501a0bbebe3fb21b06ed810"
+  ],
+  [
+   "v3.0",
+   "2792c13d3f049e8642d03f7597001a44ac392107"
+  ]
+ ]
+}

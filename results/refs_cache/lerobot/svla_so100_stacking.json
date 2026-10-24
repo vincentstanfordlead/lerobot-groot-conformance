@@ -1,0 +1,20 @@
+{
+ "id": "lerobot/svla_so100_stacking",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "933bcc61148b1b560d1a13753b47eac54a085561"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "cbcdfe50e16ce6187feff9b0ecaa35a28a821201"
+  ],
+  [
+   "v3.0",
+   "933bcc61148b1b560d1a13753b47eac54a085561"
+  ]
+ ]
+}

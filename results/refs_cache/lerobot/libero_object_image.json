@@ -1,0 +1,24 @@
+{
+ "id": "lerobot/libero_object_image",
+ "fetched_utc": "2026-10-03T05:17:48+00:00",
+ "branches": [
+  [
+   "main",
+   "e1e080d7df1d0a359dff5c86c222e047549f447f"
+  ],
+  [
+   "v2.0",
+   "5535727f1aca007ff0d29581959ed8e033c474cb"
+  ],
+  [
+   "v2.1",
+   "daffb36fc023c24cc8cd2e1711b70ac18f117027"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "e1e080d7df1d0a359dff5c86c222e047549f447f"
+  ]
+ ]
+}

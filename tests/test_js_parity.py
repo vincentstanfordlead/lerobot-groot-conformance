@@ -131,3 +131,55 @@ class JsEmbodimentParity(unittest.TestCase):
             if py != js_res.get(rid):
                 diff.append((rid, py, js_res.get(rid)))
         self.assertEqual(diff, [], f"{len(diff)} differ")
+
+
+@unittest.skipUnless(NODE, "node not installed")
+class JsModelsParity(unittest.TestCase):
+    """docs/app/models.js gives the LeRobot and openpi verdicts and the π0.5 fit conformance/models.py gives, on every
+    audited dataset (main snapshot and the verified ref snapshots), and selects the same revision for every ref set."""
+
+    def test_models_match(self):
+        from conformance import models as M
+        res = ROOT / "results"
+        if not (res / "refs_cache").is_dir():
+            self.skipTest("refs cache not present")
+
+        def load(p):
+            try:
+                return json.loads(p.read_text())
+            except (OSError, ValueError):
+                return None
+
+        cases, py, selections = [], [], []
+        for p in sorted((res / "raw").rglob("*.json")):
+            rec = json.loads(p.read_text())
+            rid = rec["dataset"]
+            info, refs = load(res / "info_cache" / f"{rid}.json"), load(res / "refs_cache" / f"{rid}.json")
+            names = None if refs is None or "error" in refs else [n for n, _ in refs["branches"] + refs["tags"]]
+            variants = [rec] + [r for r in (load(res / "raw_ref" / loader / f"{rid}.json") for loader in ("lerobot", "openpi")) if r]
+            for r in variants:
+                ref_info = info if r is rec else None
+                cases.append({"checks": r["checks"], "info": ref_info, "refNames": names})
+                f = M.facts(r, ref_info, refs)
+                py.append({"lerobot": M.lerobot_verdict(f), "openpi": M.openpi_verdict(f), "pi05": M.pi05_fit(ref_info)})
+            if names is not None:
+                selections.append(names)
+        selections += [[], ["main"], ["v3"], ["v3", "v3.0"], ["v2.0rc0", "v2.1"], ["v2.2"], ["1.0.0-rc1", "v2.1.post1"]]
+        py_sel = []
+        for names in selections:
+            hub = M.parse_versions(names)
+            py_sel.append([list(M.select_revision(hub, M.LEROBOT_TARGET)), list(M.select_revision(hub, M.OPENPI_TARGET))])
+
+        inp = ROOT / "results" / ".js_models_in.json"
+        try:
+            inp.write_text(json.dumps({"cases": cases, "selections": selections}))
+            out = subprocess.run([NODE, str(ROOT / "tests" / "js_models.mjs"), str(inp)], capture_output=True, text=True, check=True)
+        finally:
+            inp.unlink(missing_ok=True)
+        js_res = json.loads(out.stdout)
+
+        diff = [(i, a, b) for i, (a, b) in enumerate(zip(py, js_res["verdicts"])) if a != b]
+        self.assertEqual(len(py), len(js_res["verdicts"]))
+        self.assertEqual(diff[:3], [], f"{len(diff)} of {len(py)} verdict pairs differ")
+        sel_diff = [(n, a, b) for n, a, b in zip(selections, py_sel, js_res["selections"]) if a != b]
+        self.assertEqual(sel_diff[:3], [], f"{len(sel_diff)} of {len(selections)} selections differ")

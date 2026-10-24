@@ -1,0 +1,16 @@
+{
+ "id": "REBOOT26/nema1-15-plug_install",
+ "fetched_utc": "2026-10-03T05:17:33+00:00",
+ "branches": [
+  [
+   "main",
+   "4ccf13a845f131bdddb9060eefb889faf0317411"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "4ccf13a845f131bdddb9060eefb889faf0317411"
+  ]
+ ]
+}

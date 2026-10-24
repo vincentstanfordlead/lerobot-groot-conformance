@@ -1,0 +1,16 @@
+{
+ "id": "lerobot-data-collection/level1_final_setup_1",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "84df933a0a6c8fb3cbc1ed6ec8c2f01f0ebf871a"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "84df933a0a6c8fb3cbc1ed6ec8c2f01f0ebf871a"
+  ]
+ ]
+}

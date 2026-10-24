@@ -1,0 +1,32 @@
+{
+ "id": "lerobot/unitreeh1_warehouse",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "c5bbea3c3b3f787d14a135801dbee2be56e60ba8"
+  ],
+  [
+   "v1.4",
+   "107fdb02407d0adb51dafb3812610d9cbc05a97a"
+  ],
+  [
+   "v1.6",
+   "8da976b8d1aa4dd27630ba3a769dfa4705e1df4c"
+  ],
+  [
+   "v2.0",
+   "5dd638820dc90e3ce8c6a16bee0937eb0be80efa"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "a5335eedd5e2c2743e9df82d8fea1b7beb4af614"
+  ],
+  [
+   "v3.0",
+   "c5bbea3c3b3f787d14a135801dbee2be56e60ba8"
+  ]
+ ]
+}

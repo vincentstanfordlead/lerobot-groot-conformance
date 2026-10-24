@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_static_pro_pencil",
+ "fetched_utc": "2026-10-03T05:17:45+00:00",
+ "branches": [
+  [
+   "main",
+   "94650b0ed274ec193005f97a80da738fc02aa928"
+  ],
+  [
+   "v1.3",
+   "3d078b1a96e61c620033e70f10dec3f0feed7a7c"
+  ],
+  [
+   "v1.4",
+   "947b3897dd5bf242dfe088558b03b3cc45fe5f21"
+  ],
+  [
+   "v1.5",
+   "947b3897dd5bf242dfe088558b03b3cc45fe5f21"
+  ],
+  [
+   "v1.6",
+   "54692a942f6d77258d9bc41f06f7eabbe81ef063"
+  ],
+  [
+   "v2.0",
+   "2603a7a774d9c0717d605da59097d1d7d39a50e7"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "69ff95c9a8fd3b927f9ba355b6fd816775ce783f"
+  ],
+  [
+   "v3.0",
+   "94650b0ed274ec193005f97a80da738fc02aa928"
+  ]
+ ]
+}

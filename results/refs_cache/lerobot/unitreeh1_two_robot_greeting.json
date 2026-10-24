@@ -1,0 +1,32 @@
+{
+ "id": "lerobot/unitreeh1_two_robot_greeting",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "51d65cfa10380beff74570b599b49347abf5fbfa"
+  ],
+  [
+   "v1.4",
+   "0d72b061ddeaa1b0e2158d7020706c4b55440b16"
+  ],
+  [
+   "v1.6",
+   "8655c0b102e9f2481e6fffce04e5bf289a75f93e"
+  ],
+  [
+   "v2.0",
+   "45f5111986dc6bb344365494cee06ebc8cd868fb"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "97347b90a67bae2bcf81886df069218b47c0d80f"
+  ],
+  [
+   "v3.0",
+   "51d65cfa10380beff74570b599b49347abf5fbfa"
+  ]
+ ]
+}

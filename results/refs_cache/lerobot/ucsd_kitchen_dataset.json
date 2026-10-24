@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/ucsd_kitchen_dataset",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "fd7751e366e56297317beae5db71aa1a193d1e7f"
+  ],
+  [
+   "v1.6",
+   "fe7a86b4bd9463a455d0f12882dfa37808233ca1"
+  ],
+  [
+   "v2.0",
+   "27c4c0a1e3536cd435963a1233691c542c5f7692"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "78cee45585c83e112bbdf18c9d0eeba4969f66f8"
+  ],
+  [
+   "v3.0",
+   "fd7751e366e56297317beae5db71aa1a193d1e7f"
+  ]
+ ]
+}

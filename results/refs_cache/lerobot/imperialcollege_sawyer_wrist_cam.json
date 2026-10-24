@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/imperialcollege_sawyer_wrist_cam",
+ "fetched_utc": "2026-10-03T05:17:47+00:00",
+ "branches": [
+  [
+   "main",
+   "fa2512d0965ce44ec2c4abb9f67f5780197b0586"
+  ],
+  [
+   "v1.6",
+   "978c4e5efb95b96add4f6bb01d8231c0e847d97c"
+  ],
+  [
+   "v2.0",
+   "5ee9b4923fb97bf8866f480ae0a954e96978beb5"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "868160caa18d5071bebffd8beb3eda678f207ca2"
+  ],
+  [
+   "v3.0",
+   "fa2512d0965ce44ec2c4abb9f67f5780197b0586"
+  ]
+ ]
+}

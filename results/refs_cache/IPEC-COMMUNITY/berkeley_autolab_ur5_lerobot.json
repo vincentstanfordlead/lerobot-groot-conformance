@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/berkeley_autolab_ur5_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "f464e31862b93a9d400ac7da379b8005e848458c"
+  ],
+  [
+   "v2.0",
+   "e68d785a16740b5c3ddc8288db0e77fcf648d6c3"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "f464e31862b93a9d400ac7da379b8005e848458c"
+  ]
+ ]
+}

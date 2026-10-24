@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/utaustin_mutex",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "a880eaeec88c6fcb6cd75e24ecf78f56fa96e559"
+  ],
+  [
+   "v1.6",
+   "77756629c8aee38a097a68e73894df54b93d1c24"
+  ],
+  [
+   "v2.0",
+   "48faf2b42c34f75a3835b28281826d9bbd5dd03d"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "28bb420d578d62a60d5e0089d525f92b4e3200d8"
+  ],
+  [
+   "v3.0",
+   "a880eaeec88c6fcb6cd75e24ecf78f56fa96e559"
+  ]
+ ]
+}

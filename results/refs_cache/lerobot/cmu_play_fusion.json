@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/cmu_play_fusion",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "7e71e26a7c28ae04300034af3e9f6594b9df9e42"
+  ],
+  [
+   "v1.6",
+   "9b1e0afa36dcf252730e3937b20df01108361ae4"
+  ],
+  [
+   "v2.0",
+   "06bf75a566e5ac96b23cebfecea0410666c62fa5"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "9bcc157f48dd96d4ddbfc29c1cbfbb65b9cc22ab"
+  ],
+  [
+   "v3.0",
+   "7e71e26a7c28ae04300034af3e9f6594b9df9e42"
+  ]
+ ]
+}

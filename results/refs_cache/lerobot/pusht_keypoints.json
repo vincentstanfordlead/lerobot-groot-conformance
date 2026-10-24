@@ -1,0 +1,32 @@
+{
+ "id": "lerobot/pusht_keypoints",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "ace8c161a68bc025c21a5f29f85b86a9a2c5e64b"
+  ],
+  [
+   "v1.5",
+   "728188c8c240eafcd94f717995f663308e2aef02"
+  ],
+  [
+   "v1.6",
+   "c6e093df23a101396f1697a9fe18463e953fdac6"
+  ],
+  [
+   "v2.0",
+   "8e8307cd6dd2cb1cc40cfdc8bada356d42dfd583"
+  ],
+  [
+   "v2.1",
+   "99414e6663a36f1d7217ba775212cdc9c2b981ff"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "ace8c161a68bc025c21a5f29f85b86a9a2c5e64b"
+  ]
+ ]
+}

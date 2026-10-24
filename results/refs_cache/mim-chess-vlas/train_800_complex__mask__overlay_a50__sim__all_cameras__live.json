@@ -1,0 +1,16 @@
+{
+ "id": "mim-chess-vlas/train_800_complex__mask__overlay_a50__sim__all_cameras__live",
+ "fetched_utc": "2026-10-03T05:17:52+00:00",
+ "branches": [
+  [
+   "main",
+   "49dfa93df16d319e0e5a869263794991c2cfae24"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "49dfa93df16d319e0e5a869263794991c2cfae24"
+  ]
+ ]
+}

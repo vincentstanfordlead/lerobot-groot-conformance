@@ -1,0 +1,36 @@
+{
+ "id": "lerobot/aloha_sim_insertion_human_image",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "d93d36acb3494629fcf890e7a359512446d0a7c1"
+  ],
+  [
+   "v1.4",
+   "907b897817aa826d14122d84f6d2820f4ee0b83e"
+  ],
+  [
+   "v1.5",
+   "907b897817aa826d14122d84f6d2820f4ee0b83e"
+  ],
+  [
+   "v1.6",
+   "cdaa68e4192f34b33e243c078d9da402c13948cd"
+  ],
+  [
+   "v2.0",
+   "79e297f3ff19b45f84e61a8193c9bfd18f2f5e53"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "6503ac530498157ccc776ecb20531343e49fb746"
+  ],
+  [
+   "v3.0",
+   "d93d36acb3494629fcf890e7a359512446d0a7c1"
+  ]
+ ]
+}

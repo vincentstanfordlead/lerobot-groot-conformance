@@ -1,0 +1,15 @@
+{
+ "id": "IPEC-COMMUNITY/bridge_orig_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "0e9d76d07e9df3ea3eba257b2520d4913833fad2"
+  ],
+  [
+   "v2.0",
+   "0e9d76d07e9df3ea3eba257b2520d4913833fad2"
+  ]
+ ],
+ "tags": []
+}

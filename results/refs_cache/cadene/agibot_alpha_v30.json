@@ -1,0 +1,16 @@
+{
+ "id": "cadene/agibot_alpha_v30",
+ "fetched_utc": "2026-10-03T05:17:39+00:00",
+ "branches": [
+  [
+   "main",
+   "2aa4e5de3fc91421a7a8a76bef617f94d0e5be28"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "2aa4e5de3fc91421a7a8a76bef617f94d0e5be28"
+  ]
+ ]
+}

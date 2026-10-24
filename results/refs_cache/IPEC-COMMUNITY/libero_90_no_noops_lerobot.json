@@ -1,0 +1,16 @@
+{
+ "id": "IPEC-COMMUNITY/libero_90_no_noops_lerobot",
+ "fetched_utc": "2026-10-03T05:17:30+00:00",
+ "branches": [
+  [
+   "main",
+   "70696aef03def70c17917f43c5e79276b7e5fbe7"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "70696aef03def70c17917f43c5e79276b7e5fbe7"
+  ]
+ ]
+}

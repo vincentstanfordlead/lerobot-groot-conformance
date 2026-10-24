@@ -1,0 +1,16 @@
+{
+ "id": "chair0/chess_single_rook_noon_trimmed",
+ "fetched_utc": "2026-10-03T05:17:40+00:00",
+ "branches": [
+  [
+   "main",
+   "5a071c439d5234ec43912514f6eab4ee5e6dcae7"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "5a071c439d5234ec43912514f6eab4ee5e6dcae7"
+  ]
+ ]
+}

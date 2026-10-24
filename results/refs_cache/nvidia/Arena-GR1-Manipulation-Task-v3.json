@@ -1,0 +1,16 @@
+{
+ "id": "nvidia/Arena-GR1-Manipulation-Task-v3",
+ "fetched_utc": "2026-10-03T05:17:53+00:00",
+ "branches": [
+  [
+   "main",
+   "8877285f0b4190bd02f6a90a702ae3cc0f990879"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "8877285f0b4190bd02f6a90a702ae3cc0f990879"
+  ]
+ ]
+}

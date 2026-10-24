@@ -1,0 +1,16 @@
+{
+ "id": "zzhtx/record-test_20260817_160707",
+ "fetched_utc": "2026-10-03T05:20:59+00:00",
+ "branches": [
+  [
+   "main",
+   "41ddfe98339ce6340356fba4d98fe74b4757c02a"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "41ddfe98339ce6340356fba4d98fe74b4757c02a"
+  ]
+ ]
+}

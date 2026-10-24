@@ -1,0 +1,24 @@
+{
+ "id": "unitreerobotics/G1_Dex3_ToastedBread_Dataset",
+ "fetched_utc": "2026-10-03T05:20:57+00:00",
+ "branches": [
+  [
+   "main",
+   "02cb29161f5adb2981a072aa35b408d82a556d07"
+  ],
+  [
+   "v2.0",
+   "4a2a410683a1a7bf626c068c0b67e48ddc218b58"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "6089c46fbc6c7365667ecfde55302dc26ef2c5c2"
+  ],
+  [
+   "v3.0",
+   "02cb29161f5adb2981a072aa35b408d82a556d07"
+  ]
+ ]
+}

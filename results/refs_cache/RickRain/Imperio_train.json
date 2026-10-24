@@ -1,0 +1,16 @@
+{
+ "id": "RickRain/Imperio_train",
+ "fetched_utc": "2026-10-03T05:17:33+00:00",
+ "branches": [
+  [
+   "main",
+   "337a349fc71c84168720a17f3198097d9de86ac7"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "337a349fc71c84168720a17f3198097d9de86ac7"
+  ]
+ ]
+}

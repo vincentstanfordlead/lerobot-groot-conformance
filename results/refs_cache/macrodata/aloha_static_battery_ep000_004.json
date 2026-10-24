@@ -1,0 +1,16 @@
+{
+ "id": "macrodata/aloha_static_battery_ep000_004",
+ "fetched_utc": "2026-10-03T05:17:51+00:00",
+ "branches": [
+  [
+   "main",
+   "019b0779f5edfc2e35a48c38372a317dbb298af3"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "019b0779f5edfc2e35a48c38372a317dbb298af3"
+  ]
+ ]
+}

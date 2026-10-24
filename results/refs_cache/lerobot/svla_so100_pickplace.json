@@ -1,0 +1,20 @@
+{
+ "id": "lerobot/svla_so100_pickplace",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "728583b5eaf9e739a7f119e2def466fa1d552402"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "87169e502b742f989b96c952bff7af55e248d467"
+  ],
+  [
+   "v3.0",
+   "728583b5eaf9e739a7f119e2def466fa1d552402"
+  ]
+ ]
+}

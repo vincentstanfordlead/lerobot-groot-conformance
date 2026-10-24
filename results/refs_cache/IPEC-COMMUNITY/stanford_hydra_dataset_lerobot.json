@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/stanford_hydra_dataset_lerobot",
+ "fetched_utc": "2026-10-03T05:17:30+00:00",
+ "branches": [
+  [
+   "main",
+   "beaa981ca3d2ee7860b1acb837f29911c7eef725"
+  ],
+  [
+   "v2.0",
+   "97f2f740957f33745384a644696e9e30a5f3df14"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "beaa981ca3d2ee7860b1acb837f29911c7eef725"
+  ]
+ ]
+}

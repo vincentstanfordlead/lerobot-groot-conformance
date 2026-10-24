@@ -1,0 +1,15 @@
+{
+ "id": "IPEC-COMMUNITY/bc_z_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "ddc4da6f3baa0196e42d22a177d038274b0ba8ae"
+  ],
+  [
+   "v2.0",
+   "ddc4da6f3baa0196e42d22a177d038274b0ba8ae"
+  ]
+ ],
+ "tags": []
+}

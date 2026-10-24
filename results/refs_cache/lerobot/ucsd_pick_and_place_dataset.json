@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/ucsd_pick_and_place_dataset",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "5af7ee806291f5b95eafafe29eaf1d31012fcc03"
+  ],
+  [
+   "v1.6",
+   "92c52931ea9d294f25c1c52917b899333581591a"
+  ],
+  [
+   "v2.0",
+   "cdc398477bfde9ba813d19a13cc16b207fd489cc"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "1c8cac476cae7b2de0203d8a690ed1504e457c35"
+  ],
+  [
+   "v3.0",
+   "5af7ee806291f5b95eafafe29eaf1d31012fcc03"
+  ]
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "id": "mulligan/real-marker-d2-r01-eval",
+ "fetched_utc": "2026-10-03T05:17:52+00:00",
+ "branches": [
+  [
+   "main",
+   "73b27d22051dbb6d641f47548cc3fe78c397a395"
+  ]
+ ],
+ "tags": [
+  [
+   "release-1",
+   "73b27d22051dbb6d641f47548cc3fe78c397a395"
+  ],
+  [
+   "v3.0",
+   "73b27d22051dbb6d641f47548cc3fe78c397a395"
+  ]
+ ]
+}

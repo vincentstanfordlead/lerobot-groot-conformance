@@ -8,6 +8,117 @@ not named here (ids are in `results/summary.csv`); public fixtures and publisher
 
 ---
 
+## 2026-10-23 — π0.5 model fit (8 checks, Python + web app)
+
+Asked by Vincent: "expand the linter for the pi model, both local and the website; choose the most popular pi model".
+
+- **Model chosen: π0.5** (`Pi0Config(pi05=True)`, checkpoint `pi05_base`). Hugging Face API on 2026-10-23:
+  `lerobot/pi05_base` 171,900 all-time downloads (18,455 last 30 days) vs `lerobot/pi0_base` 135,223 (14,317);
+  openpi's own examples and DROID/LIBERO configs also lead with π0.5. openpi's checkpoints themselves live on GCS
+  and have no public counts, so the LeRobot ports are the proxy.
+- **Vendored more of openpi `215abfb`** (same commit): `models/pi0_config.py`, `models/model.py`, `models/tokenizer.py`,
+  `shared/image_tools.py`, `shared/normalize.py`, `policies/libero_policy.py`, `policies/aloha_policy.py`.
+- **Code:** `conformance/models.py::pi05_fit(info)` (P1–P8, verdict FIT / ADAPT / NO_FIT, contract §7);
+  `scripts/run_models.py` adds `pi05*` columns to `models.csv` and §3 of `report_models.md` (sections renumbered);
+  `tests/test_models.py` +7 tests; JS port `docs/app/models.js::pi05Fit` held equal over every audited info.json by
+  `JsModelsParity`; web app: new "π0.5 model fit" item and a starting point for the openpi config (`pi05Draft`,
+  web only, not part of any verdict). Rounding is half-up on both sides so the parity holds (Python's `round` is
+  half-even). README: subsection "Does the data fit π0.5?".
+- **Found while testing in the browser:** `physical-intelligence/libero` names its state `state`, not
+  `observation.state`; P3 now accepts both (test added).
+- Independent of the loading verdict: a v3 dataset that openpi can't load yet can still FIT.
+
+**Approved by Vincent on 2026-10-23 (π0.5 calls P1–P6, all as proposed):**
+P1. π0.5 rather than π0 as "the most popular" (download proxy above).
+P2. Action or state wider than 32 is NO_FIT, although a config could slice the vector (that is choosing which data
+    to drop, so it is not counted as a config-only change).
+P3. ≤ 15 Hz is ADAPT (shorten `action_horizon`), from openpi's own pi05_libero/pi05_droid configs; no rate is
+    documented as wrong for π0.5.
+P4. Camera aspect ≥ 1.5 and size < 224 are only NOTEs; mean episode length < 50 frames is a NOTE.
+P5. No state is ADAPT (`discrete_state_input=False`, as pi05_libero does), not NO_FIT.
+P6. More than 3 RGB cameras is ADAPT (drop extras); 0 RGB cameras, including depth-only, is NO_FIT.
+
+---
+
+## 2026-10-02 — Two more columns: LeRobot native and openpi (contract + Hub refs; no checks yet)
+
+Decided with Vincent: extend the audit from one model to three (GR00T, LeRobot native, openpi) instead of building
+a real leaderboard (cheaper, reuses the cache, and needs no per-dataset ranking). RLDS-based models (OpenVLA, Octo)
+get one sentence, not a column.
+
+- **Pinned and vendored:** lerobot `ff71cae` (main, v3.0), openpi `215abfb` (main), and lerobot `0cf8648`, which
+  openpi pins in `pyproject.toml:70` (2025-05-28, v2.1). Contract: `CONTRACT_lerobot_openpi.md`; every cited line
+  was checked against the vendored copies.
+- **Main finding from the code:** both LeRobot versions pick the Hub revision from the repo's version-named
+  branches/tags, not from `info.json`. An untagged repo fails to load from the Hub in both. LeRobot reads only v3.0
+  and openpi only v2.x, so a repo serves both only if it has a `v2.x` and a `v3.0` ref.
+- **openpi has no "as is" state:** every dataset needs a Python data config plus `compute_norm_stats.py`.
+- **openpi's lerobot checks timestamp sync over every frame (1e-4 s)**; current LeRobot dropped that check. Needs
+  parquet, so the static audit cannot see it; the contract says so.
+- **Refs fetched** (`scripts/fetch_refs.py`, `results/refs_cache/`, one `list_repo_refs` per repo, unauthenticated,
+  ~3 min): 543 of the 552 LeRobot-format repos (the other 10 audited repos are not LeRobot datasets and have no info.json); 9 are now 404 (deleted or made private since the audit) and are excluded.
+  Refs are read on 2026-10-02, not at the audited sha. Counts over all strata (not rates; per-stratum numbers come
+  with the checks):
+  - 67 have no version-named ref at all (44 v2.1, 16 v3.0, 7 v2.0 by `info.json`), so neither LeRobot loader can
+    pull them from the Hub, although GR00T (which reads a local copy) is unaffected.
+  - 114 have both `v2.1` and `v3.0` refs, always on different commits; 108 of them are in the `lerobot` org (the
+    official conversions kept the old tag). These are the only repos that load in both LeRobot and openpi as is.
+  - Edge cases: one repo is tagged `v3` (packaging parses it as 3.0, so LeRobot asks for a `v3.0` ref that does not
+    exist); one is tagged `v2.2` (LeRobot: `NotImplementedError`; openpi: `ForwardCompatibilityError`); one has
+    `info.json` v2.0 under a `v2.1` tag.
+
+- **Implemented (same day):** `conformance/models.py` (a port of `get_safe_version` plus the two verdict functions),
+  `scripts/run_models.py` -> `results/models.csv` and `results/report_models.md` (per stratum, with n; Wilson CI
+  for S-tail only), `scripts/fetch_refs.py`, step 5 of `scripts/reproduce.py` (runs only if `results/refs_cache/`
+  exists), `tests/test_models.py` (14 tests: every row of the contract §1 table, the §6 ladder). Works from the stored
+  audit records, `info_cache` and `refs_cache`; no re-audit. The JS web app does not have these columns yet.
+- **Reading the numbers, and the check of the real snapshots (`scripts/verify_refs.py`, `results/raw_ref/`):**
+  where a loader's selected ref is a different commit from `main` (125 openpi, 23 LeRobot; 148 in all, including
+  the 114 repos that keep a `v2.1` ref beside a v3 `main`), the same checks ran on that exact commit
+  (`inspect_hub(..., revision=sha)`, a new optional argument that leaves the audit unchanged; 0 errors).
+  Result: all 114 dual-tag S-curated repos are `NEEDS_CONFIG` at their `v2.1` ref, so the S-curated figure stands;
+  23 of 23 LeRobot snapshots keep their verdict; 4 of 125 openpi verdicts moved, all in S-popular/S-tail, from
+  tags older than a later push (3 became BLOCKED: two lack `episodes_stats.jsonl` at the tagged commit, one has no
+  `info.json` there; 1 BLOCKED became `NEEDS_CONFIG`). `models.csv` keeps the main-only verdict in
+  `*_main_only` and flags `*_verified_at_ref`. Refs and snapshots were read on 2026-10-02, not at the audited sha.
+  Still unchecked: timestamp sync (contract §4, needs parquet), so `NEEDS_CONFIG` is an upper bound.
+
+- **README and web app (2026-10-03).** README: new section "Beyond GR00T: LeRobot and openpi", a TL;DR bullet, and
+  an updated "Loading paths" limitation (the LeRobot column now measures the loader LeRobot's own `groot` policy
+  uses; the policy itself is still not measured). Every number in it is from `results/report_models.md`.
+  Web app (`docs/app/models.js`, `hub.js`, `explain.js`, `app.js`): each inspection also reads the repo's tags
+  (`/api/datasets/<id>/refs`), and where a loader would pull a commit other than the one inspected it reads that
+  snapshot too (`HubView(id, commit)`). The result page has an "Other models: LeRobot, openpi" item; the model
+  picker lists GR00T, LeRobot and openpi as checked on every inspection; the wizard's step 2 is now informational
+  (all three are always reported). `tests/test_js_parity.py::JsModelsParity` holds the JS verdicts equal to the
+  Python ones for all 562 audited datasets plus their verified ref snapshots, and the revision selection equal for
+  every ref set (the parser is a port of `packaging.version`, so ref names like `v3` or `v2.0rc0` are covered).
+  Checked in the browser on a dual-tag official dataset: LeRobot loads, openpi needs a config, the `v2.1` snapshot
+  was read, no console errors; result agrees with `models.csv`. Old saved runs have no `models` field and simply do
+  not show the new item.
+- **Found, not fixed:** the landing page overflows horizontally at phone width (375 px): the top-nav `div.links`
+  (the two "coming soon" buttons) is 516 px wide and stretches the grid. It predates this work.
+
+**Pending approval:**
+0. Added with the code: a required meta file missing under the right layout is `BLOCKED` (mirrors GR00T's
+   structural rule), even where a repair tool exists (e.g. a missing `episodes_stats.jsonl`, 3 datasets for
+   openpi); v2.2 and v1.x versions are `BLOCKED` (no converter named); v2.0 data is `NEEDS_CONVERT` for LeRobot
+   with an extra `CONVERT_V20_V21` step.
+1. openpi's best verdict is named NEEDS_CONFIG (symmetric to GR00T's NEEDS_MODALITY), never PASS.
+2. Both columns are judged for loading by Hub `repo_id`; the `root=` (local copy) path is noted, not scored. This
+   makes "untagged" a failure (NEEDS_TAG) for LeRobot and openpi only.
+3. openpi is judged with the lerobot it pins (`0cf8648`), not lerobot main.
+4. The 114 dual-tag repos count as loadable by openpi through their `v2.1` ref, even though that ref is an older
+   snapshot than `main`. (Their files at that ref are now verified; whether an older snapshot should count remains
+   the call.)
+5. New contract file `CONTRACT_lerobot_openpi.md` next to `CONTRACT.md` rather than merged into it.
+6. README wording for an NVIDIA reader: "openpi has no 'as is'" paragraph says GR00T's one-file requirement and
+   openpi's code requirement are "a design choice with a cost on both sides; a file is easier to audit and to hand
+   to a data producer". It is an opinion; soften or cut if it reads as advocacy. The tables themselves do not rank
+   the loaders.
+
+---
+
 ## 2026-10-02 — README: dataset mosaic and web app screenshot
 
 - **Mosaic** (`docs/img/mosaic.jpg`, top of the README above the KPI row). 24 tiles, 6×4. Each tile is frame 45 of

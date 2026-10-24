@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/berkeley_mvp_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "3ed881744758cf9701adbc0451d48dcee6a04e28"
+  ],
+  [
+   "v2.0",
+   "d549f689bb537f7ffbfd88e2b3f6801e3187e6cb"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "3ed881744758cf9701adbc0451d48dcee6a04e28"
+  ]
+ ]
+}

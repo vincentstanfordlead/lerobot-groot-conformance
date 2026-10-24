@@ -1,0 +1,16 @@
+{
+ "id": "Lyrasilas/eval_ep50_seed1_circle_small_center_guessed_40000_default",
+ "fetched_utc": "2026-10-03T05:17:32+00:00",
+ "branches": [
+  [
+   "main",
+   "35f19a4bbedefe38ef5d42c767b6250a78109297"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "35f19a4bbedefe38ef5d42c767b6250a78109297"
+  ]
+ ]
+}

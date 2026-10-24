@@ -1,0 +1,15 @@
+{
+ "id": "physical-intelligence/libero",
+ "fetched_utc": "2026-10-03T05:17:54+00:00",
+ "branches": [
+  [
+   "main",
+   "a4336d589d589045d1c56423ffdf3b88a0e19b1f"
+  ],
+  [
+   "v2.0",
+   "9dfa69510ea9e1613fc54112bc706444b686a231"
+  ]
+ ],
+ "tags": []
+}

@@ -1,0 +1,40 @@
+{
+ "id": "lerobot/aloha_static_thread_velcro",
+ "fetched_utc": "2026-10-03T05:17:45+00:00",
+ "branches": [
+  [
+   "main",
+   "0c821c87334087dc8d385f55f236e9f9e5565ebf"
+  ],
+  [
+   "v1.3",
+   "d1409b356d7459018f3b85c35749fd1b807f95bd"
+  ],
+  [
+   "v1.4",
+   "7b6f8d254dc192cb1896e83c48acb20165a5c632"
+  ],
+  [
+   "v1.5",
+   "7b6f8d254dc192cb1896e83c48acb20165a5c632"
+  ],
+  [
+   "v1.6",
+   "06b372a3320ad64b385a7764fefe870354984dbf"
+  ],
+  [
+   "v2.0",
+   "f29aad0e30965bf789a9b63ce6f57cb3746f618a"
+  ],
+  [
+   "v2.1",
+   "8c7eeda816ad84c84bbfbfc02af664bbbf7b9a24"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "0c821c87334087dc8d385f55f236e9f9e5565ebf"
+  ]
+ ]
+}

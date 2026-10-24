@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/toto_lerobot",
+ "fetched_utc": "2026-10-03T05:17:30+00:00",
+ "branches": [
+  [
+   "main",
+   "58c36872aa7e7144abc5feb836b9a3eda0fd548d"
+  ],
+  [
+   "v2.0",
+   "96e4039802e9d53c12d4cf957674f7b60239a19a"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "58c36872aa7e7144abc5feb836b9a3eda0fd548d"
+  ]
+ ]
+}

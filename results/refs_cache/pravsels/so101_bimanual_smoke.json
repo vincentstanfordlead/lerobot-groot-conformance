@@ -1,0 +1,16 @@
+{
+ "id": "pravsels/so101_bimanual_smoke",
+ "fetched_utc": "2026-10-03T05:17:54+00:00",
+ "branches": [
+  [
+   "main",
+   "5aa4e8b19968b08a611afb2e32596ad306abf0ea"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "5aa4e8b19968b08a611afb2e32596ad306abf0ea"
+  ]
+ ]
+}

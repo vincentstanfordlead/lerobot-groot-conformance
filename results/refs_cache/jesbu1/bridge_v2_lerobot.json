@@ -1,0 +1,16 @@
+{
+ "id": "jesbu1/bridge_v2_lerobot",
+ "fetched_utc": "2026-10-03T05:17:42+00:00",
+ "branches": [
+  [
+   "main",
+   "3899a5d24770fa593ad09f6f6e22cd417a227431"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "3899a5d24770fa593ad09f6f6e22cd417a227431"
+  ]
+ ]
+}

@@ -2,13 +2,20 @@
 
 There are more than 78,000 robot datasets on Hugging Face, but no shared standard for what a robot
 model needs in order to load them. This project measures that gap for one model, NVIDIA Isaac GR00T:
-how much public robot data it can use today, and what stands in the way of the rest.
+how much public robot data it can use today, and what stands in the way of the rest. A second pass
+repeats the check for LeRobot's own loader and for openpi (π0, π0.5), to see how much of the gap is
+specific to one model.
 
 > **TL;DR**
 > - **Audit:** 562 public LeRobot datasets checked against NVIDIA's
 >   [Isaac-GR00T](https://github.com/NVIDIA/Isaac-GR00T) data loader. In a random sample of 200, none
 >   pass as is: 30.5% are one file (`modality.json`) away, and 58% need converting from the newer
 >   LeRobot v3.0 layout first. Metadata checks only; nothing was loaded through GR00T.
+> - **Other loaders:** the same datasets against LeRobot's own loader and openpi. They read different
+>   layouts (v3.0 only, v2.x only), so one dataset gets different answers. In the random sample, 56% load
+>   in LeRobot from the Hub as is, 29.5% are ready for openpi's loader (which still needs a per-dataset
+>   config), and 1 in 200 does both without conversion.
+>   [Details below](#beyond-groot-lerobot-and-openpi).
 > - **Website:** [Robot Data Smog Check](https://vincentstanfordlead.github.io/lerobot-groot-conformance/)
 >   inspects any Hugging Face dataset in seconds, says what's missing and how to fix it, and drafts
 >   the missing `modality.json` when the dimension names allow.
@@ -107,6 +114,75 @@ its own and never pooled**:
 - **Recent** (newly updated): 92% v3.0, the clearest signal of where the format is heading.
 - **Tail** (a random sample of everything else): the only group with confidence intervals.
 
+### Beyond GR00T: LeRobot and openpi
+
+The same audited datasets, checked against two more loaders: LeRobot's own (used by its ACT, Diffusion
+and SmolVLA policies) and openpi (π0, π0-FAST, π0.5). Metadata only; nothing was loaded through any model.
+The three read different layouts, and what is left to do for a dataset in the right layout differs in
+kind:
+
+| loader | reads | what is left once the layout is right |
+|---|---|---|
+| GR00T | LeRobot v2 | add one data file, `meta/modality.json` |
+| LeRobot | v3.0 only | nothing, if the repo has a `v3.0` version tag |
+| openpi | v2.x only | write a Python data config and compute normalization stats, for every dataset |
+
+| per stratum | curated (n=162) | popular (n=100) | recent (n=91) | tail (n=200) |
+|---|---|---|---|---|
+| LeRobot loads it from the Hub as is | 127 (78%) | 20 (20%) | 80 (88%) | 112 (56%) |
+| openpi: layout and tags fine, config still to write | 144 (89%) | 13 (13%) | 7 (8%) | 59 (30%) |
+| both, with no conversion | 110 (68%) | 1 (1%) | 0 | 1 (<1%) |
+| repo has no version tag at all | 1 | 57 (57%) | 3 | 6 (3%) |
+
+In the random sample (tail), LeRobot loads 56.0% (95% Wilson CI 49.1–62.7%) and openpi is at its best
+state for 29.5% (23.6–36.2%). No intervals for the other groups, which are not random samples.
+
+- **Version tags decide loading by repo id.** Both LeRobot loaders choose the revision to download from
+  the repo's version-named branches and tags, not from `info.json`. A repo with no such tag fails to load
+  in LeRobot and in openpi, and the fix is one `create_tag` call. 67 of the 543 LeRobot-format repos
+  whose tags were read have none, 57 of them in the most-downloaded group. GR00T reads a local copy, so it
+  is unaffected.
+- **Only repos that keep an older tag beside the newest one serve both loaders.** That is 110 curated
+  repos, 108 of them from the official `lerobot` organisation, which keep a `v2.1` tag pointing at an
+  older snapshot in the v2 layout (checked, below). Community data nearly always carries one version.
+- **openpi has no "as is".** Its data config (which keys are images, state and actions) lives in Python,
+  not in the dataset. Where GR00T asks for one extra file, openpi asks for a few lines of code. This is a
+  design choice with a cost on both sides; a file is easier to audit and to hand to a data producer.
+- **Where a loader would pull a snapshot other than the latest, that snapshot was inspected** (148 of
+  them). Of 125 for openpi, 4 verdicts changed; of 23 for LeRobot, none.
+
+#### Does the data fit π0.5?
+
+Loading is half the question for openpi. The other half is whether what is in the files fits
+**π0.5**, the openpi model people use most (`pi05_base`), as openpi ships it: actions and state at most
+32 wide, three 224×224 image slots, 50-step action chunks, a text prompt. Eight checks (P1–P8) read
+this from `info.json`; they do not depend on the loading verdict.
+
+| per stratum | curated (n=162) | popular (n=92) | recent (n=90) | tail (n=199) |
+|---|---|---|---|---|
+| fits π0.5's defaults: the config only renames keys | 49 (30%) | 25 (27%) | 58 (64%) | 135 (68%) |
+| fits with changes (cameras to choose, low frame rate, split vectors, no prompt) | 100 (62%) | 36 (39%) | 29 (32%) | 57 (29%) |
+| does not fit as shipped (action or state over 32, no action, no RGB camera) | 13 (8%) | 31 (34%) | 3 (3%) | 7 (4%) |
+| loads in openpi **and** fits the defaults | 42 (26%) | 4 (4%) | 3 (3%) | 42 (21%) |
+
+In the tail sample, 67.8% fit the defaults (95% Wilson CI 61.1–73.9%) and 21.1% (16.0–27.3%) both load
+and fit. The most common change in the curated group is the frame rate: 53% are recorded at 15 Hz or
+less, where a 50-step chunk spans 3.3 s or more and openpi's own low-rate π0.5 configs use a shorter horizon.
+In the popular group, a third carry action or state vectors wider than 32.
+n here excludes repos without a readable `info.json`. Rules and code citations:
+[contract §7](CONTRACT_lerobot_openpi.md#7-π05-model-fit). The web app shows the same eight checks per
+dataset, plus a starting point for the openpi config (camera slots, keys, `action_horizon`).
+
+Caveats: the columns cover the 553 of 562 audited repos that still exist (the 9 that are gone were all in
+the recent group, hence n=91; the other tables above use the original n). Of those 553, 10 are not LeRobot
+datasets and count as blocked without their tags being read. openpi's timestamp-sync check (every frame within 0.1 ms of its expected
+time) needs the episode files and was not run, so openpi's figures are an upper bound. Tags were read on
+2026-10-02, not at the audited commit. Several judgement calls are open in [`NOTES.md`](NOTES.md), among
+them naming openpi's best state `NEEDS_CONFIG` rather than a pass. The rules, with code citations, are in
+[`CONTRACT_lerobot_openpi.md`](CONTRACT_lerobot_openpi.md); every table is in
+[`results/report_models.md`](results/report_models.md) and per-dataset results in
+[`results/models.csv`](results/models.csv).
+
 <details>
 <summary><b>Full results tables</b></summary>
 
@@ -150,8 +226,11 @@ is in [`results/report.md`](results/report.md). Per-dataset results are in
 The linter reads metadata only, so it downloads no video or episode data. Each check cites the
 line of GR00T code that requires it. The same 28 checks run in the
 [Robot Data Smog Check web app](https://vincentstanfordlead.github.io/lerobot-groot-conformance/) (`docs/`,
-plain JavaScript, no build step). `tests/test_js_parity.py` keeps the browser version and the Python
-version in agreement on every test fixture and on all 545 audited `info.json` files.
+plain JavaScript, no build step), which also reports the LeRobot and openpi columns: it reads the repo's
+version tags and, where a loader would pull an older tag, that snapshot too. `tests/test_js_parity.py` keeps
+the browser version and the Python version in agreement on every test fixture, on all 545 audited
+`info.json` files, and on the LeRobot and openpi verdicts for every audited dataset. The command-line
+linter below reports GR00T only; the other two columns come from `scripts/run_models.py`.
 
 ```bash
 python3.11 -m venv .venv && .venv/bin/pip install -r requirements.txt
@@ -172,7 +251,9 @@ formats (RLDS, HDF5, rosbag) come back as `NOT_LEROBOT`; convert them to LeRobot
 takes Hugging Face links only.
 
 **Reproduce the whole audit** in seconds and offline, from the committed snapshot and results.
-Add `--reaudit` to re-fetch all 562 repos (about 30 minutes; set `HF_TOKEN` first):
+Add `--reaudit` to re-fetch all 562 repos (about 30 minutes; set `HF_TOKEN` first). The LeRobot and openpi
+tables are rebuilt from the committed tag lists; refreshing those is a separate network step
+(`scripts/fetch_refs.py`, then `scripts/verify_refs.py`, about 15 minutes):
 
 ```bash
 .venv/bin/python scripts/reproduce.py
@@ -182,7 +263,9 @@ Add `--reaudit` to re-fetch all 562 repos (about 30 minutes; set `HF_TOKEN` firs
 - a known-good public dataset must come out `NEEDS_MODALITY`;
 - a deliberately corrupted copy must come out `BLOCKED`;
 - NVIDIA's own demo must come out `READY`;
-- 17 other controls must pass.
+- 17 other controls must pass;
+- the LeRobot and openpi rules: every row of the version-tag selection table and the verdict ladder
+  (`tests/test_models.py`).
 
 ```bash
 .venv/bin/python -m unittest discover -s tests -t . -v
@@ -247,10 +330,11 @@ in [`NOTES.md`](NOTES.md), Phase 2.
   checks*, not *trains correctly*. Validating the linter by actually loading the passing datasets
   through GR00T is the obvious next step. It was not done here because it needs GR00T's full
   install and payload downloads.
-- **One loading path.** GR00T N1.7 can also be fine-tuned through LeRobot's own `groot` policy,
-  which reads LeRobot datasets with LeRobot's loader. That path is not measured here. This audit
-  covers the Isaac-GR00T reference implementation's data path, as its README and
-  `getting_started/data_preparation.md` describe it.
+- **Loading paths.** The GR00T column covers the Isaac-GR00T reference implementation's data path, as
+  its README and `getting_started/data_preparation.md` describe it. GR00T N1.7 can also be fine-tuned
+  through LeRobot's own `groot` policy, which reads datasets with LeRobot's loader; the LeRobot column
+  measures that loader's data requirements (not the policy). The LeRobot and openpi columns judge
+  loading from the Hub by repo id; loading a downloaded copy skips the version-tag requirement.
 - **Not checkable from metadata:**
   - whether group names match a particular training recipe's embodiment config;
   - camera order;

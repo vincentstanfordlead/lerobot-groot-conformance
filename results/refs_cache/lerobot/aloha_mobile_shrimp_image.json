@@ -1,0 +1,24 @@
+{
+ "id": "lerobot/aloha_mobile_shrimp_image",
+ "fetched_utc": "2026-10-03T05:17:44+00:00",
+ "branches": [
+  [
+   "main",
+   "8dd48051dc89093e4f6bfee1c748224d42171027"
+  ],
+  [
+   "v2.0",
+   "069e42c79ead2b0001c95c1bf496961eeb10f208"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "44fb5041070b8c6715a85a9e8c5879c9254089a6"
+  ],
+  [
+   "v3.0",
+   "8dd48051dc89093e4f6bfee1c748224d42171027"
+  ]
+ ]
+}

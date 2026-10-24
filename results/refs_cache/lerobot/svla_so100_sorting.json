@@ -1,0 +1,20 @@
+{
+ "id": "lerobot/svla_so100_sorting",
+ "fetched_utc": "2026-10-03T05:17:49+00:00",
+ "branches": [
+  [
+   "main",
+   "13870ca969084d8ce4d8a0391b06cead78e804ba"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "40705521d1a5d3fdd1840740b626226b975c8951"
+  ],
+  [
+   "v3.0",
+   "13870ca969084d8ce4d8a0391b06cead78e804ba"
+  ]
+ ]
+}

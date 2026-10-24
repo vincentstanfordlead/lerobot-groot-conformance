@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/berkeley_fanuc_manipulation_lerobot",
+ "fetched_utc": "2026-10-03T05:17:29+00:00",
+ "branches": [
+  [
+   "main",
+   "6bf1a3382e84cad8d03596be58d8468e97437993"
+  ],
+  [
+   "v2.0",
+   "3213de31549c712b8c2df702ec65c57eb57349a8"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "6bf1a3382e84cad8d03596be58d8468e97437993"
+  ]
+ ]
+}

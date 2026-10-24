@@ -1,0 +1,20 @@
+{
+ "id": "mulligan/real-square-d2-r00-eval",
+ "fetched_utc": "2026-10-03T05:17:53+00:00",
+ "branches": [
+  [
+   "main",
+   "11e1242ad960b91bea312803c3eb59763279cb78"
+  ]
+ ],
+ "tags": [
+  [
+   "release-1",
+   "11e1242ad960b91bea312803c3eb59763279cb78"
+  ],
+  [
+   "v3.0",
+   "11e1242ad960b91bea312803c3eb59763279cb78"
+  ]
+ ]
+}

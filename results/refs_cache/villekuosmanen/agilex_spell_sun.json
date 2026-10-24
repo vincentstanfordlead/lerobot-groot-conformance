@@ -1,0 +1,20 @@
+{
+ "id": "villekuosmanen/agilex_spell_sun",
+ "fetched_utc": "2026-10-03T05:20:57+00:00",
+ "branches": [
+  [
+   "main",
+   "8a3342913995fd1b3c2a15c4715934ee8f5b5934"
+  ],
+  [
+   "v2.0",
+   "b9a292f8d7605bc780195b743304f4efca00bd12"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "8a3342913995fd1b3c2a15c4715934ee8f5b5934"
+  ]
+ ]
+}

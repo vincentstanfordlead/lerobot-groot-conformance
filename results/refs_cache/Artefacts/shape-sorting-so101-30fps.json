@@ -1,0 +1,28 @@
+{
+ "id": "Artefacts/shape-sorting-so101-30fps",
+ "fetched_utc": "2026-10-03T05:17:27+00:00",
+ "branches": [
+  [
+   "main",
+   "3738b5e6ddff56d873353362302a64a78b48309c"
+  ]
+ ],
+ "tags": [
+  [
+   "v1-500ep",
+   "643319a8de7fbc5e60efdc0a2113676f40c672a2"
+  ],
+  [
+   "v2-801ep-recovery",
+   "0c877d1186eca155592bc5d36ddb28388de032d9"
+  ],
+  [
+   "v3-1389ep",
+   "3738b5e6ddff56d873353362302a64a78b48309c"
+  ],
+  [
+   "v3.0",
+   "3738b5e6ddff56d873353362302a64a78b48309c"
+  ]
+ ]
+}

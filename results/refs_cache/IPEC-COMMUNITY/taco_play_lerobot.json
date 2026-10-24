@@ -1,0 +1,20 @@
+{
+ "id": "IPEC-COMMUNITY/taco_play_lerobot",
+ "fetched_utc": "2026-10-03T05:17:30+00:00",
+ "branches": [
+  [
+   "main",
+   "f46f2478738d33cbc67317d879aa091567f0db8e"
+  ],
+  [
+   "v2.0",
+   "af234e0a02797a0ce3a23a135265332be556b1bc"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "f46f2478738d33cbc67317d879aa091567f0db8e"
+  ]
+ ]
+}

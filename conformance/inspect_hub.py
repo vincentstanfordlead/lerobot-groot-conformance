@@ -102,7 +102,8 @@ def _retry(fn: Callable[[], T], what: str) -> T:
 class HubView:
     """DatasetView over an HF dataset repo: file listing with sizes + capped meta reads."""
 
-    def __init__(self, repo_id: str, token: Optional[str] = None, api: Optional[HfApi] = None):
+    def __init__(self, repo_id: str, token: Optional[str] = None, api: Optional[HfApi] = None,
+                 revision: Optional[str] = None):
         self.repo_id = repo_id
         self.token = token
         self.api = api or HfApi(token=token)
@@ -114,7 +115,7 @@ class HubView:
 
         self.n_requests += 1
         info = _retry(lambda: self.api.dataset_info(
-            repo_id, expand=["sha", "gated", "private", "disabled", "lastModified", "usedStorage"]),
+            repo_id, revision=revision, expand=["sha", "gated", "private", "disabled", "lastModified", "usedStorage"]),
             "dataset_info")
         if info.disabled:
             raise FetchError("disabled", "repo disabled")
@@ -249,9 +250,11 @@ def _sizes(files: dict[str, int]) -> dict:
     }
 
 
-def inspect_hub(repo_id: str, token: Optional[str] = None, api: Optional[HfApi] = None) -> dict:
+def inspect_hub(repo_id: str, token: Optional[str] = None, api: Optional[HfApi] = None,
+                revision: Optional[str] = None) -> dict:
+    """`revision` (a ref name or commit sha) inspects that snapshot instead of the default branch."""
     t0 = time.time()
-    view = HubView(repo_id, token=token, api=api)
+    view = HubView(repo_id, token=token, api=api, revision=revision)
     report = run_all(view)
     now = datetime.now(timezone.utc)
     report.update(

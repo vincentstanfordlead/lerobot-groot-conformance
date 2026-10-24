@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/dlr_sara_pour",
+ "fetched_utc": "2026-10-03T05:17:47+00:00",
+ "branches": [
+  [
+   "main",
+   "4246fa6111ab2682b1c39f44b045faec9ad41de7"
+  ],
+  [
+   "v1.6",
+   "1bbb53eeb48c1c772d949eabbc9134558438c60e"
+  ],
+  [
+   "v2.0",
+   "e69ce04a36f196bc00758a9034944f0a670d0cc0"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "cd5687019963477c9e022f6bf15f9cc207f43529"
+  ],
+  [
+   "v3.0",
+   "4246fa6111ab2682b1c39f44b045faec9ad41de7"
+  ]
+ ]
+}

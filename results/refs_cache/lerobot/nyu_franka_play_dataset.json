@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/nyu_franka_play_dataset",
+ "fetched_utc": "2026-10-03T05:17:48+00:00",
+ "branches": [
+  [
+   "main",
+   "3b2367d09641846e50f865ea54b52b0cdfab4e18"
+  ],
+  [
+   "v1.6",
+   "9edc43ab9062c0ef69b697a561f9a48dc4f02294"
+  ],
+  [
+   "v2.0",
+   "e474cfe59d8e233b8852e8ddfb7fb16963a30845"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "fdb9d2376e30ec759ab00ec3d849ebd06b40f951"
+  ],
+  [
+   "v3.0",
+   "3b2367d09641846e50f865ea54b52b0cdfab4e18"
+  ]
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "id": "anewhouse/so101_pick_and_place_v1",
+ "fetched_utc": "2026-10-03T05:17:38+00:00",
+ "branches": [
+  [
+   "main",
+   "f91a3af47413a9415b580faba334a9182c33646c"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "f91a3af47413a9415b580faba334a9182c33646c"
+  ]
+ ]
+}

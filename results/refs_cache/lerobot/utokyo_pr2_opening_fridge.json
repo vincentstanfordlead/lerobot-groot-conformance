@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/utokyo_pr2_opening_fridge",
+ "fetched_utc": "2026-10-03T05:17:50+00:00",
+ "branches": [
+  [
+   "main",
+   "47504c67033d34b1b7f3ae522f35d0e0e5e1eead"
+  ],
+  [
+   "v1.6",
+   "e272091fdc3ff8717baa473de478ec8f0a812978"
+  ],
+  [
+   "v2.0",
+   "31fdf5b5d570421850e5353db40a9877551b2e57"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "18ce7908548a4a5bce35c9596e89803461dc8f1c"
+  ],
+  [
+   "v3.0",
+   "47504c67033d34b1b7f3ae522f35d0e0e5e1eead"
+  ]
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "id": "lerobot/berkeley_cable_routing",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "20a7774a714a5daf56b220e01635425f2cb9745b"
+  ],
+  [
+   "v1.6",
+   "94b27baa854df8dbb57029debfe9836e65b93538"
+  ],
+  [
+   "v2.0",
+   "ad48366c1909981f744beb1516fd227ddde656c2"
+  ],
+  [
+   "v2.0-rc",
+   "de8f802ebec413f8821c588ac4cc620b09147cfe"
+  ],
+  [
+   "v2.1",
+   "f991e3def6aec71b451fd13436f38f78bfa356c3"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "20a7774a714a5daf56b220e01635425f2cb9745b"
+  ]
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "id": "lerobot/austin_sailor_dataset",
+ "fetched_utc": "2026-10-03T05:17:46+00:00",
+ "branches": [
+  [
+   "main",
+   "50985d8a1cdbe136ddc59e7ad91d1a2c30e412d1"
+  ],
+  [
+   "v1.6",
+   "b1430edcc6f8e80b83f3a77d08741a1d5dd3c663"
+  ],
+  [
+   "v2.0",
+   "dc62ef556097fe359d33188767a55b84a4e81b6c"
+  ]
+ ],
+ "tags": [
+  [
+   "v2.1",
+   "49c981e55540efb0631d2e81c9a4254ba05ead85"
+  ],
+  [
+   "v3.0",
+   "50985d8a1cdbe136ddc59e7ad91d1a2c30e412d1"
+  ]
+ ]
+}

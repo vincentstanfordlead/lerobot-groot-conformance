@@ -1,0 +1,16 @@
+{
+ "id": "robot-learning-group47/eval_try_10k_phase1_grasp_lift_n20_i0_20260520_190530",
+ "fetched_utc": "2026-10-03T05:17:55+00:00",
+ "branches": [
+  [
+   "main",
+   "bbd463ded14693f872f3be0ccc6ef564ed50591a"
+  ]
+ ],
+ "tags": [
+  [
+   "v3.0",
+   "bbd463ded14693f872f3be0ccc6ef564ed50591a"
+  ]
+ ]
+}
