@@ -8,6 +8,54 @@ not named here (ids are in `results/summary.csv`); public fixtures and publisher
 
 ---
 
+## 2026-10-26 — Skill download: README section and web app call to action
+
+- `scripts/build_skill.py` also copies the zip to `docs/download/robot-data-smog-check.zip`, which GitHub Pages
+  serves and the README links to; commit it whenever the skill changes.
+- README: a "Run it locally: the agent skill" section right after the TL;DR (download badge, install for
+  Claude Code / claude.ai / no agent, sample output), plus a TL;DR bullet.
+- Skill page `docs/skill/` (served at `/skill/`): what the skill is, a sample report, install three ways,
+  prompts, what it adds beyond the website, its limits, download. The web app's skill buttons and the README
+  badge point to it; the landing band also keeps a direct .zip link.
+- Web app: a yellow "Get the agent skill" button in the landing nav, a link under the hero, a dark band below
+  the readouts, and a strip on every result overview. Also fixed the landing page's phone-width overflow
+  (pre-existing: the example chips' screen-reader labels and the hero grid widened the page to ~626 px).
+
+## 2026-10-26 — Skill renamed to robot-data-smog-check
+
+- `skills/groot-data-check` → `skills/robot-data-smog-check` (name chosen by Vincent, to match the web app,
+  and because it now covers π0.5 too); `scripts/groot_check.py` → `scripts/smog_check.py`. The manifest's
+  `tool.name` follows. The output is now a short summary by default (verdict, a ✅/🟡/❌ line per area,
+  next step); `--details` gives the full report, and the agent asks before showing it.
+
+## 2026-10-26 — Skill output: a Markdown diagnostic report, always in English
+
+- `smog_check.py check` now prints a Markdown report by default (`--plain` keeps the old terminal text):
+  dataset table, one-row-per-model summary, then per model the check groups (GR00T, the web app's five
+  groups) or the eight π0.5 fit checks, and "What's needed". Icons ✅ 🟡 ❌ ⚪ follow the web app's tones.
+- SKILL.md: the agent shows the report as printed, always in English (it ignores other language
+  preferences such as a global "reply in Chinese" memory), with at most a note and one question after it.
+  Before this, a run in a session with that memory answered in Chinese and paraphrased the result.
+- π0.5's summary says "Ready to configure" when the files load and the data fits (the best state openpi allows).
+
+## 2026-10-26 — Fix: openpi missed episodes_stats.jsonl next to stats.json; one action_horizon rule
+
+- **Bug.** L7 stored one stats layout, preferring `stats.json`, and the openpi column compared that
+  value against `episodes_stats.jsonl`. A v2.1 dataset shipping both (exactly what a GR00T-ready v2.1
+  dataset looks like, since GR00T reads `stats.json`) was judged openpi `BLOCKED`. Found on a local
+  dataset the skill called GR00T `READY` and pi0.5 `BLOCKED`.
+- **Fix.** L7 now also records `files` (every stats file present); `facts()` reads it in Python and JS,
+  falling back to the old single layout for records that predate it. `scripts/backfill_stats_files.py`
+  added `files` to the 5 stored records where it decides the verdict (3 in `raw/`, 2 in `raw_ref/openpi/`),
+  from a `meta/` listing at each record's repo_sha.
+- **Effect.** All 5 audit rows that were openpi `BLOCKED` for "missing meta/episodes_stats.jsonl" were
+  false: 4 → `NEEDS_CONFIG`, 1 → `NEEDS_TAG`. S-popular `NEEDS_CONFIG` 13 → 16, S-tail 59 → 60
+  (29.5% → 30.0%, Wilson 24.1–36.7%); "both without conversion" in S-tail 1 → 2. README and SKILL.md updated.
+- **action_horizon.** The pi0.5 config draft used `max(10, round(fps))` in Python and `max(1, round(fps))`
+  in JS (8 Hz: 10 vs 8). One rule now, `pi05_action_horizon()` / `pi05ActionHorizon()`: at ≤ 15 Hz,
+  about one second of actions but never below pi05_libero's 10; half-up rounding on both sides.
+  Parity-tested over every audited fps plus edges.
+
 ## 2026-10-23 — π0.5 model fit (8 checks, Python + web app)
 
 Asked by Vincent: "expand the linter for the pi model, both local and the website; choose the most popular pi model".

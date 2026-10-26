@@ -261,3 +261,100 @@ table.groups td.mono { font-size: 12px; color: var(--ink-2); }
   .landing .topnav .links button { white-space: nowrap; font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* per-model progress rows and result cards */
+.mrows { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 8px; }
+.mrow { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: var(--r); padding: 10px 12px; animation: fade .2s; }
+.mrow.is-wait { opacity: .55; }
+.mrow.is-run { border-color: var(--yellow-d); background: var(--yellow-l); }
+.mrow .st, .mrow .spin { width: 18px; height: 18px; }
+.mrow-wait { width: 14px; height: 14px; border: 2px dashed var(--steel-2); border-radius: 50%; display: inline-block; }
+.mrow-t { min-width: 0; display: grid; gap: 2px; }
+.mrow-t span { color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 560px) { .mrow { grid-template-columns: 22px 1fr; } .mrow > .badge, .mrow > .hint { grid-column: 2; justify-self: start; } }
+.clist { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.clist li { display: flex; gap: 10px; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: var(--r); padding: 10px 12px; }
+.clist li .st { flex: none; margin-top: 2px; }
+.clist li a { color: inherit; }
+.clist-d { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; margin-top: 2px; }
+
+/* overview: one tile per model, model first, then its answer */
+.ov-k { color: var(--blue); }
+.detail h3.ov-h { font-size: 30px; letter-spacing: -.02em; margin: 6px 0 8px; }
+.ov-p { max-width: 68ch; }
+.mmark { flex: none; display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 6px; background: var(--ink); color: #fff;
+  font: 700 18px var(--display); letter-spacing: -.02em; box-shadow: inset 0 -4px 0 rgba(255,255,255,.12); }
+.mmark.is-long { font-size: 14px; }
+.mmark.lg { width: 64px; height: 64px; font-size: 26px; border-radius: 8px; }
+.mmark.lg.is-long { font-size: 19px; }
+.mtiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 18px 0 14px; }
+.mtile { --tone: var(--bad); --tone-l: var(--bad-l); display: grid; gap: 10px; align-content: start; background: #fff; border: 1px solid var(--line);
+  border-top: 6px solid var(--tone); border-radius: 6px; padding: 16px 18px 14px; color: inherit; text-decoration: none; transition: transform .12s, box-shadow .12s; }
+.mtile.is-good { --tone: var(--good); --tone-l: var(--good-l); }
+.mtile.is-close { --tone: var(--yellow-d); --tone-l: var(--yellow-l); }
+.mtile:hover { text-decoration: none; transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(0,0,0,.45); border-color: #c9ced8; }
+.mtile-top { display: flex; gap: 12px; align-items: center; }
+.mtile-name { font: 700 21px/1.15 var(--display); letter-spacing: -.02em; }
+.mtile-by { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+.mtile-q { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 10px; }
+.mtile-v { display: flex; gap: 8px; align-items: center; background: var(--tone-l); border-radius: 4px; padding: 8px 10px;
+  font: 700 18px var(--display); color: var(--ink); }
+.mtile-v svg { width: 20px; height: 20px; flex: none; }
+.mtile .mtile-d { margin: 0; font-size: 14px; color: var(--ink-2); overflow-wrap: anywhere; }
+.mtile-f { font: 600 12px var(--mono); color: var(--blue); margin-top: 2px; }
+
+/* model page: the model's name, large, above its verdict */
+.mback { display: inline-block; font: 600 12px var(--mono); margin-bottom: 14px; }
+.mhero { display: flex; gap: 16px; align-items: center; margin-bottom: 10px; }
+.mhero .label { color: var(--blue); }
+.detail h2.mhero-name { margin: 2px 0 4px; font: 700 clamp(28px, 4vw, 40px)/1.05 var(--display); letter-spacing: -.03em; }
+.mhero-q { font-weight: 600; color: var(--ink); }
+.mhero-q span { font-weight: 400; color: var(--muted); }
+.mhero-k { color: var(--muted); margin: 0 0 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); line-height: 1.6; }
+@media (max-width: 560px) { .mmark.lg { width: 48px; height: 48px; font-size: 20px; } .mmark.lg.is-long { font-size: 15px; } .mhero { gap: 12px; } }
+
+/* agent skill call to action: a dark band on the landing page, a strip under each result overview */
+.landing .topnav .nav-skill { display: inline-flex; align-items: center; gap: 6px; background: var(--yellow); color: var(--ink); font-weight: 700;
+  border-radius: var(--r); padding: 6px 12px; border-bottom: 3px solid rgba(0,0,0,.25); }
+.landing .topnav .nav-skill:hover { background: #ffd935; }
+.landing .topnav .nav-skill { white-space: nowrap; }
+.hero-skill { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 8px 12px; border-radius: var(--r);
+  background: var(--yellow-l); border: 1px solid #f3dd8f; color: var(--ink); font-size: 14px; }
+.hero-skill:hover { text-decoration: none; border-color: var(--yellow-d); }
+.skill-cta { width: 100%; max-width: 1040px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; align-items: center; margin: 40px 0 0;
+  background: var(--ink); color: #fff; border-radius: 10px; padding: 34px 36px; position: relative; overflow: hidden; }
+.skill-cta::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--stripe); }
+.skill-cta .label { color: var(--yellow); }
+.skill-cta h2 { font: 700 clamp(26px, 3.4vw, 36px)/1.08 var(--display); letter-spacing: -.02em; margin: 10px 0 12px; }
+.skill-cta p { color: #d4d7dd; line-height: 1.6; margin: 0 0 20px; }
+.skill-cta-acts { display: flex; flex-wrap: wrap; gap: 16px 22px; align-items: center; }
+.skill-btn { display: inline-flex; align-items: center; gap: 8px; height: 50px; text-decoration: none !important; font-size: 17px; }
+.skill-btn small { font: 500 12px var(--mono); opacity: .7; }
+.skill-howto { color: var(--yellow); font-weight: 600; }
+.skill-steps { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 6px; font-size: 13.5px; color: #c3c7cf; }
+.skill-steps code { color: #fff; background: rgba(255,255,255,.1); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
+.skill-term { background: #0f1115; border: 1px solid #2c3038; border-radius: 8px; overflow: hidden; min-width: 0; }
+.skill-term-bar { display: flex; gap: 6px; align-items: center; padding: 9px 12px; border-bottom: 1px solid #2c3038; }
+.skill-term-bar i { width: 10px; height: 10px; border-radius: 50%; background: #3a3f48; }
+.skill-term-bar span { margin-left: 8px; font: 12px var(--mono); color: #8b919c; }
+.skill-term pre { margin: 0; padding: 14px 16px; font: 12.5px/1.6 var(--mono); color: #d4d7dd; white-space: pre-wrap; }
+.skill-term pre b { color: #fff; } .skill-term pre .u { color: var(--yellow); }
+.skill-strip { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--ink); color: #fff;
+  border-radius: 6px; padding: 16px 18px; margin: 4px 0 14px; border-left: 6px solid var(--yellow); }
+.skill-strip div { display: grid; gap: 4px; min-width: 0; flex: 1 1 280px; }
+.skill-strip span { color: #c3c7cf; font-size: 13.5px; }
+.skill-strip .skill-btn { height: 44px; font-size: 15px; }
+@media (max-width: 860px) { .skill-cta { grid-template-columns: 1fr; padding: 28px 20px; } }
+@media (max-width: 760px) { .landing .topnav .nav-skill { padding: 5px 10px; } }
+/* phone width: grid children may shrink (the example chips scroll inside instead of widening the page), nav wraps */
+.hero > *, .skill-cta > * { min-width: 0; }
+@media (max-width: 760px) {
+  .landing .topnav { flex-wrap: wrap; gap: 10px; }
+  .landing .topnav .links { flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+  .landing .topnav .links a.nav-skill { display: inline-flex; }
+}
+@media (max-width: 480px) {
+  .skill-btn { font-size: 15px; } .skill-btn small { display: none; }
+  .skill-steps code { word-break: break-all; }
+}
+.chips { position: relative; }  /* keeps each chip's absolutely positioned .sr label inside the scrolling row */

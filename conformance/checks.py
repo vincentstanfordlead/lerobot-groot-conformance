@@ -159,7 +159,9 @@ def run_l_checks(x: Ctx) -> list[CheckResult]:
     out.append(CheckResult("L6", "WARN", task_layout is not None, f"task metadata layout: {task_layout}", data={"layout": task_layout}))
     stats_layout = "stats.json" if "meta/stats.json" in files else (
         "episodes_stats.jsonl" if "meta/episodes_stats.jsonl" in files else None)
-    out.append(CheckResult("L7", "WARN", stats_layout is not None, f"stats layout: {stats_layout}", data={"layout": stats_layout}))
+    stats_files = [n for n in ("stats.json", "episodes_stats.jsonl") if f"meta/{n}" in files]
+    out.append(CheckResult("L7", "WARN", stats_layout is not None, f"stats layout: {stats_layout}",
+                           data={"layout": stats_layout, "files": stats_files}))
     feats = x.features
     def dim(k):
         s = (feats.get(k) or {}).get("shape") if isinstance(feats.get(k), dict) else None

@@ -72,7 +72,11 @@
    "source": null,
    "blocked_by": null,
    "data": {
-    "layout": "stats.json"
+    "layout": "stats.json",
+    "files": [
+     "stats.json",
+     "episodes_stats.jsonl"
+    ]
    }
   },
   {
@@ -307,5 +311,14 @@
   "loader": "openpi",
   "ref": "v2.1",
   "commit": "7e5c34a40ae68f38daaedd7af9e60f06834f3ca1"
+ },
+ "backfill": {
+  "stats_files_2026_10_26": {
+   "inputs": "meta/ listing at repo_sha",
+   "files": [
+    "stats.json",
+    "episodes_stats.jsonl"
+   ]
+  }
  }
 }

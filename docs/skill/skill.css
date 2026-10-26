@@ -1,0 +1,71 @@
+/* The agent skill page. Tokens, fonts, .go-btn and .label come from ../app/style.css. */
+.sk { max-width: 1080px; margin: 0 auto; padding: 0 16px 32px; }
+.sk::before { content: ""; position: fixed; inset: 0 0 auto 0; height: 6px; background: var(--stripe); z-index: 2; }
+.sk-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px 20px; flex-wrap: wrap; padding: 28px 0 0; }
+.sk-nav .logo { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.sk-nav .logo > span { display: grid; }
+.sk-nav .name { font: 700 17px/1.1 var(--display); letter-spacing: -.01em; }
+.sk-nav .sub { font: 600 10px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.sk-links { display: flex; gap: 22px; font-size: 14px; }
+.sk-links a { color: var(--ink-2); font-weight: 500; }
+
+.sk-hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px; align-items: start; margin: 56px 0 0; }
+.sk-hero > * { min-width: 0; }
+.sk-hero .label { color: var(--blue); }
+.sk-hero h1 { font: 700 clamp(36px, 5vw, 54px)/1.04 var(--display); letter-spacing: -.03em; margin: 14px 0 16px; }
+.sk-hero h1 em { font-style: normal; background: linear-gradient(transparent 62%, var(--yellow) 62%); }
+.lede { font-size: 18px; line-height: 1.6; color: var(--ink-2); margin: 0 0 26px; }
+.sk-cta { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; }
+.sk-dl { display: inline-flex; align-items: center; gap: 10px; height: 56px; font-size: 18px; text-decoration: none !important; }
+.sk-dl small { font: 500 12px var(--mono); opacity: .7; }
+.sk-install-link { font-weight: 600; }
+.sk-facts { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.sk-facts li { font: 500 12px var(--mono); color: var(--ink-2); background: var(--steel); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+
+/* the example: a chat question and the report Claude shows */
+.sk-chat { margin: 0; background: var(--steel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; box-shadow: 0 18px 40px -24px rgba(0,0,0,.35); }
+.sk-chat-q { margin-left: auto; width: fit-content; max-width: 90%; background: var(--ink); color: #fff; border-radius: 12px 12px 2px 12px; padding: 9px 13px; font-size: 14px; }
+.sk-report { margin-top: 12px; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; font-size: 13.5px; }
+.sk-report h3 { margin: 0 0 10px; font: 700 17px var(--display); }
+.sk-report dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0 0 6px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.sk-report dt { font-weight: 600; } .sk-report dd { margin: 0; color: var(--ink-2); overflow-wrap: anywhere; }
+.sk-model { padding: 12px 0 0; }
+.sk-model h4 { margin: 0; font: 700 15px var(--display); }
+.sk-model .sk-n { margin: 2px 0 6px; color: var(--muted); font-style: italic; font-size: 12.5px; }
+.sk-model ul { list-style: none; padding: 0; margin: 0 0 6px; display: grid; gap: 3px; }
+.sk-model p { margin: 0; }
+.sk-report code { font-size: 12px; background: var(--steel); padding: 0 4px; border-radius: 3px; }
+.sk-ask { margin: 14px 0 0; padding-top: 10px; border-top: 1px solid var(--line); color: var(--ink-2); }
+
+.sk-why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 56px 0 0; }
+.sk-why div { background: var(--steel); border-radius: 6px; padding: 16px 18px; border-bottom: 4px solid var(--steel-2); }
+.sk-why div:nth-child(1) { border-bottom-color: var(--green); } .sk-why div:nth-child(2) { border-bottom-color: var(--blue); } .sk-why div:nth-child(3) { border-bottom-color: var(--yellow); }
+.sk-why b { font: 700 17px var(--display); } .sk-why p { margin: 6px 0 0; color: var(--ink-2); font-size: 14px; line-height: 1.55; }
+
+.sk-sec { margin: 64px 0 0; }
+.sk-sec .label { color: var(--blue); }
+.sk-sec h2 { font: 700 clamp(26px, 3.2vw, 32px)/1.15 var(--display); letter-spacing: -.02em; margin: 8px 0 18px; }
+.sk-ways, .sk-more { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.sk-way, .sk-more > div { background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--ink); border-radius: 6px; padding: 16px 18px; min-width: 0; }
+.sk-way h3, .sk-more h3 { margin: 0 0 6px; font: 700 18px var(--display); }
+.sk-way p, .sk-more p { margin: 0 0 10px; color: var(--ink-2); line-height: 1.55; font-size: 14.5px; }
+.sk-way pre { margin: 0 0 8px; background: var(--ink); color: #fff; border-radius: 4px; padding: 10px 12px; font-size: 12.5px; white-space: pre-wrap; word-break: break-all; }
+.sk-way .hint { font-size: 13px; color: var(--muted); }
+.sk-prompts { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.sk-prompts li { background: var(--steel); border-left: 4px solid var(--yellow); border-radius: 4px; padding: 12px 14px; font-size: 15px; }
+.sk-limits { background: var(--steel); border-radius: 8px; padding: 22px 24px; }
+.sk-limits h2 { font-size: 22px; margin-top: 0; } .sk-limits p { margin: 0; color: var(--ink-2); line-height: 1.6; max-width: 75ch; }
+.sk-final { margin: 64px 0 0; background: var(--ink); color: #fff; border-radius: 10px; padding: 36px 24px; text-align: center; position: relative; overflow: hidden; }
+.sk-final::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--stripe); }
+.sk-final h2 { font: 700 clamp(24px, 3.4vw, 34px)/1.1 var(--display); margin: 0 0 20px; }
+.sk-final p { color: #c3c7cf; margin: 16px 0 0; } .sk-final a:not(.go-btn) { color: var(--yellow); }
+.sk-foot { text-align: center; color: var(--muted); font-size: 13px; padding-top: 40px; }
+.sk-foot small { display: block; margin-top: 4px; font-size: 12px; }
+code { font-size: .92em; }
+
+@media (max-width: 900px) {
+  .sk-hero { grid-template-columns: 1fr; margin-top: 36px; }
+  .sk-why, .sk-ways, .sk-more { grid-template-columns: 1fr; }
+  .sk-prompts { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) { .sk-dl { font-size: 16px; } .sk-dl small { display: none; } .sk-links { gap: 14px; } }

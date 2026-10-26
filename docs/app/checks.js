@@ -186,7 +186,8 @@ export function runLChecks(x) {
   L("L6", "WARN", taskLayout !== null, `task metadata layout: ${taskLayout ?? "None"}`, { data: { layout: taskLayout } });
   const statsLayout = "meta/stats.json" in x.files ? "stats.json"
     : "meta/episodes_stats.jsonl" in x.files ? "episodes_stats.jsonl" : null;
-  L("L7", "WARN", statsLayout !== null, `stats layout: ${statsLayout ?? "None"}`, { data: { layout: statsLayout } });
+  const statsFiles = ["stats.json", "episodes_stats.jsonl"].filter((n) => `meta/${n}` in x.files);
+  L("L7", "WARN", statsLayout !== null, `stats layout: ${statsLayout ?? "None"}`, { data: { layout: statsLayout, files: statsFiles } });
   const feats = x.features;
   const dim = (k) => {
     const s = isObj(feats[k]) ? feats[k].shape : null;

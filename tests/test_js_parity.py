@@ -170,9 +170,20 @@ class JsModelsParity(unittest.TestCase):
             hub = M.parse_versions(names)
             py_sel.append([list(M.select_revision(hub, M.LEROBOT_TARGET)), list(M.select_revision(hub, M.OPENPI_TARGET))])
 
+        # the pi0.5 config draft's action_horizon: every audited fps plus the edges
+        fps_list = sorted({c["info"]["fps"] for c in cases if isinstance((c["info"] or {}).get("fps"), (int, float))}
+                          | {1, 7.5, 8, 9.5, 10, 12.5, 14.5, 15, 15.5, 30})
+        cases.append({"checks": [{"id": "L5", "data": {"layout": "jsonl"}}, {"id": "L6", "data": {"layout": "jsonl"}},
+                                 {"id": "L1", "passed": True}, {"id": "L3", "passed": True},
+                                 {"id": "L2", "data": {"codebase_version": "v2.1"}},
+                                 {"id": "L7", "data": {"layout": "stats.json", "files": ["stats.json", "episodes_stats.jsonl"]}}],
+                      "info": None, "refNames": ["v2.1"]})
+        f = M.facts({"checks": cases[-1]["checks"]}, None, {"branches": [], "tags": [["v2.1", "x"]]})
+        py.append({"lerobot": M.lerobot_verdict(f), "openpi": M.openpi_verdict(f), "pi05": M.pi05_fit(None)})
+        self.assertEqual(py[-1]["openpi"]["verdict"], "NEEDS_CONFIG")
         inp = ROOT / "results" / ".js_models_in.json"
         try:
-            inp.write_text(json.dumps({"cases": cases, "selections": selections}))
+            inp.write_text(json.dumps({"cases": cases, "selections": selections, "fpsList": fps_list}))
             out = subprocess.run([NODE, str(ROOT / "tests" / "js_models.mjs"), str(inp)], capture_output=True, text=True, check=True)
         finally:
             inp.unlink(missing_ok=True)
@@ -181,5 +192,6 @@ class JsModelsParity(unittest.TestCase):
         diff = [(i, a, b) for i, (a, b) in enumerate(zip(py, js_res["verdicts"])) if a != b]
         self.assertEqual(len(py), len(js_res["verdicts"]))
         self.assertEqual(diff[:3], [], f"{len(diff)} of {len(py)} verdict pairs differ")
+        self.assertEqual(js_res["horizons"], [M.pi05_action_horizon(x) for x in fps_list])
         sel_diff = [(n, a, b) for n, a, b in zip(selections, py_sel, js_res["selections"]) if a != b]
         self.assertEqual(sel_diff[:3], [], f"{len(sel_diff)} of {len(selections)} selections differ")

@@ -123,6 +123,8 @@ export function facts(checks, info, refNames) {
     version_str: verS,
     layout: v3 ? "v3" : ep === "jsonl" || tk === "jsonl" ? "v2" : null,
     episodes_layout: ep, tasks_layout: tk, stats_layout: st,
+    // L7 "files" lists every stats file; older records stored only the preferred one in "layout"
+    stats_files: data("L7", "files") ?? (st ? [st] : []),
     total_episodes: info?.total_episodes ?? data("L11", "total_episodes"),
     total_tasks: info?.total_tasks ?? null,
     refs: refNames === null ? null : parseVersions(refNames),
@@ -144,7 +146,7 @@ function missingV2(f) {
   if (f.episodes_layout !== "jsonl") miss.push("meta/episodes.jsonl");
   const old = f.version !== null && cmp(f.version, parseVersion("2.1")) < 0;
   const want = old ? "stats.json" : "episodes_stats.jsonl";
-  if (f.stats_layout !== want) miss.push(`meta/${want}`);
+  if (!f.stats_files.includes(want)) miss.push(`meta/${want}`);
   return miss;
 }
 
@@ -359,6 +361,12 @@ function pyRepr(x) {
   return String(x);
 }
 
+// openpi's own π0.5 configs: pi05_libero (10 Hz) uses 10, pi05_droid (15 Hz) 15. At <= PI05_LOW_FPS, about
+// one second of actions but no fewer than 10; otherwise the default. Same rule as models.py.
+export function pi05ActionHorizon(fps) {
+  return typeof fps === "number" && fps > 0 && fps <= PI05_LOW_FPS ? Math.max(10, Math.round(fps)) : PI05_ACTION_HORIZON;
+}
+
 // A starting point for the openpi config, from the same info.json (web app only; not part of the verdict).
 // Base slot: the first RGB camera without "wrist" in its key; wrist slots: the "wrist" cameras, then the rest.
 export function pi05Draft(info, fit) {
@@ -374,8 +382,7 @@ export function pi05Draft(info, fit) {
   const act = vectorGroup(F, ["action", "actions"], ["action.", "actions."]);
   const st = vectorGroup(F, ["observation.state", "state"], ["observation.state.", "observation.states."]);
   const fps = typeof info.fps === "number" && info.fps > 0 ? info.fps : null;
-  // openpi's own π0.5 configs: pi05_libero (10 Hz) uses 10, pi05_droid (15 Hz) 15; otherwise keep the default
-  const horizon = fps !== null && fps <= PI05_LOW_FPS ? Math.max(1, Math.round(fps)) : PI05_ACTION_HORIZON;
+  const horizon = pi05ActionHorizon(fps);
   return { slots, dropped: wrists.slice(2), action: act.keys, state: st.keys, horizon, fps,
     prompt: isInt(info.total_tasks) && info.total_tasks > 0 && isObj(F.task_index) };
 }

@@ -81,7 +81,11 @@
    "source": null,
    "blocked_by": null,
    "data": {
-    "layout": "stats.json"
+    "layout": "stats.json",
+    "files": [
+     "stats.json",
+     "episodes_stats.jsonl"
+    ]
    }
   },
   {
@@ -324,6 +328,13 @@
    "G15",
    "G16"
   ],
-  "inputs": "meta/info.json (+ modality.json) at repo_sha; L11 count from stored G2"
+  "inputs": "meta/info.json (+ modality.json) at repo_sha; L11 count from stored G2",
+  "stats_files_2026_10_26": {
+   "inputs": "meta/ listing at repo_sha",
+   "files": [
+    "stats.json",
+    "episodes_stats.jsonl"
+   ]
+  }
  }
 }

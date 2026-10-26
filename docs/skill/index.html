@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robot Data Smog Check: the agent skill</title>
+<meta name="description" content="Download the Robot Data Smog Check agent skill: ask Claude whether a local LeRobot dataset is ready to fine-tune GR00T and π0.5. Metadata only, nothing uploaded.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='14 4 72 78'%3E%3Cpath d='M50 24V12' stroke='%231b1b1b' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='11' r='5.5' fill='%2300A650'/%3E%3Crect x='32' y='19' width='13' height='8' rx='2' fill='%2300A650'/%3E%3Crect x='55' y='19' width='13' height='8' rx='2' fill='%2300A650'/%3E%3Crect x='22' y='26' width='56' height='52' rx='6' fill='%2300A650'/%3E%3Cpath d='M34 50q6 -8 12 0M54 50q6 -8 12 0' stroke='%231b1b1b' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M38 59q12 12 24 0z' fill='%231b1b1b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../app/style.css?v=20261026d">
+<link rel="stylesheet" href="skill.css?v=20261026d">
+</head>
+<body>
+<div class="sk">
+  <nav class="sk-nav">
+    <a class="logo" href="../">
+      <svg viewBox="14 4 72 78" width="30" height="32" aria-hidden="true"><path d="M50 24V12" stroke="#1b1b1b" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="11" r="5.5" fill="#00A650"/><rect x="32" y="19" width="13" height="8" rx="2" fill="#00A650"/><rect x="55" y="19" width="13" height="8" rx="2" fill="#00A650"/><rect x="22" y="26" width="56" height="52" rx="6" fill="#00A650"/><rect x="22" y="72" width="56" height="6" rx="2" fill="#007a3b"/><path d="M34 50q6 -8 12 0M54 50q6 -8 12 0" stroke="#1b1b1b" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M38 59q12 12 24 0z" fill="#1b1b1b"/></svg>
+      <span><span class="name">Robot Data Smog Check</span><span class="sub">Agent skill</span></span>
+    </a>
+    <div class="sk-links"><a href="../">Check a Hugging Face dataset</a><a href="https://github.com/vincentstanfordlead/lerobot-groot-conformance" target="_blank" rel="noopener">GitHub</a></div>
+  </nav>
+
+  <header class="sk-hero">
+    <div>
+      <div class="label">Agent skill for Claude · runs on your machine</div>
+      <h1>Check your robot data <em>where it lives</em>.</h1>
+      <p class="lede">Private or vendor data can't go to a website. Download the skill and ask Claude <b>“Is this dataset ready to fine-tune GR00T and π0.5?”</b>. You get the same checks as the website, as a short report, for any LeRobot folder on your computer.</p>
+      <div class="sk-cta">
+        <a class="go-btn sk-dl" href="../download/robot-data-smog-check.zip" download>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          Download the skill <small>.zip · 206 KB</small>
+        </a>
+        <a class="sk-install-link" href="#install">How to install ↓</a>
+      </div>
+      <ul class="sk-facts">
+        <li>Claude Code and claude.ai</li><li>Python 3.9+, nothing to install</li><li>MIT licensed</li>
+      </ul>
+    </div>
+
+    <figure class="sk-chat" aria-label="Example: the report Claude shows">
+      <div class="sk-chat-q">Is ./tictac-bot ready to fine-tune pi0.5 and GR00T N1.7?</div>
+      <div class="sk-report">
+        <h3>Dataset diagnostic report: tictac-bot</h3>
+        <dl>
+          <dt>Dataset</dt><dd><code>tictac-bot</code> · LeRobot v2.1 · 50 episodes · 30 fps · 1 camera</dd>
+          <dt>Robot</dt><dd>✅ Single robot arm (<code>robot_type: so100</code>)</dd>
+          <dt>Privacy</dt><dd>Read 3 metadata files (7.7 KB) on this machine. Nothing uploaded.</dd>
+        </dl>
+        <div class="sk-model">
+          <h4>GR00T N1.7 · 🟡 One step away</h4>
+          <p class="sk-n">21 of 28 loader checks pass</p>
+          <ul>
+            <li>✅ Dataset basics</li><li>✅ File layout GR00T reads</li>
+            <li>❌ GR00T's extra file: modality.json — <code>meta/modality.json</code> missing</li>
+            <li>🟡 Data types &amp; statistics — <code>meta/stats.json</code> missing (optional)</li><li>✅ Consistency</li>
+          </ul>
+          <p><b>Next:</b> Add <code>meta/modality.json</code> · draft saved</p>
+        </div>
+        <div class="sk-model">
+          <h4>π0.5 (openpi) · ✅ Ready to configure</h4>
+          <p class="sk-n">8 of 8 model-fit checks pass</p>
+          <ul>
+            <li>✅ Loads in openpi</li><li>✅ Actions &amp; state</li><li>✅ Cameras</li><li>✅ Frame rate &amp; episode length</li><li>✅ Task prompt</li>
+          </ul>
+          <p><b>Next:</b> Write an openpi data config and train config (+1 more) · plan saved</p>
+        </div>
+        <p class="sk-ask">Want the full details: every check and step-by-step fixes?</p>
+      </div>
+    </figure>
+  </header>
+
+  <section class="sk-why">
+    <div><b>Private by design</b><p>Reads only <code>meta/*.json(l)</code> and the file listing. It never opens episodes or video, and uploads nothing.</p></div>
+    <div><b>Same checks as the website</b><p>28 checks against GR00T's loader, openpi's loading rules, and 8 checks on whether the data fits π0.5.</p></div>
+    <div><b>The same report every time</b><p>A short summary in English: ✅ / 🟡 / ❌ per area and the next step. Say yes for every check and the fixes in order.</p></div>
+  </section>
+
+  <section class="sk-sec" id="install">
+    <div class="label">Install</div>
+    <h2>Three ways to run it</h2>
+    <div class="sk-ways">
+      <div class="sk-way">
+        <h3>Claude Code</h3>
+        <p>Unzip into your skills folder, then start a new session.</p>
+        <pre><code>unzip robot-data-smog-check.zip -d ~/.claude/skills/</code></pre>
+        <p class="hint">You get <code>~/.claude/skills/robot-data-smog-check/</code>.</p>
+      </div>
+      <div class="sk-way">
+        <h3>claude.ai</h3>
+        <p>Upload the zip as a skill in Settings, then ask in a chat that has your dataset's <code>meta/</code> files.</p>
+      </div>
+      <div class="sk-way">
+        <h3>No agent</h3>
+        <p>Run the script yourself. It prints the same report.</p>
+        <pre><code>python3 robot-data-smog-check/scripts/smog_check.py check &lt;dataset-folder&gt;</code></pre>
+        <p class="hint">Add <code>--details</code> for every check.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-sec">
+    <div class="label">Ask it</div>
+    <h2>Things to say to Claude</h2>
+    <ul class="sk-prompts">
+      <li>Is <code>~/data/pick_cube</code> ready to fine-tune GR00T?</li>
+      <li>Can I train π0.5 on this dataset? What do I need to change?</li>
+      <li>Check every dataset under <code>~/recordings/</code>.</li>
+      <li>We're delivering this dataset to a customer. Write a conformance manifest.</li>
+    </ul>
+  </section>
+
+  <section class="sk-sec">
+    <div class="label">Beyond the website</div>
+    <h2>What it can do with the files in front of it</h2>
+    <div class="sk-more">
+      <div><h3>Drafts GR00T's <code>modality.json</code></h3><p>From the dimension names: which numbers are the arm and which the gripper. It is saved beside the data for you to confirm, never written into <code>meta/</code> on its own.</p></div>
+      <div><h3>Plans the π0.5 config</h3><p>Which camera goes in which image slot, the state and action keys, <code>action_horizon</code>, and the norm-stats command, in <code>pi05_config_plan.md</code>.</p></div>
+      <div><h3>Seals a delivery</h3><p>A producer writes <code>conformance.json</code>; the buyer runs <code>verify</code> to confirm what arrived is what was checked, without either side uploading data.</p></div>
+    </div>
+  </section>
+
+  <section class="sk-sec sk-limits">
+    <h2>What it doesn't tell you</h2>
+    <p>These are static checks on metadata. Passing means the loader can read the files and the data's shape fits the model, not that a model will train well on it. It doesn't look inside episodes, so frame timing and data quality are out of scope.</p>
+  </section>
+
+  <section class="sk-final">
+    <h2>Run the smog check on your own data.</h2>
+    <a class="go-btn sk-dl" href="../download/robot-data-smog-check.zip" download>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+      Download the skill <small>.zip · 206 KB</small>
+    </a>
+    <p>Or <a href="../">check a public Hugging Face dataset</a> in your browser.</p>
+  </section>
+
+  <footer class="sk-foot">Built from <a href="https://github.com/vincentstanfordlead/lerobot-groot-conformance" target="_blank" rel="noopener">lerobot-groot-conformance</a>, an audit of 562 public LeRobot datasets.
+    <small>Independent project, not affiliated with NVIDIA, Physical Intelligence or Hugging Face.</small></footer>
+</div>
+</body>
+</html>

@@ -30,14 +30,15 @@ SELECTION = [
 
 
 # ---- verdicts
-def rec(version="v2.1", ep="jsonl", tk="jsonl", st="episodes_stats.jsonl", l1=True, l3=True, **info):
+def rec(version="v2.1", ep="jsonl", tk="jsonl", st="episodes_stats.jsonl", l1=True, l3=True, stats_files=None, **info):
     checks = [
         {"id": "L1", "passed": l1, "data": {}},
         {"id": "L2", "passed": True, "data": {"codebase_version": version}},
         {"id": "L3", "passed": l3, "data": {}},
         {"id": "L5", "passed": ep is not None, "data": {"layout": ep}},
         {"id": "L6", "passed": tk is not None, "data": {"layout": tk}},
-        {"id": "L7", "passed": st is not None, "data": {"layout": st}},
+        {"id": "L7", "passed": st is not None,
+         "data": {"layout": st, **({"files": stats_files} if stats_files is not None else {})}},
     ]
     return {"checks": checks}, {"total_episodes": 5, "total_tasks": 1, **info}
 
@@ -90,6 +91,16 @@ class Verdicts(unittest.TestCase):
         # v2.0 wants stats.json, so episodes_stats.jsonl alone is not enough
         _, op = verdicts(rec(version="v2.0"), ["v2.0"])
         self.assertEqual((op["verdict"], op["reason"]), ("BLOCKED", "missing meta/stats.json"))
+
+    def test_v21_with_both_stats_files_loads_for_openpi(self):
+        # GR00T-ready v2.1 data ships stats.json as well; L7's layout then says stats.json, but
+        # episodes_stats.jsonl is there too and is what openpi's LeRobot reads
+        both = rec(st="stats.json", stats_files=["stats.json", "episodes_stats.jsonl"])
+        _, op = verdicts(both, ["v2.1"])
+        self.assertEqual(op["verdict"], "NEEDS_CONFIG")
+        only = rec(st="stats.json", stats_files=["stats.json"])
+        _, op = verdicts(only, ["v2.1"])
+        self.assertEqual((op["verdict"], op["reason"]), ("BLOCKED", "missing meta/episodes_stats.jsonl"))
 
     def test_dual_tag_repo_is_loadable_by_both_but_openpi_files_are_unverified(self):
         lr, op = verdicts(v3rec(), ["v2.1", "v3.0"])
@@ -159,6 +170,11 @@ def status(info):
 
 
 class Pi05Fit(unittest.TestCase):
+    def test_action_horizon(self):
+        for fps, want in [(5, 10), (8, 10), (10, 10), (12.5, 13), (15, 15), (15.5, 50), (30, 50),
+                          (None, 50), (0, 50), (True, 50)]:
+            self.assertEqual(M.pi05_action_horizon(fps), want, fps)
+
     def test_typical_dataset_fits(self):
         r = M.pi05_fit(so100())
         self.assertEqual(r["verdict"], "FIT")

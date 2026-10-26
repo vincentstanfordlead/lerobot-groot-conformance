@@ -13,14 +13,54 @@ specific to one model.
 >   LeRobot v3.0 layout first. Metadata checks only; nothing was loaded through GR00T.
 > - **Other loaders:** the same datasets against LeRobot's own loader and openpi. They read different
 >   layouts (v3.0 only, v2.x only), so one dataset gets different answers. In the random sample, 56% load
->   in LeRobot from the Hub as is, 29.5% are ready for openpi's loader (which still needs a per-dataset
->   config), and 1 in 200 does both without conversion.
+>   in LeRobot from the Hub as is, 30% are ready for openpi's loader (which still needs a per-dataset
+>   config), and 2 in 200 do both without conversion.
 >   [Details below](#beyond-groot-lerobot-and-openpi).
 > - **Website:** [Robot Data Smog Check](https://vincentstanfordlead.github.io/lerobot-groot-conformance/)
 >   inspects any Hugging Face dataset in seconds, says what's missing and how to fix it, and drafts
 >   the missing `modality.json` when the dimension names allow.
+> - **Agent skill:** the same check, run by your AI agent on your own machine, for private data.
+>   [Get the skill](https://vincentstanfordlead.github.io/lerobot-groot-conformance/skill/).
 > - **Checklist:** a [draft checklist](CHECKLIST.md) for people who record robot data, covering what
 >   to capture so the data is GR00T-ready from the start.
+
+## Run it locally: the agent skill
+
+[![Get the agent skill](https://img.shields.io/badge/Get%20the%20agent%20skill-robot--data--smog--check-FFCF00?style=for-the-badge&labelColor=1b1b1b)](https://vincentstanfordlead.github.io/lerobot-groot-conformance/skill/)
+
+**[Skill page: what it does, install, download](https://vincentstanfordlead.github.io/lerobot-groot-conformance/skill/)** · or download the zip directly:
+[`robot-data-smog-check.zip`](docs/download/robot-data-smog-check.zip)
+
+**Private or vendor data?** Download the **Robot Data Smog Check** agent skill and ask Claude
+*"Is this dataset ready to fine-tune GR00T and π0.5?"*. It runs the same checks as the website (GR00T,
+openpi and π0.5) on your own machine. It reads only `meta/*.json(l)` and the file listing, never opens
+episodes or video, and uploads nothing.
+
+| | How to install |
+|---|---|
+| **Claude Code** | Unzip into `~/.claude/skills/` (you get `~/.claude/skills/robot-data-smog-check/`), then start a new session. |
+| **claude.ai** | Upload the zip as a skill in Settings. |
+| **No agent** | `python3 robot-data-smog-check/scripts/smog_check.py check <dataset-folder>`. Python 3.9+, nothing to install. |
+
+You get a short report in English, the same every time, then an offer of the full details:
+
+```
+Dataset diagnostic report: tictac-bot
+  Dataset  tictac-bot · LeRobot v2.1 · 50 episodes · 30 fps · 1 camera
+  Robot    ✅ Single robot arm (robot_type: so100): a fit for these models
+  Privacy  Read 3 metadata files (7.7 KB) on this machine. Nothing uploaded.
+
+GR00T N1.7 · 🟡 One step away                π0.5 (openpi) · ✅ Ready to configure
+  ✅ Dataset basics                             ✅ Loads in openpi
+  ✅ File layout GR00T reads                    ✅ Actions & state
+  ❌ modality.json: meta/modality.json missing  ✅ Cameras
+  🟡 Data types & statistics (optional)         ✅ Frame rate & episode length
+  ✅ Consistency                                ✅ Task prompt
+  Next: add meta/modality.json (draft saved)    Next: write the openpi config (plan saved)
+```
+
+More on what it does, the modality.json draft and the delivery manifest:
+[Use it as an agent skill](#use-it-as-an-agent-skill).
 
 <img src="docs/img/mosaic.jpg" alt="A grid of 24 camera frames from audited LeRobot datasets: robot arms picking, folding, pouring and sorting, plus one top-down race-car track. Each frame has a badge: green check for one file away from GR00T, amber minus for needs format conversion, red cross for not robot manipulation." width="100%">
 
@@ -130,12 +170,12 @@ kind:
 | per stratum | curated (n=162) | popular (n=100) | recent (n=91) | tail (n=200) |
 |---|---|---|---|---|
 | LeRobot loads it from the Hub as is | 127 (78%) | 20 (20%) | 80 (88%) | 112 (56%) |
-| openpi: layout and tags fine, config still to write | 144 (89%) | 13 (13%) | 7 (8%) | 59 (30%) |
-| both, with no conversion | 110 (68%) | 1 (1%) | 0 | 1 (<1%) |
+| openpi: layout and tags fine, config still to write | 144 (89%) | 16 (16%) | 7 (8%) | 60 (30%) |
+| both, with no conversion | 110 (68%) | 2 (2%) | 0 | 2 (1%) |
 | repo has no version tag at all | 1 | 57 (57%) | 3 | 6 (3%) |
 
 In the random sample (tail), LeRobot loads 56.0% (95% Wilson CI 49.1–62.7%) and openpi is at its best
-state for 29.5% (23.6–36.2%). No intervals for the other groups, which are not random samples.
+state for 30.0% (24.1–36.7%). No intervals for the other groups, which are not random samples.
 
 - **Version tags decide loading by repo id.** Both LeRobot loaders choose the revision to download from
   the repo's version-named branches and tags, not from `info.json`. A repo with no such tag fails to load
@@ -270,6 +310,42 @@ tables are rebuilt from the committed tag lists; refreshing those is a separate 
 ```bash
 .venv/bin/python -m unittest discover -s tests -t . -v
 ```
+
+## Use it as an agent skill
+
+The same checks (GR00T, plus openpi and π0.5) ship as an Agent Skill, [`skills/robot-data-smog-check`](skills/robot-data-smog-check/SKILL.md),
+so you can ask a coding agent "is this dataset GR00T-ready?" and it runs the check **where the data
+lives**. It reads only `meta/*.json(l)` and the file listing, never opens episodes or video, and
+uploads nothing, so private and vendor data never has to be sent anywhere.
+
+**[Get the skill](https://vincentstanfordlead.github.io/lerobot-groot-conformance/skill/)** ([zip](docs/download/robot-data-smog-check.zip)), or build it from this repo:
+
+```bash
+python3 scripts/build_skill.py          # -> dist/robot-data-smog-check.zip (standalone, stdlib only), copied to docs/download/robot-data-smog-check.zip
+cp -r dist/robot-data-smog-check ~/.claude/skills/   # or upload the zip as a skill
+```
+
+What it adds on top of the linter:
+- **A diagnostic report** in Markdown, always in English, laid out like the web app: a short summary (per model,
+  a checkbox per area and the next step); `--details` adds every check and the fixes in order; `--plain` gives terminal text.
+- **Plain-language next steps** for each verdict, in order (convert, then add `modality.json`, ...).
+- **A drafted `meta/modality.json`** from the dimension names (`--draft`), saved beside the data for a
+  person to confirm, never written into `meta/` on its own. It reproduces NVIDIA's hand-written split
+  on the `cube_to_bowl_5` demo and matches the web app's drafts on all 552 audited `info.json` files.
+- **A conformance manifest** (`--manifest` writes `conformance.json`): verdict, passed checks, episodes
+  and hours, and a SHA-256 fingerprint of the metadata and the file listing. A producer ships it with
+  the data; the receiver runs `smog_check.py verify <dataset>` to confirm what arrived is what was
+  checked. Both sides can then count conforming datasets and hours without anyone uploading data.
+  It is an integrity record, not a signature, and does not hash episode or video payloads.
+
+```bash
+python3 skills/robot-data-smog-check/scripts/smog_check.py check path/to/dataset --draft
+python3 skills/robot-data-smog-check/scripts/smog_check.py check path/to/dataset --manifest
+python3 skills/robot-data-smog-check/scripts/smog_check.py verify path/to/dataset
+```
+
+Tests: `tests/test_skill.py` (verdicts, metadata-only reads, drafts, manifest tamper cases, the
+packaged skill running standalone).
 
 ## The takeaway for data producers: [CHECKLIST.md](CHECKLIST.md)
 

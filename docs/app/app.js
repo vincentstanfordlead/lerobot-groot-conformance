@@ -8,6 +8,9 @@ import { renderLeaderboard, renderValidation } from "./preview.js";
 
 const NAME = "Robot Data Smog Check";
 const REPO_URL = "https://github.com/vincentstanfordlead/lerobot-groot-conformance";
+// The agent skill, built by scripts/build_skill.py into docs/download/ (served next to this page).
+const SKILL_ZIP = "download/robot-data-smog-check.zip";
+const SKILL_PAGE = "skill/";  // docs/skill/index.html: what the skill is, install, download
 // One example per outcome, so a click shows something different. The dot is the traffic light for what the inspection found.
 const EXAMPLES = [
   { id: "lerobot/aloha_sim_transfer_cube_human", tone: "red", says: "two steps away" },
@@ -173,12 +176,47 @@ const brand = (sub = true) => `${logoMark()}<span class="name">${NAME}${sub ? `<
 
 // ---------------------------------------------------------------- landing
 
+function skillCta(compact = false) {
+  if (compact) {
+    return `<div class="skill-strip"><div><b>Private data? Run this exact check on your own machine.</b>
+      <span>Download the agent skill, then ask Claude "is this dataset ready for GR00T and π0.5?". Metadata only; nothing leaves your computer.</span></div>
+      <a class="go-btn skill-btn" href="${SKILL_PAGE}">${ICON.dl} Get the skill</a></div>`;
+  }
+  return `<section class="skill-cta" id="skill">
+    <div class="skill-cta-l">
+      <div class="label">Run it locally · agent skill</div>
+      <h2>Private data? Run the same check on your own machine.</h2>
+      <p>Download the <b>Robot Data Smog Check</b> skill for Claude. Ask <i>"Is this dataset ready to fine-tune GR00T and π0.5?"</i> and get this report for any local LeRobot folder. It reads only the metadata files, never opens episodes or video, and uploads nothing.</p>
+      <div class="skill-cta-acts">
+        <a class="go-btn skill-btn" href="${SKILL_PAGE}">${ICON.dl} Get the agent skill</a>
+        <a class="skill-howto" href="${SKILL_ZIP}" download>or download the .zip directly (206 KB)</a>
+      </div>
+      <ol class="skill-steps"><li><b>Claude Code:</b> unzip into <code>~/.claude/skills/</code></li><li><b>claude.ai:</b> upload the zip as a skill</li><li><b>No agent:</b> <code>python3 smog_check.py check &lt;folder&gt;</code></li></ol>
+    </div>
+    <div class="skill-term" aria-hidden="true">
+      <div class="skill-term-bar"><i></i><i></i><i></i><span>claude · robot-data-smog-check</span></div>
+      <pre><span class="u">› Is ./tictac-bot ready for GR00T and π0.5?</span>
+
+<b>GR00T N1.7 · 🟡 One step away</b>
+ ✅ Dataset basics
+ ✅ File layout GR00T reads
+ ❌ modality.json missing
+ ✅ Consistency
+ Next: add meta/modality.json · draft saved
+
+<b>π0.5 (openpi) · ✅ Ready to configure</b>
+ ✅ Loads · ✅ Actions · ✅ Cameras · ✅ Prompt
+ Next: write the openpi config · plan saved</pre>
+    </div>
+  </section>`;
+}
+
 function renderLanding() {
   document.title = `${NAME}: is your robot dataset GR00T-ready?`;
   app.innerHTML = `
   <section class="landing">
     <nav class="topnav"><button class="logo" id="homeLogo">${brand()}</button>
-      <div class="links"><button id="toChecks">My inspections${runs.length ? ` (${runs.length})` : ""}</button><button id="toBoard">Leaderboard <i class="soon-tag">coming soon</i></button><button id="toBuild">Model Validation <i class="soon-tag">coming soon</i></button><a href="${REPO_URL}" target="_blank" rel="noopener">How it works</a></div></nav>
+      <div class="links"><button id="toChecks">My inspections${runs.length ? ` (${runs.length})` : ""}</button><button id="toBoard">Leaderboard <i class="soon-tag">coming soon</i></button><button id="toBuild">Model Validation <i class="soon-tag">coming soon</i></button><a href="${REPO_URL}" target="_blank" rel="noopener">How it works</a><a class="nav-skill" href="${SKILL_PAGE}">${ICON.dl} Get the agent skill</a></div></nav>
     <div class="hero">
       <div>
         <div class="label">Pre-training inspection · GR00T, LeRobot, openpi</div>
@@ -192,6 +230,7 @@ function renderLanding() {
         </form>
         <p class="hint" id="heroHint">Or try one:</p>
         <div class="chips">${EXAMPLES.map(chipHtml).join("")}</div>
+        <a class="hero-skill" href="${SKILL_PAGE}">${ICON.dl} <b>Private data?</b> Download the agent skill and run this check on your own machine →</a>
       </div>
       <div class="hero-art">${mascot("happy")}</div>
     </div>
@@ -201,6 +240,7 @@ function renderLanding() {
       <div><b>0</b><span>sign-ins, uploads or video downloads</span></div>
       <div><b>562</b><span>public datasets in the audit behind it</span></div>
     </div>
+    ${skillCta()}
     <footer>Built from <a href="${REPO_URL}" target="_blank" rel="noopener">lerobot-groot-conformance</a>, an audit of public LeRobot datasets.
       <small>No emissions were measured. Independent project, not affiliated with NVIDIA or Hugging Face.</small></footer>
   </section>`;
@@ -330,64 +370,118 @@ let active = null;
 
 // The LeRobot and openpi columns (conformance/models.py). Where a loader's selected version ref is not the commit
 // just inspected, that snapshot is inspected too, because that is what the loader would actually pull.
-async function inspectModels(id, view, r, signal, say) {
-  const refs = await fetchRefs(id, signal);
+async function inspectColumn(col, id, view, r, refs, snapshots, signal, say) {
+  const [target, verdictFn] = col === "lerobot" ? [LEROBOT_TARGET, lerobotVerdict] : [OPENPI_TARGET, openpiVerdict];
   const names = refs.map((x) => x.name);
-  const out = { refs: names, lerobot: null, openpi: null };
-  const snapshots = new Map();
-  for (const [col, target, verdictFn] of [["lerobot", LEROBOT_TARGET, lerobotVerdict], ["openpi", OPENPI_TARGET, openpiVerdict]]) {
-    let f = facts(r.checks, r.info, names);
-    let verified = null;
-    const snap = snapshotToInspect(refs, view.sha, target);
-    if (snap) {
-      try {
-        if (!snapshots.has(snap.commit)) {
-          say(`Reading the ${snap.ref} snapshot @${snap.commit.slice(0, 7)}`);
-          snapshots.set(snap.commit, runAll(await new HubView(id, snap.commit).load(() => {}, signal)));
-        }
-        f = facts(snapshots.get(snap.commit).checks, null, names);
-        verified = snap;
-      } catch (e) {
-        if (e.name === "AbortError") throw e;
-        verified = { ...snap, error: e.message || String(e) };
+  let f = facts(r.checks, r.info, names);
+  let verified = null;
+  const snap = snapshotToInspect(refs, view.sha, target);
+  if (snap) {
+    try {
+      if (!snapshots.has(snap.commit)) {
+        say(`Reading the ${snap.ref} snapshot @${snap.commit.slice(0, 7)}`);
+        snapshots.set(snap.commit, runAll(await new HubView(id, snap.commit).load(() => {}, signal)));
       }
+      f = facts(snapshots.get(snap.commit).checks, null, names);
+      verified = snap;
+    } catch (e) {
+      if (e.name === "AbortError") throw e;
+      verified = { ...snap, error: e.message || String(e) };
     }
-    out[col] = { ...verdictFn(f), verified };
   }
-  return out;
+  return { ...verdictFn(f), verified };
 }
+
+// The four results every inspection reports, in the order they run. `res` turns a (partial) record into
+// [label, tone, short detail] for the progress panel and the per-model cards.
+const plainReason = (r) => String(r ?? "").replace(/\s*\(outcome: [^)]*\)/, "");
+const markHtml = (m, cls = "") => `<span class="mmark ${cls} ${m.mark.length > 2 ? "is-long" : ""}" aria-hidden="true">${esc(m.mark)}</span>`;
+const MODEL_ROWS = [
+  { key: "groot", name: "GR00T N1.7", by: "NVIDIA", mark: "G", q: "Can GR00T's loader read it?", what: "28 checks against Isaac-GR00T's loader", go: "groot",
+    res: (rec) => [VERDICTS[rec.verdict].headline, VERDICTS[rec.verdict].tone, `${rec.checks.filter((c) => c.passed === true).length} of ${rec.checks.length} checks passed`] },
+  { key: "lerobot", name: "LeRobot", by: "Hugging Face · ACT, Diffusion, SmolVLA", mark: "LR", q: "Can LeRobot load it from the Hub?", what: "version tags + v3.0 metadata files", go: "lerobot",
+    res: (rec) => rec.models?.error ? ["Not assessed", "bad", "version tags couldn't be read"]
+      : [MODEL_VERDICTS[rec.models.lerobot.verdict].label, MODEL_VERDICTS[rec.models.lerobot.verdict].tone, plainReason(rec.models.lerobot.reason)] },
+  { key: "openpi", name: "openpi loader", by: "Physical Intelligence · π0, π0-FAST, π0.5", mark: "π", q: "Can openpi load it from the Hub?", what: "version tags + v2.x metadata files", go: "openpi",
+    res: (rec) => rec.models?.error ? ["Not assessed", "bad", "version tags couldn't be read"]
+      : [MODEL_VERDICTS[rec.models.openpi.verdict].label, MODEL_VERDICTS[rec.models.openpi.verdict].tone, plainReason(rec.models.openpi.reason)] },
+  { key: "pi05", name: "π0.5 model fit", by: "Physical Intelligence · pi05_base", mark: "π0.5", q: "Does the data fit π0.5?", what: "8 checks: actions, state, cameras, frame rate, prompt", go: "pi05",
+    res: (rec) => [PI05_VERDICTS[rec.pi05.verdict].label, PI05_VERDICTS[rec.pi05.verdict].tone,
+      rec.pi05.issues?.length ? `${rec.pi05.issues.length} of ${rec.pi05.checks.length} checks to adapt` : `${rec.pi05.checks.length} checks, config only renames keys`] },
+];
+// Each model's checks take milliseconds; this pause only lets the eye follow the rows (about 0.6 s in all).
+const STEP_PAUSE_MS = 150;
+const pause = (signal) => new Promise((ok, no) => {
+  const t = setTimeout(ok, STEP_PAUSE_MS);
+  signal.addEventListener("abort", () => { clearTimeout(t); no(new DOMException("aborted", "AbortError")); }, { once: true });
+});
 
 async function startRun(datasetId) {
   const abort = new AbortController();
   const ov = openResultShell(datasetId, abort);
   const log = [];
   const t0 = performance.now();
+  // per-model rows: state "wait" | "run" | "done"; `now` is the current sub-step, `out` the result line
+  const rows = Object.fromEntries(MODEL_ROWS.map((m) => [m.key, { state: "wait", now: "", out: null, ms: null }]));
+  let started = false;
+  const rowHtml = (m) => {
+    const r = rows[m.key];
+    const st = r.state === "done" ? ICON.pass : r.state === "run" ? '<span class="spin"></span>' : '<span class="mrow-wait"></span>';
+    const right = r.state === "done" ? `<span class="badge t-${tn(r.out[1])}">${esc(r.out[0])}</span>`
+      : `<span class="hint">${r.state === "run" ? "checking…" : "waiting"}</span>`;
+    return `<li class="mrow is-${r.state}">${st}<div class="mrow-t"><b>${esc(m.name)}</b><span>${esc(r.state === "run" && r.now ? r.now : r.state === "done" ? r.out[2] : m.what)}</span></div>${right}</li>`;
+  };
   const paint = () => {
     $("#side", ov).innerHTML = `<div class="grp">Progress</div>` + log.map((l, i) =>
       `<div class="item"><span>${i === log.length - 1 ? '<span class="spin"></span>' : ICON.pass}</span><div><div class="t">${esc(l)}</div></div></div>`).join("");
     $("#detail", ov).innerHTML = `<div class="scan"><div>${mascot("look", { cls: "working" })}</div><div><div class="label" style="color:var(--muted)">Inspection in progress</div>
       <h3 style="margin-top:6px">Reading ${esc(datasetId)}</h3><p>Metadata straight from Hugging Face, in your browser.</p>
-      <ul class="log">${log.map((l, i) => `<li class="${i === log.length - 1 ? "now" : ""}">${i === log.length - 1 ? '<span class="spin"></span>' : "✓"} ${esc(l)}</li>`).join("")}</ul></div></div>`;
+      <ul class="log">${log.map((l, i) => { const now = i === log.length - 1 && !started; return `<li class="${now ? "now" : ""}">${now ? '<span class="spin"></span>' : "✓"} ${esc(l)}</li>`; }).join("")}</ul>
+      ${started ? `<div class="label" style="margin-top:20px">Checking each model</div><ul class="mrows">${MODEL_ROWS.map(rowHtml).join("")}</ul>` : ""}</div></div>`;
   };
+  const begin = (key, now) => { started = true; Object.assign(rows[key], { state: "run", now, t: performance.now() }); paint(); };
+  const sub = (key, now) => { rows[key].now = now; paint(); };
   log.push("Contacting Hugging Face");
   paint();
   let rec;
   try {
     const view = await new HubView(datasetId).load((_, msg) => { log.push(msg); paint(); }, abort.signal);
-    log.push("Running 28 checks + data-type check");
-    paint();
+    const part = { checks: [] };  // a partial record, enough for MODEL_ROWS[].res as each model finishes
+    const finish = async (key) => {
+      Object.assign(rows[key], { state: "done", out: MODEL_ROWS.find((m) => m.key === key).res(part), ms: Math.round(performance.now() - rows[key].t) });
+      paint();
+      await pause(abort.signal);
+    };
+    begin("groot", "Running 28 checks + data-type check");
     const r = runAll(view);
-    log.push("Reading the repo's version tags");
-    paint();
+    Object.assign(part, { verdict: r.verdict, checks: r.checks });
+    await finish("groot");
     let models;
+    begin("lerobot", "Reading the repo's version tags");
     try {
-      models = await inspectModels(datasetId, view, r, abort.signal, (m) => { log.push(m); paint(); });
+      const refs = await fetchRefs(datasetId, abort.signal);
+      const snapshots = new Map();
+      models = { refs: refs.map((x) => x.name), lerobot: null, openpi: null };
+      sub("lerobot", "Choosing the revision LeRobot would pull (v3.0)");
+      models.lerobot = await inspectColumn("lerobot", datasetId, view, r, refs, snapshots, abort.signal, (m) => sub("lerobot", m));
+      part.models = models;
+      await finish("lerobot");
+      begin("openpi", "Choosing the revision openpi would pull (v2.x)");
+      models.openpi = await inspectColumn("openpi", datasetId, view, r, refs, snapshots, abort.signal, (m) => sub("openpi", m));
     } catch (e) {
       if (e.name === "AbortError") throw e;
       models = { error: e.message || String(e) };
+      part.models = models;
+      if (rows.lerobot.state !== "done") await finish("lerobot");
+      if (rows.openpi.state !== "run") begin("openpi", "");
     }
-    const draft = r.checks.find((c) => c.id === "G6")?.passed === false && r.info ? draftModality(r.info) : null;
+    part.models = models;
+    await finish("openpi");
+    begin("pi05", "Matching actions, state and cameras to π0.5's inputs");
     const pi05 = pi05Fit(r.info);
+    part.pi05 = pi05;
+    await finish("pi05");
+    const draft = r.checks.find((c) => c.id === "G6")?.passed === false && r.info ? draftModality(r.info) : null;
     const draftVerdict = draft?.ok ? runAll(withFile(view, "meta/modality.json", JSON.stringify(draft.draft))).verdict : null;
     rec = {
       dataset: datasetId, at: Date.now(), ms: Math.round(performance.now() - t0), sha: view.sha,
@@ -396,6 +490,7 @@ async function startRun(datasetId) {
       embodiment: r.info ? { ...classifyEmbodiment(r.info, datasetId), robot_type: r.info.robot_type ?? null } : null,
       fetch: { requests: view.nRequests, bytes: view.bytesDownloaded, listingComplete: view.listingComplete }, nested: view.nestedRoots.slice(0, 5),
       draft, draftVerdict, models, pi05, pi05Draft: pi05Draft(r.info, pi05),
+      modelMs: Object.fromEntries(Object.entries(rows).map(([k, x]) => [k, x.ms])),
     };
   } catch (e) {
     if (e.name === "AbortError") return;
@@ -413,7 +508,7 @@ function openResultShell(datasetId, abort) {
   const ov = document.createElement("div");
   ov.className = "overlay";
   ov.innerHTML = `<div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="rTitle">
-    <div class="res-h"><div><div class="label">Inspection report · GR00T @${GROOT_SHA.slice(0, 7)}</div><h2 id="rTitle">${esc(datasetId)} <span class="badge t-run" id="rBadge">Inspecting…</span></h2>
+    <div class="res-h"><div><div class="label">Inspection report · GR00T · LeRobot · openpi · π0.5</div><h2 id="rTitle">${esc(datasetId)} <span class="badge t-run" id="rBadge">Inspecting…</span></h2>
       <a class="link" href="https://huggingface.co/datasets/${esc(datasetId)}" target="_blank" rel="noopener">huggingface.co/datasets/${esc(datasetId)} ${ICON.ext}</a></div>
       <div class="acts" id="rActs"><button class="icon-btn" id="rX" aria-label="Close">${ICON.x}</button></div></div>
     <div class="res-body"><div class="side" id="side"></div><div class="detail" id="detail"></div></div></div>`;
@@ -435,7 +530,7 @@ function showResult(rec) {
 function fillResult(ov, rec) {
   const v = rec.error ? null : VERDICTS[rec.verdict];
   $("#rBadge", ov).className = `badge t-${rec.error ? "bad" : tn(v.tone)}`;
-  $("#rBadge", ov).innerHTML = rec.error ? "Couldn't inspect" : esc(v.headline);
+  $("#rBadge", ov).innerHTML = rec.error ? "Couldn't inspect" : `GR00T · ${esc(v.headline)}`;
   $("#rActs", ov).insertAdjacentHTML("afterbegin", `<button class="btn" id="rRerun">${ICON.rerun} Re-inspect</button>` +
     (rec.error ? "" : `<button class="btn" id="rJson">${ICON.dl} JSON</button>`) + `<button class="btn" id="rShare">${ICON.share} Share</button>`);
   $("#rRerun", ov).onclick = () => startRun(rec.dataset);
@@ -448,17 +543,18 @@ function fillResult(ov, rec) {
 
   const byId = Object.fromEntries(rec.checks.map((c) => [c.id, c]));
   const em = rec.embodiment;
-  const items = [{ key: "summary", icon: ICON.report, t: "Inspection summary", d: v.headline }];
+  const ran = MODEL_ROWS.filter((m) => m.key === "groot" || (m.key === "pi05" ? rec.pi05 : rec.models));
+  const toneIcon = (tone) => ICON[{ good: "pass", close: "warn", warn: "warn" }[tn(tone)] ?? "fail"];
+  const items = [{ key: "summary", icon: ICON.report, t: "Overview", d: `${ran.length} model${ran.length > 1 ? "s" : ""} checked` }];
+  let html = items.map(itemHtml).join("") + `<div class="grp"><span>Results by model</span><span>${ran.length}</span></div>` +
+    ran.map((m) => { const [label, tone] = m.res(rec); return itemHtml({ key: m.go, icon: toneIcon(tone), t: m.name, d: label }); }).join("");
+  items.length = 0;
   if (em) items.push({ key: "kind", icon: em.fit === "outside" ? ICON.scope : ICON.robot, t: "What kind of data is this?", d: em.fit === "outside" ? `${em.label}: likely outside GR00T's scope` : em.label });
-  if (rec.models) items.push({ key: "models", icon: ICON.info, t: "Other models: LeRobot, openpi",
-    d: rec.models.error ? "version tags couldn't be read" : `LeRobot: ${MODEL_VERDICTS[rec.models.lerobot.verdict].label} · openpi: ${MODEL_VERDICTS[rec.models.openpi.verdict].label}` });
-  if (rec.pi05) items.push({ key: "pi05", icon: ICON[{ FIT: "pass", ADAPT: "warn", NO_FIT: "fail" }[rec.pi05.verdict] ?? "info"],
-    t: "π0.5 model fit (openpi)", d: PI05_VERDICTS[rec.pi05.verdict].label + (rec.pi05.issues?.length ? ` · ${rec.pi05.issues.length} to adapt` : " · config only renames keys") });
   if (byId.G6?.passed === false) {
     items.push(rec.draft?.ok ? { key: "draft", icon: ICON.draft, t: "Draft my modality.json", d: `Proposed from dimension names · would make this ${VERDICTS[rec.draftVerdict]?.headline.toLowerCase() || rec.draftVerdict}`, spark: true }
       : { key: "draft", icon: ICON.info, t: "Why no modality.json draft", d: rec.draft?.reason || "info.json unavailable" });
   }
-  let html = items.map(itemHtml).join("");
+  if (items.length) html += `<div class="grp">GR00T details</div>` + items.map(itemHtml).join("");
   const order = (c) => ({ fail: 0, warn: 1, info: 2, skip: 3, pass: 4 }[checkStatus(c)]);
   for (const g of GROUPS) {
     const cs = g.ids.map((id) => byId[id]).filter(Boolean).sort((a, b) => order(a) - order(b));
@@ -473,7 +569,8 @@ function fillResult(ov, rec) {
     side.querySelectorAll(".item").forEach((el) => el.classList.toggle("sel", el.dataset.k === key));
     const d = $("#detail", ov);
     d.scrollTop = 0;
-    d.innerHTML = key === "summary" ? summaryHtml(rec, v, byId) : key === "kind" ? kindHtml(rec) : key === "models" ? modelsHtml(rec, v) : key === "pi05" ? pi05Html(rec) : key === "draft" ? draftHtml(rec)
+    d.innerHTML = key === "summary" ? overviewHtml(rec) : key === "groot" ? summaryHtml(rec, v, byId) : key === "kind" ? kindHtml(rec)
+      : key === "lerobot" || key === "openpi" ? loaderHtml(rec, key) : key === "pi05" ? pi05Html(rec) : key === "draft" ? draftHtml(rec)
       : key === "run" ? runHtml(rec) : checkHtml(byId[key], rec.dataset);
     d.querySelectorAll("[data-go]").forEach((a) => (a.onclick = (e) => { e.preventDefault(); select(a.dataset.go); }));
     $("#copyDraft", d)?.addEventListener("click", async () => { try { await navigator.clipboard.writeText(draftText(rec)); toast("modality.json copied"); } catch { toast("Copy failed; use Download"); } });
@@ -486,74 +583,157 @@ function fillResult(ov, rec) {
 const itemHtml = ({ key, icon, t, d, spark }) =>
   `<button class="item ${spark ? "spark" : ""}" data-k="${esc(key)}">${icon}<div style="min-width:0"><div class="t">${esc(t)}</div><div class="d">${esc(d)}</div></div></button>`;
 
-function stepsHtml(rec, byId) {
+function grootSteps(rec, byId) {
   const li = [];
   for (const s of rec.steps) {
     if (s === "DOWNCONVERT") li.push(`<b>Convert v3.0 → v2.</b> GR00T reads the LeRobot v2 layout today. Run NVIDIA's <code>convert_v3_to_v2.py</code> (<a href="#" data-go="G7">details</a>).`);
     if (s === "MODALITY") li.push(`<b>Add <code>meta/modality.json</code>.</b> ${rec.draft?.ok ? `A draft is ready: <a href="#" data-go="draft">review it</a>.` : `It names which numbers are the arm, the gripper, etc. (<a href="#" data-go="G6">details</a>).`}`);
-    if (s === "INCONSISTENT_MODALITY") li.push(`<b>Fix <code>modality.json</code>.</b> See the failing modality checks on the left.`);
+    if (s === "INCONSISTENT_MODALITY") li.push(`<b>Fix <code>modality.json</code>.</b> See the failing modality checks below.`);
     if (s === "REPAIR") li.push(`<b>Restore missing episode files</b>, or drop those episodes with NVIDIA's repair script (<a href="#" data-go="G14">details</a>).`);
     if (s === "BLOCKED") li.push(byId.L3?.passed === false ? `<b>Upload the recorded episodes.</b> The repo has metadata but no parquet files under <code>data/</code> (<a href="#" data-go="L3">details</a>).`
-      : `<b>Fix the structural problems</b> flagged on the left. No converter handles these.`);
+      : `<b>Fix the structural problems</b> flagged below. No converter handles these.`);
   }
-  if (!li.length) return "";
-  const caveat = rec.embodiment?.fit === "outside" ? `<p style="margin:-2px 0 10px">These only matter if you still want GR00T to load it; see <a href="#" data-go="kind">what kind of data this is</a>.</p>` : "";
-  return `<h4>Steps to ready</h4>${caveat}<ol class="steps-to">${li.map((x) => `<li>${x}</li>`).join("")}</ol>`;
+  return li;
 }
 
-function modelsHtml(rec, v) {
-  const m = rec.models;
-  if (m.error) return `<h3>Other models</h3><div class="note amber">Couldn't read this repo's version tags (${esc(m.error)}). GR00T's result is unaffected.</div>`;
-  const col = (name, sub, c, steps) => {
-    const mv = MODEL_VERDICTS[c.verdict];
-    const li = (c.steps || []).map((x) => steps[x]).filter(Boolean);
-    const ver = c.verified
-      ? c.verified.error ? `<p class="hint" style="margin:8px 0 0">Couldn't read the ${esc(c.verified.ref)} snapshot (${esc(c.verified.error)}); judged from the latest commit.</p>`
-        : `<p class="hint" style="margin:8px 0 0">The loader pulls <code>${esc(c.verified.ref)}</code> (<code>${esc(c.verified.commit.slice(0, 7))}</code>), not the latest commit, so that snapshot was inspected.</p>` : "";
-    return `<div class="box" style="margin-top:12px"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b>${esc(name)}</b><span class="badge t-${tn(mv.tone)}">${esc(mv.label)}</span></div>
-      <p style="margin:6px 0 0;color:var(--muted)">${esc(sub)}</p><p style="margin:8px 0 0">${esc(c.reason)}.</p>${ver}
-      ${li.length ? `<ol class="steps-to" style="margin-top:10px">${li.map((x) => `<li>${x}</li>`).join("")}</ol>` : ""}</div>`;
+function overviewHtml(rec) {
+  const ran = MODEL_ROWS.filter((m) => m.key === "groot" || (m.key === "pi05" ? rec.pi05 : rec.models));
+  const icon = { good: ICON.pass, close: ICON.warn, bad: ICON.fail };
+  const tile = (m) => {
+    const [label, tone, detail] = m.res(rec);
+    const t = tn(tone);
+    return `<a href="#" class="mtile is-${t}" data-go="${m.go}">
+      <div class="mtile-top">${markHtml(m)}<div style="min-width:0"><div class="mtile-name">${esc(m.name)}</div><div class="mtile-by">${esc(m.by)}</div></div></div>
+      <div class="mtile-q">${esc(m.q)}</div>
+      <div class="mtile-v">${icon[t]}<span>${esc(label)}</span></div>
+      <p class="mtile-d">${esc(detail)}</p>
+      <span class="mtile-f">Open ${esc(m.name)} result →</span></a>`;
   };
+  const n = (t) => ran.filter((m) => tn(m.res(rec)[1]) === t).length;
+  const tallyTxt = [[n("good"), "ready"], [n("close"), "close"], [n("bad"), "not yet"]].filter(([k]) => k).map(([k, w]) => `${k} ${w}`).join(" · ");
+  return `<div class="label ov-k">Overview · ${ran.length} results</div>
+    <h3 class="ov-h">Results by model</h3>
+    <p class="ov-p">The same dataset, checked separately against each model. The answers often differ: the loaders read different layouts, and π0.5 also asks whether the data fits the model. <b>${tallyTxt}.</b> Pick a model for its checks and next steps.</p>
+    <div class="mtiles">${ran.map(tile).join("")}</div>
+    ${ran.length < MODEL_ROWS.length ? `<div class="note amber">This inspection was saved before the other models were added. Re-inspect to check them too.</div>` : ""}
+    ${skillCta(true)}
+    <div class="note blue"><b>Static checks only.</b> Metadata was read; no data was loaded through any model.</div>`;
+}
+
+function loaderChecks(c, which) {
+  const v = c.verdict, r = c.reason, steps = c.steps || [];
+  const notDataset = v === "BLOCKED" && /not a LeRobot|no parquet|layout not recognised/.test(r);
+  const versionBlock = v === "BLOCKED" && /codebase_version/.test(r);
+  const missing = v === "BLOCKED" && r.startsWith("missing");
+  const refBlock = v === "BLOCKED" && r.startsWith("only ");
+  const layout = which === "lerobot" ? "v3.0" : "v2.x";
+  const out = [{ title: "A LeRobot dataset with recorded episodes", status: notDataset ? "fail" : "pass", detail: notDataset ? esc(r) : "info.json readable, parquet under data/" }];
+  const after = (ok) => (notDataset ? "skip" : ok);
+  out.push({ title: `Data in the ${layout} layout this loader reads`, status: after(v === "NEEDS_CONVERT" || versionBlock ? "fail" : "pass"),
+    detail: v === "NEEDS_CONVERT" || versionBlock ? esc(r) : notDataset ? "needs a dataset first" : `files are ${layout}` });
+  const laterSkip = notDataset || v === "NEEDS_CONVERT" || versionBlock;
+  out.push({ title: "Metadata files the loader opens", status: laterSkip ? "skip" : missing ? "fail" : "pass",
+    detail: laterSkip ? "re-checked after converting" : missing ? esc(r) : which === "lerobot" ? "meta/tasks.parquet and meta/episodes/ as needed" : "tasks.jsonl, episodes.jsonl and episode stats" });
+  const noTag = steps.includes("TAG") || refBlock;  // known even before converting: the repo has no usable tag at all
+  out.push({ title: "A version tag the loader accepts", status: noTag ? "fail" : laterSkip || missing ? "skip" : "pass",
+    detail: noTag ? (v === "NEEDS_CONVERT" ? "no version-named ref; tag the repo once it is converted" : esc(r))
+      : laterSkip || missing ? "needs the files first" : `loader picks ${esc(c.ref ?? "")}` });
+  if (which === "openpi") out.push({ title: "Data config and normalization stats", status: v === "NEEDS_CONFIG" || v === "NEEDS_TAG" ? "warn" : "skip",
+    detail: v === "NEEDS_CONFIG" || v === "NEEDS_TAG" ? "always needed: openpi maps dataset keys to model inputs in Python" : "needs loadable files first" });
+  return out;
+}
+
+function loaderHtml(rec, which) {
+  const m = rec.models;
+  const name = which === "lerobot" ? "LeRobot" : "openpi loader";
+  const kicker = which === "lerobot" ? `LeRobot (ACT, Diffusion, SmolVLA) · @${LEROBOT_SHA.slice(0, 7)} · reads v3.0 from the Hub`
+    : `openpi (π0, π0-FAST, π0.5) · @${OPENPI_SHA.slice(0, 7)} via LeRobot ${OPENPI_LEROBOT_SHA.slice(0, 7)} · reads v2.x from the Hub`;
+  const foot = `<b>Static checks only.</b> Nothing was loaded through ${which === "lerobot" ? "LeRobot" : "openpi"}. <a href="${REPO_URL}/blob/main/CONTRACT_lerobot_openpi.md" target="_blank" rel="noopener">The contract behind this</a>.`;
+  if (m.error) return modelPage({ model: which, kicker, tone: "bad", headline: "Not assessed", sub: `Couldn't read this repo's version tags (${esc(m.error)}). GR00T's result is unaffected.`,
+    tally: [[0, "passed"], [0, "failed"], [0, "warnings"], [0, "skipped"]], checks: [], foot });
+  const c = m[which];
+  const mv = MODEL_VERDICTS[c.verdict];
+  const checks = loaderChecks(c, which);
   const versions = m.refs.filter((n) => /^v?\d/.test(n)).sort();
-  const g = VERDICTS[rec.verdict];
-  const mismatch = m.lerobot.tag_info_mismatch ? `<div class="note amber">This repo's <code>info.json</code> declares a version that none of its tags carry, so the tags and the files disagree. The verdicts follow the tags.</div>` : "";
-  return `<h3>Can other models load it?</h3>
-    <p>Judged for loading from the Hub by repo id, which is how both name their data. LeRobot's loader reads <b>v3.0</b> only; openpi, through the LeRobot version it pins, reads <b>v2.x</b> only. Both pick the revision from the repo's version tags, not from <code>info.json</code>.</p>
-    <dl class="kv" style="margin-top:10px"><dt>Version tags</dt><dd>${versions.length ? versions.map((n) => `<code>${esc(n)}</code>`).join(" ") : "none"}</dd></dl>
-    <div class="box" style="margin-top:12px"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b>GR00T N1.7</b><span class="badge t-${tn(g.tone)}">${esc(g.headline)}</span></div>
-      <p style="margin:6px 0 0;color:var(--muted)">Reads a local v2 copy plus <code>meta/modality.json</code>; version tags don't matter. Details on the left.</p></div>
-    ${col("LeRobot (ACT, Diffusion, SmolVLA)", `Reads v3.0 · commit ${LEROBOT_SHA.slice(0, 7)}`, m.lerobot, MODEL_STEPS.lerobot)}
-    ${col("openpi (π0, π0-FAST, π0.5)", `Reads v2.x · commit ${OPENPI_SHA.slice(0, 7)} via LeRobot ${OPENPI_LEROBOT_SHA.slice(0, 7)}`, m.openpi, MODEL_STEPS.openpi)}
-    ${mismatch}
-    <div class="note blue"><b>Static checks only.</b> Nothing was loaded through either model. openpi also checks that every frame's timestamp is within 0.1 ms of its expected time; that needs the episode files, so it wasn't checked, and "needs a config" is a best case. <a href="${REPO_URL}/blob/main/CONTRACT_lerobot_openpi.md" target="_blank" rel="noopener">The contract behind this</a>.</div>`;
+  const snap = c.verified
+    ? c.verified.error ? `<div class="note amber">Couldn't read the ${esc(c.verified.ref)} snapshot (${esc(c.verified.error)}); judged from the latest commit.</div>`
+      : `<div class="note amber">The loader pulls <code>${esc(c.verified.ref)}</code> (<code>${esc(c.verified.commit.slice(0, 7))}</code>), not the latest commit, so that snapshot was inspected.</div>` : "";
+  const mismatch = c.tag_info_mismatch ? `<div class="note amber">This repo's <code>info.json</code> declares a version that none of its tags carry, so the tags and the files disagree. The verdict follows the tags.</div>` : "";
+  const extra = `<h4>Version tags</h4><div class="box"><dl class="kv"><dt>Tags</dt><dd>${versions.length ? versions.map((n) => `<code>${esc(n)}</code>`).join(" ") : "none"}</dd>
+      <dt>Result</dt><dd>${esc(c.reason)}</dd></dl></div>
+    <p class="hint">Judged for loading from the Hub by repo id. The loader picks the revision from these tags, not from <code>info.json</code>.</p>
+    ${which === "openpi" ? `<div class="note blue">Whether the data's contents fit the model is under <a href="#" data-go="pi05">π0.5 model fit</a>. openpi also checks every frame's timestamp is within 0.1 ms of its expected time; that needs the episode files, so it wasn't checked, and "needs a config" is a best case.</div>` : ""}`;
+  return modelPage({ model: which, kicker, tone: mv.tone, headline: mv.label, sub: esc(mv.sub), notes: snap + mismatch, tally: tally4(checks),
+    steps: (c.steps || []).map((x) => MODEL_STEPS[which][x]).filter(Boolean), checks, extra, foot });
 }
 
 function pi05Html(rec) {
   const p = rec.pi05;
   const pv = PI05_VERDICTS[p.verdict];
-  const head = `<h3>Does it fit π0.5?</h3>
-    <p>π0.5 is the most-used openpi model (the <code>pi05_base</code> checkpoint). Loading is the other question, answered under <a href="#" data-go="models">other models</a>; this one asks whether what's <i>in</i> the data fits the model as openpi ships it: ${PI05_ACTION_DIM}-wide actions and state, three ${PI05_IMAGE_RESOLUTION.join("×")} image slots, ${PI05_ACTION_HORIZON}-step action chunks, a text prompt.</p>
-    <div class="box" style="margin-top:12px"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b>π0.5 · openpi ${OPENPI_SHA.slice(0, 7)}</b><span class="badge t-${tn(pv.tone)}">${esc(pv.label)}</span></div>
-      <p style="margin:6px 0 0">${esc(pv.sub)}</p></div>`;
-  if (p.verdict === "UNASSESSED") return head;
-  const icon = { OK: ICON.pass, NOTE: ICON.info, ADAPT: ICON.warn, FAIL: ICON.fail };
-  const rows = p.checks.map((c) => `<li style="display:flex;gap:10px;align-items:flex-start;margin:8px 0">${icon[c.status]}<div style="min-width:0"><b>${esc(PI05_CHECKS[c.id])}</b> <span class="hint">${c.id} · ${c.status}</span><div style="color:var(--muted);overflow-wrap:anywhere">${esc(c.detail).replace(/`([^`]+)`/g, "<code>$1</code>")}</div></div></li>`).join("");
+  const kicker = `π0.5 (openpi pi05_base) · @${OPENPI_SHA.slice(0, 7)} · does the data fit the model`;
+  const foot = `<b>From info.json only.</b> Nothing was loaded through π0.5. Whether openpi can load the files is under <a href="#" data-go="openpi">openpi loader</a>. <a href="${REPO_URL}/blob/main/CONTRACT_lerobot_openpi.md#7-%CF%800.5-model-fit" target="_blank" rel="noopener">The contract, §7</a>.`;
+  const st = { OK: "pass", NOTE: "info", ADAPT: "warn", FAIL: "fail" };
+  const checks = p.checks.map((c) => ({ status: st[c.status], title: PI05_CHECKS[c.id], id: c.id, detail: codeTicks(c.detail) }));
+  const sub = `${esc(pv.sub)} π0.5 takes ${PI05_ACTION_DIM}-wide actions and state, three ${PI05_IMAGE_RESOLUTION.join("×")} image slots, ${PI05_ACTION_HORIZON}-step action chunks and a text prompt.`;
+  if (p.verdict === "UNASSESSED") return modelPage({ model: "pi05", kicker, tone: "bad", headline: pv.label, sub, tally: tally4([], "notes"), checks: [], foot });
+  const bad = p.checks.filter((c) => c.status === "FAIL");
+  const adapt = p.checks.filter((c) => c.status === "ADAPT");
+  const steps = p.verdict === "NO_FIT"
+    ? bad.map((c) => `<b>${esc(PI05_CHECKS[c.id])}.</b> ${codeTicks(c.detail)}.`)
+    : [...adapt.map((c) => `<b>${esc(PI05_CHECKS[c.id])}.</b> ${codeTicks(c.detail)}.`),
+      `<b>Write the openpi data config</b>: which keys are images, state and actions. A starting point is below.`,
+      `<b>Run <code>scripts/compute_norm_stats.py</code></b> for that config; π0.5 normalizes with its quantiles.`];
   const d = rec.pi05Draft;
-  let draft = "";
+  let extra = "";
   if (d && p.verdict !== "NO_FIT") {
     const slot = (k) => d.slots[k] ? `<code>${esc(d.slots[k])}</code>` : `<span class="hint">zeros, masked</span>`;
     const keys = (ks) => ks.length ? ks.map((k) => `<code>${esc(k)}</code>`).join(" + ") : `<span class="hint">none</span>`;
-    draft = `<h4 style="margin-top:18px">Starting point for the openpi config</h4>
-      <dl class="kv"><dt>base_0_rgb</dt><dd>${slot("base_0_rgb")}</dd><dt>left_wrist_0_rgb</dt><dd>${slot("left_wrist_0_rgb")}</dd><dt>right_wrist_0_rgb</dt><dd>${slot("right_wrist_0_rgb")}</dd>
+    extra = `<h4>Starting point for the openpi config</h4>
+      <div class="box"><dl class="kv"><dt>base_0_rgb</dt><dd>${slot("base_0_rgb")}</dd><dt>left_wrist_0_rgb</dt><dd>${slot("left_wrist_0_rgb")}</dd><dt>right_wrist_0_rgb</dt><dd>${slot("right_wrist_0_rgb")}</dd>
       ${d.dropped.length ? `<dt>Not used</dt><dd>${d.dropped.map((k) => `<code>${esc(k)}</code>`).join(" ")}</dd>` : ""}
       <dt>state</dt><dd>${keys(d.state)}</dd><dt>actions</dt><dd>${keys(d.action)}</dd>
       <dt>model</dt><dd><code>Pi0Config(pi05=True${d.horizon !== PI05_ACTION_HORIZON ? `, action_horizon=${d.horizon}` : ""}${d.state.length ? "" : ", discrete_state_input=False"})</code></dd>
-      <dt>data</dt><dd><code>DataConfig(${d.prompt ? "prompt_from_task=True" : `default_prompt="…"`})</code>, then <code>compute_norm_stats.py</code></dd></dl>
+      <dt>data</dt><dd><code>DataConfig(${d.prompt ? "prompt_from_task=True" : `default_prompt="…"`})</code></dd></dl></div>
       <p class="hint">Camera roles are guessed from key names (<code>wrist</code>, <code>hand</code>, <code>gripper</code>). A starting point, not a tested config.</p>`;
   }
-  return `${head}<h4 style="margin-top:18px">Checks</h4><ul style="list-style:none;padding:0;margin:0">${rows}</ul>${draft}
-    <div class="note blue"><b>From info.json only.</b> Nothing was loaded through π0.5. Line-by-line sources are in <a href="${REPO_URL}/blob/main/CONTRACT_lerobot_openpi.md#7-%CF%800.5-model-fit" target="_blank" rel="noopener">the contract, §7</a>.</div>`;
+  return modelPage({ model: "pi05", kicker, tone: pv.tone, headline: pv.label, sub, tally: tally4(checks, "notes"),
+    stepsTitle: p.verdict === "NO_FIT" ? "What stands in the way" : "Steps to train", steps, checks, extra, foot });
 }
+
+// One layout for every model page: kicker, verdict box, four counts, steps, the checks, then model-specific extras.
+const MOOD_BY_TONE = { good: "happy", close: "work", bad: "sad" };
+const ROW_ICON = { pass: ICON.pass, fail: ICON.fail, warn: ICON.warn, info: ICON.info, skip: ICON.skip };
+
+function modelPage({ model, kicker, art, tone, stamp, headline, sub, notes = "", tally, stepsTitle = "Steps to ready", steps = [], stepsLead = "",
+  checksTitle = "Checks", checks, extra = "", foot }) {
+  const t = tn(tone);
+  const pic = art ?? mascot(MOOD_BY_TONE[t] ?? "work", { cls: "verdict-art", light: { good: "green", close: "yellow" }[t] ?? "red" });
+  const stampHtml = stamp ?? (t === "good" ? `<span class="stamp" style="color:var(--good)">PASS</span>` : `<span class="stamp" style="color:${t === "bad" ? "var(--bad)" : "#9a6a00"}">NOT YET</span>`);
+  const colors = ["var(--good)", "var(--bad)", "var(--warn)", "var(--skip)"];
+  const order = { fail: 0, warn: 1, info: 2, skip: 3, pass: 4 };
+  const rows = [...checks].sort((a, b) => order[a.status] - order[b.status]).map((c) =>
+    `<li>${ROW_ICON[c.status]}<div style="min-width:0"><div>${c.go ? `<a href="#" data-go="${esc(c.go)}"><b>${esc(c.title)}</b></a>` : `<b>${esc(c.title)}</b>`}${c.id ? ` <span class="hint">${esc(c.id)}</span>` : ""}</div><div class="clist-d">${c.detail}</div></div></li>`).join("");
+  // .label is upper-cased; keep Greek model names (π0.5) as written
+  const m = MODEL_ROWS.find((r) => r.key === model);
+  return `<a href="#" class="mback" data-go="summary">← All models</a>
+    <div class="mhero">${markHtml(m, "lg")}<div style="min-width:0"><div class="label">Result for</div><h2 class="mhero-name">${esc(m.name)}</h2>
+      <div class="mhero-q">${esc(m.q)} <span>· ${esc(m.by)}</span></div></div></div>
+    <div class="label mhero-k">${kicker.replace(/π[\w.-]*/g, (x) => `<span style="text-transform:none">${x}</span>`)}</div>
+    <div class="verdict"><div>${pic}</div><div><div class="label">Readiness · ${stampHtml}</div><div class="big">${esc(headline)}</div><p>${sub}</p></div></div>
+    ${notes}
+    <div class="tally">${tally.map(([n, label], i) => `<div><b style="color:${colors[i]}">${n}</b><span>${esc(label)}</span></div>`).join("")}</div>
+    ${steps.length ? `<h4>${esc(stepsTitle)}</h4>${stepsLead}<ol class="steps-to">${steps.map((x) => `<li>${x}</li>`).join("")}</ol>` : ""}
+    <h4>${esc(checksTitle)}</h4><ul class="clist">${rows}</ul>
+    ${extra}
+    <div class="note blue">${foot}</div>`;
+}
+const tally4 = (checks, fourth = "skipped") => {
+  const n = { pass: 0, fail: 0, warn: 0, info: 0, skip: 0 };
+  for (const c of checks) n[c.status]++;
+  return fourth === "skipped" ? [[n.pass, "passed"], [n.fail, "failed"], [n.warn + n.info, "warnings"], [n.skip, "skipped"]]
+    : [[n.pass, "passed"], [n.fail, "failed"], [n.warn, "to adapt"], [n.info, "notes"]];
+};
+const codeTicks = (t) => esc(t).replace(/`([^`]+)`/g, "<code>$1</code>");
 
 function scopeNote(rec) {
   const em = rec.embodiment;
@@ -562,18 +742,19 @@ function scopeNote(rec) {
 }
 
 function summaryHtml(rec, v, byId) {
-  const n = { pass: 0, fail: 0, warn: 0, skip: 0, info: 0 };
-  for (const c of rec.checks) n[checkStatus(c)]++;
-  const stamp = rec.verdict === "READY" ? `<span class="stamp" style="color:var(--good)">PASS</span>` : `<span class="stamp" style="color:${tn(v.tone) === "bad" ? "var(--bad)" : "#9a6a00"}">NOT YET</span>`;
   const nested = rec.verdict === "NOT_LEROBOT" && rec.nested?.length
     ? `<div class="note amber">This repo holds several datasets in subfolders, for example ${rec.nested.map((p) => `<code>${esc(p)}</code>`).join(", ")}. GR00T loads one dataset directory at a time; inspect each subfolder as its own dataset.</div>` : "";
   const unver = rec.unverified?.length ? `<div class="note amber">Some checks (${rec.unverified.join(", ")}) couldn't run because a metadata file or file listing is larger than this inspection reads. The result may understate what's needed.</div>` : "";
-  return `<div class="verdict"><div>${gauge(rec.verdict)}</div><div><div class="label">Readiness · ${stamp}</div><div class="big">${esc(v.headline)}</div><p>${esc(v.sub)}</p></div></div>
-    ${scopeNote(rec)}
-    <div class="tally"><div><b style="color:var(--good)">${n.pass}</b><span>passed</span></div><div><b style="color:var(--bad)">${n.fail}</b><span>failed</span></div>
-    <div><b style="color:var(--warn)">${n.warn + n.info}</b><span>warnings</span></div><div><b style="color:var(--skip)">${n.skip}</b><span>skipped</span></div></div>
-    ${nested}${unver}${stepsHtml(rec, byId)}
-    <div class="note blue"><b>Static checks only.</b> This reads metadata; it doesn't load data through GR00T or judge data quality. "Passes" means nothing in the files stands in the way, not that a model will train well.</div>`;
+  const checks = rec.checks.map((c) => ({ status: checkStatus(c), title: CHECKS[c.id].title, id: c.id, go: c.id, detail: esc(c.detail) }));
+  const stamp = rec.verdict === "READY" ? `<span class="stamp" style="color:var(--good)">PASS</span>` : undefined;
+  const caveat = rec.embodiment?.fit === "outside" ? `<p style="margin:-2px 0 10px">These only matter if you still want GR00T to load it; see <a href="#" data-go="kind">what kind of data this is</a>.</p>` : "";
+  return modelPage({
+    model: "groot",
+    kicker: `GR00T N1.7 · Isaac-GR00T @${GROOT_SHA.slice(0, 7)} · reads a local LeRobot v2 copy`,
+    art: gauge(rec.verdict), tone: v.tone, stamp, headline: v.headline, sub: esc(v.sub), notes: scopeNote(rec) + nested + unver,
+    tally: tally4(checks), steps: grootSteps(rec, byId), stepsLead: caveat, checksTitle: `Checks (${checks.length})`, checks,
+    foot: `<b>Static checks only.</b> This reads metadata; it doesn't load data through GR00T or judge data quality. "Passes" means nothing in the files stands in the way, not that a model will train well.`,
+  });
 }
 
 function kindHtml(rec) {

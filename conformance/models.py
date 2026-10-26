@@ -101,6 +101,8 @@ def facts(record: dict, info: Optional[dict], refs: Optional[dict]) -> dict:
         "version_str": ver_s,
         "layout": "v3" if v3 else ("v2" if (ep == "jsonl" or tk == "jsonl") else None),
         "episodes_layout": ep, "tasks_layout": tk, "stats_layout": st,
+        # L7 "files" lists every stats file; older records stored only the preferred one in "layout"
+        "stats_files": data("L7", "files") if data("L7", "files") is not None else ([st] if st else []),
         "total_episodes": (info or {}).get("total_episodes", data("L11", "total_episodes")),
         "total_tasks": (info or {}).get("total_tasks"),
         "refs": None,
@@ -129,7 +131,7 @@ def _missing_v2(f: dict) -> list[str]:
         miss.append("meta/episodes.jsonl")
     old = f["version"] is not None and f["version"] < V.Version("2.1")
     want = "stats.json" if old else "episodes_stats.jsonl"
-    if f["stats_layout"] != want:
+    if want not in f["stats_files"]:
         miss.append(f"meta/{want}")
     return miss
 
@@ -243,6 +245,13 @@ PI05_LOW_FPS = 15  # openpi's own π0.5 configs at <=15 Hz shorten the horizon: 
 # (or one model setting) has to do more than rename keys; NOTE: works, worth knowing.
 PI05_STATUS = ("OK", "NOTE", "ADAPT", "FAIL")
 PI05_VERDICTS = ("FIT", "ADAPT", "NO_FIT")
+
+
+def pi05_action_horizon(fps) -> int:
+    """At <= PI05_LOW_FPS, about one second of actions but no fewer than pi05_libero's 10; else the default."""
+    if isinstance(fps, (int, float)) and not isinstance(fps, bool) and 0 < fps <= PI05_LOW_FPS:
+        return max(10, int(_half_up(fps, 0)))
+    return PI05_ACTION_HORIZON
 
 
 def _half_up(x: float, n: int) -> float:
