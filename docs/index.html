@@ -9,12 +9,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="app/style.css?v=20261026d">
-<link rel="stylesheet" href="app/preview.css?v=20261026d">
+<link rel="stylesheet" href="app/style.css?v=20261026e">
+<link rel="stylesheet" href="app/preview.css?v=20261026e">
 </head>
 <body>
 <div id="app"></div>
-<script type="module" src="app/app.js?v=20261026d"></script>
+<!-- Every module gets the same ?v= as app.js, so a browser never mixes a new app.js with stale cached
+     modules (GitHub Pages caches for 10 minutes). Bump all the ?v= values in this file together. -->
+<script type="importmap">
+{"imports": {
+  "./app/checks.js": "./app/checks.js?v=20261026e",
+  "./app/hub.js": "./app/hub.js?v=20261026e",
+  "./app/models.js": "./app/models.js?v=20261026e",
+  "./app/draft.js": "./app/draft.js?v=20261026e",
+  "./app/embodiment.js": "./app/embodiment.js?v=20261026e",
+  "./app/explain.js": "./app/explain.js?v=20261026e",
+  "./app/preview.js": "./app/preview.js?v=20261026e"
+}}
+</script>
+<script type="module" src="app/app.js?v=20261026e"></script>
 <noscript><p style="padding:24px;font-family:sans-serif">Robot Data Smog Check runs in your browser and needs JavaScript.</p></noscript>
 </body>
 </html>
